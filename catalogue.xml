@@ -1,0 +1,890 @@
+<xml version="1.0" encoding="utf-8">
+<produkty>
+  <produkt>
+    <ProduktId><![CDATA[27]]></ProduktId>
+    <kod><![CDATA[SDAIPHONE4]]></kod>
+    <nazwa><![CDATA[PURO Folia anti-finger na ekran iPhone 4/4S]]></nazwa>
+    <kod_kreskowy><![CDATA[8033830019623]]></kod_kreskowy>
+    <marka><![CDATA[Puro]]></marka>
+    <kategorie>
+      <kategoria id="812"><![CDATA[SMARTFONY/APPLE/IPHONE 4 / 4S/FOLIE I SZKŁA OCHRONNE]]></kategoria>
+      <kategoria id="2848"><![CDATA[ZZMARKA/PURO]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kompatybilność"><![CDATA[iPhone 4/4S]]></atrybut>
+      <atrybut name="Typ"><![CDATA[Folia ochronna]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/5674.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/5675.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/5676.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[Matowa folia ochronna ze specjalną powłoką odporną na ślady po palcach. Folia redukuje jednocześnie efekt lustra oraz zapobiega nadmiernemu powstawaniu refleksów, dzięki czemu obraz pozostaje czytelny również podczas używania telefonu np. na dworze. Najdrobniejsza rysa oraz zwykły pech mogą sprawić, że wyświetlacz w twoim telefonie już nigdy nie będzie taki sam, a w najgorszym przypadku będziesz go musiał wymienić. Warto zatem zapewnić mu dodatkową ochronę w postaci specjalnej folii na ekran, dzięki której będziesz na nim oglądał zawsze to co chcesz. Do łatwego nakładania na sucho (nie zostawia śladów po kleju), Ilość folii w zestawie: 1 (na przód), Specjalna powierzchnia redukuje ilość śladów po palcach, Nie pogarsza czułości ekranu dotykowego, Matowa powierzchnia nie odbija światła (Anti-Glare) , Dopasowana na wymiar (nie trzeba przycinać)]]></opis>
+    <stan><![CDATA[0.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[24,47]]></cena_netto>
+    <cena_brutto><![CDATA[30,10]]></cena_brutto>
+    <cenasrp_netto><![CDATA[34,96]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[43,00]]></cenasrp_brutto>
+  </produkt>
+  <produkt>
+    <ProduktId><![CDATA[28]]></ProduktId>
+    <kod><![CDATA[SDITOUCH4]]></kod>
+    <nazwa><![CDATA[PURO Folia ochronna na ekran iPod touch 4]]></nazwa>
+    <kod_kreskowy><![CDATA[8033830017483]]></kod_kreskowy>
+    <marka><![CDATA[Puro]]></marka>
+    <kategorie>
+      <kategoria id="802"><![CDATA[AUDIO VIDEO/AKCESORIA AUDIO]]></kategoria>
+      <kategoria id="2848"><![CDATA[ZZMARKA/PURO]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kompatybilność"><![CDATA[iPod Touch 4]]></atrybut>
+      <atrybut name="Typ"><![CDATA[Folia ochronna]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/5730.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/5731.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/5732.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/5733.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[W pełni przezroczysta folia zabezpieczająca ekran urządzenia przed rysowaniem się jego powierzchni. Używanie folii nie wpływa w jakikolwiek sposób na oryginalny poziom jasności wyświetlacza, jak i też poprawne funkcjonowanie interfejsu dotykowego. Przezroczystość: 100%,  Rodzaj spoiwa: żywica silikonowa, Zestaw do nakładania folii (gładzik do usuwania pęcherzyków powietrza oraz ściereczka do czyszczenia powierzchni)]]></opis>
+    <stan><![CDATA[1.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[15,31]]></cena_netto>
+    <cena_brutto><![CDATA[18,83]]></cena_brutto>
+    <cenasrp_netto><![CDATA[21,87]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[26,90]]></cenasrp_brutto>
+  </produkt>
+  <produkt>
+    <ProduktId><![CDATA[29]]></ProduktId>
+    <kod><![CDATA[SDIPAD2]]></kod>
+    <nazwa><![CDATA[PURO Folia ochronna na ekran iPad 2 / 3 / 4]]></nazwa>
+    <kod_kreskowy><![CDATA[8033830022296]]></kod_kreskowy>
+    <marka><![CDATA[Puro]]></marka>
+    <kategorie>
+      <kategoria id="831"><![CDATA[TABLETY/APPLE/IPAD 2/3/4/FOLIE I SZKŁA OCHRONNE]]></kategoria>
+      <kategoria id="2848"><![CDATA[ZZMARKA/PURO]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kompatybilność"><![CDATA[iPad 2/3/4]]></atrybut>
+      <atrybut name="Typ"><![CDATA[Folia ochronna]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/7286.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/7287.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/7288.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/7289.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/7290.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/7291.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[Przezroczysta folia ochronna na ekran dotykowy iPada 2, 3 i 4 generacji. Folię zakłada się bez stosowania jakichkolwiek preparatów, dzięki czemu można ją łatwo wymienić, a na iPadzie nie zostają żadne ślady po kleju. Jakie zalety ma stosowanie folii ochronnej na ekran? Przede wszystkim pełni ona funkcję ochronną. Pamiętaj, że koszt wymiany uszkodzonego wyświetlacza może wielokrotnie przewyższyć wartość samej folii. Wymieniony ekran może również działać w nieco inny sposób, niż w fabrycznie nowym tablecie. Warto zatem zapewnić mu dodatkową ochronę w postaci markowej folii, którą będziesz mógł w prosty sposób założyć zupełnie samodzielnie. Nie pogarsza obrazu oraz czułości ekranu dotykowego, Zmniejsza ryzyko pęknięcia ekranu w razie upadku, Chroni przedni panel przed rysowaniem i brudzeniem się, Ilość folii w zestawie: 1 (na przód), W komplecie zestaw akcesoriów do zakładania folii, Zakładana na sucho (nie pozostawia śladów po kleju), Idealnie dopasowana (nie trzeba przycinać), Kompatybilność: Apple iPad 2/Retina (3/4 gen.)]]></opis>
+    <stan><![CDATA[0.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[31,18]]></cena_netto>
+    <cena_brutto><![CDATA[38,35]]></cena_brutto>
+    <cenasrp_netto><![CDATA[47,97]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[59,00]]></cenasrp_brutto>
+  </produkt>
+  <produkt>
+    <ProduktId><![CDATA[87]]></ProduktId>
+    <kod><![CDATA[SETIPADWHI]]></kod>
+    <nazwa><![CDATA[PURO Zestaw ładujący Apple iPhone-iPad (biały)]]></nazwa>
+    <kod_kreskowy><![CDATA[8033830022197]]></kod_kreskowy>
+    <marka><![CDATA[Puro]]></marka>
+    <kategorie>
+      <kategoria id="802"><![CDATA[AUDIO VIDEO/AKCESORIA AUDIO]]></kategoria>
+      <kategoria id="819"><![CDATA[SMARTFONY/APPLE/IPHONE 4 / 4S/ŁADOWARKI, KABLE]]></kategoria>
+      <kategoria id="829"><![CDATA[TABLETY/APPLE/IPAD 2/3/4/AKCESORIA]]></kategoria>
+      <kategoria id="2848"><![CDATA[ZZMARKA/PURO]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kolor bazowy"><![CDATA[biały]]></atrybut>
+      <atrybut name="Typ"><![CDATA[Ładowarka]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/5826.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/5827.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/5828.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/5829.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[Zestaw ładujący kompatybilny ze wszystkimi urządzeniami Apple (również iPad), w skład którego wchodzi przenośna ładowarka sieciowa oraz ładowarka samochodowa. Zestaw zawiera też kabel USB - Dock Connector do ładowania oraz synchronizacji z iTunes. Napięcie wejściowe (ładowarka sieciowa): 110-240V AC, Napięcie na wyjściu (ładowarka sieciowa): 5V, 2.1A Max, Napięcie wejściowe (ładowarka samochodowa): 12-24V AC, Napięcie na wyjściu (ładowarka samochodowa): 5V, 2.1A, Kabel USB - Apple Dock Connector, Komaptybilność: iPad, iPhone, iPod, urządzenia USB.]]></opis>
+    <stan><![CDATA[0.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[102,38]]></cena_netto>
+    <cena_brutto><![CDATA[125,93]]></cena_brutto>
+    <cenasrp_netto><![CDATA[146,26]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[179,90]]></cenasrp_brutto>
+  </produkt>
+  <produkt>
+    <ProduktId><![CDATA[93]]></ProduktId>
+    <kod><![CDATA[SH1BRACKETS]]></kod>
+    <nazwa><![CDATA[PURO Uniwersalny uchwyt samochodowy (czarny)]]></nazwa>
+    <kod_kreskowy><![CDATA[8033830037368]]></kod_kreskowy>
+    <marka><![CDATA[Puro]]></marka>
+    <kategorie>
+      <kategoria id="836"><![CDATA[SMARTFONY/AKCESORIA UNIWERSALNE/UCHWYTY]]></kategoria>
+      <kategoria id="2848"><![CDATA[ZZMARKA/PURO]]></kategoria>
+      <kategoria id="4322"><![CDATA[MOTORYZACJA/UCHWYTY DO SMARTFONÓW]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kolor bazowy"><![CDATA[czarny]]></atrybut>
+      <atrybut name="Typ"><![CDATA[Uchwyt]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce]]></atrybut>
+      <atrybut name="Wymiary"><![CDATA[uchwyt: 5,6x9,2x3,5 cm, Maksymalny rozstaw szczęk (szerokość telefonu): 6,8 cm]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/5993.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/5994.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/5995.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/5996.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/5997.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/5998.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[Uniwersalny uchwyt samochodowy kompatybilny z wiekszoscia telefonów oraz smartfonów dostepnych na rynku. Uzytkownik moze regulowac rozstaw szczek, które pozwalaja w bezpieczny sposób korzystac z przydatnych funkcji telefonu podczas jazdy samochodem. Uchwyt został ponadto wyposażony w obrotowy przegub, przy pomocy którego można wybrać najdogodniejsze ułożenie ekranu np. do nawigacji samochodowej. Uchwyt mocuje się do szyby przy pomocy przyssawki blokowanej przy pomocy specjalnego zacisku. Obrotowy przegub pozwala używać telefonu w tradycyjnym położeniu pionowym lub w trybie poziomym (np. do nawigacji), Mocowany do szyby przy pomocy przyssawki z zaciskiem zwalniającym]]></opis>
+    <stan><![CDATA[13.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[39,27]]></cena_netto>
+    <cena_brutto><![CDATA[48,30]]></cena_brutto>
+    <cenasrp_netto><![CDATA[56,10]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[69,00]]></cenasrp_brutto>
+  </produkt>
+  <produkt>
+    <ProduktId><![CDATA[113]]></ProduktId>
+    <kod><![CDATA[H101BLK]]></kod>
+    <nazwa><![CDATA[PURO Stacja dokująca iPhone-iPod z kablem (czarny)]]></nazwa>
+    <kod_kreskowy><![CDATA[8033830025907]]></kod_kreskowy>
+    <marka><![CDATA[Puro]]></marka>
+    <kategorie>
+      <kategoria id="802"><![CDATA[AUDIO VIDEO/AKCESORIA AUDIO]]></kategoria>
+      <kategoria id="819"><![CDATA[SMARTFONY/APPLE/IPHONE 4 / 4S/ŁADOWARKI, KABLE]]></kategoria>
+      <kategoria id="2848"><![CDATA[ZZMARKA/PURO]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kolor bazowy"><![CDATA[czarny]]></atrybut>
+      <atrybut name="Typ"><![CDATA[Stacja]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/6959.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/6960.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/6961.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/6962.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/6963.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[Ministacja dokująca kompatybilna z iPhone 4\4s oraz iPod (również tych noszonych w etui). Stacji można używać zarówno do ładowania, jak i synchronizacji z komputerami PC oraz Apple. Dostępne wersje kolorystyczne: czarna lub biała. Stacja sprzedawana w komplecie z kablem Apple dock connector (dostępna również wersja z kablem i ładowarką USB oraz sama stacja dokująca bez jakiegokolwiek dodatkowego osprzętu). Możliwość dokowania urządzeń w etui lub bez (w drugim przypadku zalecane jest użycie specjalnej podkładki poprawiającej stabilność – podkładka w zestawie), Kabel Dock-USB (1m) oraz ładowarka sieciowa USB (5V – 1A Max), Do ładowania baterii oraz synchronizacji z iTunes, Do iPhone 4\4s oraz odtwarzaczy iPod (Made for iPod/iPhone)]]></opis>
+    <stan><![CDATA[23.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[29,00]]></cena_netto>
+    <cena_brutto><![CDATA[35,67]]></cena_brutto>
+    <cenasrp_netto><![CDATA[39,84]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[49,00]]></cenasrp_brutto>
+  </produkt>
+  <produkt>
+    <ProduktId><![CDATA[119]]></ProduktId>
+    <kod><![CDATA[SMARTPEN4SIL]]></kod>
+    <nazwa><![CDATA[PURO Smartpen - Rysik dotykowy + długopis (srebrny)]]></nazwa>
+    <kod_kreskowy><![CDATA[8033830044427]]></kod_kreskowy>
+    <marka><![CDATA[Puro]]></marka>
+    <kategorie>
+      <kategoria id="835"><![CDATA[SMARTFONY/AKCESORIA UNIWERSALNE/RYSIKI]]></kategoria>
+      <kategoria id="2438"><![CDATA[TABLETY/AKCESORIA UNIWERSALNE/RYSIKI]]></kategoria>
+      <kategoria id="2848"><![CDATA[ZZMARKA/PURO]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kolor bazowy"><![CDATA[srebrny]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce]]></atrybut>
+      <atrybut name="Wymiary"><![CDATA[Waga: 5g]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/6006.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/6007.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/6008.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/6009.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[Rysik dotykowy do ekranów pojemnościowych stosowanych m.in. w iPhonie, iPadzie. który może pełnić funkcję długopisu. Miękka końcówka nie rysuje ekranu, a jednocześnie zapewnia znacznie większą precyzję, niż podczas używania samych palców. Miękka końcówka dla lepszego wyczucia na ekranie, Pomaga utrzymać ekran w czystości, Wbudowany długopis kulkowy, Laserowo nanoszone logo, Kompatybilność: smartfony i tablety]]></opis>
+    <stan><![CDATA[0.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[27,89]]></cena_netto>
+    <cena_brutto><![CDATA[34,30]]></cena_brutto>
+    <cenasrp_netto><![CDATA[39,84]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[49,00]]></cenasrp_brutto>
+  </produkt>
+  <produkt>
+    <ProduktId><![CDATA[120]]></ProduktId>
+    <kod><![CDATA[SMARTPEN3BLK]]></kod>
+    <nazwa><![CDATA[PURO Smartpen - Rysik dotykowy (czarny)]]></nazwa>
+    <kod_kreskowy><![CDATA[8033830044397]]></kod_kreskowy>
+    <marka><![CDATA[Puro]]></marka>
+    <kategorie>
+      <kategoria id="835"><![CDATA[SMARTFONY/AKCESORIA UNIWERSALNE/RYSIKI]]></kategoria>
+      <kategoria id="2438"><![CDATA[TABLETY/AKCESORIA UNIWERSALNE/RYSIKI]]></kategoria>
+      <kategoria id="2848"><![CDATA[ZZMARKA/PURO]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kolor bazowy"><![CDATA[czarny]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce]]></atrybut>
+      <atrybut name="Wymiary"><![CDATA[Waga: 5g]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/5999.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/6000.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/6001.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[Rysik dotykowy do ekranów pojemnościowych stosowanych m.in. w iPhonie, iPadzie oraz podobnych urządzeniach innych producentów. Miękka końcówka nie rysuje ekranu, a jednocześnie zapewnia znacznie większą precyzję, niż podczas używania samych palców. Miękka końcówka dla lepszego wyczucia na ekranie, Pomaga utrzymać ekran w czystości, Laserowo nanoszone logo, Kompatybilność: smartfony i tablety]]></opis>
+    <stan><![CDATA[0.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[22,20]]></cena_netto>
+    <cena_brutto><![CDATA[27,31]]></cena_brutto>
+    <cenasrp_netto><![CDATA[31,71]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[39,00]]></cenasrp_brutto>
+  </produkt>
+  <produkt>
+    <ProduktId><![CDATA[121]]></ProduktId>
+    <kod><![CDATA[SMARTPEN4BLK]]></kod>
+    <nazwa><![CDATA[PURO Smartpen - Rysik dotykowy + długopis (czarny)]]></nazwa>
+    <kod_kreskowy><![CDATA[8033830044410]]></kod_kreskowy>
+    <marka><![CDATA[Puro]]></marka>
+    <kategorie>
+      <kategoria id="835"><![CDATA[SMARTFONY/AKCESORIA UNIWERSALNE/RYSIKI]]></kategoria>
+      <kategoria id="2438"><![CDATA[TABLETY/AKCESORIA UNIWERSALNE/RYSIKI]]></kategoria>
+      <kategoria id="2848"><![CDATA[ZZMARKA/PURO]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kolor bazowy"><![CDATA[czarny]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce]]></atrybut>
+      <atrybut name="Wymiary"><![CDATA[Waga: 5g]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/6002.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/6003.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/6004.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/6005.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[Rysik dotykowy do ekranów pojemnościowych stosowanych m.in. w iPhonie, iPadzie. który może pełnić funkcję długopisu. Miękka końcówka nie rysuje ekranu, a jednocześnie zapewnia znacznie większą precyzję, niż podczas używania samych palców. Miękka końcówka dla lepszego wyczucia na ekranie, Pomaga utrzymać ekran w czystości, Wbudowany długopis kulkowy, Laserowo nanoszone logo, Kompatybilność: smartfony i tablety]]></opis>
+    <stan><![CDATA[0.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[27,89]]></cena_netto>
+    <cena_brutto><![CDATA[34,30]]></cena_brutto>
+    <cenasrp_netto><![CDATA[39,84]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[49,00]]></cenasrp_brutto>
+  </produkt>
+  <produkt>
+    <ProduktId><![CDATA[127]]></ProduktId>
+    <kod><![CDATA[CARGHIPHONE34]]></kod>
+    <nazwa><![CDATA[PURO Windscreen and Dashboard - Uchwyt iPhone 4/4S]]></nazwa>
+    <kod_kreskowy><![CDATA[8033830019975]]></kod_kreskowy>
+    <marka><![CDATA[Puro]]></marka>
+    <kategorie>
+      <kategoria id="815"><![CDATA[SMARTFONY/APPLE/IPHONE 4 / 4S/AKCESORIA]]></kategoria>
+      <kategoria id="2848"><![CDATA[ZZMARKA/PURO]]></kategoria>
+      <kategoria id="4322"><![CDATA[MOTORYZACJA/UCHWYTY DO SMARTFONÓW]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kolor bazowy"><![CDATA[czarny]]></atrybut>
+      <atrybut name="Kompatybilność"><![CDATA[iPhone 4/4S]]></atrybut>
+      <atrybut name="Typ"><![CDATA[Uchwyt]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/4069.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/4070.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/4071.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/4072.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/4073.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[Uchwyt samochodowy kompatybilny z iPhonem 4/4S przeznaczony do montażu na szybie. Specjalna naklejka umożliwia również przymocowanie uchwytu bezpośrednio na kokpicie. Obrotowy przegub pozwala ponadto ustawić, a następnie zablokować telefon w wybranej pozycji. Regulacja ekranu w pionie lub poziomie, obrotowy przegub z blokadą optymalnego kąta widzenia, uchwyt mocowany do szyby w kabinie auta, możliwość zamocowania uchwytu bezpośrednio na kokpicie, prosta blokada mechanizmu mocującego.]]></opis>
+    <stan><![CDATA[2.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[30,60]]></cena_netto>
+    <cena_brutto><![CDATA[37,64]]></cena_brutto>
+    <cenasrp_netto><![CDATA[47,97]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[59,00]]></cenasrp_brutto>
+  </produkt>
+  <produkt>
+    <ProduktId><![CDATA[135]]></ProduktId>
+    <kod><![CDATA[NANO6SPNK]]></kod>
+    <nazwa><![CDATA[PURO Silicon Case - Etui iPod nano 6G (różowy)]]></nazwa>
+    <kod_kreskowy><![CDATA[8033830017278]]></kod_kreskowy>
+    <marka><![CDATA[Puro]]></marka>
+    <kategorie>
+      <kategoria id="802"><![CDATA[AUDIO VIDEO/AKCESORIA AUDIO]]></kategoria>
+      <kategoria id="2848"><![CDATA[ZZMARKA/PURO]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kolor bazowy"><![CDATA[różowy]]></atrybut>
+      <atrybut name="Materiał główny"><![CDATA[Silikon]]></atrybut>
+      <atrybut name="Funkcjonalność"><![CDATA[ochrona tyłu i boków]]></atrybut>
+      <atrybut name="Kompatybilność"><![CDATA[iPod Nano 6G]]></atrybut>
+      <atrybut name="Typ"><![CDATA[Etui]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/5405.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/5406.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[Idealnie dopasowane etui ochronne do najnowszej generacji odtwarzacza iPod nano 6G. Etui zostało idealnie dopasowane do wymiarów urządzenia i w żaden sposób nie ogranicza dostępu do jego najważniejszych funkcji, w tym również i klipsa.]]></opis>
+    <stan><![CDATA[6.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[10,82]]></cena_netto>
+    <cena_brutto><![CDATA[13,31]]></cena_brutto>
+    <cenasrp_netto><![CDATA[15,45]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[19,00]]></cenasrp_brutto>
+  </produkt>
+  <produkt>
+    <ProduktId><![CDATA[138]]></ProduktId>
+    <kod><![CDATA[NANO6STR]]></kod>
+    <nazwa><![CDATA[PURO Silicon Case - Etui nano 6G (przezroczysty)]]></nazwa>
+    <kod_kreskowy><![CDATA[8033830017285]]></kod_kreskowy>
+    <marka><![CDATA[Puro]]></marka>
+    <kategorie>
+      <kategoria id="802"><![CDATA[AUDIO VIDEO/AKCESORIA AUDIO]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kompatybilność"><![CDATA[iPod Nano 6G]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/7324609.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/7324610.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/7324611.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/7324612.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/7324613.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/7324614.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/7324615.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[Idealnie dopasowane etui ochronne do najnowszej generacji odtwarzacza iPod nano 6G. Etui zostało idealnie dopasowane do wymiarów urządzenia i w żaden sposób nie ogranicza dostępu do jego najważniejszych funkcji, w tym również i klipsa.]]></opis>
+    <stan><![CDATA[2.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[15,31]]></cena_netto>
+    <cena_brutto><![CDATA[18,83]]></cena_brutto>
+    <cenasrp_netto><![CDATA[21,87]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[26,90]]></cenasrp_brutto>
+  </produkt>
+  <produkt>
+    <ProduktId><![CDATA[142]]></ProduktId>
+    <kod><![CDATA[SCUDOIPADECRUSLIM]]></kod>
+    <nazwa><![CDATA[PURO Scudo Slim - Pokrowiec new iPad/iPad 2 (ecru)]]></nazwa>
+    <kod_kreskowy><![CDATA[8033830015236]]></kod_kreskowy>
+    <marka><![CDATA[Puro]]></marka>
+    <kategorie>
+      <kategoria id="826"><![CDATA[TABLETY/APPLE/IPAD 2/3/4/ETUI]]></kategoria>
+      <kategoria id="2848"><![CDATA[ZZMARKA/PURO]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kolor bazowy"><![CDATA[ecru]]></atrybut>
+      <atrybut name="Materiał główny"><![CDATA[Neopren]]></atrybut>
+      <atrybut name="Funkcjonalność"><![CDATA[ochrona całego urządzenia]]></atrybut>
+      <atrybut name="Kompatybilność"><![CDATA[iPad 2/3/4]]></atrybut>
+      <atrybut name="Typ"><![CDATA[Etui]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce]]></atrybut>
+      <atrybut name="Wymiary"><![CDATA[24,3x19x1,34cm ]]></atrybut>
+      <atrybut name="Wzór"><![CDATA[Gładki]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/5618.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/5619.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/5620.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[Wykonany z neoprenu o dużej gęstości pokrowiec w doskonały sposób zabezpiecza iPada przed szkodliwym działaniem wilgoci oraz uszkodzeniami mechanicznymi. Idealny do noszenia w ręce, lub w torbie nie wyposażonej w specjalną komorę na sprzęt komputerowy. Pokrowiec wykończony od wewnętrznej strony syntetycznym materiałem, który nie rysuje ekranu i obudowy; zamknięcie kopertowe bez zamka]]></opis>
+    <stan><![CDATA[12.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[39,90]]></cena_netto>
+    <cena_brutto><![CDATA[49,08]]></cena_brutto>
+    <cenasrp_netto><![CDATA[56,10]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[69,00]]></cenasrp_brutto>
+  </produkt>
+  <produkt>
+    <ProduktId><![CDATA[146]]></ProduktId>
+    <kod><![CDATA[SCUDO11ICESLIM]]></kod>
+    <nazwa><![CDATA[PURO Scudo Slim - Etui MacBook Air 11.6 (ice)]]></nazwa>
+    <kod_kreskowy><![CDATA[8033830020841]]></kod_kreskowy>
+    <marka><![CDATA[Puro]]></marka>
+    <kategorie>
+      <kategoria id="842"><![CDATA[KOMPUTERY/APPLE/MACBOOK AIR/POKROWCE]]></kategoria>
+      <kategoria id="2848"><![CDATA[ZZMARKA/PURO]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kompatybilność"><![CDATA[MacBook Air]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/37.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[Neoprenowe etui z zapięciem kopertowym kompatybilne z 11.6" MacBookiem Air. Etui wykończone od wewnętrznej strony syntetycznym materiałem w postaci bardzo przyjemnego w dotyku futerka. Krawędzie wzmacniane gumowym obszyciem z motywem graficznym PURO.  <ul>  <li>    Kolor: ice  </li>  <li>      Materiał: neopren  </li>  <li>      Dodatkowe: wygodne zapięcie kopertowe bez zamka  </li>  <li>      Kompatybilność: 11.6" MacBook Air </li>  <li>      Gwarancja: 24 miesiące  </li>   </ul>]]></opis>
+    <stan><![CDATA[0.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[39,00]]></cena_netto>
+    <cena_brutto><![CDATA[47,97]]></cena_brutto>
+    <cenasrp_netto><![CDATA[56,10]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[69,00]]></cenasrp_brutto>
+  </produkt>
+  <produkt>
+    <ProduktId><![CDATA[164]]></ProduktId>
+    <kod><![CDATA[HDMI6]]></kod>
+    <nazwa><![CDATA[PURO Kabel Micro HDMI 3D Ethernet 200 cm (32AWG)]]></nazwa>
+    <kod_kreskowy><![CDATA[8033830040177]]></kod_kreskowy>
+    <marka><![CDATA[Puro]]></marka>
+    <kategorie>
+      <kategoria id="5"><![CDATA[AUDIO VIDEO/KABLE HDMI]]></kategoria>
+      <kategoria id="2848"><![CDATA[ZZMARKA/PURO]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kolor bazowy"><![CDATA[czarny]]></atrybut>
+      <atrybut name="Materiał główny"><![CDATA[PVC]]></atrybut>
+      <atrybut name="Typ"><![CDATA[Kabel A/V]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/4228.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/4229.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[Wysokiej klasy kabel Micro HDMI High Speed o długości 2 metrów umożliwiający płynne odtwarzanie obrazu i dźwięku HD z kamery cyfrowej, aparatu lub telefonu na ekranie telewizora wyposażonego w standardowe złącze HDMI. Przewód z pozłacanymi wtykami. Potrójne ekranowanie przeciwko zakłóceniom elektromagnetycznym, Zastosowanie dielektryku wokół przewodników dla maksymalnej siły sygnału, Przewodniki z miedzi beztlenowej zapewniają wysoką niezawodność oraz lepszą przepustowość przy minimalnej stracie sygnału, Rodzaj przewodu: HDMI (typ A) - Micro HDMI (typ D), HDMI 1.4 (przepustowość 10.2 Gbps) z obsługą Ethernet, High Speed 1080p Full HD ze wsparciem dla obrazu 3D, Zwrotny kanał audio (Audio Return Channel), Pozłacane wtyki w solidnych i wytrzymałych obudowach, Przeznaczony do: kamery i aparaty cyfrowe HD, smartphone.]]></opis>
+    <stan><![CDATA[31.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[20,33]]></cena_netto>
+    <cena_brutto><![CDATA[25,01]]></cena_brutto>
+    <cenasrp_netto><![CDATA[23,58]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[29,00]]></cenasrp_brutto>
+  </produkt>
+  <produkt>
+    <ProduktId><![CDATA[184]]></ProduktId>
+    <kod><![CDATA[BBCIPHONEBLK]]></kod>
+    <nazwa><![CDATA[PURO Mini stacja dokująca z akumulatorem do Apple]]></nazwa>
+    <kod_kreskowy><![CDATA[8033830022869]]></kod_kreskowy>
+    <marka><![CDATA[Puro]]></marka>
+    <kategorie>
+      <kategoria id="819"><![CDATA[SMARTFONY/APPLE/IPHONE 4 / 4S/ŁADOWARKI, KABLE]]></kategoria>
+      <kategoria id="2848"><![CDATA[ZZMARKA/PURO]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kolor bazowy"><![CDATA[czarny]]></atrybut>
+      <atrybut name="Typ"><![CDATA[Stacja]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce]]></atrybut>
+      <atrybut name="Wymiary"><![CDATA[12,5x6,1x1,4 cm]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/4016.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/4017.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/4018.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/4019.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/4020.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/4021.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/4022.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/4023.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[Przenośna mini stacja dokująca ze zintegrowanym gniazdem Apple Dock Connector oraz wbudowanym akumulatorem o pojemności 2000 mAh. Wyposażona w port USB (kabel w zestawie) może jednocześnie służyć do synchronizacji podłączonego urządzenia z komputerem. Napięcie wyjściowe: DC 5V - 500 mA, Napięcie na wejściu: DC 5V - 1A, Pojemność: 2000 mAh (bez efektu pamięci), Ładowanie wbudowanego akumulatora przez USB (o aktualnym zapasie energii informują cztery diody LED). Kompatybilność: modele iPhone oraz iPod ze złączem Apple Dock Connector (iPhone 4/4S, iPod touch 4). Dodatkowe czasy uzyskiwane maksymalnie dla poszczególnych trybów pracy: Czuwanie: do 350 h (14 dni) | Telefon: do 7 h (3G) / 14 h (2G) | Internet: do 6 h (3G) / 10 h (Wi-Fi) | Audio: do 45 h / Video: do 10 h.]]></opis>
+    <stan><![CDATA[1.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[112,90]]></cena_netto>
+    <cena_brutto><![CDATA[138,87]]></cena_brutto>
+    <cenasrp_netto><![CDATA[161,79]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[199,00]]></cenasrp_brutto>
+  </produkt>
+  <produkt>
+    <ProduktId><![CDATA[197]]></ProduktId>
+    <kod><![CDATA[CARDHIPHONE34]]></kod>
+    <nazwa><![CDATA[PURO Dashboard - Uchwyt samochodowy iPhone 4/4S]]></nazwa>
+    <kod_kreskowy><![CDATA[8033830019982]]></kod_kreskowy>
+    <marka><![CDATA[Puro]]></marka>
+    <kategorie>
+      <kategoria id="815"><![CDATA[SMARTFONY/APPLE/IPHONE 4 / 4S/AKCESORIA]]></kategoria>
+      <kategoria id="2848"><![CDATA[ZZMARKA/PURO]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kolor bazowy"><![CDATA[czarny]]></atrybut>
+      <atrybut name="Kompatybilność"><![CDATA[iPhone 4/4S]]></atrybut>
+      <atrybut name="Typ"><![CDATA[Uchwyt]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/4044.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/4045.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/4046.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/4047.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/4048.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/10728.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[Regulowany uchwyt samochodowy kompatybilny z telefonami Apple iPhone 4/4S. Przeznaczony do montażu bezpośrednio na desce rozdzielczej samochodu. Obrotowy wspornik pozwala ustawić, a następnie zablokować telefon w najdogodniejszej pozycji. Regulacja ekranu w pionie lub poziomie, obrotowy przegub z blokadą optymalnego kąta widzenia, mocowanie bezpośrednio do kokpitu w kabinie auta, prosta blokada mechanizmu mocującego]]></opis>
+    <stan><![CDATA[3.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[36,90]]></cena_netto>
+    <cena_brutto><![CDATA[45,39]]></cena_brutto>
+    <cenasrp_netto><![CDATA[56,10]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[69,00]]></cenasrp_brutto>
+  </produkt>
+  <produkt>
+    <ProduktId><![CDATA[201]]></ProduktId>
+    <kod><![CDATA[FACILE16BLK]]></kod>
+    <nazwa><![CDATA[PURO Facile - Torba PC 16.4 i Apple 17 (czarny)]]></nazwa>
+    <kod_kreskowy><![CDATA[8033830019241]]></kod_kreskowy>
+    <marka><![CDATA[Puro]]></marka>
+    <kategorie>
+      <kategoria id="844"><![CDATA[KOMPUTERY/APPLE/MACBOOK PRO/TORBY]]></kategoria>
+      <kategoria id="862"><![CDATA[KOMPUTERY/LAPTOPY/TORBY/15"-16"]]></kategoria>
+      <kategoria id="2848"><![CDATA[ZZMARKA/PURO]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kolor bazowy"><![CDATA[czarny]]></atrybut>
+      <atrybut name="Materiał główny"><![CDATA[Nylon]]></atrybut>
+      <atrybut name="Kompatybilność"><![CDATA[MacBook Pro]]></atrybut>
+      <atrybut name="Typ"><![CDATA[Torba]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce]]></atrybut>
+      <atrybut name="Wymiary"><![CDATA[Wew:  40x32x5 cm]]></atrybut>
+      <atrybut name="Wzór"><![CDATA[Gładki]]></atrybut>
+      <atrybut name="Wysokość"><![CDATA[320]]></atrybut>
+      <atrybut name="Szerokość"><![CDATA[400]]></atrybut>
+      <atrybut name="Grubość"><![CDATA[50]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/4140.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/4141.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[Wytrzymała i bardzo poręczna torba komputerowa z zewnętrznym przedziałem na akcesoria oraz mocowaniem trolley. Kompatybilna z notebookami PC i Apple. Do noszenia w ręku, jak i na regulowanym pasku naramiennym mocowanym do klamer po bokach torby. Kompatybilność: max. 16.4" PC / 17" MacBook Pro]]></opis>
+    <stan><![CDATA[10.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[51,90]]></cena_netto>
+    <cena_brutto><![CDATA[63,84]]></cena_brutto>
+    <cenasrp_netto><![CDATA[72,36]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[89,00]]></cenasrp_brutto>
+  </produkt>
+  <produkt>
+    <ProduktId><![CDATA[206]]></ProduktId>
+    <kod><![CDATA[IPHF6WHI]]></kod>
+    <nazwa><![CDATA[PURO IPHF6 Clear Sound - Słuchawki (biały)]]></nazwa>
+    <kod_kreskowy><![CDATA[8033830010712]]></kod_kreskowy>
+    <marka><![CDATA[Puro]]></marka>
+    <kategorie>
+      <kategoria id="7"><![CDATA[AUDIO VIDEO/SŁUCHAWKI]]></kategoria>
+      <kategoria id="2848"><![CDATA[ZZMARKA/PURO]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kolor bazowy"><![CDATA[biały]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce]]></atrybut>
+      <atrybut name="Wymiary"><![CDATA[Długość przwodu: 120 cm]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/5184.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[Stereofocznien słuchawki douszne z kablem o długości 120 cm. Sprzedawane w komplecie z trzema wymiennymi wkładkami silikonowymi w rozmiarach S, M oraz L. Kompatybilne z iPodem, iPadem oraz większością przenośnycyh odtwarzaczy MP3 dostępnych na rynku. Stereofocznien słuchawki douszne z kablem o długości 120 cm. Sprzedawane w komplecie z trzema wymiennymi wkładkami silikonowymi w rozmiarach S, M oraz L. Kompatybilne z iPodem, iPadem oraz większością przenośnycyh odtwarzaczy MP3 dostępnych na rynku.  Specyfikacja techniczna: Pasmo przenoszenia: 18-20,000Hz, Impedancja: 16 Om, Skuteczność: 116+3dB, Średnica głośnika: 10mm, Regulacja głośności: NIE, Mikrofon: NIE, System uwydatnienia basów.]]></opis>
+    <stan><![CDATA[0.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[22,20]]></cena_netto>
+    <cena_brutto><![CDATA[27,31]]></cena_brutto>
+    <cenasrp_netto><![CDATA[31,71]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[39,00]]></cenasrp_brutto>
+  </produkt>
+  <produkt>
+    <ProduktId><![CDATA[208]]></ProduktId>
+    <kod><![CDATA[IPHF6BLK]]></kod>
+    <nazwa><![CDATA[PURO IPHF6 Clear Sound - Słuchawki (czarny)]]></nazwa>
+    <kod_kreskowy><![CDATA[8033830010705]]></kod_kreskowy>
+    <marka><![CDATA[Puro]]></marka>
+    <kategorie>
+      <kategoria id="7"><![CDATA[AUDIO VIDEO/SŁUCHAWKI]]></kategoria>
+      <kategoria id="2848"><![CDATA[ZZMARKA/PURO]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kolor bazowy"><![CDATA[czarny]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce]]></atrybut>
+      <atrybut name="Wymiary"><![CDATA[Długość przewodu: 120 cm]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/5182.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/5183.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[Stereofocznien słuchawki douszne z kablem o długości 120 cm. Sprzedawane w komplecie z trzema wymiennymi wkładkami silikonowymi w rozmiarach S, M oraz L. Kompatybilne z iPodem, iPadem oraz większością przenośnycyh odtwarzaczy MP3 dostępnych na rynku.  Specyfikacja techniczna: Pasmo przenoszenia: 18-20,000Hz, Impedancja: 16 Om, Skuteczność: 116+3dB, Średnica głośnika: 10mm, Regulacja głośności: NIE, Mikrofon: NIE, System uwydatnienia basów]]></opis>
+    <stan><![CDATA[0.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[22,20]]></cena_netto>
+    <cena_brutto><![CDATA[27,31]]></cena_brutto>
+    <cenasrp_netto><![CDATA[31,71]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[39,00]]></cenasrp_brutto>
+  </produkt>
+  <produkt>
+    <ProduktId><![CDATA[220]]></ProduktId>
+    <kod><![CDATA[HDMI3]]></kod>
+    <nazwa><![CDATA[PURO Kabel Micro HDMI 3D Ethernet 200 cm (24AWG)]]></nazwa>
+    <kod_kreskowy><![CDATA[8033830040115]]></kod_kreskowy>
+    <marka><![CDATA[Puro]]></marka>
+    <kategorie>
+      <kategoria id="5"><![CDATA[AUDIO VIDEO/KABLE HDMI]]></kategoria>
+      <kategoria id="2848"><![CDATA[ZZMARKA/PURO]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kolor bazowy"><![CDATA[biały]]></atrybut>
+      <atrybut name="Materiał główny"><![CDATA[PVC]]></atrybut>
+      <atrybut name="Typ"><![CDATA[Kabel A/V]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce]]></atrybut>
+      <atrybut name="Wymiary"><![CDATA[2,0 m]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/12.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/13.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[Kabel Micro HDMI (typu D) o długości 2 metrów, który umożliwia płynne odtwarzanie obrazu i dźwięku HD z kamery cyfrowej, aparatu lub telefonu na ekranie telewizora wyposażonego w standardowe złącze HDMI (typu A). Przewód z pozłacanymi wtykami. Potrójne ekranowanie przeciwko zakłóceniom elektromagnetycznym, Zastosowanie dielektryku wokół przewodników dla maksymalnej siły sygnału, Przewodniki z miedzi beztlenowej zapewniają wysoką niezawodność oraz lepszą przepustowość przy minimalnej stracie sygnału, Rodzaj przewodu: HDMI (typ A) - Micro HDMI (typ D), HDMI 1.4 (przepustowość 10.2 Gbps) z obsługą Ethernet, 720p + 1080i Full HD ze wsparciem dla obrazu 3D, Zwrotny kanał audio (Audio Return Channel), Pozłacane wtyki w solidnych i wytrzymałych obudowach, Przeznaczony do: kamery i aparaty cyfrowe HD, smartphone.]]></opis>
+    <stan><![CDATA[46.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[20,33]]></cena_netto>
+    <cena_brutto><![CDATA[25,01]]></cena_brutto>
+    <cenasrp_netto><![CDATA[23,58]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[29,00]]></cenasrp_brutto>
+  </produkt>
+  <produkt>
+    <ProduktId><![CDATA[356]]></ProduktId>
+    <kod><![CDATA[SW-MEL4S-BK]]></kod>
+    <nazwa><![CDATA[SwitchEasy Melt - Etui iPhone 4/4S (Sesame)]]></nazwa>
+    <kod_kreskowy><![CDATA[4897017126757]]></kod_kreskowy>
+    <marka><![CDATA[SwitchEasy]]></marka>
+    <kategorie>
+      <kategoria id="813"><![CDATA[SMARTFONY/APPLE/IPHONE 4 / 4S/ETUI]]></kategoria>
+      <kategoria id="2854"><![CDATA[ZZMARKA/SWITCHEASY]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kolor bazowy"><![CDATA[czarny]]></atrybut>
+      <atrybut name="Materiał główny"><![CDATA[Polikarbon]]></atrybut>
+      <atrybut name="Funkcjonalność"><![CDATA[ochrona tyłu i boków]]></atrybut>
+      <atrybut name="Kompatybilność"><![CDATA[iPhone 4/4S]]></atrybut>
+      <atrybut name="Typ"><![CDATA[Etui]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce]]></atrybut>
+      <atrybut name="Wzór"><![CDATA[Inny]]></atrybut>
+      <atrybut name="Materiał dodatkowy"><![CDATA[Mikrofibra]]></atrybut>
+      <atrybut name="Kolor dodatkowy"><![CDATA[popielaty]]></atrybut>
+      <atrybut name="Folia w zestawie"><![CDATA[Tak]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/3170.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/3171.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/3173.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/3175.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/3176.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/3177.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/3178.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/3179.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/3180.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[Melt to dwuczęściowe etui typu slider do iPhona 4/4S wykonane z materiałów najwyższej jakości. Całość została zaprojektowana tak, aby móc korzystać ze wszystkich funkcji telefonu bez wyjmowania go z etui. Do wyboru jedna z sześciu wersji kolorystycznych. W skład zestawu wchodzi: Etui SwitchEasy Melt Sesame do iPhona 4/4S, Dwie antystatyczne folie ochronne na przód telefonu, Ściereczka z mikrofibry do usuwania smug i zatłuszczeń, Dwie zaślepki ochronne na gniazdo dock connector, Dwie zaślepki ochronne na 3.5 mm gniazdo słuchawkowe, Wymienne interfejsy do stacji dokujących (biały i czarny), Jedna podstawka wideo]]></opis>
+    <stan><![CDATA[1.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[84,80]]></cena_netto>
+    <cena_brutto><![CDATA[104,30]]></cena_brutto>
+    <cenasrp_netto><![CDATA[121,14]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[149,00]]></cenasrp_brutto>
+  </produkt>
+  <produkt>
+    <ProduktId><![CDATA[394]]></ProduktId>
+    <kod><![CDATA[SW-TRIP-AR]]></kod>
+    <nazwa><![CDATA[SwitchEasy TRIG - Etui iPad-iPad 2 (biały)]]></nazwa>
+    <kod_kreskowy><![CDATA[4897017123916]]></kod_kreskowy>
+    <marka><![CDATA[SwitchEasy]]></marka>
+    <kategorie>
+      <kategoria id="826"><![CDATA[TABLETY/APPLE/IPAD 2/3/4/ETUI]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kolor bazowy"><![CDATA[biały]]></atrybut>
+      <atrybut name="Materiał główny"><![CDATA[Skóra eco]]></atrybut>
+      <atrybut name="Funkcjonalność"><![CDATA[ochrona całego urządzenia]]></atrybut>
+      <atrybut name="Kompatybilność"><![CDATA[iPad 2]]></atrybut>
+      <atrybut name="Typ"><![CDATA[Etui]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce]]></atrybut>
+      <atrybut name="Wzór"><![CDATA[Gładki]]></atrybut>
+      <atrybut name="Materiał dodatkowy"><![CDATA[Mikrofibra]]></atrybut>
+      <atrybut name="Folia w zestawie"><![CDATA[Tak]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/3504.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/3505.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/3507.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/3508.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/3509.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/3510.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/3511.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/3512.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/3513.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[Wykonany z bardzo trwałych i równie przyjemnych w dotyku materiałów futerał ochrony z funkcją podstawki. Po wyjęciu iPada futerał można złożyć tak, aby ustawić na nim tablet w dowolnej pozycji np. do surfowania w sieci, lub oglądania na nim filmów wideo. Futerkowe wnętrze ułatwia wkładanie oraz wyjmowania iPada (od góry), a przy tym nie rysuje jego zewnętrznych powierzchni (obudowy oraz ekranu) . W skład zestawu wchodzi: Futerał SwitchEasy TRIG z funkcją podstawki, Antystatyczna folia ochronna na przedni panel iPada (na iPada 1 oraz iPada 2), Gładzik do usuwania pęcherzyków powietrza podczas nakładania folii, Ściereczka z mikrofibry do usuwania smug i zatłuszczeń]]></opis>
+    <stan><![CDATA[1.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[101,87]]></cena_netto>
+    <cena_brutto><![CDATA[125,30]]></cena_brutto>
+    <cenasrp_netto><![CDATA[145,53]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[179,00]]></cenasrp_brutto>
+  </produkt>
+  <produkt>
+    <ProduktId><![CDATA[403]]></ProduktId>
+    <kod><![CDATA[GC10038]]></kod>
+    <nazwa><![CDATA[Griffin AirCurve Play - Wzmacniacz do iPhona 4, 3G]]></nazwa>
+    <kod_kreskowy><![CDATA[685387305742]]></kod_kreskowy>
+    <marka><![CDATA[Griffin]]></marka>
+    <kategorie>
+      <kategoria id="815"><![CDATA[SMARTFONY/APPLE/IPHONE 4 / 4S/AKCESORIA]]></kategoria>
+      <kategoria id="2834"><![CDATA[ZZMARKA/GRIFFIN]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kolor bazowy"><![CDATA[przezroczysty]]></atrybut>
+      <atrybut name="Kompatybilność"><![CDATA[iPhone 4]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/899.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/900.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/901.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/902.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/903.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[Specjalny wzmacniacz kompatybilny z iPhonem 4 zwiększający oryginalnie uzyskiwany poziom głośności o dodatkowe 10 dB. W tym celu wykorzystywane są wyłącznie właściwości akustyczne całej konstrukcji, która nie wymaga przy tym żadnego źródła zasilania. Swobodny dostęp do gniazda dokującego w iPhonie]]></opis>
+    <stan><![CDATA[6.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[20,33]]></cena_netto>
+    <cena_brutto><![CDATA[25,01]]></cena_brutto>
+    <cenasrp_netto><![CDATA[31,71]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[39,00]]></cenasrp_brutto>
+  </produkt>
+  <produkt>
+    <ProduktId><![CDATA[436]]></ProduktId>
+    <kod><![CDATA[GC22054]]></kod>
+    <nazwa><![CDATA[Griffin Window Mount - Uchwyt samochodowy iPhone 4/4S, Motorola, HTC i inne]]></nazwa>
+    <kod_kreskowy><![CDATA[685387312870]]></kod_kreskowy>
+    <marka><![CDATA[Griffin]]></marka>
+    <kategorie>
+      <kategoria id="815"><![CDATA[SMARTFONY/APPLE/IPHONE 4 / 4S/AKCESORIA]]></kategoria>
+      <kategoria id="836"><![CDATA[SMARTFONY/AKCESORIA UNIWERSALNE/UCHWYTY]]></kategoria>
+      <kategoria id="2834"><![CDATA[ZZMARKA/GRIFFIN]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kolor bazowy"><![CDATA[czarny]]></atrybut>
+      <atrybut name="Typ"><![CDATA[Uchwyt]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/142.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/143.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[Uniwersalny uchwyt samochodowy, który można zamocować zarówno do przedniej szyby, jak i do kokpitu w kabinie auta. Uchwyt regulowany jest przy pomocy obrotowego przegubu, który pozwala ustawić ekran urządzenia w najdogodniejszej dla kierowcy pozycji. Możliwość zamocowania na szybie lub na desce rozdzielczej (specjalne mocowanie sprzedawane wraz z uchwytem),  360° przegub regulowany we wszystkich płaszczyznach, Konstrukcja chwytaków pozwalająca na umieszczenie telefonu wraz z nałożonym etui ochronnym, Kompatybilność: iPhone 3G/3GS, iPhone 4/4S, iPod touch 3/4, Motorola Droid, BlackBerry Bold, BlackBerry Curve (8300), BlackBerry Torch (9800, 9810, 9850, 9860), HTC Evo, HTC Droid Incredible]]></opis>
+    <stan><![CDATA[9.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[33,57]]></cena_netto>
+    <cena_brutto><![CDATA[41,29]]></cena_brutto>
+    <cenasrp_netto><![CDATA[47,97]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[59,00]]></cenasrp_brutto>
+  </produkt>
+  <produkt>
+    <ProduktId><![CDATA[493]]></ProduktId>
+    <kod><![CDATA[502544]]></kod>
+    <nazwa><![CDATA[Sennheiser CX 200 Street II Black - Słuchawki dokanałowe (czarny)]]></nazwa>
+    <kod_kreskowy><![CDATA[4044156031101]]></kod_kreskowy>
+    <marka><![CDATA[Sennheiser]]></marka>
+    <kategorie>
+      <kategoria id="7"><![CDATA[AUDIO VIDEO/SŁUCHAWKI]]></kategoria>
+      <kategoria id="2849"><![CDATA[ZZMARKA/SENNHEISER]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kolor bazowy"><![CDATA[czarny]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce producenta]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/6013398.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[Podkreśl swój wielkomiejski styl dzięki Sennheiser CX 200 Street II. Ponadczasowy design, bezpieczne i bezproblemowe dopasowanie do ucha oraz praktyczne akcesoria to główne atuty CX 200 Street II. Słuchawki dysponują silnym basem i są lekkie, co czyni je idealnymi we współpracy z przenośnymi źródłami dźwięku. Dla maksymalnej wygody użytkowania model ten wyposażono w specjalnie wyprofilowane kapsułki, co pozwala łatwo ręcznie dopasować słuchawki do ucha. Dzięki bardzo dobremu pasywnemu tłumieniu hałasu z zewnątrz oraz mocnym basom, CX 200 Street II stanowią idealny wybór do pieszych rajdów lub spacerów.
+
+Cechy charakterystyczne:
+· Innowacyjna konstrukcja wyposażona w wyprofilowane kapsułki, co pozwala ręcznie dopasować słuchawki do ucha i zapewnia wysoki komfort użytkowania (zestaw zawiera wkładki adaptacyjne w różnych rozmiarach)
+· Silny, pełen basu dźwięk stereo
+· Pasywne tłumienie zakłóceń zewnętrznych
+· Zoptymalizowane do współpracy z odtwarzaczami MP3, iPod, iPhone, CD oraz przenośnymi konsolami do gier
+· Różne warianty kolorów - czarny oraz biały
+
+Dane techniczne:
+· Konstrukcja: dokanałowa
+· Przetworniki: dynamiczne, zamknięte
+· Impedancja: 16 Ohm
+· Połączenie: jack 3,5 mm
+· Przewód: 1,2 m symetryczny
+· Pasmo przenoszenia: 20 - 20.000 Hz
+· Zniekształcenia harmoniczne THD: < 0,2%
+· Dynamika SPL: 110 dB
+· Waga bez kabla: 5 g
+· W zestawie:  słuchawki CX 200 Street II Black, wkładki dopasowujące w rozmiarach (S, M, L), instrukcja obsługi]]></opis>
+    <stan><![CDATA[0.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[82,50]]></cena_netto>
+    <cena_brutto><![CDATA[101,48]]></cena_brutto>
+    <cenasrp_netto><![CDATA[113,01]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[139,00]]></cenasrp_brutto>
+  </produkt>
+  <produkt>
+    <ProduktId><![CDATA[495]]></ProduktId>
+    <kod><![CDATA[502737]]></kod>
+    <nazwa><![CDATA[Sennheiser CX 300-II Precision Black - Słuchawki dokanałowe (czarny)]]></nazwa>
+    <kod_kreskowy><![CDATA[4044155043006]]></kod_kreskowy>
+    <marka><![CDATA[Sennheiser]]></marka>
+    <kategorie>
+      <kategoria id="7"><![CDATA[AUDIO VIDEO/SŁUCHAWKI]]></kategoria>
+      <kategoria id="2849"><![CDATA[ZZMARKA/SENNHEISER]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kolor bazowy"><![CDATA[czarny]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce producenta]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/6013422.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/6013423.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[Słuchawki dokanałowe Sennheiser CX 300-II Precision to potężny, dobasowany dźwięk stereo, jeszcze bardziej przejrzysty i szczegółowy, niż dotychczas. Różne rozmiary wkładek (S/M/L) dołączone do opakowania zapewniają idealne dopasowanie oraz znaczy stopień pasywnego tłumienia zakłóceń zewnętrznych. Ponadto, asymetryczny kabel zapewnia swobodę ruchów podczas słuchania muzyki w drodze.
+
+Cechy charakterystyczne:
+· Dynamiczny system głośników dla napędzanego basem, potężnego dźwięku stereo
+· Idealne dopasowanie oraz pasywne tłumienie zakłóceń zewnętrznych (wkładki w różnych rozmiarach dołączone do opakowania)
+· Zoptymalizowane pod kątem playerów MP3, iPodów, iPhone'ów, playerów CD oraz przenośnych urządzeń gamingowych
+· Asymetryczny kabel
+· Wygodne etui transportowe
+· Różne warianty kolorów - czarny, srebrny, biały, złoty i chromowany
+
+Dane techniczne:
+· Konstrukcja: dokanałowa
+· Przetworniki: dynamiczne, otwarte
+· Impedancja: 16 Ohm
+· Połączenie: jack 3,5 mm stereo kątowy
+· Przewód: 1,2 m (asymetryczny)
+· Pasmo przenoszenia: 19 - 21.000 Hz
+· Dynamika SPL: 113 dB (1 kHz, 1Vrms)
+· W zestawie: CX 300-II Precision Black, wkładki dopasowujące w rozmiarach (S, M, L), woreczek ochronny, instrukcja obsługi]]></opis>
+    <stan><![CDATA[0.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[82,00]]></cena_netto>
+    <cena_brutto><![CDATA[100,86]]></cena_brutto>
+    <cenasrp_netto><![CDATA[113,01]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[139,00]]></cenasrp_brutto>
+  </produkt>
+  <produkt>
+    <ProduktId><![CDATA[533]]></ProduktId>
+    <kod><![CDATA[PETPHAP004SO]]></kod>
+    <nazwa><![CDATA[Wrapsol Essentials-Dwie folie na ekran iPhone 4/4S]]></nazwa>
+    <kod_kreskowy><![CDATA[845971018780]]></kod_kreskowy>
+    <marka><![CDATA[Wrapsol]]></marka>
+    <kategorie>
+      <kategoria id="812"><![CDATA[SMARTFONY/APPLE/IPHONE 4 / 4S/FOLIE I SZKŁA OCHRONNE]]></kategoria>
+      <kategoria id="2861"><![CDATA[ZZMARKA/WRAPSOL]]></kategoria>
+    </kategorie>
+    <atrybuty>
+      <atrybut name="Kompatybilność"><![CDATA[iPhone 4/4S]]></atrybut>
+      <atrybut name="Typ"><![CDATA[Folia ochronna]]></atrybut>
+      <atrybut name="Gwarancja"><![CDATA[24 m-ce]]></atrybut>
+    </atrybuty>
+    <zdjecia>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/3597.jpg]]></zdjecie>
+      <zdjecie><![CDATA[http://www.b2btrade.pl/imageasp/Images/3598.jpg]]></zdjecie>
+    </zdjecia>
+    <opis><![CDATA[Zestaw dwóch folii ochronnych stosowanych pojedynczo na caly przód wyswietlacza w iPhonie 4/4S. Stanowia one idealny zamiennik dla masowo dostepnych folii, które w praktyce okazuja sie malo skutecznym sposobem na wlasciwe zabezpieczenie ekranu dotykowego. Folie Wrapsol to najlatwiejsze w nakładaniu, najmocniejsze i najtrwalsze folie do zabezpieczania zewnętrznych powierzchni telefonów oraz innych urządzeń przenośnych. Znacznie wytrzymalsze od folii z najnizszej kategorii cenowej dostępnych na rynku, Zachowuje oryginalną czułość ekranu dotykowego, Proces nakladania folii odbywa sie od początku do końca na sucho, Wyprodukowane na terenie USA]]></opis>
+    <stan><![CDATA[1.0000]]></stan>
+    <vat><![CDATA[23,00]]></vat>
+    <cena_netto><![CDATA[11,50]]></cena_netto>
+    <cena_brutto><![CDATA[14,15]]></cena_brutto>
+    <cenasrp_netto><![CDATA[15,45]]></cenasrp_netto>
+    <cenasrp_brutto><![CDATA[19,00]]></cenasrp_brutto>
+  </produkt>
+</produkty>
+</xml>

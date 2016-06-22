@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{% load i18n %}
+{% load static %}
+{% load shop_tags %}
+
+{% block navigation %}
+    {% include "partials/nav_primary.html" %}
+{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block column_left %}
+{% endblock %}
+
+{# Main content of page - other layout templates may override this block #}
+{% block content_wrapper %}
+    <div class="container-fluid page">
+        <div>
+            {% include "partials/alert_messages.html" %}
+            <div class="content">
+                {# Div exists for AJAX updates to entire content section #}
+                <div id="content_inner">
+                    <div id="front-page-segment" class="col col-md-10 col-md-offset-1">
+                        <div class="row">
+                            <div class="col col-md-6">
+                                <div class="panel panel-default panel-styled">
+                                    <div class="panel-heading"><h2>Nagłówek</h2></div>
+                                    <div class="panel-image">
+                                        <img src="/media/images/promotions/cats.jpg">
+                                    </div>
+                                    <div class="panel-body">
+                                        Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+                                        per inceptos himenaeos. Quisque sapien urna, porta ut auctor eget, suscipit
+                                        ut nibh. Aliquam molestie nibh at lectus fringilla, a luctus mi viverra.
+                                        Donec semper purus id magna elementum, eu feugiat metus blandit.
+                                    </div>
+                                     <div class="panel-footer text-center">
+                                        <a class="btn btn-info">{% trans 'read more' %}</a>
+                                    <div class="clearfix"></div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col col-md-6">
+                                <div class="row">
+                                    <div class="col col-md-12">
+                                        <div class="panel panel-default" style="height:200px;">
+                                            <div class="panel-body">panel</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col col-md-12">
+                                        {% product_box slug='the-shellcoders-handbook' %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

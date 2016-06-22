@@ -1,0 +1,25 @@
+{% extends "oscar/layout.html" %}
+{% load staticfiles %}
+{% load promotion_tags %}
+
+{% block styles %}
+    <!-- Bootstrap core CSS -->
+    <link href="{% static "bower_components/bootstrap/scss/bootstrap.css" %}" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block layout %}
+
+    {% include 'partials/header.html' %}
+    {# Main content of page - other layout templates may override this block #}
+    <div class="container-fluid">
+        <div id="page-content">
+            {% block content_wrapper %}
+            {% endblock %}
+        </div>
+    </div>
+    {% include "partials/footer.html" %}
+{% endblock %}

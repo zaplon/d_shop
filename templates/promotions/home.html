@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% load shop_tags %}
+
+{% block content_wrapper %}
+    <div class="row">
+        <div class="col-md-4">
+            {% product_box slug='the-shellcoders-handbook' %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 color-one shop-card"></div>
+        <div class="col-md-4 color-two shop-card"></div>
+        <div class="col-md-4 color-three shop-card"></div>
+    </div>
+    <div class="row">
+        <div class="jumbotron">
+            <p class="lead text-center">This is a simple hero unit, a simple jumbotron-style component for
+                calling extra attention to featured content or information.</p>
+        </div>
+    </div>
+{% endblock %}

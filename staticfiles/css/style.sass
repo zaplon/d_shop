@@ -1,0 +1,67 @@
+@import ../bower_components/bootstrap/scss/variables
+$nav-color: #fff
+$big-margin-negative: -0.5rem -1.5rem
+$big-margin: 0.5rem 1.5rem
+
+
+#page-content
+  min-height: 20rem
+  margin-top: 3.9rem
+
+.shop-card
+  border: none
+  min-height: 5rem
+
+
+.color-one
+  background-color: lighten($brand-primary, 10%)
+.color-two
+  background-color: lighten($brand-info, 10%)
+.color-three
+  background-color: lighten($brand-success, 10%)
+
+#top-nav
+  .nav
+    margin-left: 1px
+    margin-right: -1px
+  padding: 0
+  margin-top: -0.5rem
+  margin-bottom: -0.5rem
+  a, button
+    width: 33.33%
+    padding: 1.2rem 0
+    margin: 0
+    text-align: center
+    cursor: pointer
+  a:first-of-type
+    background-color: darken($nav-color, 10%)
+  a:nth-of-type(2)
+    background-color: darken($nav-color, 20%)
+  a:nth-of-type(3)
+    background-color: darken($nav-color, 30%)
+
+.page-footer
+  background-color: $gray-dark
+  color: $gray-lighter
+  ul
+    list-style-position: inside
+    margin: $navbar-padding-vertical 0
+    padding-left: 0
+    li
+      list-style: none
+      font-size: $font-size-sm
+
+.product-card
+  cursor: pointer
+  margin-left: -$grid-gutter-width/2
+  margin-right: -$grid-gutter-width/2
+  padding: $spacer
+  text-align: center
+  .image
+    img
+      max-width: 70%
+  .title
+    margin-top: $spacer-y
+
+.product-card:hover
+  background-color: $gray-lighter

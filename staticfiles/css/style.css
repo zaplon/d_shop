@@ -1,0 +1,63 @@
+#page-content {
+  min-height: 20rem;
+  margin-top: 3.9rem; }
+
+.shop-card {
+  border: none;
+  min-height: 5rem; }
+
+.color-one {
+  background-color: #108ffd; }
+
+.color-two {
+  background-color: #85d0e7; }
+
+.color-three {
+  background-color: #80c780; }
+
+#top-nav {
+  padding: 0;
+  margin-top: -0.5rem;
+  margin-bottom: -0.5rem; }
+  #top-nav .nav {
+    margin-left: 1px;
+    margin-right: -1px; }
+  #top-nav a, #top-nav button {
+    width: 33.33%;
+    padding: 1.2rem 0;
+    margin: 0;
+    text-align: center;
+    cursor: pointer; }
+  #top-nav a:first-of-type {
+    background-color: #e6e6e6; }
+  #top-nav a:nth-of-type(2) {
+    background-color: #cccccc; }
+  #top-nav a:nth-of-type(3) {
+    background-color: #b3b3b3; }
+
+.page-footer {
+  background-color: #373a3c;
+  color: #eceeef; }
+  .page-footer ul {
+    list-style-position: inside;
+    margin: 0.5rem 0;
+    padding-left: 0; }
+    .page-footer ul li {
+      list-style: none;
+      font-size: 0.875rem; }
+
+.product-card {
+  cursor: pointer;
+  margin-left: -0.9375rem;
+  margin-right: -0.9375rem;
+  padding: 1rem;
+  text-align: center; }
+  .product-card .image img {
+    max-width: 70%; }
+  .product-card .title {
+    margin-top: 1rem; }
+
+.product-card:hover {
+  background-color: #eceeef; }
+
+/*# sourceMappingURL=style.css.map */

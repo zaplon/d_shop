@@ -1,0 +1,61 @@
+{% load static %}
+<html lang="pl"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Fixed top navbar example for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static "bower_components/bootstrap/scss/bootstrap.css" %}" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+  <script type="text/javascript" src="chrome-extension://aadgmnobpdmgmigaicncghmmoeflnamj/ng-inspector.js"></script></head>
+
+  <body>
+    <div class="container-fluid">
+        <div id="page-content">
+            <div class="row">
+                <div class="col-md-4 color-one shop-card"></div>
+                <div class="col-md-4 color-two shop-card"></div>
+                <div class="col-md-4 color-three shop-card"></div>
+            </div>
+            <div class="row">
+                <div class="jumbotron">
+                    <p class="lead text-center">This is a simple hero unit, a simple jumbotron-style component for
+                        calling extra attention to featured content or information.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="page-footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <ul>
+                        <li>
+                            link 1
+                        </li>
+                        <li>link 2</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="{% static "bower_components/bootstrap/dist/js/bootstrap.min.js" %}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static "bower_components/bootstrap/dist/js/ie10-viewport-bug-workaround.js" %}"></script>
+
+
+</body></html>
