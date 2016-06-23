@@ -32,7 +32,7 @@ class Command(BaseCommand):
     def add_images(self, p, node):
         for zdjecie in node.zdjecie:
            file_name = wget.download(zdjecie.cdata)
-           caption = p.name + file_name.split('.')[0]
+           caption = p.title + file_name.split('.')[0]
            ProductImage.objects.create(product=p, image=file_name, caption=caption)
            os.remove(file_name)
 
