@@ -47,8 +47,7 @@ INSTALLED_APPS = [
                      'rest_framework',
                      'importer',
                      'apps.promotions',
-                     'apps.catalogue'
-                 ] + get_core_apps()
+                 ] + get_core_apps(['apps.catalogue'])
 
 SITE_ID = 1
 

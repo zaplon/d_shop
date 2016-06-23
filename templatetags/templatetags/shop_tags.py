@@ -1,5 +1,5 @@
 from django import template
-from oscar.apps.catalogue.models import Product
+from apps.catalogue.models import Product
 
 
 register = template.Library()

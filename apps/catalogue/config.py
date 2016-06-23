@@ -1,8 +1,5 @@
-from django.apps import AppConfig
-from django.utils.translation import ugettext_lazy as _
+from oscar.apps.catalogue import config
 
 
-class CatalogueConfig(AppConfig):
-    label = 'shop.catalogue'
+class CatalogueConfig(config.CatalogueConfig):
     name = 'apps.catalogue'
-    verbose_name = _('Catalogue')
