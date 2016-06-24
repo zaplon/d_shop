@@ -7,7 +7,10 @@ from oscar.core.loading import get_model
 import wget
 import os
 
+
 Category = get_model('catalogue', 'category')
+StockRecord = get_model('partner', 'stockrecord')
+Partner = get_model('partner', 'partner')
 
 
 class Command(BaseCommand):
@@ -15,6 +18,7 @@ class Command(BaseCommand):
     fields_map = {'title': 'nazwa', 'external_id': 'ProduktId', 'description': 'opis'}
     categories = {}
     breadcrumbs = []
+    partner = Partner.objects.get(code='forcetop')
 
     def add_arguments(self, parser):
         # Named (optional) arguments
@@ -28,6 +32,18 @@ class Command(BaseCommand):
                             dest='get_images',
                             help='Get product images')
 
+    def add_prices(self, p, node):
+        try:
+            sr = StockRecord.objects.get(product=p, partner=self.partner)
+        except:
+            sr = StockRecord(product=p, partner=self.partner)
+        sr.price_excl_tax = node.cenasrp_netto.cdata
+        sr.price_retail = node.cenasrp_brutto.cdata
+        sr.cost_price = node.cena_brutto.cdata
+        sr.num_in_stock = 0 if node.stan.cdata < 5 else node.stan.cdata - 5
+        sr.low_stock_threshold = 5
+        sr.save()
+        
     def add_images(self, p, node):
         for zdjecie in node.zdjecie:
             file_name = wget.download(zdjecie.cdata)
