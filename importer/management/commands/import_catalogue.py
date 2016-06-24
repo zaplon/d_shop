@@ -11,6 +11,7 @@ import os
 Category = get_model('catalogue', 'category')
 StockRecord = get_model('partner', 'stockrecord')
 Partner = get_model('partner', 'partner')
+ProductCategory = get_model('catalogue', 'productcategory')
 
 
 class Command(BaseCommand):
@@ -32,6 +33,12 @@ class Command(BaseCommand):
                             dest='get_images',
                             help='Get product images')
 
+        parser.add_argument('--delete-all',
+                            action='store_true',
+                            dest='delete-all',
+                            help='Delete all before import')
+
+
     def add_prices(self, p, node):
         try:
             sr = StockRecord.objects.get(product=p, partner=self.partner)
@@ -45,10 +52,12 @@ class Command(BaseCommand):
         sr.save()
         
     def add_images(self, p, node):
-        for zdjecie in node.zdjecie:
-            file_name = wget.download(zdjecie.cdata)
-            caption = p.title + file_name.split('.')[0]
-            ProductImage.objects.create(product=p, image=file_name, caption=caption)
+        for i, zdjecie in enumerate(node.zdjecie):
+            caption = p.title + ' ' + str(i)
+            #out = os.path.join(os.getcwd(), 'public', 'media', 'images', 'products', caption + '.jpg')
+            out = caption + '.jpg'
+            file_name = wget.download(zdjecie.cdata, out=out)
+            ProductImage.objects.create(product=p, original=file_name, caption=caption, display_order=i)
             os.remove(file_name)
 
     def handle(self, *args, **options):
@@ -57,13 +66,19 @@ class Command(BaseCommand):
         e_types = {k.external_type: k for k in klasses}
         file = options.get('file')
         get_images = options.get('get_images', False)
+        delete_all = options.get('delete-all', False)
+        delete_all = get_images = True
+        if delete_all:
+            Product.objects.all().delete()
+            Category.objects.all().delete()
+            StockRecord.objects.all().delete()
         obj = untangle.parse(file)
         for p in obj.xml.produkty.produkt:
             k_ids = []
             for k in p.kategorie.kategoria:
                 path = k.cdata
-                breadcrumb = path.split('/')
-                breadcrumb = ' > '.join(breadcrumb)
+                breadcrumb_list = path.split('/')
+                breadcrumb = ' > '.join(breadcrumb_list)
                 k_ids.append(k['id'])
             p_type = ''
             for a in p.atrybuty.atrybut:
@@ -74,10 +89,10 @@ class Command(BaseCommand):
             if not breadcrumb in self.breadcrumbs:
                 self.breadcrumbs.append(breadcrumb)
             if not breadcrumb[-1] in self.categories:
-                self.categories[breadcrumb[-1]] = []
-            self.categories[breadcrumb[-1]].append(p.ProduktId)
+                self.categories[breadcrumb_list[-1]] = []
+            self.categories[breadcrumb_list[-1]].append(p.ProduktId)
             try:
-                p_obj = Product.objects.get(external_id=p.ProduktId)
+                p_obj = Product.objects.get(external_id=p.ProduktId.cdata)
             except:
                 p_obj = Product(product_class=e_types[p_type])
             for f in self.fields_map:
@@ -86,11 +101,13 @@ class Command(BaseCommand):
             self.stdout.write('Product %s saved' % p_obj.title)
             if get_images:
                 self.add_images(p_obj, p.zdjecia)
+        print self.categories
         for b in self.breadcrumbs:
             create_from_breadcrumbs(b)
         for category in self.categories:
             for c in self.categories[category]:
+                print category
                 obj = Category.objects.get(name=category)
-                p = Product.objects.get(external_id=c)
-                p.categories.add(obj)
+                p = Product.objects.get(external_id=c.cdata)
+                ProductCategory.objects.get_or_create(product=p, category=obj)
         self.stdout.write('Successfully imported data')
