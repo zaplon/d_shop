@@ -1,10 +1,13 @@
 {% extends 'layout.html' %}
 {% load shop_tags %}
 
-{% block content_wrapper %}
+{% block custom_page_content %}
     <div class="row">
         <div class="col-md-4">
             {% product_box slug='the-shellcoders-handbook' %}
+        </div>
+        <div class="col-md-4">
+            {% category_box slug='etui' %}
         </div>
     </div>
     <div class="row">

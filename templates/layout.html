@@ -17,7 +17,15 @@
     {# Main content of page - other layout templates may override this block #}
     <div class="container-fluid">
         <div id="page-content">
+            {% block custom_page_content %}
+            {% endblock %}
             {% block content_wrapper %}
+                <div class="page container">
+                    {% block breadcrumbs %}
+                    {% endblock %}
+                    {% block content %}
+                    {% endblock %}
+                </div>
             {% endblock %}
         </div>
     </div>

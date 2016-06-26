@@ -2,9 +2,9 @@
 
 <div class="product-card">
     <div class="image">
-        <img src="{{ product.primary_image.original.url }}"/>
+        <a href="{{ product.get_absolute_url }}"><img src="{{ product.primary_image.original.url }}"/></a>
     </div>
     <div class="title">
-        <h5>{{ product.title }}</h5>
+        <a href="{{ product.get_absolute_url }}"><h5>{{ product.title }}</h5></a>
     </div>
 </div>

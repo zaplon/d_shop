@@ -60,4 +60,15 @@
 .product-card:hover {
   background-color: #eceeef; }
 
+.page {
+  padding-top: 2rem;
+  padding-bottom: 2rem; }
+
+.product_page h2 {
+  text-align: center;
+  margin: 1rem 0 2rem 0; }
+
+.add-to-basket {
+  margin-bottom: 1rem; }
+
 /*# sourceMappingURL=style.css.map */
