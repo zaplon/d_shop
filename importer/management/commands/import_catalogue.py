@@ -8,6 +8,9 @@ from django.core.exceptions import ObjectDoesNotExist
 import wget
 from django.conf import settings
 import os
+import datetime
+import shutil
+
 
 Category = get_model('catalogue', 'category')
 StockRecord = get_model('partner', 'stockrecord')
@@ -16,8 +19,10 @@ ProductCategory = get_model('catalogue', 'productcategory')
 ProductAttribute = get_model('catalogue', 'productattribute')
 ProductAttributeValue = get_model('catalogue', 'productattributevalue')
 
-DOWNLOAD_FOLDER = os.path.join(settings.BASE_DIR, settings.OSCAR_IMAGE_FOLDER)
-FRONT_URL_ROOT = '/media/images/products/'
+OSCAR_IMAGES_FOLDER = datetime.datetime.now().strftime(settings.OSCAR_IMAGE_FOLDER)
+DOWNLOAD_FOLDER = os.path.join(settings.BASE_DIR, 'public', 'media', OSCAR_IMAGES_FOLDER)
+
+FRONT_URL_ROOT =  OSCAR_IMAGES_FOLDER
 
 
 class Command(BaseCommand):
@@ -33,7 +38,7 @@ class Command(BaseCommand):
         parser.add_argument('--file',
                             action='store_true',
                             dest='file',
-                            default='catalogue.xml',
+                            default='full.xml',  # 'catalogue.xml',
                             help='Name of the XML file to import')
         parser.add_argument('--get-images',
                             action='store_true',
@@ -66,13 +71,14 @@ class Command(BaseCommand):
 
     def add_images(self, p, node):
         for i, zdjecie in enumerate(node.zdjecie):
-            caption = p.title + ' ' + str(i)
-            out = os.path.join(DOWNLOAD_FOLDER, caption + '.jpg')
+            caption = self.slugify(p.title + ' ' + str(i))
             front = os.path.join(FRONT_URL_ROOT, caption + '.jpg')
             try:
-                file_name = wget.download(zdjecie.cdata, out=out)
-                ProductImage.objects.create(product=p, original=out, caption=caption, display_order=i)
-                # os.remove(file_name)
+                file_name = wget.download(zdjecie.cdata, out=caption+'.jpg')
+                ProductImage.objects.create(product=p, original=front, caption=caption, display_order=i)
+                move_from = os.path.join(settings.BASE_DIR, file_name)
+                move_to = DOWNLOAD_FOLDER
+                shutil.move(move_from, move_to)
                 print file_name
             except:
                 print 'No image  for product %s (%s)' % (p.title, i)

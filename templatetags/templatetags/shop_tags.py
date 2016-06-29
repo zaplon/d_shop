@@ -1,5 +1,5 @@
 from django import template
-from apps.catalogue.models import Product, Category
+from apps.catalogue.models import Product, Category, ProductClass, ProductCategory
 
 
 register = template.Library()
@@ -17,6 +17,6 @@ def product_box(slug):
 @register.inclusion_tag('templatetags/box.html')
 def category_box(slug):
     c = Category.objects.get(slug=slug)
-    image = getattr(c, 'image', None)
     return {'title': c.name, 'url': c.get_absolute_url(), 'image': c.image.url if c.image else None}
+
 

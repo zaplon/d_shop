@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block custom_page_content %}
+    <div class="row">
+        <form class="form">
+            <div class="col-md-4">
+               <select class="form form-control">
+                    <option value="-1">Typ</option>
+                   {% for t in types %}
+                       <option name="{{ t.name }}" value="{{ t.id }}">{{ t.name }}</option>
+                   {% endfor %}
+               </select>
+            </div>
+            <div class="col-md-4">
+               <select class="form form-control">
+                    <option value="-1">Marka</option>
+                   {% for b in brands %}
+                       <option name="{{ b.name }}" value="{{ b.id }}">{{ b.name }}</option>
+                   {% endfor %}
+               </select>
+            </div>
+            <div class="col-md-4">
+               <select class="form form-control">
+                    <option value="-1">Model</option>
+                   {% for m in models %}
+                       <option name="{{ m.name }}" value="{{ m.id }}">{{ m.name }}</option>
+                   {% endfor %}
+               </select>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
+
+{% block onbodyload %}
+    {{ block.super }}
+    oscar.search.init();
+{% endblock %}

@@ -15,17 +15,8 @@
 
     {% include 'partials/header.html' %}
     {# Main content of page - other layout templates may override this block #}
-    <div class="container-fluid">
-        <div id="page-content">
-            {% block content_wrapper %}
-                <div class="page container">
-                    {% block breadcrumbs %}
-                    {% endblock %}
-                    {% block content %}
-                    {% endblock %}
-                </div>
-            {% endblock %}
-        </div>
-    </div>
+    {% block content %}
+    {% endblock %}
+
     {% include "partials/footer.html" %}
 {% endblock %}
