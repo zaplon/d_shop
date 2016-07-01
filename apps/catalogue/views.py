@@ -52,5 +52,5 @@ class EtuiView(TemplateView):
 
     def get_context_data(self, **kwargs):
         ctx = {}
-        #ProductAttribute.objects.filter(code__in=['wzor', ''])
+        ctx['attributes'] = {p.code: p for p in ProductAttribute.objects.filter(code__in=['wzor', 'marka', 'kolor'])}
         return ctx

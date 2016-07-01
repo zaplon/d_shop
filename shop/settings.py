@@ -43,10 +43,11 @@ INSTALLED_APPS = [
                      'compressor',
                      'widget_tweaks',
                      'templatetags',
-                     'oscarapi',
+                     'apps.api',
                      'rest_framework',
                      'importer',
                      'apps.promotions',
+                     'jstemplate'
                  ] + get_core_apps(['apps.catalogue'])
 
 SITE_ID = 1

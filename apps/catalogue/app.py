@@ -8,8 +8,8 @@ class CatalogueApplication(CorePromotionsApplication):
     def get_urls(self):
         urlpatterns = super(CatalogueApplication, self).get_urls()
         urlpatterns += [
-            url(r'^etui/', self.catalogue_view.as_view(), name='index'),
-            url(r'^$', self.etui_view.as_view(), name='etui'),
+            url(r'^etui/', self.etui_view.as_view(), name='index'),
+            url(r'^$', self.catalogue_view.as_view(), name='etui'),
             url(r'^(?P<product_slug>[\w-]*)_(?P<pk>\d+)/$',
                 self.detail_view.as_view(), name='detail'),
             url(r'^kategoria/(?P<category_slug>[\w-]+(/[\w-]+)*)_(?P<pk>\d+)/$',

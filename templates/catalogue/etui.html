@@ -1,38 +1,26 @@
 {% extends 'layout.html' %}
+{% load static %}
+{% load jstemplate %}
 
-{% block custom_page_content %}
+{% block content %}
     <div class="row">
         <form class="form">
-            <div class="col-md-4">
-               <select class="form form-control">
-                    <option value="-1">Typ</option>
-                   {% for t in types %}
-                       <option name="{{ t.name }}" value="{{ t.id }}">{{ t.name }}</option>
-                   {% endfor %}
-               </select>
-            </div>
-            <div class="col-md-4">
-               <select class="form form-control">
-                    <option value="-1">Marka</option>
-                   {% for b in brands %}
-                       <option name="{{ b.name }}" value="{{ b.id }}">{{ b.name }}</option>
-                   {% endfor %}
-               </select>
-            </div>
-            <div class="col-md-4">
-               <select class="form form-control">
-                    <option value="-1">Model</option>
-                   {% for m in models %}
-                       <option name="{{ m.name }}" value="{{ m.id }}">{{ m.name }}</option>
-                   {% endfor %}
-               </select>
-            </div>
+            {% for a in attributes %}
+                <div class="col-md-4">
+                   <select class="form form-control">
+                        <option value="-1">{{ a.name }}</option>
+                       {% for v in a.values.all %}
+                           <option name="{{ v.value_text }}" value="{{ v.id }}">{{ v.value_text }}</option>
+                       {% endfor %}
+                   </select>
+                </div>
+            {% endfor %}
         </form>
     </div>
 
 {% endblock %}
 
-{% block onbodyload %}
-    {{ block.super }}
-    oscar.search.init();
+{% block extrascripts %}
+  {% handlebarsjs 'product' precompile %}
+  <script src="{% static "js/catalogue/etui.js" %}"></script>
 {% endblock %}

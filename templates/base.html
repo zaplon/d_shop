@@ -1,1 +1,16 @@
 {% extends 'oscar/base.html' %}
+{% load static %}
+
+{% block scripts %}
+    {{ block.super }}
+    <!-- Twitter Bootstrap -->
+    <script type="text/javascript" src="{% static "oscar/js/bootstrap3/bootstrap.min.js" %}"></script>
+    <!-- Oscar -->
+    <script src="{% static "oscar/js/oscar/ui.js" %}" type="text/javascript" charset="utf-8"></script>
+
+    <script src="{% static "oscar/js/bootstrap-datetimepicker/bootstrap-datetimepicker.js" %}" type="text/javascript"
+            charset="utf-8"></script>
+    <script src="{% static "oscar/js/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.all.js" %}"
+            type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "bower_components/handlebars/handlebars.min.js" %}"></script>
+{% endblock %}

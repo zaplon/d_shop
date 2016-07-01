@@ -17,7 +17,7 @@ from django.contrib import admin
 from oscar.app import application
 from django.conf import settings
 from django.conf.urls.static import static
-from oscarapi.app import application as api
+from apps.api.app import application as api
 
 
 urlpatterns = [

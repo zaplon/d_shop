@@ -54,7 +54,6 @@ class Command(BaseCommand):
         text = text.replace(' ', '_').lower().encode('utf-8')
         for e in self.escape_map:
             text = text.replace(e, self.escape_map[e])
-        print text
         return text
 
     def add_prices(self, p, node):
@@ -90,7 +89,8 @@ class Command(BaseCommand):
         file = options.get('file')
         get_images = options.get('get_images', False)
         delete_all = options.get('delete-all', False)
-        delete_all = get_images = True
+        delete_all = True
+        get_images = False
         if delete_all:
             Product.objects.all().delete()
             ProductAttribute.objects.all().delete()
@@ -122,10 +122,11 @@ class Command(BaseCommand):
             for f in self.fields_map:
                 setattr(p_obj, f, getattr(p, self.fields_map[f]).cdata)
             p_obj.save()
+            print p_obj.title
             for a in p.atrybuty.atrybut:
                 if not a['name'] == 'Typ':
                     try:
-                        pa = ProductAttribute.objects.get(product_class=p_obj.product_class, code=self.slugify(a.cdata))
+                        pa = ProductAttribute.objects.get(product_class=p_obj.product_class, code=self.slugify(a['name']))
                     except ObjectDoesNotExist:
                         pa = ProductAttribute.objects.create(product_class=p_obj.product_class,
                                                              code=self.slugify(a['name']), type='text')
@@ -140,12 +141,10 @@ class Command(BaseCommand):
             self.stdout.write('Product %s saved' % p_obj.title)
             if get_images:
                 self.add_images(p_obj, p.zdjecia)
-        print self.categories
         for b in self.breadcrumbs:
             create_from_breadcrumbs(b)
         for category in self.categories:
             for c in self.categories[category]:
-                print category
                 obj = Category.objects.get(name=category)
                 p = Product.objects.get(external_id=c.cdata)
                 ProductCategory.objects.get_or_create(product=p, category=obj)
