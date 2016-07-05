@@ -47,7 +47,8 @@ INSTALLED_APPS = [
                      'rest_framework',
                      'importer',
                      'apps.promotions',
-                     'jstemplate'
+                     'jstemplate',
+                     'debug_toolbar'
                  ] + get_core_apps(['apps.catalogue'])
 
 SITE_ID = 1
@@ -205,4 +206,8 @@ OSCAR_ORDER_STATUS_PIPELINE = {
     'Pending': ('Being processed', 'Cancelled',),
     'Being processed': ('Processed', 'Cancelled',),
     'Cancelled': (),
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination'
 }

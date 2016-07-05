@@ -3,23 +3,26 @@
 {% load promotion_tags %}
 
 
-{% block styles %}
-    <!-- Bootstrap core CSS -->
-    <link href="{% static "bower_components/bootstrap/scss/bootstrap.css" %}" rel="stylesheet">
-
-    <!-- Custom styles -->
-    <link href="{% static "css/style.css" %}" rel="stylesheet">
-{% endblock %}
-
-
 {% block layout %}
 
     {% include 'partials/header.html' %}
-    {# Main content of page - other layout templates may override this block #}
-    <div class="container-fluid">
+    {% block jumbotron %}
+    {% endblock %}
+    <div id="fixed-top">
+        {% block fixed_top %}
+        {% endblock %}
+    </div>
+    <div id="fixed-top-spy-mark"></div>
+    <div id="fixed-top-spy">
+        <div class="container">
+            {% block fixed_top_spy %}
+            {% endblock %}
+        </div>
+    </div>
+    <div class="container">
         <div id="page-content">
             {% block content_wrapper %}
-                <div class="page container">
+                <div class="page">
                     {% block breadcrumbs %}
                     {% endblock %}
                     {% block content %}

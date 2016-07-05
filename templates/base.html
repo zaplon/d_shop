@@ -13,4 +13,15 @@
     <script src="{% static "oscar/js/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.all.js" %}"
             type="text/javascript" charset="utf-8"></script>
     <script src="{% static "bower_components/handlebars/handlebars.min.js" %}"></script>
+    <script src="{% static "js/utils.js" %}"></script>
+    <script src="{% static "bower_components/bootstrap-select/dist/js/bootstrap-select.js" %}"></script>
+{% endblock %}
+
+{% block styles %}
+    <!-- Bootstrap core CSS -->
+    <link href="{% static "bower_components/bootstrap/scss/bootstrap.css" %}" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+    <link href="{% static "bower_components/bootstrap-select/dist/css/bootstrap-select.min.css" %}" rel="stylesheet">
 {% endblock %}

@@ -2,14 +2,29 @@
 {% load static %}
 {% load jstemplate %}
 
-{% block content %}
-    <div class="row">
+{% block jumbotron %}
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-3">Fluid jumbotron</h1>
+        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+      </div>
+    </div>
+{% endblock %}
+
+
+{% block fixed_top_spy %}
+    <div id="product-filters">
         <form class="form">
-            {% for a in attributes %}
+            {% for name, data in attributes.items %}
                 <div class="col-md-4">
-                   <select class="form form-control">
-                        <option value="-1">{{ a.name }}</option>
-                       {% for v in a.values.all %}
+                   <select class="form-control selectpicker" {% if data.multiselect %} multiple {% endif %}
+                           title="{{ name }}"
+                           data-live-search="true"
+                           {% if data.multiselect %}
+                            data-selected-text-format="count > 3"
+                           {% endif %}
+                           data-attribute="{{ data.id }}">
+                       {% for v in data.values %}
                            <option name="{{ v.value_text }}" value="{{ v.id }}">{{ v.value_text }}</option>
                        {% endfor %}
                    </select>
@@ -17,6 +32,9 @@
             {% endfor %}
         </form>
     </div>
+{% endblock %}
+
+{% block content %}
     <div id="products-container"></div>
 
 {% endblock %}

@@ -52,5 +52,8 @@ class EtuiView(TemplateView):
 
     def get_context_data(self, **kwargs):
         ctx = {}
-        ctx['attributes'] = {p.code: p for p in ProductAttribute.objects.filter(code__in=['wzor', 'marka', 'kolor'])}
+        ctx['attributes'] = {p.name: {'values': p.productattributevalue_set.all().values(), 'id': p.id,
+                                      'multiselect': True if p.code in ['kolor_bazowy'] else False}
+                             for p in ProductAttribute.objects.filter(code__in=['wzor', 'kompatybilnosc',
+                                                                                'kolor_bazowy'])}
         return ctx
