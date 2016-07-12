@@ -1,26 +1,38 @@
-{% extends 'layout-full.html' %}
+{% extends 'layout.html' %}
+{% load static %}
 {% load shop_tags %}
 
+{% block breadcrumbs %}
+{% endblock %}
+
+{% block margin-top %}
+    <div id="top-margin-home"></div>
+{% endblock %}
+
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                {% product_box slug='the-shellcoders-handbook' %}
-            </div>
-            <div class="col-md-4">
-        {#            {% category_box slug='etui' %}#}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4 color-one shop-card"></div>
-            <div class="col-md-4 color-two shop-card"></div>
-            <div class="col-md-4 color-three shop-card"></div>
-        </div>
-        <div class="row">
-            <div class="jumbotron">
-                <p class="lead text-center">This is a simple hero unit, a simple jumbotron-style component for
-                    calling extra attention to featured content or information.</p>
+    <div class="row">
+        <div class="col-md-8 no-padding">
+            <div class="front-card front-card-tall" style="background-image: url('/media/images/promotions/case.jpg');
+            background-size:cover;">
+                <div class="front-card-title">
+                    <a href="/catalogue/etui"><h2>Opakowania, etui, folie</h2></a>
+                </div>
             </div>
         </div>
+        <div class="col-md-4 no-padding">
+            <div class="front-card color-one">
+                <div class="front-card-title">
+                    <a href="/catalogue/etui"><h2>Ładowarki</h2></a>
+                </div>
+            </div>
+            <div class="front-card color-one">
+                <div class="front-card-title">
+                    <a href="/catalogue/etui"><h2>Akcesoria sportowe</h2></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron-front row">
+            <h3>Darmowa wysyłka dla zamówień powyżej 100zł</h3>
     </div>
 {% endblock %}

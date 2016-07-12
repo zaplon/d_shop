@@ -7,7 +7,7 @@ class Utils{
         var curTop = curPos.top;
         if (offset)
             curTop -= offset;
-        return (curTop < window.scrollY) ? false : true;
+        return (curTop < window.scrollY) ? true : false;
     }
     public fixedTopSpy()
     {
@@ -17,7 +17,7 @@ class Utils{
             var mark = $('#fixed-top-spy-mark');
             if (!div)
                 return;
-            if (!me.isOnScreen(mark, $('#navbar-header').height())) {
+            if (me.isOnScreen(mark, $('#navbar-header').height())) {
                 if (!div.hasClass('fixed-top'))
                     div.addClass('fixed-top');
 

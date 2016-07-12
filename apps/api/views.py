@@ -9,7 +9,14 @@ from django_filters.fields import Lookup
 
 class ListFilter(Filter):
     def filter(self, qs, value):
-        return super(ListFilter, self).filter(qs, Lookup(value.split(u","), "in"))
+        query = super(ListFilter, self)
+        for v in value.split(u","):
+            values_list = v.split('.')
+            if len(values_list) > 1:
+                qs = query.filter(qs, Lookup(values_list, "in"))
+            else:
+                qs = query.filter(qs, Lookup(values_list[0], 'exact'))
+        return qs
 
 
 Product = get_model('catalogue', 'Product')

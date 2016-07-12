@@ -3,7 +3,7 @@
 {% load jstemplate %}
 
 {% block jumbotron %}
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron jumbotron-fluid top-jumbotron">
       <div class="container">
         <h1 class="display-3">Fluid jumbotron</h1>
         <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
@@ -11,9 +11,23 @@
     </div>
 {% endblock %}
 
+{% block breadcrumbs %}
+    <div id="top-nav-border"></div>
+    <div class="row">
+        <div class="col-md-6">
+            <ul class="breadcrumb">
+                <li><a href="/">Strona główna</a></li>
+                <li>Opakowania na telefon</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <div id="filters-list"><ul></ul></div>
+        </div>
+    </div>
+{% endblock %}
 
 {% block fixed_top_spy %}
-    <div id="product-filters">
+    <div id="product-filters" class="row">
         <form class="form">
             {% for name, data in attributes.items %}
                 <div class="col-md-4">
@@ -41,5 +55,6 @@
 
 {% block extrascripts %}
   {% handlebarsjs 'product' precompile %}
+  {% handlebarsjs 'filters' precompile %}
   <script src="{% static "js/catalogue/etui.js" %}"></script>
 {% endblock %}

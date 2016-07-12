@@ -6,6 +6,15 @@
 {% block layout %}
 
     {% include 'partials/header.html' %}
+        <div class="container sub-header">
+                {% block breadcrumbs %}{% endblock %}
+            </div>
+        </div>
+    </div>
+    {% block margin-top %}
+        <div class="top-margin"></div>
+    {% endblock %}
+
     {% block jumbotron %}
     {% endblock %}
     <div id="fixed-top">
@@ -23,8 +32,6 @@
         <div id="page-content">
             {% block content_wrapper %}
                 <div class="page">
-                    {% block breadcrumbs %}
-                    {% endblock %}
                     {% block content %}
                     {% endblock %}
                 </div>
@@ -33,3 +40,4 @@
     </div>
     {% include "partials/footer.html" %}
 {% endblock %}
+

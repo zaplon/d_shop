@@ -11,22 +11,45 @@ $big-margin: 0.5rem 1.5rem
   border: none
   min-height: 5rem
 
-.front-card-title
-  background: rgba(250, 250, 250, 0.8)
+.front-card
+  height: 200px
   text-align: center
+  position: relative
+  .top
+    height: 0
+    border-width: 0 0 200px 200px
+    border-style: solid
+    border-color: transparent #d71f55 #d71f55 transparent
+  .bottom
+    height: 50px
+    background-color: #d71f55
+  .front-card-title
+    text-align: center
+    position: absolute
+    bottom: $spacer-y
+    width: 100%
+    h2
+      cursor: pointer
+      padding: $spacer-y $spacer-x
+      background: $gray-dark
+      font-size: $font-size-h5
+      color: white
+      display: inline-block
+
+.front-card-tall
+  height: 400px
+
+.no-padding
+  padding: 0
 
 .color-one
-  background-color: lighten($brand-primary, 10%)
+  background-color: $gray-lighter
 .color-two
-  background-color: lighten($brand-info, 10%)
+  background-color: lighten($gray-lighter, 10%)
 .color-three
-  background-color: lighten($brand-success, 10%)
+  background-color: lighten($gray-lighter, 10%)
 
 #top-nav
-  .nav
-    margin-left: 1px
-    margin-right: -1px
-  //padding: 0
   margin-top: -0.5rem
   margin-bottom: -0.5rem
   a, button
@@ -37,11 +60,11 @@ $big-margin: 0.5rem 1.5rem
     text-align: center
     cursor: pointer
   a:first-of-type
-    background-color: darken($brand-primary, 5%)
+    background-color: darken($brand-primary, 0%)
   a:nth-of-type(2)
-    background-color: darken($brand-primary, 10%)
+    background-color: darken($brand-primary, 5%)
   a:nth-of-type(3)
-    background-color: darken($brand-primary, 15%)
+    background-color: darken($brand-primary, 10%)
 
 .page-footer
   background-color: $gray-dark
@@ -87,15 +110,61 @@ $big-margin: 0.5rem 1.5rem
 
 #product-filters
   margin-top: -2rem
-  div
-    padding-left: 0
+  div:last-of-type
     padding-right: 0
+  div:first-of-type
+    padding-left: 0
   button
-    background-color: darken($nav-color, 10%)
+    background-color: white
     border-radius: 0
+    border: 1px solid $gray-light
 
 .hidden
   display: none
 
-.top-margin
+.top-margin-home
   margin-top: 62.375px
+.top-margin
+  margin-top: 120px
+
+#navbar-body
+  background-color: white
+  border-bottom: 1px solid $gray-lighter
+
+.top-jumbotron
+  margin-bottom: 3*$spacer
+
+#filters-list
+  float: right
+  ul
+    list-style: none
+    padding: $breadcrumb-padding-vertical $breadcrumb-padding-horizontal
+    padding-bottom: 0
+    padding-right: 0
+    margin-bottom: 0
+    li
+      display: inline-block
+      cursor: pointer
+      span
+        color: $gray-light
+      i
+        margin-right: 5px
+    li:hover
+      text-decoration: line-through
+
+.breadcrumb
+  background-color: transparent
+  padding-left: 0
+  margin-bottom: 0px
+
+#top-nav-border
+  border-top: 0px solid $gray-lighter
+  width: 100%
+  margin-left: -$spacer
+  margin-top: 0.5rem
+
+.jumbotron-front
+  padding: 2*$spacer-y 2*$spacer-x
+  text-align: center
+
+.sub-header
