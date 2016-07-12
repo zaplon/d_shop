@@ -28,10 +28,9 @@ FRONT_URL_ROOT =  OSCAR_IMAGES_FOLDER
 class Command(BaseCommand):
     help = 'Import data for catalogue'
     fields_map = {'title': 'nazwa', 'external_id': 'ProduktId', 'description': 'opis'}
-    categories = {}
     breadcrumbs = []
     partner = Partner.objects.get(code='forcetop')
-    escape_map = {'ą': 'a', 'ę': 'e', 'ł': 'l', 'ś': 's', 'ć': 'c', 'ó': 'o', 'ż': 'z', 'ź': 'z'}
+    escape_map = {'ą': 'a', 'ę': 'e', 'ł': 'l', 'ś': 's', 'ć': 'c', 'ó': 'o', 'ż': 'z', 'ź': 'z', '/':'_', '\\': '_'}
 
     def add_arguments(self, parser):
         # Named (optional) arguments
@@ -71,12 +70,12 @@ class Command(BaseCommand):
     def add_images(self, p, node):
         for i, zdjecie in enumerate(node.zdjecie):
             caption = self.slugify(p.title + ' ' + str(i))
-            front = os.path.join(FRONT_URL_ROOT, caption + '.jpg')
             try:
-                file_name = wget.download(zdjecie.cdata, out=caption+'.jpg')
+                file_name = wget.download(zdjecie.cdata, out=self.slugify(p.title + '.jpg'))
+                front = os.path.join(FRONT_URL_ROOT, file_name)
                 ProductImage.objects.create(product=p, original=front, caption=caption, display_order=i)
-                move_from = os.path.join(settings.BASE_DIR, file_name)
-                move_to = DOWNLOAD_FOLDER
+                move_from = os.path.join(file_name)
+                move_to = os.path.join(DOWNLOAD_FOLDER, file_name)
                 shutil.move(move_from, move_to)
                 print file_name
             except:
@@ -90,31 +89,24 @@ class Command(BaseCommand):
         get_images = options.get('get_images', False)
         delete_all = options.get('delete-all', False)
         delete_all = True
-        get_images = False
+        get_images = True
         if delete_all:
             Product.objects.all().delete()
             ProductAttribute.objects.all().delete()
             Category.objects.all().delete()
             StockRecord.objects.all().delete()
         obj = untangle.parse(file)
+        counter = 0
         for p in obj.xml.produkty.produkt:
-            k_ids = []
-            for k in p.kategorie.kategoria:
-                path = k.cdata
-                breadcrumb_list = path.split('/')
-                breadcrumb = ' > '.join(breadcrumb_list)
-                k_ids.append(k['id'])
+            if counter > 200:
+                break
+            counter += 1
             p_type = ''
             for a in p.atrybuty.atrybut:
                 if a['name'] == 'Typ':
                     p_type = a.cdata
             if p_type not in e_types:
                 continue
-            if not breadcrumb in self.breadcrumbs:
-                self.breadcrumbs.append(breadcrumb)
-            if not breadcrumb[-1] in self.categories:
-                self.categories[breadcrumb_list[-1]] = []
-            self.categories[breadcrumb_list[-1]].append(p.ProduktId)
             try:
                 p_obj = Product.objects.get(external_id=p.ProduktId.cdata)
             except ObjectDoesNotExist:
@@ -123,6 +115,19 @@ class Command(BaseCommand):
                 setattr(p_obj, f, getattr(p, self.fields_map[f]).cdata)
             p_obj.save()
             print p_obj.title
+
+            for k in p.kategorie.kategoria:
+                path = k.cdata
+                breadcrumb_list = path.split('/')
+                breadcrumb = ' > '.join(breadcrumb_list)
+                filtered_b = filter(lambda x: x['path'] == breadcrumb, self.breadcrumbs)
+                if len(filtered_b) == 0:
+                    self.breadcrumbs.append({'path': breadcrumb, 'products': [], 'external_id': k['id']})
+                    b = self.breadcrumbs[-1]
+                else:
+                    b = filtered_b[0]
+                b['products'].append(p.ProduktId.cdata)
+
             for a in p.atrybuty.atrybut:
                 if not a['name'] == 'Typ':
                     try:
@@ -141,11 +146,10 @@ class Command(BaseCommand):
             self.stdout.write('Product %s saved' % p_obj.title)
             if get_images:
                 self.add_images(p_obj, p.zdjecia)
+        print self.breadcrumbs
         for b in self.breadcrumbs:
-            create_from_breadcrumbs(b)
-        for category in self.categories:
-            for c in self.categories[category]:
-                obj = Category.objects.get(name=category)
-                p = Product.objects.get(external_id=c.cdata)
+            obj = create_from_breadcrumbs(b['path'])
+            for p in b['products']:
+                p = Product.objects.get(external_id=p)
                 ProductCategory.objects.get_or_create(product=p, category=obj)
         self.stdout.write('Successfully imported data')

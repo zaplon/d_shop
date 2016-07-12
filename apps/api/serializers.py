@@ -10,7 +10,7 @@ ProductImage = get_model('catalogue', 'ProductImage')
 class ProductImageSerializer(ModelSerializer):
     class Meta:
         model = ProductImage
-        fields = ['orginal', 'display_order', 'caption']
+        fields = ['original', 'display_order', 'caption']
 
 
 class ProductSerializer(OscarHyperlinkedModelSerializer):
