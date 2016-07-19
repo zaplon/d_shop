@@ -1,0 +1,26 @@
+		<li class="product">
+			<div class="product-image">
+				<a href="#0"><img src="{{image}}" alt="placeholder"></a>
+			</div>
+ 
+			<div class="product-details">
+				<h3><a href="#0">{{title}}</a></h3>
+ 
+				<span class="price">{{price}}</span>
+ 
+				<div class="actions">
+					<a href="#0" class="delete-item">Usuń</a>
+ 
+					<div class="quantity">
+						<label for="cd-product-'+ productId +'">Ilość</label>
+						<span class="select">
+							<select id="cd-product-'+ productId +'" name="quantity">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<!-- ... -->
+							</select>
+						</span>
+					</div>
+				</div>
+			</div>
+		</li>
