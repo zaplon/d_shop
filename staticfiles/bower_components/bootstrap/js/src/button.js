@@ -15,7 +15,7 @@ const Button = (($) => {
    */
 
   const NAME                = 'button'
-  const VERSION             = '4.0.0-alpha'
+  const VERSION             = '4.0.0-alpha.2'
   const DATA_KEY            = 'bs.button'
   const EVENT_KEY           = `.${DATA_KEY}`
   const DATA_API_KEY        = '.data-api'
@@ -92,7 +92,10 @@ const Button = (($) => {
             input.checked = !$(this._element).hasClass(ClassName.ACTIVE)
             $(this._element).trigger('change')
           }
+
+          input.focus()
         }
+
       } else {
         this._element.setAttribute('aria-pressed',
           !$(this._element).hasClass(ClassName.ACTIVE))

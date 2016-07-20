@@ -1,15 +1,15 @@
 <div class="col-md-4">
     <div class="product-card">
         <div class="image">
-            <a href="{{ url }}"><img src="{{ images.0.original }}"/></a>
+            <a href="{{ front_url }}"><img src="{{ images.0.original }}"/></a>
         </div>
         <div class="title">
-            <a href="{{ url }}"><h5>{{ title }}</h5></a>
+            <a href="{{ front_url }}"><h5>{{ title }}</h5></a>
         </div>
         <div class="buttons">
             <div class="btn-group" role="group" aria-label="Akcje produktu">
-                <button type="button" class="btn btn-pimary add-to-cart">Dodaj do koszyka</button>
-                <button type="button" class="btn btn-info"><a href="{{ url }}">Więcej informacji</a></button>
+                <button type="button" class="btn btn-pimary add-to-cart" data-id="{{ id }}">Dodaj do koszyka</button>
+                <button type="button" class="btn btn-info"><a href="{{ front_url }}">Więcej informacji</a></button>
             </div>
         </div>
     </div>

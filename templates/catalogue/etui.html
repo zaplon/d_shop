@@ -31,8 +31,9 @@
         <form class="form">
             {% for name, data in attributes.items %}
                 <div class="col-md-4">
-                   <select class="form-control selectpicker" {% if data.multiselect %} multiple {% endif %}
+                   <select class="form-control selectpicker" {% if not data.multiselect %} data-max-options="1" {% endif %}
                            title="{{ name }}"
+                           multiple
                            data-live-search="true"
                            {% if data.multiselect %}
                             data-selected-text-format="count > 3"
@@ -56,5 +57,6 @@
 {% block extrascripts %}
   {% handlebarsjs 'product' precompile %}
   {% handlebarsjs 'filters' precompile %}
+  {% handlebarsjs 'add-to-cart' precompile %}
   <script src="{% static "js/catalogue/etui.js" %}"></script>
 {% endblock %}

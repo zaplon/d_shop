@@ -71,26 +71,40 @@ $big-margin: 0.5rem 1.5rem
   color: $gray-lighter
   ul
     list-style-position: inside
-    margin: $navbar-padding-vertical 0
+    margin: $navbar-padding-x 0
     padding-left: 0
     li
       list-style: none
       font-size: $font-size-sm
 
 .product-card
+  position: relative
   cursor: pointer
   margin-left: -$grid-gutter-width/2
   margin-right: -$grid-gutter-width/2
   padding: $spacer
   text-align: center
   .image
+    z-index: 1
+    height: 200px
     img
       max-width: 70%
+      max-height: 200px
   .title
+    z-index: 1
     margin-top: $spacer-y
+  .buttons
+    position: absolute
+    z-index: 2
+    display: none
+    top: 150px
+    a
+      text-decoration: none
 
 .product-card:hover
-  background-color: $gray-lighter
+  .buttons
+    display: block
+
 
 .page
   padding-bottom: 2rem
@@ -138,7 +152,7 @@ $big-margin: 0.5rem 1.5rem
   float: right
   ul
     list-style: none
-    padding: $breadcrumb-padding-vertical $breadcrumb-padding-horizontal
+    padding: $breadcrumb-padding-y $breadcrumb-padding-x
     padding-bottom: 0
     padding-right: 0
     margin-bottom: 0
@@ -156,6 +170,13 @@ $big-margin: 0.5rem 1.5rem
   background-color: transparent
   padding-left: 0
   margin-bottom: 0px
+  li
+    display: inline-block
+  li:after
+    content: ' > '
+  li:last-of-type:after
+    content: ''
+
 
 #top-nav-border
   border-top: 0px solid $gray-lighter
@@ -169,16 +190,24 @@ $big-margin: 0.5rem 1.5rem
 
 .sub-header
 
+.front-alert
+  z-index: 100000
+  position: absolute
+
+#message-add-to-cart
+  top: 100px
+  right: 100px
+
 .cd-cart-trigger, .cd-cart
   position: fixed
   bottom: 20px
   right: 5%
   transition: transform .2s
 
-.empty .cd-cart-trigger, .empty .cd-cart 
+.empty .cd-cart-trigger, .empty .cd-cart
   /* hide cart */
   transform: translateY(150px)
-  
+
 .cd-cart .wrapper
   position: absolute
   bottom: 0
@@ -192,12 +221,12 @@ $big-margin: 0.5rem 1.5rem
   transition-timing-function: cubic-bezier(0.67, 0.17, 0.32, 0.95)
   background: #ffffff
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.17)
- 
+
 .cart-open .cd-cart .wrapper
   height: 100%
   width: 100%
   transition-delay: 0s
-  
+
 .cd-cart .body li.deleted
   /* this class is added to an item when it is removed form the cart */
   position: absolute
@@ -205,12 +234,12 @@ $big-margin: 0.5rem 1.5rem
   width: calc(100% - 2.8em)
   opacity: 0
   animation: cd-item-slide-out .3s forwards
- 
+
 @keyframes cd-item-slide-out
   0%
     transform: translateX(0)
     opacity: 1
-  100% 
+  100%
     transform: translateX(80px)
     opacity: 0
-  
+
