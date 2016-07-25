@@ -45,6 +45,9 @@
 .color-three {
   background-color: white; }
 
+.green {
+  background-color: #80c780; }
+
 #top-nav {
   margin-top: -0.5rem;
   margin-bottom: -0.5rem; }
@@ -71,7 +74,11 @@
     padding-left: 0; }
     .page-footer ul li {
       list-style: none;
-      font-size: 0.875rem; }
+      font-size: 0.875rem;
+      display: inline-block;
+      margin-right: 1rem; }
+    .page-footer ul li:last-of-type {
+      margin-right: 0; }
 
 .product-card {
   position: relative;
@@ -133,11 +140,14 @@
   margin-top: 62.375px; }
 
 .top-margin {
-  margin-top: 120px; }
+  margin-top: 111px; }
 
 #navbar-body {
   background-color: white;
-  border-bottom: 1px solid #eceeef; }
+  border-bottom: 1px solid #eceeef;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0; }
 
 .top-jumbotron {
   margin-bottom: 3rem; }
@@ -183,55 +193,13 @@
 
 .front-alert {
   z-index: 100000;
-  position: absolute; }
+  position: fixed; }
 
 #message-add-to-cart {
   top: 100px;
   right: 100px; }
 
-.cd-cart-trigger, .cd-cart {
-  position: fixed;
-  bottom: 20px;
-  right: 5%;
-  transition: transform 0.2s; }
-
-.empty .cd-cart-trigger, .empty .cd-cart {
-  /* hide cart */
-  transform: translateY(150px); }
-
-.cd-cart .wrapper {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: 2;
-  overflow: hidden;
-  height: 72px;
-  width: 72px;
-  border-radius: 6px;
-  transition: height 0.4s 0.1s, width 0.4s 0.1s, box-shadow 0.3s;
-  transition-timing-function: cubic-bezier(0.67, 0.17, 0.32, 0.95);
-  background: #ffffff;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.17); }
-
-.cart-open .cd-cart .wrapper {
-  height: 100%;
-  width: 100%;
-  transition-delay: 0s; }
-
-.cd-cart .body li.deleted {
-  /* this class is added to an item when it is removed form the cart */
-  position: absolute;
-  left: 1.4em;
-  width: calc(100% - 2.8em);
-  opacity: 0;
-  animation: cd-item-slide-out 0.3s forwards; }
-
-@keyframes cd-item-slide-out {
-  0% {
-    transform: translateX(0);
-    opacity: 1; }
-  100% {
-    transform: translateX(80px);
-    opacity: 0; } }
+.sub-header {
+  background-color: #f7f7f9; }
 
 /*# sourceMappingURL=style.css.map */

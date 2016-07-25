@@ -1,16 +1,16 @@
 <div class="cd-cart-container empty">
 	<a href="#0" class="cd-cart-trigger">
-		Cart
 		<ul class="count"> <!-- cart items count -->
-			<li>0</li>
-			<li>0</li>
+			<li id="cart-count">0</li>
+            <li>0</li>
 		</ul> <!-- .count -->
+        <i class="fa fa-shopping-bag" title="Koszyk"></i>
 	</a>
  
 	<div class="cd-cart">
 		<div class="wrapper">
 			<header>
-				<h2>Cart</h2>
+				<h2>Koszyk</h2>
 				<span class="undo">Artykuł usunięty. <a href="#0">Cofnij</a></span>
 			</header>
 			
@@ -21,7 +21,7 @@
 			</div>
  
 			<footer>
-				<a href="#0" class="checkout btn"><em>Do kasy - $<span>0</span></em></a>
+				<a href="/checkout/"  class="checkout"><em>Do kasy - $<span id="cart-total">0</span></em></a>
 			</footer>
 		</div>
 	</div> <!-- .cd-cart -->

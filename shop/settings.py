@@ -49,7 +49,7 @@ INSTALLED_APPS = [
                      'apps.promotions',
                      'jstemplate',
                      'debug_toolbar'
-                 ] + get_core_apps(['apps.catalogue'])
+                 ] + get_core_apps(['apps.catalogue', 'apps.offer'])
 
 SITE_ID = 1
 
@@ -62,7 +62,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'oscar.apps.basket.middleware.BasketMiddleware',
+    'oscarapi.middleware.ApiBasketMiddleWare',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
@@ -135,13 +135,12 @@ WSGI_APPLICATION = 'shop.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': location('db.sqlite'),
-        'USER': '',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'oscar',
+        'USER': 'root',
         'PASSWORD': '',
         'HOST': '',
         'PORT': '',
-        'ATOMIC_REQUESTS': True
     }
 }
 
@@ -211,3 +210,8 @@ OSCAR_ORDER_STATUS_PIPELINE = {
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination'
 }
+
+JSTEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates', 'jstemplates')]
+
+OSCAR_ALLOW_ANON_CHECKOUT = True
+OSCAR_DEFAULT_CURRENCY = 'PLN'

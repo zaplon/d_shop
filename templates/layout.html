@@ -4,11 +4,12 @@
 
 
 {% block layout %}
-
     {% include 'partials/header.html' %}
-        <div class="container sub-header">
+        <div class="sub-header">
+            <div class="container">
                 {% block breadcrumbs %}{% endblock %}
             </div>
+        </div>
         </div>
     </div>
     {% block margin-top %}
@@ -39,5 +40,6 @@
         </div>
     </div>
     {% include "partials/footer.html" %}
+    {% include "partials/cart.html" %}
 {% endblock %}
 

@@ -60,10 +60,11 @@ class Command(BaseCommand):
             sr = StockRecord.objects.get(product=p, partner=self.partner)
         except:
             sr = StockRecord(product=p, partner=self.partner)
-        sr.price_excl_tax = node.cenasrp_netto.cdata
-        sr.price_retail = node.cenasrp_brutto.cdata
-        sr.cost_price = node.cena_brutto.cdata
-        sr.num_in_stock = 0 if node.stan.cdata < 5 else node.stan.cdata - 5
+        sr.partner_sku = node.kod.cdata
+        sr.price_excl_tax = node.cenasrp_netto.cdata.replace(',', '.')
+        sr.price_retail = node.cenasrp_brutto.cdata.replace(',', '.')
+        sr.cost_price = node.cena_brutto.cdata.replace(',', '.')
+        sr.num_in_stock = int(0 if node.stan.cdata < 5 else float(node.stan.cdata) - 5)
         sr.low_stock_threshold = 5
         sr.save()
 
@@ -146,6 +147,7 @@ class Command(BaseCommand):
             self.stdout.write('Product %s saved' % p_obj.title)
             if get_images:
                 self.add_images(p_obj, p.zdjecia)
+            self.add_prices(p_obj, p)
         print self.breadcrumbs
         for b in self.breadcrumbs:
             obj = create_from_breadcrumbs(b['path'])

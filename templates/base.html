@@ -1,5 +1,6 @@
 {% extends 'oscar/base.html' %}
 {% load static %}
+{% load jstemplate %}
 
 {% block scripts %}
     {{ block.super }}
@@ -16,6 +17,37 @@
     <script src="{% static "js/utils.js" %}"></script>
     <script src="{% static "bower_components/bootstrap-select/dist/js/bootstrap-select.js" %}"></script>
     <script src="{% static "js/catalogue/cart.js" %}"></script>
+    <script>
+        // using jQuery
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        var csrftoken = getCookie('csrftoken');
+        function csrfSafeMethod(method) {
+            // these HTTP methods do not require CSRF protection
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        }
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    </script>
+    {% handlebarsjs 'cart-product' precompile %}
 
 {% endblock %}
 
@@ -28,4 +60,5 @@
     <!-- Custom styles -->
     <link href="{% static "css/style.css" %}" rel="stylesheet">
     <link href="{% static "bower_components/bootstrap-select/dist/css/bootstrap-select.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/cart.css" %}" rel="stylesheet">
 {% endblock %}
