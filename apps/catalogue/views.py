@@ -5,6 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.views.generic import TemplateView
 from oscar.apps.catalogue.models import ProductAttributeValue, ProductAttribute
 from oscar.core.loading import get_class, get_model
+import json
 
 
 def phone_selector(request):
@@ -50,10 +51,21 @@ class EtuiView(TemplateView):
     context_object_name = "products"
     template_name = "catalogue/etui.html"
 
+    @staticmethod
+    def _group_attributes(atts):
+        new_atts = {}
+        for a in atts:
+            if a['value_text'] not in new_atts:
+                new_atts[a['value_text']] = {'ids': []}
+            new_atts[a['value_text']]['ids'].append(str(a['id']))
+        for a in new_atts:
+            new_atts[a]['ids'] = ','.join(new_atts[a]['ids'])
+        return new_atts
+
     def get_context_data(self, **kwargs):
         ctx = {}
-        ctx['attributes'] = {p.name: {'values': p.productattributevalue_set.all().values(), 'id': p.id,
-                                      'multiselect': True if p.code in ['kolor_bazowy'] else False}
+        ctx['attributes'] = {p.name: {'attributes_values': self._group_attributes(p.productattributevalue_set.all().values()),
+                                      'id': p.id, 'multiselect': True if p.code in ['kolor_bazowy'] else False}
                              for p in ProductAttribute.objects.filter(code__in=['wzor', 'kompatybilnosc',
                                                                                 'kolor_bazowy'])}
         return ctx
