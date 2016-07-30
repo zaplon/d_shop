@@ -202,4 +202,15 @@
 .sub-header {
   background-color: #f7f7f9; }
 
+#products-end {
+  clear: both; }
+
+ul {
+  list-style: none; }
+
+.carousel-inner .item {
+  display: none; }
+.carousel-inner .active {
+  display: block; }
+
 /*# sourceMappingURL=style.css.map */

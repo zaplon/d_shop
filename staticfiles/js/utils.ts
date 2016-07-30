@@ -30,4 +30,6 @@ class Utils{
 }
 
 var utils = new Utils();
-$(document).ready(() => { utils.fixedTopSpy(); });
+$(document).ready(() => {
+    //utils.fixedTopSpy();
+});

@@ -2,31 +2,59 @@
 var Api = (function () {
     function Api(url) {
         this.url = url;
-        this.params = { limit: 0, attributes: '' };
+        this.loading = false;
+        this.params = { limit: 0, attributes: '', offset: 0 };
+        this.count = 1;
     }
     Api.prototype.query = function (limit) {
+        this.loading = true;
         var _this = this;
         this.params.limit = limit;
+        if (this.params.offset >= this.count)
+            return;
         if ('attributes' in this.params && this.params.attributes.length == 0)
             delete this.params.attributes;
         $.getJSON(this.url, this.params, function (res) {
             _this.renderResults(res);
             _this.appendResults = false;
+            _this.count = res.count;
             history.pushState('', document.title, api.params.attributes);
+            _this.loading = false;
         });
     };
     Api.prototype.watchResults = function () {
-        if (utils.isOnScreen(api.productsEnd, 0)) {
-            console.log('read');
+        if (api.productsEnd.visible() && !api.loading){
+            api.appendResults = true;
+            api.params.offset += 6;
+            api.query(6);
         }
     };
     Api.prototype.renderResults = function (res) {
         if (!this.appendResults)
             $('#products-container').html('');
+        else
+            this.productsEnd.remove();
         for (var r in res.results) {
             $('#products-container').append(Handlebars.templates['product'](res.results[r]));
         }
-        $('#filters-list ul').html(Handlebars.templates['filters']({ attributes: this.attributes }));
+
+        var atts = [];
+        if (this.attributes){
+            this.attributes.forEach(function(attribute, i){
+               atts.push([]);
+               attribute.forEach(function(a, j){
+                   var aa = atts[i];
+                   var f = aa.filter(function(at){ return at.name == a.name; });
+                   if (f.length == 0) {
+                       aa.push(a);
+                       aa[aa.length-1].ids = [a.id];
+                   }
+                   else
+                       f[0].ids.push(a.id);
+                   });
+            });
+            $('#filters-list ul').html(Handlebars.templates['filters']({ attributes: atts }));
+        }
         console.log(this.attributes);
         $('#products-container').append('<div id="products-end"></div>');
         this.productsEnd = $('#products-end');
@@ -41,14 +69,16 @@ $(document).ready(function () {
     $('#filters-list').delegate('li', 'click', function () {
         console.log('remove');
         var select = $('select[data-attribute="' + $(this).attr('data-attribute') + '"]');
-        var id = $(this).attr('data-id');
+        var ids = $(this).attr('data-ids');
         var values = $(select).selectpicker('val');
         if (typeof(values) == 'string'){
             $(select).selectpicker('val', '');
         }
         else if (typeof(values) == 'object'){
-            values.splice(values.indexOf(id)-1,1);
-            $(select).selectpicker('val', values);
+            for(var id in ids.split(',')) {
+                values.splice(values.indexOf(ids[id]) - 1, 1);
+            }
+                $(select).selectpicker('val', values);
         }
 
         $(this).remove();
@@ -59,6 +89,8 @@ $(document).ready(function () {
     var productsEnd = $('#products-end');
     $('#product-filters select').change(function (e) {
         var attributes = [];
+        api.params.offset = 0;
+        api.count = 1;
         $('#product-filters select').each(function (i, s) {
             var val = $(s).val();
             if (typeof (val) == 'string' && val != '') {

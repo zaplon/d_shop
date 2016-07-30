@@ -9,14 +9,17 @@
 				<span class="price">{{price}}</span>
  
 				<div class="actions">
-					<a href="#0" class="delete-item" data-id="{{ id }}">Usuń</a>
+					<a href="#0" class="delete-item" data-line="{{ line }}">Usuń</a>
  
 					<div class="quantity">
 						<label for="cd-product-'+ productId +'">Ilość</label>
 						<span class="select">
-							<select id="cd-product-'+ productId +'" name="quantity">
+							<select data-line="{{ line }}" class="product-quantity" name="quantity">
 								<option value="1">1</option>
-								<!-- ... -->
+								<option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
 							</select>
 						</span>
 					</div>
