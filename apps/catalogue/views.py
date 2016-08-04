@@ -6,6 +6,7 @@ from django.views.generic import TemplateView
 from oscar.apps.catalogue.models import ProductAttributeValue, ProductAttribute
 from oscar.core.loading import get_class, get_model
 import json
+from oscar.apps.catalogue.models import Category
 
 
 def phone_selector(request):
@@ -50,6 +51,7 @@ class EtuiView(TemplateView):
 
     context_object_name = "products"
     template_name = "catalogue/etui.html"
+    category_id = False
 
     @staticmethod
     def _group_attributes(atts):
@@ -62,12 +64,39 @@ class EtuiView(TemplateView):
             new_atts[a]['ids'] = ','.join(new_atts[a]['ids'])
         return new_atts
 
+    def _append_category(self, c, c_list):
+        if c.has_children():
+            for cc in c.get_children():
+                c_list['nodes'].append({'text': cc.name, 'nodes': []})
+                self._append_category(cc, c_list['nodes'][-1])
+        return c_list
+
+    def _get_category_state(self, name, id):
+        name = name.lower()
+        path_list = self.request.path.lower().split('/')
+        state = {'expanded': False, 'selected': False}
+        if path_list[-1] == name:
+            state['selected'] = True
+            self.category_id = id
+        if name in path_list:
+            state['expanded'] = True
+        return state
+
     def get_context_data(self, **kwargs):
         ctx = {}
+        ctx['tree_data'] = []
+        categories = Category.objects.get(name='smartfony').get_children()
+        for c in categories:
+            ctx['tree_data'].append({'text': c.name, 'nodes':[], 'state': self._get_category_state(c.name, c.id)})
+            ctx['tree_data'][-1] = self._append_category(c, ctx['tree_data'][-1])
+        #ctx['tree_data'] = [{'text': 'Apple', 'nodes': [{'text': 'Iphone'}]}]
+        ctx['tree_data'] = json.dumps(ctx['tree_data'])
+        product_attributes = ProductAttribute.objects.filter(code__in=['wzor', 'kolor_bazowy'])
+        if self.category_id:
+            product_attributes = product_attributes.filter(product__categories__id=self.category_id)
         ctx['attributes'] = {p.name: {'attributes_values': self._group_attributes(p.productattributevalue_set.all().values()),
                                       'id': p.id, 'multiselect': True if p.code in ['kolor_bazowy'] else False}
-                             for p in ProductAttribute.objects.filter(code__in=['wzor', 'kompatybilnosc',
-                                                                                'kolor_bazowy'])}
+                             for p in product_attributes}
         return ctx
 
 

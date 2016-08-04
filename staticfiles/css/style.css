@@ -122,16 +122,14 @@
   top: 95px;
   width: 100%; }
 
-#product-filters {
-  margin-top: -2rem; }
-  #product-filters div:last-of-type {
-    padding-right: 0; }
-  #product-filters div:first-of-type {
-    padding-left: 0; }
-  #product-filters button {
-    background-color: white;
-    border-radius: 0;
-    border: 1px solid #818a91; }
+#product-filters div:last-of-type {
+  padding-right: 0; }
+#product-filters div:first-of-type {
+  padding-left: 0; }
+#product-filters button {
+  background-color: white;
+  border-radius: 0;
+  border: 1px solid #818a91; }
 
 .hidden {
   display: none; }
@@ -140,6 +138,9 @@
   margin-top: 62.375px; }
 
 .top-margin {
+  margin-top: 141px; }
+
+#top-margin-catalogue {
   margin-top: 111px; }
 
 #navbar-body {

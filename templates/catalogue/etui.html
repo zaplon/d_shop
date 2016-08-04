@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block margin-top %}
-    <div id="top-margin-home"></div>
+    <div id="top-margin-catalogue"></div>
 {% endblock %}
 
 {% block breadcrumbs %}
@@ -30,32 +30,35 @@
     </div>
 {% endblock %}
 
-{% block fixed_top_spy %}
-    <div id="product-filters" class="row">
-        <form class="form">
-            {% for name, data in attributes.items %}
-                <div class="col-md-4">
-                   <select class="form-control selectpicker" {% if not data.multiselect %} data-max-options="1" {% endif %}
-                           title="{{ name }}"
-                           multiple
-                           data-live-search="true"
-                           {% if data.multiselect %}
-                            data-selected-text-format="count > 3"
-                           {% endif %}
-                           data-attribute="{{ data.id }}">
-                       {% for name, data in data.attributes_values.items %}
-                           <option name="{{ name }}" value="{{ data.ids }}">{{ name }}</option>
-                       {% endfor %}
-                   </select>
-                </div>
-            {% endfor %}
-        </form>
-    </div>
-{% endblock %}
-
 {% block content %}
-    <div id="products-container"></div>
-
+    <div class="row">
+        <div class="col-md-2 col-sm-hidden">
+            <div id="tree" data="{{ tree_data }}"></div>
+        </div>
+        <div class="col-md-10 col-sm-12">
+            <div id="product-filters" class="row">
+                <form class="form">
+                    {% for name, data in attributes.items %}
+                        <div class="col-md-4">
+                           <select class="form-control selectpicker" {% if not data.multiselect %} data-max-options="1" {% endif %}
+                                   title="{{ name }}"
+                                   multiple
+                                   data-live-search="true"
+                                   {% if data.multiselect %}
+                                    data-selected-text-format="count > 3"
+                                   {% endif %}
+                                   data-attribute="{{ data.id }}">
+                               {% for name, data in data.attributes_values.items %}
+                                   <option name="{{ name }}" value="{{ data.ids }}">{{ name }}</option>
+                               {% endfor %}
+                           </select>
+                        </div>
+                    {% endfor %}
+                </form>
+            </div>
+            <div id="products-container"></div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block extrascripts %}

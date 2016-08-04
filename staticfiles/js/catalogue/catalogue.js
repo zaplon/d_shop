@@ -66,6 +66,9 @@ var Api = (function () {
 }());
 var api = new Api('/api/products/');
 $(document).ready(function () {
+    $('#tree').treeview({
+        data: JSON.parse($('#tree').attr('data')), expandIcon: 'fa fa-plus-square',
+        collapseIcon: 'fa fa-minus-square'});
     $('#filters-list').delegate('li', 'click', function () {
         console.log('remove');
         var select = $('select[data-attribute="' + $(this).attr('data-attribute') + '"]');
