@@ -24,12 +24,13 @@ Product = get_model('catalogue', 'Product')
 
 class ProductFilter(django_filters.FilterSet):
     attributes = ListFilter(name="attribute_values__id")
+    categories = django_filters.CharFilter(name="categories__id", lookup_type='in')
     title_like = django_filters.CharFilter(name="title", lookup_type='icontains')
 
     class Meta:
         model = Product
         distinct = True
-        filter = ['attribute', 'title_like']
+        filter = ['attribute', 'title_like', 'categories']
         order_by = ['title', '-title']
 
 
