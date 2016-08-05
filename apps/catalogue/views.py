@@ -94,6 +94,7 @@ class EtuiView(TemplateView):
         product_attributes = ProductAttribute.objects.filter(code__in=['wzor', 'kolor_bazowy'])
         if self.category:
             categories = [c.id for c in self.category.get_ancestors_and_self()]
+            ctx['categories'] = json.dumps(categories)
             product_attributes = product_attributes.filter(product__categories__id__in=categories)
         ctx['attributes'] = {p.name: {'attributes_values': self._group_attributes(p.productattributevalue_set.all().values()),
                                       'id': p.id, 'multiselect': True if p.code in ['kolor_bazowy'] else False}
