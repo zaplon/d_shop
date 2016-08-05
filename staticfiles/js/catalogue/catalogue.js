@@ -70,6 +70,7 @@ $(document).ready(function () {
     if (categories)
         api.params.categories = JSON.parse(categories);
     $('#tree').treeview({
+        enableLinks: true,
         data: JSON.parse($('#tree').attr('data')), expandIcon: 'fa fa-plus-square',
         collapseIcon: 'fa fa-minus-square'});
     $('#filters-list').delegate('li', 'click', function () {
