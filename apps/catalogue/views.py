@@ -67,7 +67,7 @@ class EtuiView(TemplateView):
     def _append_category(self, c, c_list):
         if c.has_children():
             for cc in c.get_children():
-                c_list['nodes'].append({'text': cc.name, 'nodes': []})
+                c_list['nodes'].append({'text': cc.name, 'nodes': [], 'href': cc.full_slug})
                 self._append_category(cc, c_list['nodes'][-1])
         return c_list
 
@@ -87,7 +87,7 @@ class EtuiView(TemplateView):
         ctx['tree_data'] = []
         categories = Category.objects.get(name='smartfony').get_children()
         for c in categories:
-            ctx['tree_data'].append({'text': c.name, 'nodes':[], 'state': self._get_category_state(c.name, c)})
+            ctx['tree_data'].append({'text': c.name, 'nodes':[], 'state': self._get_category_state(c.name, c), 'href': c.slug})
             ctx['tree_data'][-1] = self._append_category(c, ctx['tree_data'][-1])
         #ctx['tree_data'] = [{'text': 'Apple', 'nodes': [{'text': 'Iphone'}]}]
         ctx['tree_data'] = json.dumps(ctx['tree_data'])
