@@ -51,7 +51,7 @@ class EtuiView(TemplateView):
 
     context_object_name = "products"
     template_name = "catalogue/etui.html"
-    category_id = False
+    category = False
 
     @staticmethod
     def _group_attributes(atts):
@@ -71,13 +71,13 @@ class EtuiView(TemplateView):
                 self._append_category(cc, c_list['nodes'][-1])
         return c_list
 
-    def _get_category_state(self, name, id):
+    def _get_category_state(self, name, category):
         name = name.lower()
         path_list = self.request.path.lower().split('/')
         state = {'expanded': False, 'selected': False}
         if path_list[-1] == name:
             state['selected'] = True
-            self.category_id = id
+            self.category = category
         if name in path_list:
             state['expanded'] = True
         return state
@@ -87,13 +87,14 @@ class EtuiView(TemplateView):
         ctx['tree_data'] = []
         categories = Category.objects.get(name='smartfony').get_children()
         for c in categories:
-            ctx['tree_data'].append({'text': c.name, 'nodes':[], 'state': self._get_category_state(c.name, c.id)})
+            ctx['tree_data'].append({'text': c.name, 'nodes':[], 'state': self._get_category_state(c.name, c)})
             ctx['tree_data'][-1] = self._append_category(c, ctx['tree_data'][-1])
         #ctx['tree_data'] = [{'text': 'Apple', 'nodes': [{'text': 'Iphone'}]}]
         ctx['tree_data'] = json.dumps(ctx['tree_data'])
         product_attributes = ProductAttribute.objects.filter(code__in=['wzor', 'kolor_bazowy'])
-        if self.category_id:
-            product_attributes = product_attributes.filter(product__categories__id=self.category_id)
+        if self.category:
+            categories = [c.id for c in self.category.get_ancestors_and_self()]
+            product_attributes = product_attributes.filter(product__categories__id__in=categories)
         ctx['attributes'] = {p.name: {'attributes_values': self._group_attributes(p.productattributevalue_set.all().values()),
                                       'id': p.id, 'multiselect': True if p.code in ['kolor_bazowy'] else False}
                              for p in product_attributes}
