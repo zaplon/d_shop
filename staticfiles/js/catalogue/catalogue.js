@@ -3,7 +3,7 @@ var Api = (function () {
     function Api(url) {
         this.url = url;
         this.loading = false;
-        this.params = { limit: 0, attributes: '', offset: 0 };
+        this.params = { limit: 0, attributes: '', offset: 0, categories: [] };
         this.count = 1;
     }
     Api.prototype.query = function (limit) {
@@ -66,6 +66,9 @@ var Api = (function () {
 }());
 var api = new Api('/api/products/');
 $(document).ready(function () {
+    var categories = $('$product-categories').val();
+    if (categories)
+        api.params.categories = JSON.parse(categories);
     $('#tree').treeview({
         data: JSON.parse($('#tree').attr('data')), expandIcon: 'fa fa-plus-square',
         collapseIcon: 'fa fa-minus-square'});
