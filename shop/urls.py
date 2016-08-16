@@ -26,7 +26,7 @@ urlpatterns = [
     # The Django admin is not officially supported; expect breakage.
     # Nonetheless, it's often useful for debugging.
     url(r'^admin/', include(admin.site.urls)),
-
+    url(r'^checkout/paypal/', include('paypal.express.urls')),
     url(r'', include(application.urls)),
     url(r'^api/', include(api.urls))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

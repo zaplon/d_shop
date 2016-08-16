@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load jstemplate %}
+{% load catalogue_tags %}
+
+{% block jumbotron %}
+    <div class="jumbotron jumbotron-fluid top-jumbotron">
+      <div class="container">
+        <h1 class="display-3">Fluid jumbotron</h1>
+        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+      </div>
+    </div>
+{% endblock %}
+
+{% block margin-top %}
+    <div id="top-margin-catalogue"></div>
+{% endblock %}
+
+{% block breadcrumbs %}
+    <div id="top-nav-border"></div>
+    <div class="row">
+        <div class="col-md-6">
+            <ul class="breadcrumb">
+                <li><a href="/">Strona główna</a></li>
+                <li>{{ flatpage.title }}</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <div id="filters-list"><ul></ul></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    {% render_as_template flatpage.content|safe %}
+{% endblock %}
+
+{% block extrascripts %}
+  {% handlebarsjs 'product' precompile %}
+  {% handlebarsjs 'filters' precompile %}
+  {% handlebarsjs 'add-to-cart' precompile %}
+  <script src="{% static "js/catalogue/catalogue.js" %}"></script>
+{% endblock %}

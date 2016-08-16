@@ -48,7 +48,8 @@ INSTALLED_APPS = [
                      'importer',
                      'apps.promotions',
                      'jstemplate',
-                     'debug_toolbar'
+                     'debug_toolbar',
+                     'paypal',
                  ] + get_core_apps(['apps.catalogue', 'apps.offer'])
 
 SITE_ID = 1
@@ -215,3 +216,11 @@ JSTEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates', 'jstemplates')]
 
 OSCAR_ALLOW_ANON_CHECKOUT = True
 OSCAR_DEFAULT_CURRENCY = 'PLN'
+
+PAYPAL_PAYFLOW_VENDOR_ID = 'mypaypalaccount'
+PAYPAL_PAYFLOW_PASSWORD = 'asdfasdfasdf'
+
+PAYPAL_API_USERNAME = 'test_xxxx.gmail.com'
+PAYPAL_API_PASSWORD = '123456789'
+PAYPAL_API_SIGNATURE = '...'
+PAYPAL_CURRENCY = 'PLN'

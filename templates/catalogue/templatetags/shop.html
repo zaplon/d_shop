@@ -1,0 +1,32 @@
+
+    <div class="row">
+        <div class="col-md-2 col-sm-hidden tree-list">
+            <div id="tree" data="{{ tree_data }}"></div>
+        </div>
+        <div class="col-md-10 col-sm-12">
+            <div id="product-filters" class="row">
+                <form class="form">
+                    {% for name, data in attributes.items %}
+                        <div class="col-md-4">
+                           <select class="form-control selectpicker" {% if not data.multiselect %} data-max-options="1" {% endif %}
+                                   title="{{ name }}"
+                                   multiple
+                                   data-live-search="true"
+                                   {% if data.multiselect %}
+                                    data-selected-text-format="count > 3"
+                                   {% endif %}
+                                   data-attribute="{{ data.id }}">
+                               {% for name, data in data.attributes_values.items %}
+                                   <option name="{{ name }}" value="{{ data.ids }}">{{ name }}</option>
+                               {% endfor %}
+                           </select>
+                        </div>
+                    {% endfor %}
+                </form>
+            </div>
+            <div id="products-container"></div>
+        </div>
+    </div>
+
+<div><input type="hidden" id="product-categories" value="{{ categories }}" /></div>
+

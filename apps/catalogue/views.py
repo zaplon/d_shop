@@ -67,7 +67,8 @@ class EtuiView(TemplateView):
     def _append_category(self, c, c_list):
         if c.has_children():
             for cc in c.get_children():
-                c_list['nodes'].append({'text': cc.name, 'nodes': [], 'href': cc.full_slug})
+                c_list['nodes'].append({'text': cc.name, 'nodes': [], 'state': self._get_category_state(cc.slug, cc),
+                                        'href': '/catalogue/etui/' + '/'.join(cc.full_slug.split('/')[1:])})
                 self._append_category(cc, c_list['nodes'][-1])
         return c_list
 
@@ -87,14 +88,14 @@ class EtuiView(TemplateView):
         ctx['tree_data'] = []
         categories = Category.objects.get(name='smartfony').get_children()
         for c in categories:
-            ctx['tree_data'].append({'text': c.name, 'nodes':[], 'state': self._get_category_state(c.name, c), 'href': c.slug})
+            ctx['tree_data'].append({'text': c.name, 'nodes':[], 'state': self._get_category_state(c.slug, c), 'href': c.slug})
             ctx['tree_data'][-1] = self._append_category(c, ctx['tree_data'][-1])
         #ctx['tree_data'] = [{'text': 'Apple', 'nodes': [{'text': 'Iphone'}]}]
         ctx['tree_data'] = json.dumps(ctx['tree_data'])
-        product_attributes = ProductAttribute.objects.filter(code__in=['wzor', 'kolor_bazowy'])
+        product_attributes = ProductAttribute.objects.filter(code__in=['wzor', 'kolor_bazowy', 'material_glowny'])
         if self.category:
-            categories = [c.id for c in self.category.get_ancestors_and_self()]
-            ctx['categories'] = json.dumps(categories)
+            categories = [c.id for c in self.category.get_descendants_and_self()]
+            ctx['categories'] = '.'.join([str(c) for c in categories])
             product_attributes = product_attributes.filter(product__categories__id__in=categories)
         ctx['attributes'] = {p.name: {'attributes_values': self._group_attributes(p.productattributevalue_set.all().values()),
                                       'id': p.id, 'multiselect': True if p.code in ['kolor_bazowy'] else False}

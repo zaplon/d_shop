@@ -35,6 +35,22 @@ var Api = (function () {
         else
             this.productsEnd.remove();
         for (var r in res.results) {
+            $.ajax({
+                url: "/api/products/" + res.results[r].id + "/price/",
+                async: false,
+                type: 'GET',
+                success: function(rr){
+                    res.results[r].price = rr;
+                }
+            });
+            $.ajax({
+                url: "/api/products/" + res.results[r].id + "/availability/",
+                async: false,
+                type: 'GET',
+                success: function(rr){
+                    res.results[r].availability = rr;
+                }
+            });
             $('#products-container').append(Handlebars.templates['product'](res.results[r]));
         }
 
@@ -66,9 +82,9 @@ var Api = (function () {
 }());
 var api = new Api('/api/products/');
 $(document).ready(function () {
-    var categories = $('$product-categories').val();
+    var categories = $('#product-categories').val();
     if (categories)
-        api.params.categories = JSON.parse(categories);
+        api.params.categories = categories;
     $('#tree').treeview({
         enableLinks: true,
         data: JSON.parse($('#tree').attr('data')), expandIcon: 'fa fa-plus-square',

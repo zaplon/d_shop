@@ -2,6 +2,10 @@
 $nav-color: #fff
 $big-margin-negative: -0.5rem -1.5rem
 $big-margin: 0.5rem 1.5rem
+$border-radius: 0
+$border-radius-lg: 0
+$border-radius-sm: 0
+$btn-border-radius: 0
 
 
 #page-content
@@ -63,11 +67,11 @@ $big-margin: 0.5rem 1.5rem
     text-align: center
     cursor: pointer
   a:first-of-type
-    background-color: darken($brand-primary, 0%)
+    background-color: lighten($brand-primary, 5%)
   a:nth-of-type(2)
-    background-color: darken($brand-primary, 5%)
+    background-color: darken($brand-primary, 0%)
   a:nth-of-type(3)
-    background-color: darken($brand-primary, 10%)
+    background-color: darken($brand-primary, 5%)
 
 .page-footer
   background-color: $gray-dark
@@ -232,3 +236,19 @@ ul
     border-bottom: 1px solid white
     color: white
     border-radius: 0
+
+.tree-list
+  ul
+    li
+      border: none
+
+.no-padding-right
+  padding-right: 0
+
+.no-padding-left
+  padding-left: 0
+
+.pager
+  li
+    display: inline-block
+    margin-left: 2rem

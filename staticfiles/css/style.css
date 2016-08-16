@@ -59,11 +59,11 @@
     text-align: center;
     cursor: pointer; }
   #top-nav a:first-of-type {
-    background-color: #0275d8; }
+    background-color: #0283f1; }
   #top-nav a:nth-of-type(2) {
-    background-color: #0267bf; }
+    background-color: #0275d8; }
   #top-nav a:nth-of-type(3) {
-    background-color: #025aa5; }
+    background-color: #0267bf; }
 
 .page-footer {
   background-color: #373a3c;
@@ -223,5 +223,18 @@ ul {
   border-bottom: 1px solid white;
   color: white;
   border-radius: 0; }
+
+.tree-list ul li {
+  border: none; }
+
+.no-padding-right {
+  padding-right: 0; }
+
+.no-padding-left {
+  padding-left: 0; }
+
+.pager li {
+  display: inline-block;
+  margin-left: 2rem; }
 
 /*# sourceMappingURL=style.css.map */

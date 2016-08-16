@@ -6,5 +6,10 @@
         <div class="title">
             <a href="{{ front_url }}"><h5>{{ title }}</h5></a>
         </div>
+         {{#if availability.is_available_to_buy}}
+            <div class="price">
+                <span>{{ price.incl_tax }} {{ price.currency }}</span>
+            </div>
+         {{/if}}
     </div>
 </div>
