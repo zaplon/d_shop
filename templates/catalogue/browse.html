@@ -1,50 +1,71 @@
-{% extends 'layout-full.html' %}
+{% extends 'layout.html' %}
+{% load static %}
+{% load jstemplate %}
 
-{% block content %}
-    <div class="jumbotron jumbotron-fluid">
+{% block jumbotron %}
+    <div class="jumbotron jumbotron-fluid top-jumbotron">
       <div class="container">
         <h1 class="display-3">Fluid jumbotron</h1>
         <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
       </div>
     </div>
-    <div class="container-fluid">
-        <div class="row">
-            <form class="form">
-
-               <div class="dropdown open col-md-4">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
-                </div>
-
-                <div class="col-md-4">
-                   <select class="form form-control">
-                        <option value="-1">Marka</option>
-                       {% for b in brands %}
-                           <option name="{{ b.name }}" value="{{ b.id }}">{{ b.name }}</option>
-                       {% endfor %}
-                   </select>
-                </div>
-                <div class="col-md-4">
-                   <select class="form form-control">
-                        <option value="-1">Model</option>
-                       {% for m in models %}
-                           <option name="{{ m.name }}" value="{{ m.id }}">{{ m.name }}</option>
-                       {% endfor %}
-                   </select>
-                </div>
-            </form>
-        </div>
-    </div>
-
 {% endblock %}
 
-{% block onbodyload %}
-    {{ block.super }}
-    oscar.search.init();
+{% block margin-top %}
+    <div id="top-margin-catalogue"></div>
+{% endblock %}
+
+{% block breadcrumbs %}
+    <div id="top-nav-border"></div>
+    <div class="row">
+        <div class="col-md-6">
+            <ul class="breadcrumb">
+                <li><a href="/">Strona główna</a></li>
+                <li>Opakowania na telefon</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <div id="filters-list"><ul></ul></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-2 col-sm-hidden tree-list">
+            <div id="tree" data="{{ tree_data }}"></div>
+        </div>
+        <div class="col-md-10 col-sm-12">
+            <div id="product-filters" class="row">
+                <form class="form">
+                    {% for name, data in attributes.items %}
+                        <div class="col-md-4">
+                           <select class="form-control selectpicker" {% if not data.multiselect %} data-max-options="1" {% endif %}
+                                   title="{{ name }}"
+                                   multiple
+                                   data-live-search="true"
+                                   {% if data.multiselect %}
+                                    data-selected-text-format="count > 3"
+                                   {% endif %}
+                                   data-attribute="{{ data.id }}">
+                               {% for name, data in data.attributes_values.items %}
+                                   <option name="{{ name }}" value="{{ data.ids }}">{{ name }}</option>
+                               {% endfor %}
+                           </select>
+                        </div>
+                    {% endfor %}
+                </form>
+            </div>
+            <div id="products-container"></div>
+        </div>
+    </div>
+    
+    <div><input type="hidden" id="product-categories" value="{{ categories }}" /></div>
+{% endblock %}
+
+{% block extrascripts %}
+  {% handlebarsjs 'product' precompile %}
+  {% handlebarsjs 'filters' precompile %}
+  {% handlebarsjs 'add-to-cart' precompile %}
+  <script src="{% static "js/catalogue/catalogue.js" %}"></script>
 {% endblock %}
