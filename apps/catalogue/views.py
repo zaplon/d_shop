@@ -18,7 +18,7 @@ get_product_search_handler_class = get_class(
     'catalogue.search_handlers', 'get_product_search_handler_class')
 
 
-class CatalogueView(TemplateView):
+class CatalogueOscarView(TemplateView):
     """
     Browse all products in the catalogue
     """
@@ -47,11 +47,12 @@ class CatalogueView(TemplateView):
         return ctx
 
 
-class EtuiView(TemplateView):
+class CatalogueView(TemplateView):
 
     context_object_name = "products"
-    template_name = "catalogue/etui.html"
+    template_name = "catalogue/browse.html"
     category = False
+    filters = ['wzor', 'kolor_bazowy', 'material_glowny']
 
     @staticmethod
     def _group_attributes(atts):
@@ -83,16 +84,19 @@ class EtuiView(TemplateView):
             state['expanded'] = True
         return state
 
+    def get_categories():
+        return Category.objects.get(name='smartfony').get_children()
+
     def get_context_data(self, **kwargs):
         ctx = {}
         ctx['tree_data'] = []
-        categories = Category.objects.get(name='smartfony').get_children()
+        categories = self.get_categories()
         for c in categories:
             ctx['tree_data'].append({'text': c.name, 'nodes':[], 'state': self._get_category_state(c.slug, c), 'href': c.slug})
             ctx['tree_data'][-1] = self._append_category(c, ctx['tree_data'][-1])
         #ctx['tree_data'] = [{'text': 'Apple', 'nodes': [{'text': 'Iphone'}]}]
         ctx['tree_data'] = json.dumps(ctx['tree_data'])
-        product_attributes = ProductAttribute.objects.filter(code__in=['wzor', 'kolor_bazowy', 'material_glowny'])
+        product_attributes = ProductAttribute.objects.filter(code__in=self.filters)
         if self.category:
             categories = [c.id for c in self.category.get_descendants_and_self()]
             ctx['categories'] = '.'.join([str(c) for c in categories])
