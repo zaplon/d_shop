@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from oscar.apps.promotions.app import PromotionsApplication as CorePromotionsApplication
-from apps.catalogue.views import ProductClassView
+
 
 class PromotionsApplication(CorePromotionsApplication):
 

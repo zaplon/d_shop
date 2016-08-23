@@ -5,7 +5,7 @@
 
 {% block layout %}
     {% include 'partials/header.html' %}
-        <div class="sub-header">
+        <div id="sub-header">
             <div class="container">
                 {% block breadcrumbs %}{% endblock %}
             </div>
@@ -29,8 +29,8 @@
             {% endblock %}
         </div>
     </div>
-    <div class="container">
-        <div id="page-content">
+    <div class="container" id="page-container">
+        <div id="{% block page_content_id %}page-content{% endblock %}">
             {% block content_wrapper %}
                 <div class="page">
                     {% block content %}

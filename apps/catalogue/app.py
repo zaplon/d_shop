@@ -1,9 +1,10 @@
 from django.conf.urls import url
 from oscar.apps.catalogue.app import CatalogueApplication as CorePromotionsApplication
-from .views import EtuiView
+from .views import CatalogueView
+
 
 class CatalogueApplication(CorePromotionsApplication):
-    etui_view = EtuiView
+    etui_view = CatalogueView
 
     def get_urls(self):
         urlpatterns = super(CatalogueApplication, self).get_urls()

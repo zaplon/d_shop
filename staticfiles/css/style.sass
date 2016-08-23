@@ -7,9 +7,18 @@ $border-radius-lg: 0
 $border-radius-sm: 0
 $btn-border-radius: 0
 
+body
+  background-color: $gray-lightest
 
-#page-content
-  min-height: 20rem
+
+#page-container
+  padding-top: 2rem
+  padding-bottom: 2rem
+  background-color: white
+
+#home-page-content
+  margin-left: -15px
+  margin-right: -15px
 
 .shop-card
   border: none
@@ -116,10 +125,6 @@ $btn-border-radius: 0
   .buttons
     display: block
 
-
-.page
-  padding-bottom: 2rem
-
 .product_page
   h2
     text-align: center
@@ -134,10 +139,10 @@ $btn-border-radius: 0
   width: 100%
 
 #product-filters
-  div:last-of-type
-    padding-right: 0
-  div:first-of-type
-    padding-left: 0
+  //div:last-of-type
+  //  padding-right: 0
+  //div:first-of-type
+  //  padding-left: 0
   button
     background-color: white
     border-radius: 0
@@ -146,10 +151,10 @@ $btn-border-radius: 0
 .hidden
   display: none
 
-.top-margin-home
+#top-margin-home
   margin-top: 62.375px
 .top-margin
-  margin-top: 141px
+  margin-top: 111px
 #top-margin-catalogue
   margin-top: 111px
 
@@ -211,9 +216,6 @@ $btn-border-radius: 0
   top: 100px
   right: 100px
 
-.sub-header
-  background-color: $gray-lightest
-
 #products-end
   clear: both
 
@@ -252,3 +254,16 @@ ul
   li
     display: inline-block
     margin-left: 2rem
+
+.sub-header
+
+
+#sub-header
+  background-color: $gray-lightest
+  h2
+    padding: 1rem 0
+
+#navbar-body
+  .container
+    padding-left: 0px
+    padding-right: 0px

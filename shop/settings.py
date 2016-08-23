@@ -50,7 +50,7 @@ INSTALLED_APPS = [
                      'jstemplate',
                      'debug_toolbar',
                      'paypal',
-                 ] + get_core_apps(['apps.catalogue', 'apps.offer'])
+                 ] + get_core_apps(['apps.catalogue', 'apps.offer', 'apps.checkout'])
 
 SITE_ID = 1
 

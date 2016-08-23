@@ -84,7 +84,7 @@ class CatalogueView(TemplateView):
             state['expanded'] = True
         return state
 
-    def get_categories():
+    def get_categories(self):
         return Category.objects.get(name='smartfony').get_children()
 
     def get_context_data(self, **kwargs):
