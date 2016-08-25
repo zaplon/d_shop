@@ -3,14 +3,16 @@
 {% load promotion_tags %}
 {% load category_tags %}
 {% block margin-top %}
-    <div id="top-margin-home"></div>
+    <div style="margin-top: 103px;"></div>
 {% endblock %}
 
 {% block breadcrumbs %}
     <div id="top-nav-border"></div>
     <div class="row">
         <div class="col-md-12">
-           {% block checkout_nav %}{% endblock %}
+            <div id="checkout-nav">
+                {% block checkout_nav %}{% endblock %}
+            </div>
          </div>
     </div>
 {% endblock %}
