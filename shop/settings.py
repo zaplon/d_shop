@@ -196,6 +196,15 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'staticfiles'), os.path.join(BASE_DIR, 'angular') ]
 
+STATICFILES_FINDERS  = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # other finders..
+    'compressor.finders.CompressorFinder',
+)
+COMPRESS_ENABLED = True
+COMPRESS_OFFLINE = True
+
 STATIC_ROOT = location('public/static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = location("public/media")
