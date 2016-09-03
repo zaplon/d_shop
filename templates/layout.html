@@ -5,12 +5,12 @@
 
 {% block layout %}
     {% include 'partials/header.html' %}
-        <div id="sub-header">
-            <div class="container">
-                {% block breadcrumbs %}{% endblock %}
-            </div>
+    <div id="sub-header">
+        <div class="container">
+            {% block breadcrumbs %}{% endblock %}
         </div>
-        </div>
+    </div>
+    </div>
     </div>
     {% block margin-top %}
         <div class="top-margin"></div>
@@ -33,6 +33,13 @@
         <div id="{% block page_content_id %}page-content{% endblock %}">
             {% block content_wrapper %}
                 <div class="page">
+                    {% include "partials/alert_messages.html" %}
+
+                    <div id="promotions">
+                        {% for promotion in promotions_page %}
+                            {% render_promotion promotion %}
+                        {% endfor %}
+                    </div>
                     {% block content %}
                     {% endblock %}
                 </div>

@@ -15,7 +15,13 @@
         <div class="col-md-6">
             <ul class="breadcrumb">
                 <li><a href="/">Strona główna</a></li>
-                <li>Opakowania na telefon</li>
+                {% for p in path_list %}
+                    {% if forloop.last %}
+                        <li>{{ p.name }}</li>
+                    {% else %}
+                        <li><a href="{{ p.url }}">{{ p.name }}</a></li>
+                    {% endif %}
+                {% endfor %}
             </ul>
         </div>
         <div class="col-md-6">

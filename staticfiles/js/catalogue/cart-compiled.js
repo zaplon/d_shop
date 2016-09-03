@@ -70,10 +70,15 @@ class Cart {
     }
 }
 
-if (HIDDEN_CART_URLS.join('|').search(window.location.pathname) == -1) {
+var showCart = true;
+HIDDEN_CART_URLS.forEach(function (url) {
+    if (window.location.pathname.search(url) != -1) showCart = false;
+});
+if (showCart) {
     var cart = new Cart();
     cart.getCart();
 }
+
 $(document).ready(() => {
     $('#products-container').delegate('.add-to-cart', 'click', function (el) {
         cart.addToCart(parseInt($(el.target).attr('data-id')), 1);

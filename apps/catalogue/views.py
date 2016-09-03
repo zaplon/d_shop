@@ -52,6 +52,7 @@ class CatalogueView(TemplateView):
     context_object_name = "products"
     template_name = "catalogue/browse.html"
     category = False
+    prefix = 'kategoria'
     filters = ['wzor', 'kolor_bazowy', 'material_glowny']
 
     @staticmethod
@@ -69,13 +70,18 @@ class CatalogueView(TemplateView):
         if c.has_children():
             for cc in c.get_children():
                 c_list['nodes'].append({'text': cc.name, 'nodes': [], 'state': self._get_category_state(cc.slug, cc),
-                                        'href': '/catalogue/etui/' + '/'.join(cc.full_slug.split('/')[1:])})
+                                        'href': '/katalog/' + self.prefix + '/' + '/'.join(cc.full_slug.split('/')[1:])})
                 self._append_category(cc, c_list['nodes'][-1])
+        else:
+            del c_list['nodes']
         return c_list
 
     def _get_category_state(self, name, category):
         name = name.lower()
-        path_list = self.request.path.lower().split('/')
+        path = self.request.path.lower()
+        if path[-1] == '/':
+            path = path[0:-1]
+        path_list = path.split('/')
         state = {'expanded': False, 'selected': False}
         if path_list[-1] == name:
             state['selected'] = True
@@ -84,15 +90,17 @@ class CatalogueView(TemplateView):
             state['expanded'] = True
         return state
 
-    def get_categories(self):
-        return Category.objects.get(name='smartfony').get_children()
+    def get_categories(self, kwargs):
+        #return Category.objects.get(name='smartfony').get_children()
+        return Category.objects.filter(depth=1)
 
     def get_context_data(self, **kwargs):
         ctx = {}
         ctx['tree_data'] = []
-        categories = self.get_categories()
+        categories = self.get_categories(kwargs)
         for c in categories:
-            ctx['tree_data'].append({'text': c.name, 'nodes':[], 'state': self._get_category_state(c.slug, c), 'href': c.slug})
+            ctx['tree_data'].append({'text': c.name, 'nodes':[], 'state': self._get_category_state(c.slug, c),
+                                     'href': self.prefix + '/' + c.slug})
             ctx['tree_data'][-1] = self._append_category(c, ctx['tree_data'][-1])
         #ctx['tree_data'] = [{'text': 'Apple', 'nodes': [{'text': 'Iphone'}]}]
         ctx['tree_data'] = json.dumps(ctx['tree_data'])
@@ -104,4 +112,28 @@ class CatalogueView(TemplateView):
         ctx['attributes'] = {p.name: {'attributes_values': self._group_attributes(p.productattributevalue_set.all().values()),
                                       'id': p.id, 'multiselect': True if p.code in ['kolor_bazowy'] else False}
                              for p in product_attributes}
+        ctx['path_list'] = [{'name': 'katalog', 'url': '/katalog/'}]
+        last_url = ctx['path_list'][-1]['url']
+        for p in self.request.path.split('/')[2:-1]:
+            if not p == 'kategoria':
+                ctx['path_list'].append({'name': p, 'url': last_url + p + '/'})
+                last_url = ctx['path_list'][-1]['url']
+            else:
+                last_url += 'kategoria/'
         return ctx
+
+
+class EtuiView(CatalogueView):
+
+    def get_categories(self, kwargs):
+        return Category.objects.get(name='smartfony').get_children()
+
+
+class CatalogueCategoryView(CatalogueView):
+
+    def get_categories(self, kwargs):
+        categories = kwargs['category_slug'].split('/')
+        if len(categories) > 1:
+            return Category.objects.get(slug=categories[0]).get_children()
+        else:
+            return Category.objects.get(slug=kwargs['category_slug']).get_children()

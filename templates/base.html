@@ -6,7 +6,6 @@
 {% block scripts %}
     {{ block.super }}
 
-    {% compress js %}
         <!-- Twitter Bootstrap -->
         <script type="text/javascript" src="{% static "oscar/js/bootstrap3/bootstrap.min.js" %}"></script>
         <!-- Oscar -->
@@ -22,7 +21,6 @@
         <script src="{% static "js/catalogue/cart.js" %}"></script>
         <script src="{% static "js/visible.js" %}"></script>
         <script src="{% static "bower_components/bootstrap-treeview/dist/bootstrap-treeview.min.js" %}"></script>
-    {% endcompress %}
     <script>
         // using jQuery
         function getCookie(name) {

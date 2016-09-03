@@ -14,7 +14,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from oscar.app import application
+from .app import application
 from django.conf import settings
 from django.conf.urls.static import static
 from apps.api.app import application as api

@@ -70,18 +70,18 @@ body
   margin-top: -0.5rem
   margin-bottom: -0.5rem
   a, button
-    color: white
+    color: $brand-primary
     width: 33.33%
     padding: 1.2rem 0
     margin: 0
     text-align: center
     cursor: pointer
   a:first-of-type
-    background-color: lighten($brand-primary, 5%)
+    background-color: white //$gray-light  // lighten($brand-primary, 5%)
   a:nth-of-type(2)
-    background-color: darken($brand-primary, 0%)
+    background-color: white //$gray-lighter // darken($brand-primary, 0%)
   a:nth-of-type(3)
-    background-color: darken($brand-primary, 5%)
+    background-color: white //$gray-lightest // darken($brand-primary, 5%)
 
 .page-footer
   background-color: $gray-dark
@@ -322,3 +322,14 @@ ul
       display: inline-block
     li.active
       font-weight: bold
+
+.carousel-control
+  .fa-stack-1x
+    position: absolute
+    top: 0.7rem
+    left: 0.5rem
+
+.carousel-control .icon-next::before, .carousel-control .icon-prev::before
+  content: ''
+
+

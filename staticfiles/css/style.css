@@ -61,18 +61,18 @@ body {
   margin-top: -0.5rem;
   margin-bottom: -0.5rem; }
   #top-nav a, #top-nav button {
-    color: white;
+    color: #0275d8;
     width: 33.33%;
     padding: 1.2rem 0;
     margin: 0;
     text-align: center;
     cursor: pointer; }
   #top-nav a:first-of-type {
-    background-color: #0283f1; }
+    background-color: white; }
   #top-nav a:nth-of-type(2) {
-    background-color: #0275d8; }
+    background-color: white; }
   #top-nav a:nth-of-type(3) {
-    background-color: #0267bf; }
+    background-color: white; }
 
 .page-footer {
   background-color: #373a3c;
@@ -296,5 +296,13 @@ ul {
   display: inline-block; }
 #checkout-nav ul li.active {
   font-weight: bold; }
+
+.carousel-control .fa-stack-1x {
+  position: absolute;
+  top: 0.7rem;
+  left: 0.5rem; }
+
+.carousel-control .icon-next::before, .carousel-control .icon-prev::before {
+  content: ""; }
 
 /*# sourceMappingURL=style.css.map */
