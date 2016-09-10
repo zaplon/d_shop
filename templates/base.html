@@ -16,8 +16,8 @@
             <script src="{% static "oscar/js/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.all.js" %}"
                     type="text/javascript" charset="utf-8"></script>
             <script src="{% static "bower_components/handlebars/handlebars.min.js" %}"></script>
-            <script src="{% static "bower_components/bootstrap-select/dist/js/bootstrap-select.js" %}"></script>
-            <script src="{% static "bower_components/bootstrap-treeview/dist/bootstrap-treeview.min.js" %}"></script>
+            <script src="{% static "bower_components/bootstrap-select/js/bootstrap-select.js" %}"></script>
+            <script src="{% static "bower_components/bootstrap-treeview/src/js/bootstrap-treeview.js" %}"></script>
         {% endcompress %}
         {% compress js %}
             <script src="{% static "js/catalogue/cart.js" %}"></script>
@@ -62,11 +62,13 @@
     <!-- Google fonts -->
     <link href='https://fonts.googleapis.com/css?family=Lobster|Noto+Serif' rel='stylesheet' type='text/css'>
     <!-- Bootstrap core CSS -->
-    <link href="{% static "bower_components/bootstrap/scss/bootstrap.css" %}" rel="stylesheet">
+    {% compress css %}
+        <link href="{% static "bower_components/bootstrap/scss/bootstrap.css" %}" rel="stylesheet">
 
-    <!--<link rel="stylesheet" type="text/css" href="{% static "oscar/css/styles.css" %}" />-->
-    <!-- Custom styles -->
-    <link href="{% static "css/style.css" %}" rel="stylesheet">
-    <link href="{% static "bower_components/bootstrap-select/dist/css/bootstrap-select.min.css" %}" rel="stylesheet">
-    <link href="{% static "css/cart.css" %}" rel="stylesheet">
+        <!--<link rel="stylesheet" type="text/css" href="{% static "oscar/css/styles.css" %}" />-->
+        <!-- Custom styles -->
+        <link href="{% static "css/style.css" %}" rel="stylesheet">
+        <link href="{% static "bower_components/bootstrap-select/css/bootstrap-select.min.css" %}" rel="stylesheet">
+    {% endcompress %}
+        <link href="{% static "css/cart.css" %}" rel="stylesheet">
 {% endblock %}
