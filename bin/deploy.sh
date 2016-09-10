@@ -7,6 +7,6 @@ git pull
 printf 'yes' | $PYTHON manage.py collectstatic
 #compress js and css
 $PYTHON manage.py compress
+touch shop/wsgi.py
 $PYTHON manage.py migrate
-service apache2 restart
 EOF
