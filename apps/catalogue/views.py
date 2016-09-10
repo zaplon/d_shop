@@ -70,7 +70,7 @@ class CatalogueView(TemplateView):
         if c.has_children():
             for cc in c.get_children():
                 c_list['nodes'].append({'text': cc.name, 'nodes': [], 'state': self._get_category_state(cc.slug, cc),
-                                        'href': '/katalog/' + self.prefix + '/' + '/'.join(cc.full_slug.split('/')[1:])})
+                                        'href': '/katalog/' + self.prefix + '/' + '/'.join(cc.full_slug.split('/')[0:])})
                 self._append_category(cc, c_list['nodes'][-1])
         else:
             del c_list['nodes']
@@ -100,7 +100,7 @@ class CatalogueView(TemplateView):
         categories = self.get_categories(kwargs)
         for c in categories:
             ctx['tree_data'].append({'text': c.name, 'nodes':[], 'state': self._get_category_state(c.slug, c),
-                                     'href': self.prefix + '/' + c.slug})
+                                     'href': c.slug})
             ctx['tree_data'][-1] = self._append_category(c, ctx['tree_data'][-1])
         #ctx['tree_data'] = [{'text': 'Apple', 'nodes': [{'text': 'Iphone'}]}]
         ctx['tree_data'] = json.dumps(ctx['tree_data'])
@@ -124,7 +124,7 @@ class CatalogueView(TemplateView):
 
 
 class EtuiView(CatalogueView):
-
+    prefix = 'opakowania-etui-folie'
     def get_categories(self, kwargs):
         return Category.objects.get(name='smartfony').get_children()
 
@@ -134,6 +134,6 @@ class CatalogueCategoryView(CatalogueView):
     def get_categories(self, kwargs):
         categories = kwargs['category_slug'].split('/')
         if len(categories) > 1:
-            return Category.objects.get(slug=categories[0]).get_children()
+            return Category.objects.get(name=categories[0]).get_children()
         else:
-            return Category.objects.get(slug=kwargs['category_slug']).get_children()
+            return Category.objects.get(name=kwargs['category_slug']).get_children()

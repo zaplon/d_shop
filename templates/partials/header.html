@@ -9,26 +9,23 @@
     </div>
     <div class="collapse" id="navbar-search">
         <div class="container-fluid bg-inverse p-a-1">
-            <form method="get" action="{% url 'search:search' %}" class="navbar-form navbar-right">
-                <div class="form-group">
+            <div class="container">
+                <form method="get" action="{% url 'search:search' %}" class="row navbar-form navbar-right form-inline">
                     {{ search_form.q }}
-                </div>
-                <input type="submit" value="{% trans "Search" %}" class="btn btn-default" />
-            </form>
-            <form>
-                <div class="container">
-                    <input type="search" class="form-control" placeholder="Czego szukasz?" />
-                </div>
-            </form>
+                    <button type="submit" class="btn" title="{% trans "Search" %}">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
     <div id="navbar-body" class="navbar navbar-light bg-faded navbar-static-top">
         <div class="container" style="margin-bottom: 8px;">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-8 col-sm-4">
                     <a class="navbar-brand" href="/">Logo</a>
                 </div>
-                <div class="col-md-4 no-padding-left" id="top-nav">
+                <div class="col-md-4 no-padding-left col-sm-8" id="top-nav">
                     <div class="nav navbar-nav">
                         <a class="nav-item nav-link" data-toggle="collapse" data-target="#navbar-header">
                             <i class="fa fa-reorder" title="Menu"></i>
@@ -36,8 +33,13 @@
                         <a class="nav-item nav-link" data-toggle="collapse" data-target="#navbar-search">
                             <i class="fa fa-search" title="Szukaj"></i>
                         </a>
-                        <a class="nav-item nav-link" href="{% url 'customer:login' %}">
-                            <i class="fa fa-user" title="Moje konto"></i></a>
+                        {% if request.user %}
+                            <a class="nav-item nav-link" href="/konto/profile/">
+                                <i class="fa fa-user" title="Moje konto"></i></a>
+                        {% else %}
+                            <a class="nav-item nav-link" href="{% url 'customer:login' %}">
+                                <i class="fa fa-user" title="Moje konto"></i></a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
