@@ -4,6 +4,24 @@
 {% load display_tags %}
 {% load staticfiles %}
 
+{#{% block product %}#}
+{#    <div class="col-md-4">#}
+{#        <div class="product-card">#}
+{#            <div class="image">#}
+{#                <a href="{{ front_url }}"><img src="{{ images.0.original }}"/></a>#}
+{#            </div>#}
+{#            <div class="title">#}
+{#                <a href="{{ front_url }}"><h5>{{ title }}</h5></a>#}
+{#            </div>#}
+{#             {{#if availability.is_available_to_buy}}#}
+{#                <div class="price">#}
+{#                    <span>{{ price.incl_tax }} {{ price.currency }}</span>#}
+{#                </div>#}
+{#             {{/if}}#}
+{#        </div>#}
+{#    </div>#}
+{#{% endblock %}#}
+
 {% block product %}
     <article class="product_pod">
         {% block product_image %}
