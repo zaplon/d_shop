@@ -83,6 +83,9 @@ class Command(BaseCommand):
                 print 'No image  for product %s (%s)' % (p.title, i)
 
     def handle(self, *args, **options):
+        #tworzenie katalogu
+        if not os.path.exists(DOWNLOAD_FOLDER):
+            os.makedirs(DOWNLOAD_FOLDER)
         # importowane klasy produktów
         klasses = ProductClass.objects.filter(external_type__isnull=False)
         e_types = {k.external_type: k for k in klasses}
