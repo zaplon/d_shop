@@ -22,7 +22,7 @@ ProductAttributeValue = get_model('catalogue', 'productattributevalue')
 OSCAR_IMAGES_FOLDER = datetime.datetime.now().strftime(settings.OSCAR_IMAGE_FOLDER)
 DOWNLOAD_FOLDER = os.path.join(settings.BASE_DIR, 'public', 'media', OSCAR_IMAGES_FOLDER)
 
-FRONT_URL_ROOT =  OSCAR_IMAGES_FOLDER
+FRONT_URL_ROOT = OSCAR_IMAGES_FOLDER
 
 
 class Command(BaseCommand):
@@ -99,7 +99,7 @@ class Command(BaseCommand):
         obj = untangle.parse(file)
         counter = 0
         for p in obj.xml.produkty.produkt:
-            if counter > 200:
+            if counter > 200000:
                 break
             counter += 1
             p_type = ''

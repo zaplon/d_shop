@@ -12,7 +12,7 @@ body
 
 #page-container
   padding-top: 2rem
-  padding-bottom: 2rem
+  padding-bottom: 0rem
   background-color: white
 
 #home-page-content
@@ -346,6 +346,20 @@ ul
 .sidebar
   padding: $modal-inner-padding
   background-color: $gray-dark
-  color: $gray-lightest
+  color: $gray-lightest!important
   li
     background-color: transparent
+    border: none
+    a
+      color: $gray-lightest!important
+  li:hover
+    background-color: $brand-primary!important
+
+
+
+.spacer
+  margin-top: 2rem
+  clear: both
+
+.page-header
+  margin-bottom: $headings-margin-bottom*2

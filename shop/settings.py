@@ -202,7 +202,7 @@ STATICFILES_FINDERS  = (
     # other finders..
     'compressor.finders.CompressorFinder',
 )
-COMPRESS_ENABLED = True
+COMPRESS_ENABLED = False
 COMPRESS_OFFLINE = True
 
 STATIC_ROOT = location('public/static')

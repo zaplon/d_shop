@@ -3,7 +3,7 @@ body {
 
 #page-container {
   padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-bottom: 0rem;
   background-color: white; }
 
 #home-page-content {
@@ -318,8 +318,20 @@ ul {
 .sidebar {
   padding: 15px;
   background-color: #373a3c;
-  color: #f7f7f9; }
+  color: #f7f7f9 !important; }
   .sidebar li {
-    background-color: transparent; }
+    background-color: transparent;
+    border: none; }
+    .sidebar li a {
+      color: #f7f7f9 !important; }
+  .sidebar li:hover {
+    background-color: #0275d8 !important; }
+
+.spacer {
+  margin-top: 2rem;
+  clear: both; }
+
+.page-header {
+  margin-bottom: 1rem; }
 
 /*# sourceMappingURL=style.css.map */
