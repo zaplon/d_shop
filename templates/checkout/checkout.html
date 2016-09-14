@@ -9,6 +9,8 @@
     {% trans "Checkout" %} | {{ block.super }}
 {% endblock %}
 
+{% block page_content_id %}checkout-content{% endblock %}
+
 {% block content %}
 
     {% if error %}
