@@ -86,8 +86,16 @@ body {
       font-size: 0.875rem;
       display: inline-block;
       margin-right: 1rem; }
+      .page-footer ul li a {
+        color: whitesmoke;
+        margin-bottom: 0.5rem; }
+      .page-footer ul li a:hover {
+        text-decoration: inherit; }
     .page-footer ul li:last-of-type {
       margin-right: 0; }
+
+#products-container div.col-md-4:nth-of-type(3n+1) {
+  clear: both; }
 
 .product-card {
   position: relative;
@@ -219,7 +227,7 @@ ul {
 #navbar-search input {
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #eceeef;
+  border: 1px solid #eceeef;
   color: #eceeef;
   border-radius: 0;
   width: 60%;
@@ -316,16 +324,12 @@ ul {
   content: ""; }
 
 .sidebar {
-  padding: 15px;
-  background-color: #373a3c;
-  color: #f7f7f9 !important; }
+  padding: 1rem;
+  padding-top: 0;
+  border-right: 2px inset #eceeef; }
   .sidebar li {
     background-color: transparent;
     border: none; }
-    .sidebar li a {
-      color: #f7f7f9 !important; }
-  .sidebar li:hover {
-    background-color: #0275d8 !important; }
 
 .spacer {
   margin-top: 2rem;
@@ -333,5 +337,8 @@ ul {
 
 .page-header {
   margin-bottom: 1rem; }
+
+.padding-big {
+  padding: 2rem; }
 
 /*# sourceMappingURL=style.css.map */

@@ -27,14 +27,14 @@
                 </div>
                 <div class="col-md-4 no-padding-left col-sm-8" id="top-nav">
                     <div class="nav navbar-nav">
-                        <a class="nav-item nav-link" data-toggle="collapse" data-target="#navbar-header">
+                        <a class="nav-item nav-link hvr-underline-from-center" data-toggle="collapse" data-target="#navbar-header">
                             <i class="fa fa-reorder" title="Menu"></i>
                         </a>
-                        <a class="nav-item nav-link" data-toggle="collapse" data-target="#navbar-search">
+                        <a class="nav-item nav-link hvr-underline-from-center" data-toggle="collapse" data-target="#navbar-search">
                             <i class="fa fa-search" title="Szukaj"></i>
                         </a>
                         {% if request.user %}
-                            <a class="nav-item nav-link" href="/konto/profile/">
+                            <a class="nav-item nav-link hvr-underline-from-center" href="/konto/profile/">
                                 <i class="fa fa-user" title="Moje konto"></i></a>
                         {% else %}
                             <a class="nav-item nav-link" href="{% url 'customer:login' %}">

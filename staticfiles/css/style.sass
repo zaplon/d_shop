@@ -95,8 +95,20 @@ body
       font-size: $font-size-sm
       display: inline-block
       margin-right: 1rem
+      a
+        color: whitesmoke
+        margin-bottom: 0.5rem
+      a:hover
+        text-decoration: inherit
     li:last-of-type
       margin-right: 0
+
+
+
+
+#products-container div.col-md-4:nth-of-type(3n+1)
+  clear: both
+
 
 .product-card
   position: relative
@@ -237,7 +249,7 @@ ul
   input
     background-color: transparent
     border: none
-    border-bottom: 1px solid $gray-lighter
+    border: 1px solid $gray-lighter
     color: $gray-lighter
     border-radius: 0
     width: 60%
@@ -313,8 +325,6 @@ ul
   background-color: #dff0d8
   border-color: #d6e9c6
 
-.sub-header
-
 #sub-header
   background-color: $gray-lightest
   h2
@@ -344,18 +354,14 @@ ul
 
 
 .sidebar
-  padding: $modal-inner-padding
-  background-color: $gray-dark
-  color: $gray-lightest!important
+  padding: 1rem
+  padding-top: 0
+  border-right: 2px inset $gray-lighter
+  //background-color: $gray-dark
+  //color: $gray-lightest!important
   li
     background-color: transparent
     border: none
-    a
-      color: $gray-lightest!important
-  li:hover
-    background-color: $brand-primary!important
-
-
 
 .spacer
   margin-top: 2rem
@@ -363,3 +369,6 @@ ul
 
 .page-header
   margin-bottom: $headings-margin-bottom*2
+
+.padding-big
+  padding: 2rem

@@ -1,0 +1,7 @@
+{% load crispy_forms_tags %}
+<form action="" method="post">
+    {% csrf_token %}
+    {% crispy form %}
+    <button type="submit" class="btn btn-primary">Prześlij</button>
+</form>
+

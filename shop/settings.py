@@ -50,6 +50,8 @@ INSTALLED_APPS = [
                      'jstemplate',
                      'debug_toolbar',
                      'paypal',
+                     'apps.pages',
+                     'crispy_forms'
                  ] + get_core_apps(['apps.catalogue', 'apps.offer', 'apps.checkout', 'apps.shipping'])
 
 SITE_ID = 1
@@ -234,3 +236,4 @@ PAYPAL_API_USERNAME = 'janek.zapal_api1.gmail.com'
 PAYPAL_API_PASSWORD = 'ECQKNK82W37NNK77'
 PAYPAL_API_SIGNATURE = 'AFcWxV21C7fd0v3bYYYRCpSSRl31AhFE4xn4wm9cJyJb8UXBDpdXCx7l'
 PAYPAL_CURRENCY = 'PLN'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

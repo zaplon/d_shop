@@ -1,0 +1,14 @@
+{% extends 'flatpages/default.html' %}
+{% load pages_tags %}
+
+{% block content %}
+    <article>
+        {{ flatpage.content }}
+        <div class="row padding-big">
+            <div class="col-md-8 col-sm-12">
+                {% render_form 'apps.pages.forms' 'ContactForm' %}
+            </div>
+        </div>
+
+    </article>
+{% endblock %}
