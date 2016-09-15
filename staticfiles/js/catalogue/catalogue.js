@@ -51,6 +51,7 @@ var Api = (function () {
                     res.results[r].availability = rr;
                 }
             });
+            res.currentImage = 0;
             $('#products-container').append(Handlebars.templates['product'](res.results[r]));
         }
 
@@ -76,12 +77,27 @@ var Api = (function () {
         this.productsEnd = $('#products-end');
         $(window).unbind('scroll', this.watchResults);
         $(window).bind('scroll', this.watchResults);
+        this.products = res.results;
     };
     ;
     return Api;
 }());
 var api = new Api('/api/products/');
 $(document).ready(function () {
+    $('#products-container').delegate('.image', 'mouseover', function(){
+        var product = api.products.filter(function(p){ if ( p.id == $(this).parent.attr('data-id') ) return true; } )[0];
+        product.interval = window.setInterval(function(){
+            if (product.currentImage >= product.images.length + 1)
+                product.currentImage = 0;
+            else
+                product.currentImage += 1;
+            $(this).find('img').attr('src', product.images[product.currentImage]);
+        }, 1000);
+    });
+    $('#products-container').delegate('.image', 'mouseout', function(){
+        var product = api.products.filter(function(p){ if ( p.id == $(this).parent.attr('data-id') ) return true; } )[0];
+        clearInterval(product.interval);
+    });    
     var categories = $('#product-categories').val();
     if (categories)
         api.params.categories = categories;
