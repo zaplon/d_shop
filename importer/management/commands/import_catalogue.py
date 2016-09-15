@@ -72,7 +72,10 @@ class Command(BaseCommand):
         for i, zdjecie in enumerate(node.zdjecie):
             caption = self.slugify(p.title + ' ' + str(i))
             try:
-                file_name = wget.download(zdjecie.cdata, out=self.slugify(p.title + '.jpg'))
+                if i > 0:
+                    file_name = wget.download(zdjecie.cdata, out=self.slugify(p.title + '_' + str(i) + '.jpg'))
+                else:
+                    file_name = wget.download(zdjecie.cdata, out=self.slugify(p.title + '.jpg'))
                 front = os.path.join(FRONT_URL_ROOT, file_name)
                 ProductImage.objects.create(product=p, original=front, caption=caption, display_order=i)
                 move_from = os.path.join(file_name)
