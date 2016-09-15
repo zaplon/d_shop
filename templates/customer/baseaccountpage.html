@@ -8,6 +8,8 @@
 
 {% block body_class %}account-profile{% endblock %}
 
+{% block page_content_id %}checkout-content{% endblock %}
+
 {% block breadcrumbs %}
     <ul class="breadcrumb">
         <li>
@@ -24,27 +26,27 @@
 {% block headertext %}{{ page_title }}{% endblock %}
 
 {% block column_left %}
-    <ul class="list-group">
+    <ul class="sidebar-list">
         {% block standard_tabs %}
-            <li class="list-group-item{% if active_tab == 'profile' %} active{% endif %}">
+            <li class="{% if active_tab == 'profile' %} active{% endif %}">
                 <a href="{% url 'customer:profile-view' %}">{% trans "Profile" %}</a>
             </li>
-            <li class="list-group-item{% if active_tab == 'orders' %} active{% endif %}">
+            <li class="{% if active_tab == 'orders' %} active{% endif %}">
                 <a href="{% url 'customer:order-list' %}">{% trans "Order History" %}</a>
             </li>
-            <li class="list-group-item{% if active_tab == 'addresses' %} active{% endif %}">
+            <li class="{% if active_tab == 'addresses' %} active{% endif %}">
                 <a href="{% url 'customer:address-list' %}">{% trans "Address Book" %}</a>
             </li>
-            <li class="list-group-item{% if active_tab == 'emails' %} active{% endif %}">
+            <li class="{% if active_tab == 'emails' %} active{% endif %}">
                 <a href="{% url 'customer:email-list' %}">{% trans "Email History" %}</a>
             </li>
-            <li class="list-group-item{% if active_tab == 'alerts' %} active{% endif %}">
+            <li class="{% if active_tab == 'alerts' %} active{% endif %}">
                 <a href="{% url 'customer:alerts-list' %}">{% trans "Product Alerts" %}</a>
             </li>
-            <li class="list-group-item{% if active_tab == 'notifications' %} active{% endif %}">
+            <li class="{% if active_tab == 'notifications' %} active{% endif %}">
                 <a href="{% url 'customer:notifications-inbox' %}">{% trans "Notifications" %}</a>
             </li>
-            <li class="list-group-item{% if active_tab == 'wishlists' %} active{% endif %}">
+            <li class="{% if active_tab == 'wishlists' %} active{% endif %}">
                 <a href="{% url 'customer:wishlists-list' %}">{% trans "Wish Lists" %}</a>
             </li>
         {% endblock %}
@@ -53,4 +55,5 @@
 
 {% block content %}
     {% block tabcontent %}{% endblock tabcontent %}
+    <div class="spacer"></div>
 {% endblock content %}

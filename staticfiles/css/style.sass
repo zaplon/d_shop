@@ -86,9 +86,9 @@ body
 .page-footer
   background-color: $gray-dark
   color: $gray-lighter
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+  position: fixed
+  bottom: 0
+  width: 100%
   ul
     list-style-position: inside
     margin: $navbar-padding-x 0
@@ -378,3 +378,19 @@ ul
 
 #checkout-content
   margin-bottom: 2rem
+
+.sidebar-list
+  margin: 0
+  padding: 0
+  li
+    padding: 0.5rem
+  li:hover
+    background-color: $gray-lightest
+  li.active
+    background-color: $brand-primary
+    a
+      color: white
+
+.main-content
+  form
+    margin-left: 15px

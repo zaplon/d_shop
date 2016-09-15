@@ -76,7 +76,10 @@ body {
 
 .page-footer {
   background-color: #373a3c;
-  color: #eceeef; }
+  color: #eceeef;
+  position: fixed;
+  bottom: 0;
+  width: 100%; }
   .page-footer ul {
     list-style-position: inside;
     margin: 1rem 0;
@@ -343,5 +346,20 @@ ul {
 
 #checkout-content {
   margin-bottom: 2rem; }
+
+.sidebar-list {
+  margin: 0;
+  padding: 0; }
+  .sidebar-list li {
+    padding: 0.5rem; }
+  .sidebar-list li:hover {
+    background-color: #f7f7f9; }
+  .sidebar-list li.active {
+    background-color: #0275d8; }
+    .sidebar-list li.active a {
+      color: white; }
+
+.main-content form {
+  margin-left: 15px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -85,17 +85,20 @@ var Api = (function () {
 var api = new Api('/api/products/');
 $(document).ready(function () {
     $('#products-container').delegate('.image', 'mouseover', function(){
-        var product = api.products.filter(function(p){ if ( p.id == $(this).parent.attr('data-id') ) return true; } )[0];
+        var parentId = $(this).parent().attr('data-id');
+        var product = api.products.filter(function(p){ if ( p.id == parentId ) return true; } )[0];
+        var image = $(this).find('img');
         product.interval = window.setInterval(function(){
             if (product.currentImage >= product.images.length + 1)
                 product.currentImage = 0;
             else
                 product.currentImage += 1;
-            $(this).find('img').attr('src', product.images[product.currentImage]);
+            image.attr('src', product.images[product.currentImage]);
         }, 1000);
     });
     $('#products-container').delegate('.image', 'mouseout', function(){
-        var product = api.products.filter(function(p){ if ( p.id == $(this).parent.attr('data-id') ) return true; } )[0];
+        var parentId = $(this).parent().attr('data-id');
+        var product = api.products.filter(function(p){ if ( p.id == parentId ) return true; } )[0];
         clearInterval(product.interval);
     });    
     var categories = $('#product-categories').val();
