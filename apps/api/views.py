@@ -49,8 +49,8 @@ class ProductList(basic.ProductList):
 
 
 
-def get_available_values(options):
-        ids = ProductAttributeValue.objects.filter(product__id__in=products, attribute=self).values_list('id', flat=True)
+def get_available_values(attribute, options):
+        ids = ProductAttributeValue.objects.filter(product__attribute_values__id__in=options, attribute=attribute).values_list('id', flat=True)
         return ids
 
 
@@ -59,7 +59,6 @@ def get_available_attributes(request):
     options = [a.id for a in atts]
     res = []
     for a in atts:
-        pav = ProductAttributeValue.objects.get(id=request.GET['id'])
-        res.append({'id': pav.id, 'options': pav.get_available_attributes(options)})
+        pa = ProductAttribute.objects.get(id=request.GET['id'])
+        res.append({'id': pav.id, 'options': get_available_values(pa, options)})
     return HttpResponse(json.dumps(res), content_type='application_json')
-
