@@ -168,7 +168,7 @@ $(document).ready(function () {
         });
         api.params.attributes = atts_ids.join(',');
         //odświeżanie filtrów
-        $.getJSON('/api/get_available_attributes/', params, function(res){
+        $.getJSON('/api/get_available_attributes/', {attributes: JSON.stringify(api.attributes)}, function(res){
             res.forEach(function(r){
                var s = $('select[data-id='+r.id+']');    
                var options = $(s).find('option');
