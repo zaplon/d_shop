@@ -43,3 +43,7 @@ class ProductList(basic.ProductList):
     def get_queryset(self):
         queryset = super(ProductList, self).get_queryset()
         return queryset
+
+
+def get_available_attributes(request):
+    pass
