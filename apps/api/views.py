@@ -5,6 +5,7 @@ import django_filters
 from oscar.core.loading import get_model
 from django_filters import Filter
 from django_filters.fields import Lookup
+from django.shortcuts import HttpResponse
 
 
 class ListFilter(Filter):
@@ -20,6 +21,7 @@ class ListFilter(Filter):
 
 
 Product = get_model('catalogue', 'Product')
+ProductAttributeValue = get_model('catalogue', 'ProductAttributeValue')
 
 
 class ProductFilter(django_filters.FilterSet):
@@ -46,4 +48,6 @@ class ProductList(basic.ProductList):
 
 
 def get_available_attributes(request):
-    pass
+    pav = ProductAttributeValue.objects.get(id=request.GET['id']
+    return HttpResponse(pav.get_available_attributes(), content_type='application_json')
+
