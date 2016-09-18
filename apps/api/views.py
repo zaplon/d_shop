@@ -48,11 +48,18 @@ class ProductList(basic.ProductList):
         return queryset
 
 
+
+def get_available_values(options):
+        ids = ProductAttributeValue.objects.filter(product__id__in=products, attribute=self).values_list('id', flat=True)
+        return ids
+
+
 def get_available_attributes(request):
     atts = json.loads(request.GET['attributes'])
+    options = [a.id for a in atts]
     res = []
     for a in atts:
         pav = ProductAttributeValue.objects.get(id=request.GET['id'])
-        res.append({'id': pav.id, 'options': pav.get_available_attributes()})
+        res.append({'id': pav.id, 'options': pav.get_available_attributes(options)})
     return HttpResponse(json.dumps(res), content_type='application_json')
 
