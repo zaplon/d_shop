@@ -139,7 +139,7 @@ $(document).ready(function () {
                 var selected = $(s).find('option:selected');
                 val.split(',').forEach(function(a, i){
                     attributes.push([{
-                        id: parseInt(a), name: $(selected).attr('name'),
+                        id: a, name: $(selected).attr('name'),
                         attribute: $(s).attr('data-attribute')
                     }]);
                 })
