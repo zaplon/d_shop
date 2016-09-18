@@ -6,6 +6,7 @@ from oscar.core.loading import get_model
 from django_filters import Filter
 from django_filters.fields import Lookup
 from django.shortcuts import HttpResponse
+import json
 
 
 class ListFilter(Filter):
@@ -48,6 +49,10 @@ class ProductList(basic.ProductList):
 
 
 def get_available_attributes(request):
-    pav = ProductAttributeValue.objects.get(id=request.GET['id']
-    return HttpResponse(pav.get_available_attributes(), content_type='application_json')
+    atts = json.loads(request.GET['attributes'])
+    res = []
+    for a in atts:
+        pav = ProductAttributeValue.objects.get(id=request.GET['id'])
+        res.append({'id': pav.id, 'options': pav.get_available_attributes()})
+    return HttpResponse(json.dumps(res), content_type='application_json')
 
