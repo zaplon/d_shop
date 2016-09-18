@@ -23,7 +23,7 @@ Product = get_model('catalogue', 'Product')
 
 
 class ProductFilter(django_filters.FilterSet):
-    attributes = ListFilter(name="attribute_values__id")
+    attributes = ListFilter(name="attribute_values__code")
     categories = ListFilter(name="categories__id")
     title_like = django_filters.CharFilter(name="title", lookup_type='icontains')
 
