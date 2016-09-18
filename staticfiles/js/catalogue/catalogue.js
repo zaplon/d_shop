@@ -131,20 +131,9 @@ $(document).ready(function () {
     var productsEnd = $('#products-end');
     $('#product-filters select').change(function (e) {
         var attributes = [];
-        var selectId = if $(this).attr('data-id');
         api.params.offset = 0;
         api.count = 1;
         $('#product-filters select').each(function (i, s) {
-            if ($(s).attr('data-id') != selectId){
-                $.getJSON('/api/get_available_attributes/', {id: $(s).attr('data-id')}, function(res){
-                   var options = $(s).find('option');
-                   options.each(function(i, o){
-                      var val = $(o).val();
-                      if ($.inArray(val, res) == -1)
-                        $(o).attr('disabled', 'true');
-                   });
-                });
-            }
             var val = $(s).val();
             if (typeof (val) == 'string' && val != '') {
                 var selected = $(s).find('option:selected');
@@ -178,6 +167,18 @@ $(document).ready(function () {
             atts_ids[atts_ids.length - 1] = atts_ids[atts_ids.length - 1].join('.');
         });
         api.params.attributes = atts_ids.join(',');
+        //odświeżanie filtrów
+        $.getJSON('/api/get_available_attributes/', params, function(res){
+            res.forEach(function(r){
+               var s = $('select[data-id='+r.id+']');    
+               var options = $(s).find('option');
+               options.each(function(i, o){
+                  var val = $(o).val();
+                  if ($.inArray(val, r['options']) == -1)
+                    $(o).attr('disabled', 'true');
+               }); 
+            });
+        });
         api.query(12);
     });
     api.query(12);
