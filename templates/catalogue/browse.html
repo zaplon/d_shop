@@ -49,7 +49,7 @@
                                    {% endif %}
                                    data-attribute="{{ data.id }}">
                                {% for name, data in data.attributes_values.items %}
-                                   <option name="{{ name }}" value="{{ data.ids }}">{{ name }}</option>
+                                   <option name="{{ name }}" value="{{ name }}">{{ name }}</option>
                                {% endfor %}
                            </select>
                         </div>
