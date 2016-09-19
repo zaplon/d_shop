@@ -7,6 +7,7 @@ from django_filters import Filter
 from django_filters.fields import Lookup
 from django.shortcuts import HttpResponse
 import json
+from rest_framework.response import Response
 
 
 class ListFilter(Filter):
@@ -22,6 +23,7 @@ class ListFilter(Filter):
 
 
 Product = get_model('catalogue', 'Product')
+ProductAttribute = get_model('catalogue', 'ProductAttribute')
 ProductAttributeValue = get_model('catalogue', 'ProductAttributeValue')
 
 
@@ -43,22 +45,28 @@ class ProductList(basic.ProductList):
     filter_class = ProductFilter
     filter_backends = (filters.DjangoFilterBackend,)
 
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(queryset, many=True)
+        filters = get_available_attributes(request, queryset)
+        return Response({'products': serializer.data, 'filters': filters})
+
     def get_queryset(self):
         queryset = super(ProductList, self).get_queryset()
         return queryset
 
 
-
-def get_available_values(attribute, options):
-        ids = ProductAttributeValue.objects.filter(product__attribute_values__id__in=options, attribute=attribute).values_list('id', flat=True)
-        return ids
-
-
-def get_available_attributes(request):
-    atts = json.loads(request.GET['attributes'])
-    options = [a.id for a in atts]
+def get_available_attributes(request, products):
+    filters = json.loads(request.GET['filters'])
     res = []
-    for a in atts:
-        pa = ProductAttribute.objects.get(id=request.GET['id'])
-        res.append({'id': pav.id, 'options': get_available_values(pa, options)})
-    return HttpResponse(json.dumps(res), content_type='application_json')
+    for f in filters:
+        pavs = ProductAttributeValue.objects.filter(product__in=products, attribute__name=f)
+        options = [{'id': int(pav.id), 'text': pav.value_text} for pav in pavs]
+        res.append({'name': f, 'options': options})
+    return res

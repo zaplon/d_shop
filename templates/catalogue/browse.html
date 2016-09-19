@@ -31,36 +31,52 @@
 {% endblock %}
 
 {% block content %}
+    <form id="variables">
+        <input type="hidden" name="filters" value="{{ filters }}">
+        <input type="hidden" name="categories" value="{{ category }}">
+    </form>
     <div class="row">
         <div class="col-md-2 col-sm-hidden tree-list sidebar">
             <div id="tree" data="{{ tree_data }}"></div>
         </div>
         <div class="col-md-10 col-sm-12">
             <div id="product-filters" class="row">
-                <form class="form">
-                    {% for name, data in attributes.items %}
-                        <div class="col-md-4">
-                           <select class="form-control selectpicker" {% if not data.multiselect %} data-max-options="1" {% endif %}
-                                   title="{{ name }}"
-                                   multiple
-                                   data-live-search="true"
-                                   {% if data.multiselect %}
-                                    data-selected-text-format="count > 3"
-                                   {% endif %}
-                                   data-attribute="{{ data.id }}">
-                               {% for name, data in data.attributes_values.items %}
-                                   <option name="{{ name }}" value="{{ name }}">{{ name }}</option>
-                               {% endfor %}
-                           </select>
-                        </div>
-                    {% endfor %}
+                <form class="form" data-bind="template: { name: 'filter-template', foreach: filters }">
                 </form>
             </div>
             <div id="products-container"></div>
         </div>
     </div>
-    
-    <div><input type="hidden" id="product-categories" value="{{ categories }}" /></div>
+
+    <script type="text/html" id="filter-template">
+       <div class="col-md-4">
+           <select class="form-control selectpicker" data-max-options="1"
+                   multiple
+                   data-live-search="true"
+                   data-selected-text-format="count > 3"
+                   data-bind="options: options, optionsText: 'text', value: selectedOption,
+                   attr: { title: name }">
+           </select>
+       </div>
+    </script>
+
+    <script type="text/html" id="filter-template">
+       <div class="col-md-4">
+            <div class="product-card" data-bind="attr: {data-id: id}">
+                <div class="image">
+                    <a data-bind="attr: {href: front_url }"><img data-bind="attr: {src: images.0.original}"/></a>
+                </div>
+                <div class="title">
+                    <a data-bind="attr: {href: front_url }"><h5 data-bind="text: title"></h5></a>
+                </div>
+                <div data-bind="if: availability.is_available_to_buy" class="price">
+                    <span data-bind="text: price.incl_tax"></span>
+                </div>
+            </div>
+        </div>
+    </script>
+
+
 {% endblock %}
 
 {% block extrascripts %}

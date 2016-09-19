@@ -6,6 +6,8 @@ $border-radius: 0
 $border-radius-lg: 0
 $border-radius-sm: 0
 $btn-border-radius: 0
+$footer-height: 56px
+
 
 body
   background-color: $gray-lightest
@@ -14,6 +16,7 @@ body
   padding-top: 2rem
   padding-bottom: 0rem
   background-color: white
+  margin-bottom: $footer-height
 
 #home-page-content
   margin-left: -15px
@@ -83,6 +86,9 @@ body
   a:nth-of-type(3)
     background-color: white //$gray-lightest // darken($brand-primary, 5%)
 
+.page
+  margin-bottom: $footer-height
+
 .page-footer
   background-color: $gray-dark
   color: $gray-lighter
@@ -107,7 +113,9 @@ body
       margin-right: 0
 
 
-
+li.disabled
+  a
+    color: $gray-lighter
 
 #products-container div.col-md-4:nth-of-type(3n+1)
   clear: both

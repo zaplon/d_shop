@@ -1,7 +1,11 @@
 from django import template
 from apps.catalogue.models import Category
 import json
-from oscar.apps.catalogue.models import ProductAttributeValue, ProductAttribute
+from oscar.core.loading import get_model
+
+
+ProductAttribute = get_model('catalogue', 'ProductAttribute')
+ProductAttributeValue = get_model('catalogue', 'ProductAttributeValue')
 
 
 register = template.Library()

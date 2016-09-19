@@ -4,7 +4,8 @@ body {
 #page-container {
   padding-top: 2rem;
   padding-bottom: 0rem;
-  background-color: white; }
+  background-color: white;
+  margin-bottom: 56px; }
 
 #home-page-content {
   margin-left: -15px;
@@ -74,6 +75,9 @@ body {
   #top-nav a:nth-of-type(3) {
     background-color: white; }
 
+.page {
+  margin-bottom: 56px; }
+
 .page-footer {
   background-color: #373a3c;
   color: #eceeef;
@@ -96,6 +100,9 @@ body {
         text-decoration: inherit; }
     .page-footer ul li:last-of-type {
       margin-right: 0; }
+
+li.disabled a {
+  color: #eceeef; }
 
 #products-container div.col-md-4:nth-of-type(3n+1) {
   clear: both; }

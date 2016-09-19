@@ -5,9 +5,7 @@ from . import views
 urlpatterns = patterns(
      '',
      url(r'^products/$', views.ProductList.as_view(),
-         name='product-list'),
-     url(r'^available_attributes/$', views.get_available_attributes,
-         name='available-attributes'),    
+         name='product-list')
          
 )
 

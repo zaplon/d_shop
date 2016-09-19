@@ -3,10 +3,13 @@ from django.core.paginator import InvalidPage
 from django.shortcuts import redirect
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import TemplateView
-from oscar.apps.catalogue.models import ProductAttributeValue, ProductAttribute
 from oscar.core.loading import get_class, get_model
 import json
 from oscar.apps.catalogue.models import Category
+
+
+ProductAttribute = get_model('catalogue', 'ProductAttribute')
+ProductAttributeValue = get_model('catalogue', 'ProductAttributeValue')
 
 
 def phone_selector(request):
@@ -94,24 +97,30 @@ class CatalogueView(TemplateView):
         #return Category.objects.get(name='smartfony').get_children()
         return Category.objects.filter(depth=1)
 
+    def get_values_grouped_by_slug(self, a):
+        res = []
+        vals = ProductAttributeValue.objects.filter(attribute__name=a.name).order_by('value_text').values_list('id', 'value_text')
+        for v in vals:
+            if len(filter(lambda x: x['value_text'] == v[1], res)) == 0:
+                res.append({'id': v[0], 'value_text': v[1]})
+        return res
+
     def get_context_data(self, **kwargs):
-        ctx = {}
-        ctx['tree_data'] = []
+        ctx = {'filters': json.dumps(self.filters), 'tree_data': []}
         categories = self.get_categories(kwargs)
         for c in categories:
             ctx['tree_data'].append({'text': c.name, 'nodes':[], 'state': self._get_category_state(c.slug, c),
                                      'href': c.slug})
             ctx['tree_data'][-1] = self._append_category(c, ctx['tree_data'][-1])
-        #ctx['tree_data'] = [{'text': 'Apple', 'nodes': [{'text': 'Iphone'}]}]
         ctx['tree_data'] = json.dumps(ctx['tree_data'])
         product_attributes = ProductAttribute.objects.filter(code__in=self.filters)
         if self.category:
             categories = [c.id for c in self.category.get_descendants_and_self()]
             ctx['categories'] = '.'.join([str(c) for c in categories])
-            product_attributes = product_attributes.filter(product__categories__id__in=categories)
-        ctx['attributes'] = {p.name: {'attributes_values': self._group_attributes(p.productattributevalue_set.all().values()),
-                                      'id': p.id, 'multiselect': True if p.code in ['kolor_bazowy'] else False}
-                             for p in product_attributes}
+        #     product_attributes = product_attributes.filter(product__categories__id__in=categories)
+        # ctx['attributes'] = {p.name: {'attribute_values': self.get_values_grouped_by_slug(p.name),  # self._group_attributes(p.productattributevalue_set.all().values()),
+        #                               'name': p.name, 'multiselect': True if p.code in ['kolor_bazowy'] else False}
+        #                      for p in product_attributes}
         ctx['path_list'] = [{'name': 'katalog', 'url': '/katalog/'}]
         last_url = ctx['path_list'][-1]['url']
         for p in self.request.path.split('/')[2:-1]:
