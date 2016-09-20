@@ -44,18 +44,18 @@
                 <form class="form" data-bind="template: { name: 'filter-template', foreach: filters }">
                 </form>
             </div>
-            <div id="products-container"></div>
+            <div id="products-container" data-bind="template: { name: 'product-template', foreach: products }"></div>
         </div>
     </div>
 
     <script type="text/html" id="filter-template">
        <div class="col-md-4">
-           <select class="form-control selectpicker" data-max-options="1"
+           <select class="form-control selectpicker"
                    multiple
                    data-live-search="true"
                    data-selected-text-format="count > 3"
                    data-bind="options: options, optionsText: 'text', value: selectedOption,
-                   attr: { title: name }">
+                   attr: { title: name, data-max-options: typeof(multiple) == 'undefined' ? '1' : null }">
            </select>
        </div>
     </script>
