@@ -11,7 +11,7 @@ $(document).ready(function () {
     params = {filters: JSON.stringify(viewModel.filterNames)};
     $.getJSON("/api/products/", params , function(data) {
         data.filters.forEach(function(f, i){
-            f.selectedOption = f.options.filter(function(o){ return o.id == 1 });
+            f.selectedOptions = f.options.filter(function(o){ return o.id == 1 });
         });
         viewModel.filters(data.filters);
         $('.selectpicker').selectpicker();
