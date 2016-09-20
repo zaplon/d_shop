@@ -68,5 +68,9 @@ def get_available_attributes(request, products):
     for f in filters:
         pavs = ProductAttributeValue.objects.filter(product__in=products, attribute__name=f)
         options = [{'id': int(pav.id), 'text': pav.value_text} for pav in pavs]
-        res.append({'name': f, 'options': options})
+        options_unique = [options[0]]
+        for i, o in enumerate(options[1:]):
+            if options[i-1]['text'] != options[i]['text']:
+                options_unique.append(o)
+        res.append({'name': f, 'options': options_unique})
     return res
