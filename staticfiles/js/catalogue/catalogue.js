@@ -2,7 +2,9 @@ var viewModel = {
     filters : ko.observableArray([]),
     products : ko.observableArray([]),
     categories: $('#variables input[name="categories"]').val(),
-    filterNames: JSON.parse($('#variables input[name="filters"]').val())
+    filterNames: JSON.parse($('#variables input[name="filters"]').val()),
+    selectionChanged: function(event) {
+    }    
 };
 ko.applyBindings(viewModel);
 
