@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../../../../../../../home/jan/workspace/django_shop/shop/staticfiles/bower_components/knockout/src/version.js"],"names":[],"mappings":"AAAA,GAAG,OAAH,GAAa,aAAb;;AAEA,GAAG,YAAH,CAAgB,SAAhB,EAA2B,GAAG,OAA9B","file":"version-compiled.js","sourcesContent":["ko.version = \"##VERSION##\";\n\nko.exportSymbol('version', ko.version);\n"]}
