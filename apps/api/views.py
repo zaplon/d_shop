@@ -47,14 +47,16 @@ class ProductList(basic.ProductList):
 
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
-
+        if not request.GET.get('dont_refresh_filters', False):
+            filters = get_available_attributes(request, queryset)
+        else:
+            filters = None
         page = self.paginate_queryset(queryset)
         if page is not None:
             serializer = self.get_serializer(page, many=True)
-            return self.get_paginated_response(serializer.data)
+            return self.get_paginated_response({'products': serializer.data, 'filters': filters})
 
         serializer = self.get_serializer(queryset, many=True)
-        filters = get_available_attributes(request, queryset)
         return Response({'products': serializer.data, 'filters': filters})
 
     def get_queryset(self):
@@ -66,11 +68,16 @@ def get_available_attributes(request, products):
     filters = json.loads(request.GET['filters'])
     res = []
     for f in filters:
-        pavs = ProductAttributeValue.objects.filter(product__in=products, attribute__name=f)
-        options = [{'id': int(pav.id), 'text': pav.value_text} for pav in pavs]
-        options_unique = [options[0]]
-        for i, o in enumerate(options[1:]):
-            if options[i-1]['text'] != options[i]['text']:
-                options_unique.append(o)
-        res.append({'name': f, 'options': options_unique})
+        pavs = ProductAttributeValue.objects.filter(product__in=products, attribute__code=f).order_by('value_text', 'id')
+        options = [{'id': int(pav.id), 'text': pav.value_text, 'slug': pav.value_text} for pav in pavs]
+        if len(options) > 0:
+            options_unique = [options[0]]
+            name = pavs[0].attribute.name
+            for i in range(1, len(options)):
+                if options[i-1]['text'] != options[i]['text']:
+                    options_unique.append(options[i])
+        else:
+            options_unique = []
+            name = None
+        res.append({'name': name, 'options': options_unique, 'slug': f})
     return res

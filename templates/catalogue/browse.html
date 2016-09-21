@@ -25,7 +25,15 @@
             </ul>
         </div>
         <div class="col-md-4">
-            <div id="filters-list"><ul></ul></div>
+            <div id="filters-list">
+                <ul data-bind="foreach: filters">
+                    <li data-bind="foreach: selectedOptions">
+                        <!--ko text: $parent.name+': '--><!--/ko-->
+                        <span data-bind="text: $data,
+                        click: $root.removeFilter, attr: {'data-index': $parentContext.$index()}"></span>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 {% endblock %}
@@ -33,7 +41,7 @@
 {% block content %}
     <form id="variables">
         <input type="hidden" name="filters" value="{{ filters }}">
-        <input type="hidden" name="categories" value="{{ category }}">
+        <input type="hidden" name="categories" value="{{ categories }}">
     </form>
     <div class="row">
         <div class="col-md-2 col-sm-hidden tree-list sidebar">
@@ -45,32 +53,38 @@
                 </form>
             </div>
             <div id="products-container" data-bind="template: { name: 'product-template', foreach: products }"></div>
+            <div id="products-end"></div>
         </div>
     </div>
 
     <script type="text/html" id="filter-template">
        <div class="col-md-4">
-           <select class="form-control selectpicker" data-bind="event: { change: selectionChanged }"
+           <select class="form-control selectpicker"
                    multiple
                    data-live-search="true"
                    data-selected-text-format="count > 3"
-                   data-bind="options: options, optionsText: 'text', selectedOptions: selectedOptions,
-                   attr: { title: name, data-max-options: typeof(multiple) == 'undefined' ? '1' : null }">
+                   data-bind="options: options, optionsText: 'text', selectedOptions: selectedOptions, optionsValue: 'slug',
+                   event: { change: $parent.selectionChanged },
+                   optionsAfterRender: $parent.setOptionDisable,
+                   attr: { title: name, 'data-max-options': typeof(multiple) == 'undefined' ? '1' : null }">
            </select>
        </div>
     </script>
 
-    <script type="text/html" id="filter-template">
+    <script type="text/html" id="product-template">
        <div class="col-md-4">
-            <div class="product-card" data-bind="attr: {data-id: id}">
+            <div class="product-card" data-bind="attr: {'data-id': id}">
                 <div class="image">
-                    <a data-bind="attr: {href: front_url }"><img data-bind="attr: {src: images.0.original}"/></a>
+                    <a data-bind="attr: {href: front_url }"><img data-bind="attr: {src: images[0].original}"/></a>
                 </div>
                 <div class="title">
                     <a data-bind="attr: {href: front_url }"><h5 data-bind="text: title"></h5></a>
                 </div>
-                <div data-bind="if: availability.is_available_to_buy" class="price">
-                    <span data-bind="text: price.incl_tax"></span>
+                <div data-bind="if: sell_details.is_available" class="price">
+                    <span data-bind="text: sell_details.price.incl_tax"></span>
+                </div>
+                <div data-bind="if: !sell_details.is_available" class="not-available">
+                    <span>Produkt niedostępny</span>
                 </div>
             </div>
         </div>

@@ -8,6 +8,12 @@ class Product(AbstractProduct):
     video_url = models.URLField(blank=True, null=True)
     external_id = models.IntegerField(blank=True, null=True)
 
+    def get_number(self):
+        return self.stockrecords.first().num_in_stock
+
+    def get_sell_details(self):
+        details = {}
+
 
 class ProductClass(AbstractProductClass):
     external_type = models.CharField(max_length=50, blank=True, null=True)
