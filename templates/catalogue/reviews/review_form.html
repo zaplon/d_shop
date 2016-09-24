@@ -15,7 +15,15 @@
                         {{ form.score.label|safe }} <span>*</span>
                     </label>
                     <div class="controls">
-                        {{ form.score }}
+                        <select class="form-control" id="id_score" name="score">
+                            <option value="" selected="selected">---------</option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
                         <div class="star-rating {% if form.score.value == '1' %}One{% elif form.score.value == '2' %}Two{% elif form.score.value == '3' %}Three{% elif form.score.value == '4' %}Four{% elif form.score.value == '5' %}Five{% endif %}">
                             <i class="icon-star"></i>
                             <i class="icon-star"></i>

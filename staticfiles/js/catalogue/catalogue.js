@@ -24,7 +24,7 @@ var viewModel = {
     },
     watchScroll: function(){
       if (viewModel.productsEnd.visible() && !viewModel.loading) {
-          viewModel.offset += 6;
+          viewModel.offset += 12;
           if (viewModel.offset < viewModel.count)
             viewModel.loadData(true);
       }
@@ -47,6 +47,7 @@ var viewModel = {
             params.dont_refresh_filters = true;
         $.getJSON("/api/products/", params , function(data){
             viewModel.count = data.count;
+            viewModel.loading = false;
             if (dontRefreshFilters){
                 viewModel.products(viewModel.products().concat(data.results.products));
                 return true;
@@ -87,7 +88,6 @@ var viewModel = {
         });
         $(window).unbind('scroll', viewModel.watchScroll);
         $(window).bind('scroll', viewModel.watchScroll);
-        viewModel.loading = false;
     },
     selectionChanged: function(event) {
         viewModel.loadData();
