@@ -8,9 +8,18 @@ $border-radius-sm: 0
 $btn-border-radius: 0
 $footer-height: 56px
 
+@import url(https://fonts.googleapis.com/css?family=Work+Sans:400,300,500,600)
+
+html *
+  text-rendering: optimizeLegibility
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
 
 body
   background-color: $gray-lightest
+  font-family: "Work Sans", Helvetica, Arial, sans-serif
+
 
 #page-container
   padding-top: 2rem
@@ -50,6 +59,9 @@ body
       font-size: $font-size-h5
       color: white
       display: inline-block
+
+h1, h2, h3, h5
+  font-weight: 400
 
 .front-card-tall
   height: 400px
@@ -219,7 +231,7 @@ li.disabled
   li
     display: inline-block
   li:after
-    content: ' > '
+    content: ' / '
   li:last-of-type:after
     content: ''
 
@@ -402,3 +414,18 @@ ul
 .main-content
   form
     margin-left: 15px
+
+.error-block
+  color: $brand-danger
+
+.has-error input
+  border-color: $brand-danger
+
+.carousel-indicators
+  li
+    background-color: $gray-light
+  li.active
+    background-color: $brand-primary
+
+.treeview .list-group-item
+  text-transform: lowercase

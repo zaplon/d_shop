@@ -1,5 +1,12 @@
+@import url(https://fonts.googleapis.com/css?family=Work+Sans:400,300,500,600);
+html * {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
 body {
-  background-color: #f7f7f9; }
+  background-color: #f7f7f9;
+  font-family: "Work Sans", Helvetica, Arial, sans-serif; }
 
 #page-container {
   padding-top: 2rem;
@@ -39,6 +46,9 @@ body {
       font-size: 1.25rem;
       color: white;
       display: inline-block; }
+
+h1, h2, h3, h5 {
+  font-weight: 400; }
 
 .front-card-tall {
   height: 400px; }
@@ -198,7 +208,7 @@ li.disabled a {
   .breadcrumb li {
     display: inline-block; }
   .breadcrumb li:after {
-    content: " > "; }
+    content: " / "; }
   .breadcrumb li:last-of-type:after {
     content: ""; }
 
@@ -368,5 +378,19 @@ ul {
 
 .main-content form {
   margin-left: 15px; }
+
+.error-block {
+  color: #d9534f; }
+
+.has-error input {
+  border-color: #d9534f; }
+
+.carousel-indicators li {
+  background-color: #818a91; }
+.carousel-indicators li.active {
+  background-color: #0275d8; }
+
+.treeview .list-group-item {
+  text-transform: lowercase; }
 
 /*# sourceMappingURL=style.css.map */

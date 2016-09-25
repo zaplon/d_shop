@@ -100,8 +100,9 @@ $(document).ready(function () {
         })[0];
         var image = $(this).find('img');
         product.interval = window.setInterval(function () {
-            if (product.currentImage >= product.images.length + 1) product.currentImage = 0;else product.currentImage += 1;
-            image.attr('src', product.images[product.currentImage]);
+            if (isNaN(product.currentImage)) product.currentImage = 0;
+            if (product.currentImage >= product.images.length) product.currentImage = 0;else product.currentImage += 1;
+            image.attr('src', product.images[product.currentImage].original);
         }, 1000);
     });
     $('#products-container').delegate('.image', 'mouseout', function () {

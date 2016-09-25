@@ -109,3 +109,51 @@
   left: 0;
   right: 0;
 }
+
+.page-preloader {
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.page-preloading .page-wrapper {
+  opacity: 0;
+  -webkit-transition: all 0.5s 0.3s;
+  -o-transition: all 0.5s 0.3s;
+  transition: all 0.5s 0.3s;
+}
+
+.page-preloading .page-preloader {
+  visibility: visible;
+  opacity: 1;
+}
+
+.page-preloading.loading-done .page-wrapper {
+  opacity: 1;
+}
+
+.page-preloading.loading-done .page-preloader {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.page-preloading.loading-done.link-clicked .page-wrapper {
+  opacity: 0;
+}
+
+.preloader {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  margin-top: -30px;
+  margin-left: -30px;
+}

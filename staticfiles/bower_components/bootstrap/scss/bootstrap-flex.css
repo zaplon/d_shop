@@ -1877,7 +1877,7 @@ pre {
   background-image: none;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0; }
+  border-radius: 0px; }
   .form-control::-ms-expand {
     background-color: transparent;
     border: 0; }

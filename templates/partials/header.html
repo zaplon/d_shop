@@ -1,10 +1,12 @@
 {% load i18n %}
 <div class="pos-f-t">
     <div class="collapse" id="navbar-header">
-        <div class="container-fluid bg-inverse p-a-1">
-            <h3>Collapsed content</h3>
-
-            <p>Toggleable via the navbar brand.</p>
+        <div class="container-fluid bg-inverse">
+            <div class="container p-a-1">
+                <ul>
+                    <li></li>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="collapse" id="navbar-search">
@@ -37,7 +39,7 @@
                             <a class="nav-item nav-link hvr-underline-from-center" href="/konto/profile/">
                                 <i class="fa fa-user" title="Moje konto"></i></a>
                         {% else %}
-                            <a class="nav-item nav-link" href="{% url 'customer:login' %}">
+                            <a class="nav-item nav-link" href="/konto/login/">
                                 <i class="fa fa-user" title="Moje konto"></i></a>
                         {% endif %}
                     </div>
