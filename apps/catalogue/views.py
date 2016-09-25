@@ -6,10 +6,12 @@ from django.views.generic import TemplateView
 from oscar.core.loading import get_class, get_model
 import json
 from oscar.apps.catalogue.models import Category
+from django.shortcuts import HttpResponse
 
 
 ProductAttribute = get_model('catalogue', 'ProductAttribute')
 ProductAttributeValue = get_model('catalogue', 'ProductAttributeValue')
+Product = get_model('catalogue', 'Product')
 
 
 def phone_selector(request):
@@ -146,3 +148,8 @@ class CatalogueCategoryView(CatalogueView):
             return Category.objects.get(name=categories[0]).get_children()
         else:
             return Category.objects.get(name=kwargs['category_slug']).get_children()
+
+
+def allegro_view(request):
+    product = Product.objects.get(id=request.GET['id'])
+    return HttpResponse('catalogue/allegro.html', {'product': product})

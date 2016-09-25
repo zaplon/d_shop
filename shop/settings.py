@@ -53,6 +53,7 @@ INSTALLED_APPS = [
                      'debug_toolbar',
                      'paypal',
                      'apps.pages',
+                     'django_inlinecss',
                      'crispy_forms'
                  ] + get_core_apps(['apps.catalogue', 'apps.offer', 'apps.checkout', 'apps.shipping'])
 

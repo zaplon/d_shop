@@ -34,11 +34,6 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         # Named (optional) arguments
-        parser.add_argument('--file',
-                            action='store_true',
-                            dest='file',
-                            default='full.xml',  # 'catalogue.xml',
-                            help='Name of the XML file to import')
         parser.add_argument('--get-images',
                             action='store_true',
                             dest='get_images',
@@ -92,7 +87,6 @@ class Command(BaseCommand):
         # importowane klasy produktów
         klasses = ProductClass.objects.filter(external_type__isnull=False)
         e_types = {k.external_type: k for k in klasses}
-        file = options.get('file')
         get_images = options.get('get_images', False)
         delete_all = options.get('delete-all', False)
         delete_all = True
@@ -102,10 +96,11 @@ class Command(BaseCommand):
             ProductAttribute.objects.all().delete()
             Category.objects.all().delete()
             StockRecord.objects.all().delete()
+        file = wget.download('http://www.b2btrade.pl/pobierzOferte.aspx?user=GEEKMAN', out='catalogue.xml')
         obj = untangle.parse(file)
         counter = 0
         for p in obj.xml.produkty.produkt:
-            if counter > 200000:
+            if counter > 200:
                 break
             counter += 1
             p_type = ''
