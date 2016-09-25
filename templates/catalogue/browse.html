@@ -78,7 +78,7 @@
                     <a data-bind="attr: {href: front_url }"><img data-bind="attr: {src: images[0].original}"/></a>
                 </div>
                 <div class="title">
-                    <a data-bind="attr: {href: front_url }"><h5 data-bind="text: title"></h5></a>
+                    <a data-bind="attr: {href: front_url }"><h5 data-bind="text: limit(title)"></h5></a>
                 </div>
                 <div data-bind="if: sell_details.is_available" class="price">
                     <span data-bind="text: sell_details.price.incl_tax"></span>

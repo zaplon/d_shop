@@ -1,3 +1,7 @@
+function limit(text){
+    return text.length > 75 ? text.substr(0,97) + '...' : text;
+}
+
 var viewModel = {
     filters : ko.observableArray([]),
     products : ko.observableArray([]),
