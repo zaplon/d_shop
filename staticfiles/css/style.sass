@@ -6,7 +6,7 @@ $border-radius: 0
 $border-radius-lg: 0
 $border-radius-sm: 0
 $btn-border-radius: 0
-$footer-height: 56px
+$footer-height: 0px
 
 @import url(https://fonts.googleapis.com/css?family=Work+Sans:400,300,500,600)
 
@@ -104,26 +104,34 @@ h1, h2, h3, h5
 .page-footer
   background-color: $gray-dark
   color: $gray-lighter
-  position: fixed
-  bottom: 0
+  //position: fixed
+  //bottom: 0
   width: 100%
-  ul
-    list-style-position: inside
-    margin: $navbar-padding-x 0
-    padding-left: 0
-    li
-      list-style: none
-      font-size: $font-size-sm
-      display: inline-block
-      margin-right: 1rem
-      a
-        color: whitesmoke
-        margin-bottom: 0.5rem
-      a:hover
-        text-decoration: inherit
-    li:last-of-type
-      margin-right: 0
-
+  display: table
+  table-layout: fixed
+  img
+    vertical-align: middle
+    display: block
+    max-width: 100%
+    height: auto
+  .cards
+    width: 100%
+    max-width: 190px
+    margin: 0 auto
+  small
+    display: block
+    font-size: 12px
+    text-transform: none
+    margin-top: 20px
+    margin-bottom: 20px
+  .column:nth-of-type(even)
+    background-color: darken($gray-dark, 5%)
+  .column
+    position: relative
+    display: table-cell
+    vertical-align: top
+    text-align: center
+    padding: 2rem 1rem
 
 li.disabled
   a
@@ -270,6 +278,23 @@ ul
 
 #navbar-header, #navbar-search
   color: white
+  ul
+    list-style-position: inside
+    margin: $navbar-padding-x 0
+    padding-left: 0
+    li
+      list-style: none
+      font-size: $font-size-sm
+      display: inline-block
+      margin-right: 1rem
+      a
+        color: whitesmoke
+        margin-bottom: 0.5rem
+      a:hover
+        text-decoration: inherit
+    li:last-of-type
+      margin-right: 0
+
 
 #navbar-search
   input
@@ -382,7 +407,7 @@ ul
 .sidebar
   padding: 1rem
   padding-top: 0
-  border-right: 2px inset $gray-lighter
+  border-right: 1px inset $gray-lighter
   //background-color: $gray-dark
   //color: $gray-lightest!important
   li
@@ -432,3 +457,23 @@ ul
 
 .treeview .list-group-item
   text-transform: lowercase
+
+#payment-methods
+  margin-top: 2rem
+  margin-bottom: 2rem
+  button
+    margin-top: 1rem
+
+#checkout-content
+  h2
+    font-size: $font-size-h3
+  h3
+    font-size: $font-size-h4
+  h4, .h4
+    font-size: $font-size-h5
+
+.header-links
+  margin-left: -15px!important
+  margin-right: -15px!important
+
+

@@ -93,6 +93,7 @@
     </div>
 
     {% block order_contents %}
+        <div style="clear:both"></div>
         <div class="sub-header">
             {% block order_contents_actions %}
                 <a href="{% url 'basket:summary' %}" class="pull-right">
@@ -123,7 +124,7 @@
                         </div>
                     </div>
                     <div class="col-sm-7">
-                        <h3><a href="{{ line.product.get_absolute_url }}">{{ line.description }}</a></h3>
+                        <h4><a href="{{ line.product.get_absolute_url }}">{{ line.description }}</a></h4>
                         <span class="availability {{ session.availability.code }}">{{ session.availability.message }}</span>
                     </div>
                     <div class="col-sm-1 align-center">
@@ -151,7 +152,7 @@
                 {% include 'basket/partials/basket_totals.html' %}
             </div>
         </div>
-
+        <hr/>
     {% endblock order_contents %}
 
     {% block shipping_method %}

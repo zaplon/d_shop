@@ -55,7 +55,7 @@ INSTALLED_APPS = [
                      'apps.pages',
                      'django_inlinecss',
                      'crispy_forms'
-                 ] + get_core_apps(['apps.catalogue', 'apps.offer', 'apps.checkout', 'apps.shipping'])
+                 ] + get_core_apps(['apps.catalogue', 'apps.offer', 'apps.checkout', 'apps.shipping', 'apps.search'])
 
 SITE_ID = 1
 
