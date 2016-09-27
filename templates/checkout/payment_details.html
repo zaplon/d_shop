@@ -18,19 +18,22 @@
 
 {% block payment_details %}
     {% block payment_details_content %}
-        <p>Wybierz metodę płatności:</p>
-        <form class="form" method="post" action="{% url "checkout:preview" %}">
-            {% csrf_token %}
-            <div class="radio">
-              <label><input value="paypal" checked="checked" type="radio" name="payment-method">Zapłać przez PayPal (również płatność kartą)</label>
-            </div>
-            <div class="radio">
-              <label><input value="personal" type="radio" name="payment-method">Zapłać przy odbiorze</label>
-            </div>
-            <button type="submit" id="view_preview" href="{% url 'checkout:preview' %}"
-                    class="btn btn-primary btn-lg">{% trans "Continue" %}
-            </button>
-        </form>
+        <h2>Metoda płatności</h2>
+        <div id="payment-methods">
+            <form class="form" method="post" action="{% url "checkout:preview" %}">
+                {% csrf_token %}
+                <div class="radio">
+                  <label><input value="paypal" checked="checked" type="radio" name="payment-method">Zapłać przez PayPal (również płatność kartą)</label>
+                </div>
+                <div class="radio">
+                  <label><input value="personal" type="radio" name="payment-method">Zapłać przy odbiorze</label>
+                </div>
+                <hr/>
+                <button type="submit" id="view_preview" href="{% url 'checkout:preview' %}"
+                        class="btn btn-primary btn-lg">{% trans "Continue" %}
+                </button>
+            </form>
+        </div>
 {#        <a id="view_preview" href="{% url 'paypal-redirect' %}" class="btn btn-primary btn-lg">{% trans "Continue" %}</a>#}
     {% endblock payment_details_content %}
 {% endblock payment_details %}

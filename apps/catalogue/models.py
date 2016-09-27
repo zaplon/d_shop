@@ -28,7 +28,7 @@ class ProductAttributeValue(AbstractProductAttributeValue):
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         self.slug = "%s_%s" % (self.attribute.name, self.value_text)
-        super(self, ProductAttributeValue).save(force_insert=False, force_update=False, using=None, update_fields=None)
+        super(ProductAttributeValue, self).save(force_insert=False, force_update=False, using=None, update_fields=None)
 
 
 from oscar.apps.catalogue.models import *
