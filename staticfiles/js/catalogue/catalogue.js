@@ -5,6 +5,7 @@ function limit(text){
 var viewModel = {
     filters : ko.observableArray([]),
     products : ko.observableArray([]),
+    priceRange : ko.observableArray([]),
     categories: $('#variables input[name="categories"]').val(),
     filterNames: JSON.parse($('#variables input[name="filters"]').val()),
     limit: 12,
@@ -57,6 +58,7 @@ var viewModel = {
                 return true;
             }
             viewModel.products(data.results.products);
+            viewModel.priceRange(data.results.prices);
             var filters = viewModel.filters();
             if (filters.length == 0){
                 data.results.filters.forEach(function(f){
