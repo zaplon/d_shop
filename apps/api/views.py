@@ -8,6 +8,7 @@ from django_filters.fields import Lookup
 from django.shortcuts import HttpResponse
 import json
 from rest_framework.response import Response
+from django.db.models import Min, Max
 
 
 class ListFilter(Filter):
@@ -47,6 +48,9 @@ class ProductList(basic.ProductList):
 
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
+        if request.GET.get('start', False) and request.GET.get('end', False):
+            queryset = queryset.filter(stockrecords__price_retail__gte=float(start), 
+                                       stockrecords__price_retail__lte=float(end))
         if not request.GET.get('dont_refresh_filters', False):
             filters = get_available_attributes(request, queryset)
         else:
@@ -67,7 +71,11 @@ class ProductList(basic.ProductList):
 
 
 def get_price_range(request, products):
-    return {'min': 100, 'max': 200}    
+    min_val = products.aggregate(Min('stockrecords__price_retail'))['stockrecords__price_retail__min']
+    max_val = products.aggregate(Max('stockrecords__price_retail'))['stockrecords__price_retail__max']
+    start = request.GET['start'] if request.GET.get('start', False) else 0
+    end = request.GET['end'] if request.GET.get('end', False) else 0
+    return {'min': min_val, 'max': max_val, 'start':start, 'end':end}    
     
 def get_available_attributes(request, products):
     filters = json.loads(request.GET['filters'])
