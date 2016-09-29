@@ -5,7 +5,7 @@ function limit(text){
 var viewModel = {
     filters : ko.observableArray([]),
     products : ko.observableArray([]),
-    priceRange : ko.observableArray([]),
+    priceRange : ko.observable({}),
     categories: $('#variables input[name="categories"]').val(),
     filterNames: JSON.parse($('#variables input[name="filters"]').val()),
     limit: 12,
