@@ -54,16 +54,21 @@ class ProductList(basic.ProductList):
         page = self.paginate_queryset(queryset)
         if page is not None:
             serializer = self.get_serializer(page, many=True)
-            return self.get_paginated_response({'products': serializer.data, 'filters': filters})
+            return self.get_paginated_response({'products': serializer.data, 'filters': filters, 
+                                                'prices': get_price_range(request, queryset)})
 
         serializer = self.get_serializer(queryset, many=True)
-        return Response({'products': serializer.data, 'filters': filters})
+        return Response({'products': serializer.data, 'filters': filters, 
+                         'prices': get_price_range(request, queryset)})
 
     def get_queryset(self):
         queryset = super(ProductList, self).get_queryset()
         return queryset
 
 
+def get_price_range(request, products):
+    return {'min': 100, 'max': 200}    
+    
 def get_available_attributes(request, products):
     filters = json.loads(request.GET['filters'])
     res = []
