@@ -1,22 +1,60 @@
 {% load i18n %}
+{% load static %}
 <footer id="footer" class="page-footer">
-    {% block footer %}
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <ul class="footer_links inline nav">
-                        <li class="hvr-underline-from-center"><a href="/kontakt/">Kontakt</a></li>
-                        <li class="hvr-underline-from-center"><a href="/regulamin/">Regulamin</a></li>
-                    </ul>
-                </div>
+    <div class="container">
+        {% block footer %}
+            <div class="column col-md-4">
+                <p class="text-sm">Potrzebujesz wsparcia? <br/> Zadzwoń <span class="text-primary">+48 504 485 575</span></p>
+                <div class="social-bar text-center space-bottom">
+                    <a href="#" class="sb-skype" data-toggle="tooltip" data-placement="top" title=""
+                       data-original-title="Skype">
+                        <i class="socicon-skype"></i>
+                    </a>
+                    <a href="#" class="sb-facebook" data-toggle="tooltip" data-placement="top" title=""
+                       data-original-title="Facebook">
+                        <i class="socicon-facebook"></i>
+                    </a>
+                    <a href="#" class="sb-google-plus" data-toggle="tooltip" data-placement="top" title=""
+                       data-original-title="Google+">
+                        <i class="socicon-googleplus"></i>
+                    </a>
+                    <a href="#" class="sb-twitter" data-toggle="tooltip" data-placement="top" title=""
+                       data-original-title="Twitter">
+                        <i class="socicon-twitter"></i>
+                    </a>
+                    <a href="#" class="sb-instagram" data-toggle="tooltip" data-placement="top" title=""
+                       data-original-title="Instagram">
+                        <i class="socicon-instagram"></i>
+                    </a>
+                </div><!-- .social-bar -->
+                <p class="copyright">© 2016. GeekMan.</p>
             </div>
-        </div>
-        {% comment %}
-            Could be used for displaying links to privacy policy, terms of service, etc.
-            We have a CSS class defined:
-                <ul class="footer_links inline">
-                    ...
-                </ul>
-         {% endcomment %}
-    {% endblock %}
+            <div class="column col-md-4">
+                <h3 class="widget-title">Subscription</h3>
+                <small>To receive latest offers and discounts from the shop.</small>
+                <form action="//rokaux.us12.list-manage.com/subscribe/post?u=c7103e2c981361a6639545bd5&amp;id=1194bb7544"
+                      method="post" target="_blank" class="subscribe-form" novalidate="">
+                    <input type="email" class="form-control" name="EMAIL" placeholder="Your e-mail">
+                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                                                                                              name="b_c7103e2c981361a6639545bd5_1194bb7544"
+                                                                                              tabindex="-1" value=""></div>
+                </form>
+            </div>
+            <div class="column col-md-4">
+                <h3>Metody płatności</h3>
+                <small>Honorujemy następujące metody płatności</small>
+                <div class="cards"><img src="{% static "images/cards.png" %}" alt="Karty kredytowe"></div>
+                <!-- Scroll To Top Button -->
+                <div class="scroll-to-top-btn visible"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></div>
+            </div>
+            {% comment %}
+                Could be used for displaying links to privacy policy, terms of service, etc.
+                We have a CSS class defined:
+                    <ul class="footer_links inline">
+                        ...
+                    </ul>
+             {% endcomment %}
+        {% endblock %}
+    </div>
 </footer>

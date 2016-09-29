@@ -29,6 +29,11 @@
             {% endblock %}
         </div>
     </div>
+    <div class="page-preloader">
+        <div class="preloader">
+            <img src={% static "images/preloader.gif" %} alt="Preloader">
+        </div>
+    </div>
     <div class="container" id="page-container">
         <div id="{% block page_content_id %}page-content{% endblock %}">
             {% block content_wrapper %}

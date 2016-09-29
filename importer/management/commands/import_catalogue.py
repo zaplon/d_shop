@@ -97,7 +97,7 @@ class Command(BaseCommand):
             Category.objects.all().delete()
             StockRecord.objects.all().delete()
         file = wget.download('http://www.b2btrade.pl/pobierzOferte.aspx?user=GEEKMAN', out='catalogue.xml')
-        obj = untangle.parse(file)
+        obj = untangle.parse('full.xml')
         counter = 0
         for p in obj.xml.produkty.produkt:
             if counter > 200:

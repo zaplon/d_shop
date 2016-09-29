@@ -1,6 +1,6 @@
 "use strict";
 
-var HIDDEN_CART_URLS = ['/basket/', '/checkout/'];
+var HIDDEN_CART_URLS = ['/basket/', '/checkout/', '/zamowienie/', '/koszyk/'];
 
 class Cart {
     constructor() {
@@ -25,7 +25,7 @@ class Cart {
             }
         });
     }
-    updateCard(line) {
+    updateCard(line, quantity) {
         $.ajax({
             type: 'PUT',
             url: line,
@@ -58,10 +58,11 @@ class Cart {
                         }
                     });
                 });
-                if (me.quantity > 0) $('.cd-cart-container').removeClass('empty');
+                if (me.quantity > 0) $('.cd-cart-container').removeClass('empty');else $('.cd-cart-container').addClass('empty');
                 $('#cart-total').html(me.total);
                 $('#cart-count').html(me.quantity);
                 var productsList = $('.cd-cart .body ul');
+                productsList.html('');
                 me.products.forEach(function (r) {
                     productsList.append(Handlebars.templates['cart-product'](r));
                 });
@@ -80,21 +81,21 @@ if (showCart) {
 }
 
 $(document).ready(() => {
-    $('#products-container').delegate('.add-to-cart', 'click', function (el) {
-        cart.addToCart(parseInt($(el.target).attr('data-id')), 1);
+    $('#products-container').delegate('.add-to-cart', 'click', function (ev) {
+        cart.addToCart(parseInt($(ev.target).attr('data-id')), 1);
     });
     $('.cd-cart-trigger').click(function (el) {
         var container = $('.cd-cart-container');
         if (container.hasClass('cart-open')) $('.cd-cart-container').removeClass('cart-open');else $('.cd-cart-container').addClass('cart-open');
     });
-    $('.cd-cart').delegate('.delete-item', 'click', function (el) {
-        var line = $(el).attr('data-line');
+    $('.cd-cart').delegate('.delete-item', 'click', function (ev) {
+        var line = $(ev.target).attr('data-line');
         cart.deleteFromCart(line);
     });
-    $('.cd-cart').delegate('.product-quantity', 'change', function (el) {
-        var line = $(el).attr('data-line');
-        var quantity = $(el).val();
-        cart.updateCart(line, quantity);
+    $('.cd-cart').delegate('.product-quantity', 'change', function (ev) {
+        var line = $(ev.target).attr('data-line');
+        var quantity = $(ev.target).val();
+        cart.updateCard(line, quantity);
     });
     $('.delete-item').click(function () {});
 });

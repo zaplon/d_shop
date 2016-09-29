@@ -1,11 +1,18 @@
+@import url(https://fonts.googleapis.com/css?family=Work+Sans:400,300,500,600);
+html * {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
 body {
-  background-color: #f7f7f9; }
+  background-color: #f7f7f9;
+  font-family: "Work Sans", Helvetica, Arial, sans-serif; }
 
 #page-container {
   padding-top: 2rem;
   padding-bottom: 0rem;
   background-color: white;
-  margin-bottom: 56px; }
+  margin-bottom: 0px; }
 
 #home-page-content {
   margin-left: -15px;
@@ -39,6 +46,9 @@ body {
       font-size: 1.25rem;
       color: white;
       display: inline-block; }
+
+h1, h2, h3, h5 {
+  font-weight: 400; }
 
 .front-card-tall {
   height: 400px; }
@@ -76,30 +86,37 @@ body {
     background-color: white; }
 
 .page {
-  margin-bottom: 56px; }
+  margin-bottom: 0px; }
 
 .page-footer {
   background-color: #373a3c;
   color: #eceeef;
-  position: fixed;
-  bottom: 0;
-  width: 100%; }
-  .page-footer ul {
-    list-style-position: inside;
-    margin: 1rem 0;
-    padding-left: 0; }
-    .page-footer ul li {
-      list-style: none;
-      font-size: 0.875rem;
-      display: inline-block;
-      margin-right: 1rem; }
-      .page-footer ul li a {
-        color: whitesmoke;
-        margin-bottom: 0.5rem; }
-      .page-footer ul li a:hover {
-        text-decoration: inherit; }
-    .page-footer ul li:last-of-type {
-      margin-right: 0; }
+  width: 100%;
+  display: table;
+  table-layout: fixed; }
+  .page-footer img {
+    vertical-align: middle;
+    display: block;
+    max-width: 100%;
+    height: auto; }
+  .page-footer .cards {
+    width: 100%;
+    max-width: 190px;
+    margin: 0 auto; }
+  .page-footer small {
+    display: block;
+    font-size: 12px;
+    text-transform: none;
+    margin-top: 20px;
+    margin-bottom: 20px; }
+  .page-footer .column:nth-of-type(even) {
+    background-color: #2b2d2f; }
+  .page-footer .column {
+    position: relative;
+    display: table-cell;
+    vertical-align: top;
+    text-align: center;
+    padding: 2rem 1rem; }
 
 li.disabled a {
   color: #eceeef; }
@@ -130,6 +147,9 @@ li.disabled a {
     top: 150px; }
     .product-card .buttons a {
       text-decoration: none; }
+  .product-card h5 {
+    font-size: 16px;
+    height: 55px; }
 
 .product-card:hover .buttons {
   display: block; }
@@ -198,7 +218,7 @@ li.disabled a {
   .breadcrumb li {
     display: inline-block; }
   .breadcrumb li:after {
-    content: " > "; }
+    content: " / "; }
   .breadcrumb li:last-of-type:after {
     content: ""; }
 
@@ -233,6 +253,22 @@ ul {
 
 #navbar-header, #navbar-search {
   color: white; }
+  #navbar-header ul, #navbar-search ul {
+    list-style-position: inside;
+    margin: 1rem 0;
+    padding-left: 0; }
+    #navbar-header ul li, #navbar-search ul li {
+      list-style: none;
+      font-size: 0.875rem;
+      display: inline-block;
+      margin-right: 1rem; }
+      #navbar-header ul li a, #navbar-search ul li a {
+        color: whitesmoke;
+        margin-bottom: 0.5rem; }
+      #navbar-header ul li a:hover, #navbar-search ul li a:hover {
+        text-decoration: inherit; }
+    #navbar-header ul li:last-of-type, #navbar-search ul li:last-of-type {
+      margin-right: 0; }
 
 #navbar-search input {
   background-color: transparent;
@@ -336,7 +372,7 @@ ul {
 .sidebar {
   padding: 1rem;
   padding-top: 0;
-  border-right: 2px inset #eceeef; }
+  border-right: 1px inset #eceeef; }
   .sidebar li {
     background-color: transparent;
     border: none; }
@@ -368,5 +404,59 @@ ul {
 
 .main-content form {
   margin-left: 15px; }
+
+.error-block {
+  color: #d9534f; }
+
+.has-error input {
+  border-color: #d9534f; }
+
+.carousel-indicators li {
+  background-color: #818a91; }
+.carousel-indicators li.active {
+  background-color: #0275d8; }
+
+.treeview .list-group-item {
+  text-transform: lowercase; }
+
+#payment-methods {
+  margin-top: 2rem;
+  margin-bottom: 2rem; }
+  #payment-methods button {
+    margin-top: 1rem; }
+
+#checkout-content h2 {
+  font-size: 1.75rem; }
+#checkout-content h3 {
+  font-size: 1.5rem; }
+#checkout-content h4, #checkout-content .h4 {
+  font-size: 1.25rem; }
+
+.header-links {
+  margin-left: -15px !important;
+  margin-right: -15px !important; }
+
+.scroll-to-top-btn {
+  display: block;
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  font-size: 24px;
+  color: #606060;
+  line-height: 44px;
+  text-align: center;
+  text-decoration: none;
+  right: 0px;
+  bottom: 0;
+  background-color: #fff;
+  border: 2px solid #ededed;
+  border-bottom: 0;
+  cursor: pointer;
+  -webkit-transition: color 0.3s;
+  -o-transition: color 0.3s;
+  transition: color 0.3s; }
+
+.cd-cart-trigger .count {
+  background-color: #0275d8 !important; }
 
 /*# sourceMappingURL=style.css.map */
