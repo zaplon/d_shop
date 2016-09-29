@@ -52,6 +52,11 @@
                 <form class="form" data-bind="template: { name: 'filter-template', foreach: filters }">
                 </form>
             </div>
+            <div>
+                <input data-bind="attr: {'data-slider-min': priceRange.min, 'data-slider-max': priceRange.max}, 
+                                 data-slider-value='[priceRange.start, priceRange.end]}'"
+                    type="text" name="prices" data-provide="slider" data-slider-step="1" data-slider-tooltip="hide" />
+            </div>
             <div id="products-container" data-bind="template: { name: 'product-template', foreach: products }"></div>
         </div>
     </div>
