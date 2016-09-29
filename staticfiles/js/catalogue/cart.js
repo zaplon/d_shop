@@ -1,6 +1,6 @@
 "use strict";
 
-var HIDDEN_CART_URLS = ['/basket/', '/checkout/', '/zamowienie/'];
+var HIDDEN_CART_URLS = ['/basket/', '/checkout/', '/zamowienie/', '/koszyk/'];
 
 class Cart {
     constructor(){
@@ -25,7 +25,7 @@ class Cart {
           }
         });
     }
-    updateCard(line){
+    updateCard(line, quantity){
         $.ajax({
           type: 'PUT',
           url: line,
@@ -102,7 +102,7 @@ $(document).ready(() => {
     $('.cd-cart').delegate('.product-quantity', 'change', function(ev){
         var line = $(ev.target).attr('data-line');
         var quantity = $(ev.target).val();
-        cart.updateCart(line, quantity);
+        cart.updateCard(line, quantity);
     });
     $('.delete-item').click(function(){
 
