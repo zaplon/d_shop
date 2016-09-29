@@ -8,6 +8,8 @@ class Product(AbstractProduct):
     video_url = models.URLField(blank=True, null=True)
     external_id = models.IntegerField(blank=True, null=True)
     price = models.FloatField(blank=True, null=True)
+    price_incl_tax = models.FloatField(blank=True, null=True)
+        
 
     def get_number(self):
         return self.stockrecords.first().num_in_stock
