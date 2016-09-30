@@ -75,6 +75,10 @@ def get_price_range(request, products):
     max_val = products.aggregate(Max('stockrecords__price_retail'))['stockrecords__price_retail__max']
     start = request.GET['start'] if request.GET.get('start', False) else 0
     end = request.GET['end'] if request.GET.get('end', False) else 0
+    if start < min_val:
+        start = min_val
+    if end > max_val:
+        end = max_val
     return {'min': min_val, 'max': max_val, 'start':start, 'end':end}    
     
 def get_available_attributes(request, products):
