@@ -49,8 +49,8 @@ class ProductList(basic.ProductList):
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
         if request.GET.get('start', False) and request.GET.get('end', False):
-            queryset = queryset.filter(stockrecords__price_retail__gte=float(start), 
-                                       stockrecords__price_retail__lte=float(end))
+            queryset = queryset.filter(stockrecords__price_retail__gte=float(request.GET.get('start')),
+                                       stockrecords__price_retail__lte=float(request.GET.get('end')))
         if not request.GET.get('dont_refresh_filters', False):
             filters = get_available_attributes(request, queryset)
         else:
@@ -73,13 +73,13 @@ class ProductList(basic.ProductList):
 def get_price_range(request, products):
     min_val = products.aggregate(Min('stockrecords__price_retail'))['stockrecords__price_retail__min']
     max_val = products.aggregate(Max('stockrecords__price_retail'))['stockrecords__price_retail__max']
-    start = request.GET['start'] if request.GET.get('start', False) else 0
-    end = request.GET['end'] if request.GET.get('end', False) else 0
+    start = request.GET['start'] if request.GET.get('start', False) else min_val
+    end = request.GET['end'] if request.GET.get('end', False) else max_val
     if start < min_val:
         start = min_val
     if end > max_val:
         end = max_val
-    return {'min': min_val, 'max': max_val, 'start':start, 'end':end}    
+    return {'min': min_val, 'max': max_val, 'range': {'start': float(start), 'end': float(end)}}
     
 def get_available_attributes(request, products):
     filters = json.loads(request.GET['filters'])

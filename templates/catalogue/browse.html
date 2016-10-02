@@ -52,10 +52,17 @@
                 <form class="form" data-bind="template: { name: 'filter-template', foreach: filters }">
                 </form>
             </div>
-            <div>
-                <input data-bind="attr: {'data-slider-min': priceRange.min, 'data-slider-max': priceRange.max}, 
-                                 data-slider-value='[priceRange.start, priceRange.end]}'"
-                    type="text" name="prices" data-provide="slider" data-slider-step="1" data-slider-tooltip="hide" />
+            <div class="row m-t-1">
+                <div class="col-md-8 col-sm-12">
+                    <label class="m-r-2" for="price-slider">Zakres cen</label>
+                    <input class="form-control" id="price-slider" type="text" name="prices" />
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <select class="form-control pull-right"
+                            data-bind="options: sortOptions, optionsText: 'name', selectedOptions: selectedSortOption,
+                            optionsValue: 'id', event: { change: loadData }">
+                    </select>
+                </div>
             </div>
             <div id="products-container" data-bind="template: { name: 'product-template', foreach: products }"></div>
         </div>

@@ -32,3 +32,10 @@ class ProductSerializer(OscarModelSerializer):
     class Meta:
         model = Product
         fields = ['url', 'id', 'title', 'images', 'front_url', 'sell_details']
+
+
+class ProductElasticSerializer(ModelSerializer):
+
+    class Meta:
+        model = Product
+        fields = ['id', 'title']
