@@ -36,6 +36,7 @@ class ProductSerializer(OscarModelSerializer):
 
 class ProductElasticSerializer(ModelSerializer):
 
+    images = ProductImageSerializer(many=True)
     class Meta:
         model = Product
-        fields = ['id', 'title']
+        fields = ['id', 'title', 'images']

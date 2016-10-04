@@ -41,7 +41,7 @@ class Command(BaseCommand):
 
         parser.add_argument('--delete-all',
                             action='store_true',
-                            dest='delete-all',
+                            dest='delete_all',
                             help='Delete all before import')
 
     def slugify(self, text):
@@ -88,7 +88,7 @@ class Command(BaseCommand):
         klasses = ProductClass.objects.filter(external_type__isnull=False)
         e_types = {k.external_type: k for k in klasses}
         get_images = options.get('get_images', False)
-        delete_all = options.get('delete-all', False)
+        delete_all = options.get('delete_all', False)
         # delete_all = True
         # get_images = True
         if delete_all:
@@ -97,16 +97,27 @@ class Command(BaseCommand):
             Category.objects.all().delete()
             StockRecord.objects.all().delete()
         xml_file = wget.download('http://www.b2btrade.pl/pobierzOferte.aspx?user=GEEKMAN', out='catalogue.xml')
-        obj = untangle.parse(xml_file)
+
+        # poprawka pliku
+        buffor_file = file(xml_file)
+        buffor = buffor_file.read()
+        buffor = buffor[41:]
+        buffor_file.close()
+        buffor_file = file('_tmp.xml', mode='w')
+        buffor_file.write(buffor)
+        buffor_file.close()
+        obj = untangle.parse('_tmp.xml')
+
         counter = 0
-        for p in obj.xml.produkty.produkt:
+        for p in obj.produkty.produkt:
             if counter > 200:
                 break
             counter += 1
             p_type = ''
-            for a in p.atrybuty.atrybut:
-                if a['name'] == 'Typ':
-                    p_type = a.cdata
+            if getattr(p, 'atrybuty', False):
+                for a in p.atrybuty.atrybut:
+                    if a['name'] == 'Typ':
+                        p_type = a.cdata
             if p_type not in e_types:
                 continue
             try:

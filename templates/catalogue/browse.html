@@ -44,10 +44,10 @@
         <input type="hidden" name="categories" value="{{ categories }}">
     </form>
     <div class="row">
-        <div class="col-md-2 col-sm-hidden tree-list sidebar">
+        <div class="col-md-2 hidden-sm tree-list sidebar">
             <div id="tree" data="{{ tree_data }}"></div>
         </div>
-        <div class="col-md-10 col-sm-12">
+        <div class="col-md-10 col-sm-12 hidden-sm">
             <div id="product-filters" class="row">
                 <form class="form" data-bind="template: { name: 'filter-template', foreach: filters }">
                 </form>
