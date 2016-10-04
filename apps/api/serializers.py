@@ -4,10 +4,17 @@ from rest_framework.relations import HyperlinkedIdentityField
 from rest_framework.serializers import ModelSerializer
 from rest_framework.fields import CharField, IntegerField, SerializerMethodField
 from oscar.apps.partner.strategy import Selector
+from oscar.apps.partner.models import StockRecord
 
 
 Product = get_model('catalogue', 'Product')
 ProductImage = get_model('catalogue', 'ProductImage')
+
+
+class StockRecordSerializer(ModelSerializer):
+    class Meta:
+        model = StockRecord
+        fields = ['price_excl_tax', 'price_retail', 'num_in_stock']
 
 
 class ProductImageSerializer(ModelSerializer):
@@ -37,6 +44,7 @@ class ProductSerializer(OscarModelSerializer):
 class ProductElasticSerializer(ModelSerializer):
 
     images = ProductImageSerializer(many=True)
+    stock_records = StockRecordSerializer(many=True)
     class Meta:
         model = Product
-        fields = ['id', 'title', 'images']
+        fields = ['id', 'title', 'images', 'stock_records', 'excerpt']
