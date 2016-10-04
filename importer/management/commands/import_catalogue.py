@@ -89,15 +89,15 @@ class Command(BaseCommand):
         e_types = {k.external_type: k for k in klasses}
         get_images = options.get('get_images', False)
         delete_all = options.get('delete-all', False)
-        delete_all = True
-        get_images = True
+        # delete_all = True
+        # get_images = True
         if delete_all:
             Product.objects.all().delete()
             ProductAttribute.objects.all().delete()
             Category.objects.all().delete()
             StockRecord.objects.all().delete()
-        file = wget.download('http://www.b2btrade.pl/pobierzOferte.aspx?user=GEEKMAN', out='catalogue.xml')
-        obj = untangle.parse('full.xml')
+        xml_file = wget.download('http://www.b2btrade.pl/pobierzOferte.aspx?user=GEEKMAN', out='catalogue.xml')
+        obj = untangle.parse(xml_file)
         counter = 0
         for p in obj.xml.produkty.produkt:
             if counter > 200:
