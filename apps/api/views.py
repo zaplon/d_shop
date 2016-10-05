@@ -55,6 +55,19 @@ class ProductList(basic.ProductList):
             filters = get_available_attributes(request, queryset)
         else:
             filters = None
+
+        if 'order' in request.GET:
+            order = request.GET['order'].replace('-', '')
+            if order == 'price':
+                order = 'stockrecords__price_retail'
+            if request.GET['order'][0] == '-':
+                order = '-' + order
+            if 'name' in order:
+                ordering = [order, 'name']
+            else:
+                ordering = [order]
+            queryset = queryset.order_by(', '.join(ordering))
+
         page = self.paginate_queryset(queryset)
         if page is not None:
             serializer = self.get_serializer(page, many=True)
@@ -80,7 +93,8 @@ def get_price_range(request, products):
     if end > max_val:
         end = max_val
     return {'min': min_val, 'max': max_val, 'range': {'start': float(start), 'end': float(end)}}
-    
+
+
 def get_available_attributes(request, products):
     filters = json.loads(request.GET['filters'])
     res = []

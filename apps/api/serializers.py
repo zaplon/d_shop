@@ -1,3 +1,4 @@
+# encoding: utf-8
 from oscarapi.utils import OscarModelSerializer, OscarHyperlinkedModelSerializer
 from oscar.core.loading import get_model
 from rest_framework.relations import HyperlinkedIdentityField
@@ -34,7 +35,7 @@ class ProductSerializer(OscarModelSerializer):
         purchase_info = strategy.fetch_for_product(product=obj)
         price = purchase_info.price
         return {'is_available': strategy.select_stockrecord(obj).num_in_stock > 0,
-                'price': {'incl_tax': str(price.incl_tax).replace('.', ',') + ' PLN'}}
+                'price': {'retail': str(purchase_info.stockrecord.price_retail).replace('.', ',') + u' zł'}}
 
     class Meta:
         model = Product

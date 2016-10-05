@@ -5,7 +5,7 @@ function limit(text) {
 var viewModel = {
     filters: ko.observableArray([]),
     products: ko.observableArray([]),
-    priceRange: { start: 0, end: 0, min: 0, max: 0 },
+    priceRange: { range: {}, min: ko.observable(0), max: ko.observable(0) },
     categories: $('#variables input[name="categories"]').val(),
     filterNames: JSON.parse($('#variables input[name="filters"]').val()),
     sortOptions: [{ name: 'Ceną malejąco', id: 0, value: '-price' }, { name: 'Ceną rosnąco', id: 1, value: 'price' }],
@@ -48,10 +48,10 @@ var viewModel = {
             });
             if (a.length > 0) params.attributes.push(a.join('.'));
         });
-        params.sort = viewModel.sortOptions[viewModel.selectedSortOption].value;
+        params.order = viewModel.sortOptions[viewModel.selectedSortOption].value;
         params.attributes = params.attributes.join(',');
-        if (viewModel.priceRange.start > 0) params.start = viewModel.priceRange.start;
-        if (viewModel.priceRange.end > 0) params.end = viewModel.priceRange.end;
+        if (viewModel.priceRange.range.start > 0) params.start = viewModel.priceRange.range.start;
+        if (viewModel.priceRange.range.end > 0) params.end = viewModel.priceRange.range.end;
         if (dontRefreshFilters) params.dont_refresh_filters = true;
         $.getJSON("/api/products/", params, function (data) {
             viewModel.count = data.count;
@@ -63,6 +63,8 @@ var viewModel = {
             viewModel.products(data.results.products);
             viewModel.priceRange = data.results.prices;
             if (viewModel.firstLoad) {
+                $('#price-from').html(viewModel.priceRange.min);
+                $('#price-to').html(viewModel.priceRange.max);
                 viewModel.priceSlider.setAttribute('min', viewModel.priceRange.min);
                 viewModel.priceSlider.setAttribute('max', viewModel.priceRange.max);
                 viewModel.priceSlider.setValue([viewModel.priceRange.range.start, viewModel.priceRange.range.end]);
@@ -119,8 +121,8 @@ $(document).ready(function () {
     viewModel.priceSlider = new Slider("#price-slider", { value: [10, 20] });
     viewModel.priceSlider.on('slideStop', function (value) {
         console.log(value);
-        viewModel.priceRange.start = parseInt(value[0]);
-        viewModel.priceRange.end = parseInt(value[1]);
+        viewModel.priceRange.range.start = parseInt(value[0]);
+        viewModel.priceRange.range.end = parseInt(value[1]);
         viewModel.loadData();
     });
 
@@ -148,6 +150,17 @@ $(document).ready(function () {
         enableLinks: true,
         data: JSON.parse($('#tree').attr('data')), expandIcon: 'fa fa-plus-square',
         collapseIcon: 'fa fa-minus-square'
+    });
+
+    $('#show-filters').click(function () {
+        var filters = $('#product-filters-container');
+        if (filters.hasClass('hidden-sm-down')) {
+            filters.removeClass('hidden-sm-down');
+            $(this).html('Ukryj filtry');
+        } else {
+            filters.addClass('hidden-sm-down');
+            $(this).html('Pokaż filtry');
+        }
     });
 });
 

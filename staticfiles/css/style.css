@@ -459,4 +459,21 @@ ul {
 .cd-cart-trigger .count {
   background-color: #0275d8 !important; }
 
+.slider-horizontal {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  width: 200px !important; }
+
+@media (max-width: 640px) {
+  #show-filters {
+    margin-bottom: 0.5rem; }
+
+  #filters-list {
+    float: left; }
+    #filters-list ul {
+      padding-left: 0; }
+
+  #product-filters div {
+    margin-bottom: 0.5rem; } }
+
 /*# sourceMappingURL=style.css.map */

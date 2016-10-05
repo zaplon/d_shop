@@ -12,7 +12,7 @@
 {% block breadcrumbs %}
     <div id="top-nav-border"></div>
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8 col-sm-12">
             <ul class="breadcrumb">
                 <li><a href="/">Strona główna</a></li>
                 {% for p in path_list %}
@@ -24,7 +24,7 @@
                 {% endfor %}
             </ul>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-sm-12">
             <div id="filters-list">
                 <ul data-bind="foreach: filters">
                     <li data-bind="foreach: selectedOptions">
@@ -44,18 +44,23 @@
         <input type="hidden" name="categories" value="{{ categories }}">
     </form>
     <div class="row">
-        <div class="col-md-2 hidden-sm tree-list sidebar">
+        <button id="show-filters" class="btn btn-default col-sm-12 hidden-md-up">
+            Pokaż filtry
+        </button>
+        <div class="col-md-2 hidden-sm-down tree-list sidebar">
             <div id="tree" data="{{ tree_data }}"></div>
         </div>
-        <div class="col-md-10 col-sm-12 hidden-sm">
+        <div class="col-md-10 col-sm-12 hidden-sm-down" id="product-filters-container">
             <div id="product-filters" class="row">
                 <form class="form" data-bind="template: { name: 'filter-template', foreach: filters }">
                 </form>
             </div>
             <div class="row m-t-1">
                 <div class="col-md-8 col-sm-12">
-                    <label class="m-r-2" for="price-slider">Zakres cen</label>
+{#                    <label class="m-r-2" for="price-slider">Zakres cen</label>#}
+                    <span id="price-from"></span><span>zł</span>
                     <input class="form-control" id="price-slider" type="text" name="prices" />
+                    <span id="price-to" data-bind="text: priceRange.max"></span><span>zł</span>
                 </div>
                 <div class="col-md-4 col-sm-12">
                     <select class="form-control pull-right"
@@ -70,7 +75,7 @@
     <div id="products-end"></div>
 
     <script type="text/html" id="filter-template">
-       <div class="col-md-4">
+       <div class="col-md-4 col-sm-6">
            <select class="form-control selectpicker"
                    multiple
                    data-live-search="true"
@@ -87,13 +92,14 @@
        <div class="col-md-4">
             <div class="product-card" data-bind="attr: {'data-id': id}">
                 <div class="image">
-                    <a data-bind="attr: {href: front_url }"><img data-bind="attr: {src: images[0].original}"/></a>
+                    <a data-bind="attr: {href: front_url }"><img
+                            data-bind="attr: {src: images.length > 0 ? images[0].original : 'media/images/no_picture.jpg'}"/></a>
                 </div>
                 <div class="title">
                     <a data-bind="attr: {href: front_url }"><h5 data-bind="text: limit(title)"></h5></a>
                 </div>
                 <div data-bind="if: sell_details.is_available" class="price">
-                    <span data-bind="text: sell_details.price.incl_tax"></span>
+                    <span data-bind="text: sell_details.price.retail"></span>
                 </div>
                 <div data-bind="if: !sell_details.is_available" class="not-available">
                     <span>Produkt niedostępny</span>
