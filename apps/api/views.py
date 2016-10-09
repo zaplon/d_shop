@@ -68,6 +68,8 @@ class ProductList(basic.ProductList):
                 ordering = [order]
             queryset = queryset.order_by(', '.join(ordering))
 
+        queryset = queryset.filter(stockrecords__num_in_stock__gt=1)
+
         page = self.paginate_queryset(queryset)
         if page is not None:
             serializer = self.get_serializer(page, many=True)

@@ -3,7 +3,7 @@
 <footer id="footer" class="page-footer">
     <div class="container">
         {% block footer %}
-            <div class="column col-md-4">
+            <div class="column col-md-4 col-sm-6">
                 <p class="text-sm">Potrzebujesz wsparcia? <br/> Zadzwoń <span class="text-primary">+48 504 485 575</span></p>
                 <div class="social-bar text-center space-bottom">
                     <a href="#" class="sb-skype" data-toggle="tooltip" data-placement="top" title=""
@@ -29,19 +29,15 @@
                 </div><!-- .social-bar -->
                 <p class="copyright">© 2016. GeekMan.</p>
             </div>
-            <div class="column col-md-4">
-                <h3 class="widget-title">Subscription</h3>
-                <small>To receive latest offers and discounts from the shop.</small>
-                <form action="//rokaux.us12.list-manage.com/subscribe/post?u=c7103e2c981361a6639545bd5&amp;id=1194bb7544"
-                      method="post" target="_blank" class="subscribe-form" novalidate="">
-                    <input type="email" class="form-control" name="EMAIL" placeholder="Your e-mail">
-                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
-                                                                                              name="b_c7103e2c981361a6639545bd5_1194bb7544"
-                                                                                              tabindex="-1" value=""></div>
-                </form>
+            <div class="column col-md-4 hidden-sm-down">
+                <h3 class="widget-title">Może Cię zainteresować</h3>
+                <ul>
+                    <li><a href="/promocje/">Promocje</a></li>
+                    <li><a href="/kontakt/">Kontakt</a></li>
+                    <li><a href="/regulamin/">Regulamin</a></li>
+                </ul>
             </div>
-            <div class="column col-md-4">
+            <div class="column col-md-4 col-sm-6">
                 <h3>Metody płatności</h3>
                 <small>Honorujemy następujące metody płatności</small>
                 <div class="cards"><img src="{% static "images/cards.png" %}" alt="Karty kredytowe"></div>

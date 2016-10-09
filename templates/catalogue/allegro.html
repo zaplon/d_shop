@@ -1,61 +1,62 @@
 {% load inlinecss %}
-{% inlinecss "css/style.css" %}
-{% inlinecss "css/custom.css" %}
+{% load i18n %}
+{% inlinecss "css/inline.css" %}
+    <div class="promotion-wrapper">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>{{ product.get_title }}</h2>
+                <div id="product_description" class="sub-header">
+                    <hr/>
+                </div>
+                <p>{{ product.excerpt|safe }}</p>
+                {% for image in product.images.all %}
+                    <div class="col-md-3">
+                        <img src="image.get_url">
+                    </div>
+                {% endfor %}
+                <p>{{ product.description|safe }}</p>
 
-    <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-9">
-            <h2>{{ product.get_title }}</h2>
-            <div id="product_description" class="sub-header">
-                <hr/>
-            </div>
-            <p>{{ product.description|safe }}</p>
-
-            <div class="sub-header">
-                <hr>
-                <h2 class="text-center">{% trans "Product Information" %}</h2>
-            </div>
-            <table class="table table-striped">
-                {% if product.upc %}
-                    <tr>
-                        <th>{% trans "UPC" %}</th>
-                        <td>{{ product.upc }}</td>
-                    </tr>
-                {% endif %}
-                <tr>
-                    <th>{% trans "Product Type" %}</th>
-                    <td>{{ product.get_product_class.name }}</td>
-                </tr>
-
-                {% purchase_info_for_product request product as session %}
-                {% if session.price.exists %}
-                    <tr>
-                        <th>{% trans "Price (excl. tax)" %}</th>
-                        <td>{{ session.price.excl_tax|currency:session.price.currency }}</td>
-                    </tr>
-                    {% if session.price.is_tax_known %}
+                <div class="sub-header">
+                    <hr>
+                    <h2 class="text-center">{% trans "Product Information" %}</h2>
+                </div>
+                <table class="table table-striped">
+                    {% if product.upc %}
                         <tr>
-                            <th>{% trans "Price (incl. tax)" %}</th>
-                            <td>{{ session.price.incl_tax|currency:session.price.currency }}</td>
-                        </tr>
-                        <tr>
-                            <th>{% trans "Tax" %}</th>
-                            <td>{{ session.price.tax|currency:session.price.currency }}</td>
+                            <th>{% trans "UPC" %}</th>
+                            <td>{{ product.upc }}</td>
                         </tr>
                     {% endif %}
                     <tr>
-                        <th>{% trans "Availability" %}</th>
-                        <td>{{ session.availability.message }}</td>
+                        <th>{% trans "Product Type" %}</th>
+                        <td>{{ product.get_product_class.name }}</td>
                     </tr>
-                {% endif %}
-                {% for av in product.attribute_values.all %}
-                    <tr>
-                        <th>{{ av.attribute.name }}</th>
-                        <td>{{ av.value_as_html }}</td>
-                    </tr>
-                {% endfor %}
-            </table>
+
+                    {% for av in product.attribute_values.all %}
+                        <tr>
+                            <th>{{ av.attribute.name }}</th>
+                            <td>{{ av.value_as_html }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <div style="clear: both"></div>
+        <div class="allegro-footer">
+            <ul>
+                <li>
+                    <a href="http://allegro.pl/SendMailToUser.php?userId=16508030" target="_blank">KONTAKT</a>
+                </li>
+                <li>
+                    <a rel="nofollow" href="http://www.allegro.pl/show_user_auctions.php?uid=16508030" target="_blank">INNE AUKCJE</a>
+                </li>
+                <li>
+                    <a rel="nofollow" href="http://www.allegro.pl/show_user.php?uid=16508030" target="_blank">KOMENTARZE</a>
+                </li>
+                <li>
+                    <a rel="nofollow" href="http://www.allegro.pl/my_page.php?uid=16508030" target="_blank">O NAS</a>
+                </li>
+            </ul>
         </div>
     </div>
-
 {% endinlinecss %}

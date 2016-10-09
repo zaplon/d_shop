@@ -1,3 +1,4 @@
+# encoding: utf-8
 from django.contrib import messages
 from django.core.paginator import InvalidPage
 from django.shortcuts import redirect
@@ -6,7 +7,7 @@ from django.views.generic import TemplateView
 from oscar.core.loading import get_class, get_model
 import json
 from oscar.apps.catalogue.models import Category
-from django.shortcuts import HttpResponse
+from django.shortcuts import render_to_response
 
 
 ProductAttribute = get_model('catalogue', 'ProductAttribute')
@@ -57,8 +58,9 @@ class CatalogueView(TemplateView):
     context_object_name = "products"
     template_name = "catalogue/browse.html"
     category = False
-    prefix = 'kategoria'
+    prefix = ''
     filters = ['wzor', 'kolor_bazowy', 'material_glowny']
+    level = 0
 
     @staticmethod
     def _group_attributes(atts):
@@ -75,7 +77,8 @@ class CatalogueView(TemplateView):
         if c.has_children():
             for cc in c.get_children():
                 c_list['nodes'].append({'text': cc.name, 'nodes': [], 'state': self._get_category_state(cc.slug, cc),
-                                        'href': '/katalog/' + self.prefix + '/' + '/'.join(cc.full_slug.split('/')[0:])})
+                                        'href': '/katalog/' + self.prefix +
+                                                '/'.join(cc.full_slug.split('/')[self.level:])})
                 self._append_category(cc, c_list['nodes'][-1])
         else:
             del c_list['nodes']
@@ -123,19 +126,20 @@ class CatalogueView(TemplateView):
         # ctx['attributes'] = {p.name: {'attribute_values': self.get_values_grouped_by_slug(p.name),  # self._group_attributes(p.productattributevalue_set.all().values()),
         #                               'name': p.name, 'multiselect': True if p.code in ['kolor_bazowy'] else False}
         #                      for p in product_attributes}
-        ctx['path_list'] = [{'name': 'katalog', 'url': '/katalog/'}]
-        last_url = ctx['path_list'][-1]['url']
-        for p in self.request.path.split('/')[2:-1]:
-            if not p == 'kategoria':
-                ctx['path_list'].append({'name': p, 'url': last_url + p + '/'})
-                last_url = ctx['path_list'][-1]['url']
-            else:
-                last_url += 'kategoria/'
+        ctx['path_list'] = []
+        last_url = '/'
+        path_split = [p for p in self.request.path.split('/') if p != '']
+        for p in path_split[:-1]:
+            ctx['path_list'].append({'name': p, 'url': last_url + p + '/'})
+            last_url = ctx['path_list'][-1]['url']
+        ctx['path_list'].append({'name': path_split[-1], 'url': last_url + path_split[-1] + '/'})
         return ctx
 
 
 class EtuiView(CatalogueView):
-    prefix = 'opakowania-etui-folie'
+    prefix = 'opakowania-etui-folie/'
+    level = 1
+
     def get_categories(self, kwargs):
         return Category.objects.get(name='smartfony').get_children()
 
@@ -152,4 +156,4 @@ class CatalogueCategoryView(CatalogueView):
 
 def allegro_view(request):
     product = Product.objects.get(id=request.GET['id'])
-    return HttpResponse('catalogue/allegro.html', {'product': product})
+    return render_to_response('catalogue/allegro.html', {'product': product})

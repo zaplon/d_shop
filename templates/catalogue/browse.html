@@ -44,29 +44,33 @@
         <input type="hidden" name="categories" value="{{ categories }}">
     </form>
     <div class="row">
-        <button id="show-filters" class="btn btn-default col-sm-12 hidden-md-up">
-            Pokaż filtry
-        </button>
         <div class="col-md-2 hidden-sm-down tree-list sidebar">
             <div id="tree" data="{{ tree_data }}"></div>
         </div>
-        <div class="col-md-10 col-sm-12 hidden-sm-down" id="product-filters-container">
-            <div id="product-filters" class="row">
-                <form class="form" data-bind="template: { name: 'filter-template', foreach: filters }">
-                </form>
+        <div class="col-md-10 col-sm-12">
+            <div class="row m-b-1">
+                <button id="show-filters" class="btn btn-default col-sm-12 hidden-md-up">
+                    Pokaż filtry
+                </button>
             </div>
-            <div class="row m-t-1">
-                <div class="col-md-8 col-sm-12">
-{#                    <label class="m-r-2" for="price-slider">Zakres cen</label>#}
-                    <span id="price-from"></span><span>zł</span>
-                    <input class="form-control" id="price-slider" type="text" name="prices" />
-                    <span id="price-to" data-bind="text: priceRange.max"></span><span>zł</span>
+            <div id="product-filters-container" class="hidden-sm-down">
+                <div id="product-filters" class="row">
+                    <form class="form" data-bind="template: { name: 'filter-template', foreach: filters }">
+                    </form>
                 </div>
-                <div class="col-md-4 col-sm-12">
-                    <select class="form-control pull-right"
-                            data-bind="options: sortOptions, optionsText: 'name', selectedOptions: selectedSortOption,
-                            optionsValue: 'id', event: { change: loadData }">
-                    </select>
+                <div class="row m-t-1">
+                    <div class="col-md-8 col-sm-6">
+        {#                    <label class="m-r-2" for="price-slider">Zakres cen</label>#}
+                        <span id="price-from"></span><span>zł</span>
+                        <input class="form-control" id="price-slider" type="text" name="prices" />
+                        <span id="price-to" data-bind="text: priceRange.max"></span><span>zł</span>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <select class="form-control pull-right"
+                                data-bind="options: sortOptions, optionsText: 'name', selectedOptions: selectedSortOption,
+                                optionsValue: 'id', event: { change: loadData() }">
+                        </select>
+                    </div>
                 </div>
             </div>
             <div id="products-container" data-bind="template: { name: 'product-template', foreach: products }"></div>
@@ -75,7 +79,7 @@
     <div id="products-end"></div>
 
     <script type="text/html" id="filter-template">
-       <div class="col-md-4 col-sm-6">
+       <div class="col-md-4 col-sm-6" data-bind="visible: options.length > 0">
            <select class="form-control selectpicker"
                    multiple
                    data-live-search="true"
