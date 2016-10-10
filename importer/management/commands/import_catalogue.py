@@ -110,7 +110,7 @@ class Command(BaseCommand):
 
         counter = 0
         for p in obj.produkty.produkt:
-            if counter > 200:
+            if counter > 20000:
                 break
             counter += 1
             p_type = ''
@@ -129,7 +129,6 @@ class Command(BaseCommand):
             for f in self.fields_map:
                 setattr(p_obj, f, getattr(p, self.fields_map[f]).cdata)
             p_obj.save()
-            print p_obj.title
 
             for k in p.kategorie.kategoria:
                 path = k.cdata
