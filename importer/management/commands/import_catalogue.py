@@ -122,8 +122,10 @@ class Command(BaseCommand):
                 continue
             try:
                 p_obj = Product.objects.get(external_id=p.ProduktId.cdata)
+                _created = False
             except ObjectDoesNotExist:
                 p_obj = Product(product_class=e_types[p_type])
+                _created = True
             for f in self.fields_map:
                 setattr(p_obj, f, getattr(p, self.fields_map[f]).cdata)
             p_obj.save()
@@ -157,7 +159,7 @@ class Command(BaseCommand):
                     pav.value = a.cdata
                     pav.save()
             self.stdout.write('Product %s saved' % p_obj.title)
-            if get_images:
+            if get_images or _created:
                 self.add_images(p_obj, p.zdjecia)
             self.add_prices(p_obj, p)
         print self.breadcrumbs
