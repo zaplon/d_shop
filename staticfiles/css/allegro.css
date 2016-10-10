@@ -14,3 +14,8 @@ h2 {
 .promotion-wrapper {
     padding: 1rem;
 }
+
+.product-gallery div {
+    margin: 1rem;
+    min-width: calc(33% - 2rem);
+}
