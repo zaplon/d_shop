@@ -18,8 +18,7 @@
             <p>{{ product.excerpt|safe }}</p>
             <div>
                 {% for image in product.images.all %}
-                    <div class="col-md-3">
-                        <img src="{{ image.original.url }}">
+                    <div class="col-md-3" style="background-image: url('{{ image.original.url }}')">
                     </div>
                 {% endfor %}
             </div>
