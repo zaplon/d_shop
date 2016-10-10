@@ -477,6 +477,10 @@ ul {
       padding-left: 0; }
 
   #product-filters div {
-    margin-bottom: 0.5rem; } }
+    margin-bottom: 0.5rem; }
+
+  .navbar-brand {
+    width: 100%;
+    text-align: center; } }
 
 /*# sourceMappingURL=style.css.map */
