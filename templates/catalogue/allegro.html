@@ -19,7 +19,7 @@
             <div>
                 {% for image in product.images.all %}
                     <div class="col-md-3">
-                        <img src="{{ image.get_url }}">
+                        <img src="{{ image.original.url }}">
                     </div>
                 {% endfor %}
             </div>
