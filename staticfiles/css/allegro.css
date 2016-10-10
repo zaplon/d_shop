@@ -1,0 +1,16 @@
+.page-footer ul li{
+    display: inline-block;
+    padding: 0.5rem;
+}
+
+.page-footer ul {
+    margin-bottom: 0;
+}
+
+h2 {
+    text-align: center;
+}
+
+.promotion-wrapper {
+    padding: 1rem;
+}

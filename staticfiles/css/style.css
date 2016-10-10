@@ -481,6 +481,9 @@ ul {
 
   .navbar-brand {
     width: 100%;
-    text-align: center; } }
+    margin-left: 15px; }
+
+  .breadcrumb {
+    margin-left: 15px; } }
 
 /*# sourceMappingURL=style.css.map */
