@@ -16,11 +16,16 @@
                 <hr/>
             </div>
             <p>{{ product.excerpt|safe }}</p>
-            <div class="row product-gallery">
-                {% for image in product.images.all %}
-                    <div class="col-md-4" style="background-image: url('{{ image.original.url }}')">
-                    </div>
-                {% endfor %}
+            <div class="product-gallery">
+                <div class="card-columns">
+                    {% for image in product.images.all %}
+                        <div class="card">
+                            <img class="card-img-top" src="{{ image.original.url }}" alt="">
+                            <div class="card-block">
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
             <p>{{ product.description|safe }}</p>
 
