@@ -15,7 +15,11 @@ h2 {
     padding: 1rem;
 }
 
-.product-gallery div {
-    margin: 1rem;
-    min-width: calc(33% - 2rem);
+.card-columns {
+  @include media-breakpoint-only(lg) {
+    column-count: 4;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 5;
+  }
 }
