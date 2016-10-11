@@ -110,7 +110,7 @@ class Command(BaseCommand):
 
         counter = 0
         for p in obj.produkty.produkt:
-            if counter > 20000:
+            if counter > 200000:
                 break
             counter += 1
             p_type = ''

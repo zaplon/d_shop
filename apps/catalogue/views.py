@@ -149,9 +149,9 @@ class CatalogueCategoryView(CatalogueView):
     def get_categories(self, kwargs):
         categories = kwargs['category_slug'].split('/')
         if len(categories) > 1:
-            return Category.objects.get(name=categories[0]).get_children()
+            return Category.objects.get(slug=categories[0]).get_children()
         else:
-            return Category.objects.get(name=kwargs['category_slug']).get_children()
+            return Category.objects.get(slug=kwargs['category_slug']).get_children()
 
 
 def allegro_view(request):
