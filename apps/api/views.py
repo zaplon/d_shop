@@ -9,6 +9,7 @@ from django.shortcuts import HttpResponse
 import json
 from rest_framework.response import Response
 from django.db.models import Min, Max
+from django.db.models import Case, When, BooleanField
 
 
 class ListFilter(Filter):
@@ -56,19 +57,21 @@ class ProductList(basic.ProductList):
         else:
             filters = None
 
+        queryset = queryset.annotate(in_stock=Case(When(stockrecords__num_in_stock__gt=1, then=True), default=False,
+                                                   output_field=BooleanField()), price=Min('stockrecords__price_retail'))
+
         if 'order' in request.GET:
             order = request.GET['order'].replace('-', '')
             if order == 'price':
-                order = 'stockrecords__price_retail'
+                order = 'price'
             if request.GET['order'][0] == '-':
                 order = '-' + order
             if 'name' in order:
                 ordering = [order, 'name']
             else:
                 ordering = [order]
-            queryset = queryset.order_by(', '.join(ordering))
-
-        queryset = queryset.filter(stockrecords__num_in_stock__gt=1)
+            ordering = ['-in_stock'] + ordering
+            queryset = queryset.order_by(*ordering)
 
         page = self.paginate_queryset(queryset)
         if page is not None:

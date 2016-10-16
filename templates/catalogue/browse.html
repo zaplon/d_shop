@@ -49,7 +49,7 @@
         </div>
         <div class="col-md-10 col-sm-12">
             <div class="row m-b-1">
-                <button id="show-filters" class="btn btn-default col-sm-12 hidden-md-up">
+                <button id="show-filters" class="btn btn-default col-sm-12 col-xs-12 hidden-md-up">
                     Pokaż filtry
                 </button>
             </div>
@@ -59,7 +59,7 @@
                     </form>
                 </div>
                 <div class="row m-t-1">
-                    <div class="col-md-8 col-sm-6">
+                    <div class="col-md-8 col-sm-6 col-xs-12">
         {#                    <label class="m-r-2" for="price-slider">Zakres cen</label>#}
                         <span id="price-from"></span><span>zł</span>
                         <input class="form-control" id="price-slider" type="text" name="prices" />
@@ -79,7 +79,7 @@
     <div id="products-end"></div>
 
     <script type="text/html" id="filter-template">
-       <div class="col-md-4 col-sm-6" data-bind="visible: options.length > 0">
+       <div class="col-md-4 col-sm-6 col-xs-12" data-bind="visible: options.length > 0">
            <select class="form-control selectpicker"
                    multiple
                    data-live-search="true"

@@ -467,6 +467,12 @@ ul {
   margin-right: 0.5rem;
   width: 200px !important; }
 
+.navbar-brand span {
+  font-family: Lobster;
+  letter-spacing: 0.7px; }
+.navbar-brand span:nth-of-type(2) {
+  font-weight: normal; }
+
 @media (max-width: 640px) {
   #show-filters {
     margin-bottom: 0.5rem; }
@@ -484,6 +490,13 @@ ul {
     margin-left: 15px; }
 
   .breadcrumb {
-    margin-left: 15px; } }
+    margin-left: 15px; }
+
+  .login-form {
+    width: 100%;
+    margin-bottom: 1rem; }
+
+  .register-form {
+    width: 100%; } }
 
 /*# sourceMappingURL=style.css.map */

@@ -121,8 +121,8 @@ $(document).ready(function () {
     viewModel.priceSlider = new Slider("#price-slider", { value: [10, 20] });
     viewModel.priceSlider.on('slideStop', function (value) {
         console.log(value);
-        viewModel.priceRange.range.start = parseInt(value[0]);
-        viewModel.priceRange.range.end = parseInt(value[1]);
+        viewModel.priceRange.range.start = parseFloat(value[0]);
+        viewModel.priceRange.range.end = parseFloat(value[1]);
         viewModel.loadData();
     });
 
