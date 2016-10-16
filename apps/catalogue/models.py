@@ -29,7 +29,7 @@ class ProductAttribute(AbstractProductAttribute):
 
 
 class ProductAttributeValue(AbstractProductAttributeValue):
-    slug = models.CharField(max_length=50, unique=True)
+    slug = models.CharField(max_length=50, unique=False)
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         self.slug = "%s_%s" % (self.attribute.name, self.value_text)
