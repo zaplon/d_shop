@@ -61,6 +61,7 @@ class CatalogueView(TemplateView):
     prefix = ''
     filters = ['wzor', 'kolor_bazowy', 'material_glowny']
     level = 0
+    product_classes = False
 
     @staticmethod
     def _group_attributes(atts):
@@ -75,7 +76,10 @@ class CatalogueView(TemplateView):
 
     def _append_category(self, c, c_list):
         if c.has_children():
-            for cc in c.get_children():
+            children = c.get_children() if not self.product_classes else \
+                c.get_children().filter(
+                    productcategory__product__product_class__external_type__in=self.product_classes.split(',')).distinct()
+            for cc in children:
                 c_list['nodes'].append({'text': cc.name, 'nodes': [], 'state': self._get_category_state(cc.slug, cc),
                                         'href': '/katalog/' + self.prefix +
                                                 '/'.join(cc.full_slug.split('/')[self.level:])})
@@ -135,12 +139,14 @@ class CatalogueView(TemplateView):
             ctx['path_list'].append({'name': p, 'url': last_url + p + '/'})
             last_url = ctx['path_list'][-1]['url']
         ctx['path_list'].append({'name': path_split[-1], 'url': last_url + path_split[-1] + '/'})
+        ctx['product_classes'] = self.product_classes if self.product_classes else ''
         return ctx
 
 
 class EtuiView(CatalogueView):
     prefix = 'opakowania-etui-folie/'
     level = 1
+    product_classes = 'Opakowania,Etui,Folie'
 
     def get_categories(self, kwargs):
         return Category.objects.get(name='smartfony').get_children()

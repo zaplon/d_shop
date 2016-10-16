@@ -49,6 +49,8 @@ class ProductList(basic.ProductList):
 
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
+        if request.GET.get('product_classes', False):
+            queryset = queryset.filter(product_class__external_type__in=request.GET['product_classes'])
         if request.GET.get('start', False) and request.GET.get('end', False):
             queryset = queryset.filter(stockrecords__price_retail__gte=float(request.GET.get('start')),
                                        stockrecords__price_retail__lte=float(request.GET.get('end')))

@@ -7,6 +7,7 @@ var viewModel = {
     products : ko.observableArray([]),
     priceRange : {range: {}, min: ko.observable(0), max: ko.observable(0)},
     categories: $('#variables input[name="categories"]').val(),
+    productClasses: $('#variables input[name="product_classes"]').val().split(','),
     filterNames: JSON.parse($('#variables input[name="filters"]').val()),
     sortOptions: [{name: 'Ceną malejąco', id: 0, value: '-price'}, {name: 'Ceną rosnąco', id: 1, value: 'price'}],
     selectedSortOption: 0,
@@ -40,7 +41,7 @@ var viewModel = {
     loadData: function(dontRefreshFilters){
         viewModel.loading = true;
         var params = {filters: JSON.stringify(viewModel.filterNames), attributes: [], categories: viewModel.categories,
-            limit: viewModel.limit, offset: viewModel.offset};
+            limit: viewModel.limit, offset: viewModel.offset, product_classes: viewModel.productClasses};
         this.filters().forEach(function(f){
             var a = [];
             if (f.selectedOptions)
