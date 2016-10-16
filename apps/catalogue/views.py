@@ -6,13 +6,13 @@ from django.utils.translation import ugettext_lazy as _
 from django.views.generic import TemplateView
 from oscar.core.loading import get_class, get_model
 import json
-from oscar.apps.catalogue.models import Category
 from django.shortcuts import render_to_response
 
 
 ProductAttribute = get_model('catalogue', 'ProductAttribute')
 ProductAttributeValue = get_model('catalogue', 'ProductAttributeValue')
 Product = get_model('catalogue', 'Product')
+Category = get_model('catalogue', 'Category')
 
 
 def phone_selector(request):
@@ -118,7 +118,8 @@ class CatalogueView(TemplateView):
                                      'href': '/katalog/' + self.prefix + '/'.join(c.full_slug.split('/')[self.level:])})
             ctx['tree_data'][-1] = self._append_category(c, ctx['tree_data'][-1])
         ctx['tree_data'] = json.dumps(ctx['tree_data'])
-        ctx['filters'] = self.category.filters if len(self.category) > 2 else json.dumps(self.filters)
+        ctx['filters'] = self.category.filters if self.category and len(self.category.filters) > 2 else \
+            json.dumps(self.filters)
         product_attributes = ProductAttribute.objects.filter(code__in=self.filters)
         if self.category:
             categories = [c.id for c in self.category.get_descendants_and_self()]

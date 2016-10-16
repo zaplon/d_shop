@@ -1,12 +1,16 @@
 from django.db import models
 
 from oscar.apps.catalogue.abstract_models import AbstractProduct, AbstractProductClass, AbstractProductAttribute, \
-    AbstractProductAttributeValue, AbstractProductCategory
+    AbstractProductAttributeValue, AbstractProductCategory, AbstractCategory
 from oscar.core.loading import get_model
 
 
+class Category(AbstractCategory):
+    filters = models.CharField(max_length=100, default='', verbose_name=u'Filtry')
+
+
 class ProductCategory(AbstractProductCategory):
-    filters = models.CharField(max_length=100, default='')
+    pass  # filters = models.CharField(max_length=100, default='', verbose_name=u'Filtry')
 
 
 class Product(AbstractProduct):
