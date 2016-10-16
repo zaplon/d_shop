@@ -118,7 +118,7 @@ class CatalogueView(TemplateView):
                                      'href': '/katalog/' + self.prefix + '/'.join(c.full_slug.split('/')[self.level:])})
             ctx['tree_data'][-1] = self._append_category(c, ctx['tree_data'][-1])
         ctx['tree_data'] = json.dumps(ctx['tree_data'])
-        ctx['filters'] = self.category.filters if self.category and len(self.category.filters) > 2 else \
+        ctx['filters'] = json.dumps(self.category.filters.split(',')) if self.category and len(self.category.filters) > 2 else \
             json.dumps(self.filters)
         product_attributes = ProductAttribute.objects.filter(code__in=self.filters)
         if self.category:
