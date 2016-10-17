@@ -3,6 +3,12 @@
 {% load jstemplate %}
 {% load compress %}
 
+{% block description %}Sklep z obudowami do telefonów oraz innymi akcesoriami{% endblock %}
+{% block extrahead %}
+    <meta name="keywords" content="{{ keywords }}">
+    <meta name="author" content="Jan Zapał">
+{% endblock %}
+
 {% block scripts %}
     {{ block.super }}
         {% compress js %}

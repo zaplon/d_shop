@@ -110,7 +110,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-
+                'apps.pages.context_processors.seo',
                 'oscar.apps.search.context_processors.search_form',
                 'oscar.apps.promotions.context_processors.promotions',
                 'oscar.apps.checkout.context_processors.checkout',
@@ -230,6 +230,7 @@ JSTEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates', 'jstemplates')]
 
 OSCAR_ALLOW_ANON_CHECKOUT = True
 OSCAR_DEFAULT_CURRENCY = 'PLN'
+OSCAR_SHOP_NAME = 'ObudowyNaTelefon'
 
 PAYPAL_SANDBOX_MODE = False
 PAYPAL_PAYFLOW_VENDOR_ID = 'mypaypalaccount'

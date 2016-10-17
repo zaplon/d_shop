@@ -140,6 +140,13 @@ class CatalogueView(TemplateView):
             last_url = ctx['path_list'][-1]['url']
         ctx['path_list'].append({'name': path_split[-1], 'url': last_url + path_split[-1] + '/'})
         ctx['product_classes'] = self.product_classes if self.product_classes else ''
+        # seo
+        if self.category:
+            ctx['description'] = self.category.full_name
+            ctx['keywords'] = self.category.name
+        else:
+            ctx['description'] = u'Katalog produktów'
+            ctx['keywords'] = u'Opakowania na telefon, Obudowy na telefon, etui, folie ochronne, akcesoria telefoniczne'
         return ctx
 
 
