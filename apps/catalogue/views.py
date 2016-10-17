@@ -7,6 +7,7 @@ from django.views.generic import TemplateView
 from oscar.core.loading import get_class, get_model
 import json
 from django.shortcuts import render_to_response
+from oscar.apps.catalogue.views import ProductDetailView
 
 
 ProductAttribute = get_model('catalogue', 'ProductAttribute')
@@ -22,6 +23,15 @@ def phone_selector(request):
 
 get_product_search_handler_class = get_class(
     'catalogue.search_handlers', 'get_product_search_handler_class')
+
+
+class ProductDetailView(ProductDetailView):
+
+    def get_context_data(self, **kwargs):
+        data = super(ProductDetailView, self).get_context_data(**kwargs)
+        data['description'] = self.object.title
+        data['keywords'] = ' '.join([c.name for c in self.object.categories.all()])
+        return data
 
 
 class CatalogueOscarView(TemplateView):
@@ -142,7 +152,7 @@ class CatalogueView(TemplateView):
         ctx['product_classes'] = self.product_classes if self.product_classes else ''
         # seo
         if self.category:
-            ctx['description'] = self.category.full_name
+            ctx['description'] = self.category.name
             ctx['keywords'] = self.category.name
         else:
             ctx['description'] = u'Katalog produktów'

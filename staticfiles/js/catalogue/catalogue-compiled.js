@@ -112,7 +112,7 @@ ko.applyBindings(viewModel);
 
 $(document).ready(function () {
 
-    viewModel.loadData();
+    //viewModel.loadData();
     //viewModel.slider = $("#price-slider").bootstrapSlider();
     //viewModel.slider.on('change', function(oldVal, newVal){
     //   console.log('change');
