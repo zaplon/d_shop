@@ -312,7 +312,8 @@
   .card-columns {
     column-count: 3;
     column-gap: $card-columns-sm-up-column-gap;
-
+    -webkit-column-count: 3;
+    -webkit-column-gap: $card-columns-sm-up-column-gap;
     .card {
       display: inline-block;
       width: 100%; // Don't let them exceed the column width

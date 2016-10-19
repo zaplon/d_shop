@@ -74,7 +74,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
-CACHE_MIDDLEWARE_ALIAS = 'cache'
+CACHE_MIDDLEWARE_ALIAS = 'default'
 CACHE_MIDDLEWARE_SECONDS = 1
 CACHE_MIDDLEWARE_KEY_PREFIX = ''
 
