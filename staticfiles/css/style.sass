@@ -42,6 +42,8 @@ body
   height: 200px
   text-align: center
   position: relative
+  background-repeat: no-repeat
+  background-position-x: center
   .top
     height: 0
     border-width: 0 0 200px 200px
@@ -514,6 +516,14 @@ ul
   span:nth-of-type(2)
     font-weight: normal
 
+.gray-lighter
+  background-color: $gray-lighter
+.gray-lightest
+  background-color: $gray-lightest
+.gray
+  background-color: $gray
+
+
 @media (max-width: 640px)
   #show-filters
     margin-bottom: $spacer-y/2
@@ -534,5 +544,7 @@ ul
     margin-bottom: 1rem
   .register-form
     width: 100%
-
+  #navbar-search
+    input
+      width: 100%
 

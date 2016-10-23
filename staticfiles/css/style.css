@@ -28,7 +28,9 @@ body {
 .front-card {
   height: 200px;
   text-align: center;
-  position: relative; }
+  position: relative;
+  background-repeat: no-repeat;
+  background-position-x: center; }
   .front-card .top {
     height: 0;
     border-width: 0 0 200px 200px;
@@ -473,6 +475,15 @@ ul {
 .navbar-brand span:nth-of-type(2) {
   font-weight: normal; }
 
+.gray-lighter {
+  background-color: #eceeef; }
+
+.gray-lightest {
+  background-color: #f7f7f9; }
+
+.gray {
+  background-color: #55595c; }
+
 @media (max-width: 640px) {
   #show-filters {
     margin-bottom: 0.5rem; }
@@ -497,6 +508,9 @@ ul {
     margin-bottom: 1rem; }
 
   .register-form {
+    width: 100%; }
+
+  #navbar-search input {
     width: 100%; } }
 
 /*# sourceMappingURL=style.css.map */
