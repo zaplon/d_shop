@@ -115,7 +115,7 @@ class CatalogueView(TemplateView):
         ctx = {'tree_data': []}
         categories = self.get_categories(kwargs)
         for c in categories:
-            ctx['tree_data'].append({'text': c.name, 'nodes': [], 'state': self._get_category_state(c.slug, c),
+            ctx['tree_data'].append({'text': c.name, 'nodes': [], 'state': self._get_category_state(c.name, c),
                                      'href': '/katalog/' + self.prefix + '/'.join(c.full_slug.split('/')[self.level:])})
             ctx['tree_data'][-1] = self._append_category(c, ctx['tree_data'][-1])
         ctx['tree_data'] = json.dumps(ctx['tree_data'])
