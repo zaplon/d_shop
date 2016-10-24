@@ -164,5 +164,5 @@ class CatalogueCategoryView(CatalogueView):
 
 
 def allegro_view(request):
-    product = Product.objects.get(id=request.GET['id'])
+    product = Product.objects.get(slug=request.GET['slug'])
     return render_to_response('catalogue/allegro.html', {'product': product})
