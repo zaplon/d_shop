@@ -9,7 +9,6 @@ import json
 from django.shortcuts import render_to_response
 from oscar.apps.catalogue.views import ProductDetailView
 
-
 ProductAttribute = get_model('catalogue', 'ProductAttribute')
 ProductAttributeValue = get_model('catalogue', 'ProductAttributeValue')
 Product = get_model('catalogue', 'Product')
@@ -17,7 +16,7 @@ Category = get_model('catalogue', 'Category')
 
 
 def phone_selector(request):
-    phones = ProductAttributeValue.objects.filter(attribute__code='kompatybilnosc').order_by('value_text').\
+    phones = ProductAttributeValue.objects.filter(attribute__code='kompatybilnosc').order_by('value_text'). \
         values_list('value_text', flat=True)
 
 
@@ -26,7 +25,6 @@ get_product_search_handler_class = get_class(
 
 
 class ProductDetailView(ProductDetailView):
-
     def get_context_data(self, **kwargs):
         data = super(ProductDetailView, self).get_context_data(**kwargs)
         data['description'] = self.object.title
@@ -64,7 +62,6 @@ class CatalogueOscarView(TemplateView):
 
 
 class CatalogueView(TemplateView):
-
     context_object_name = "products"
     template_name = "catalogue/browse.html"
     category = False
@@ -73,22 +70,12 @@ class CatalogueView(TemplateView):
     level = 0
     product_classes = False
 
-    @staticmethod
-    def _group_attributes(atts):
-        new_atts = {}
-        for a in atts:
-            if a['value_text'] not in new_atts:
-                new_atts[a['value_text']] = {'ids': []}
-            new_atts[a['value_text']]['ids'].append(str(a['id']))
-        for a in new_atts:
-            new_atts[a]['ids'] = ','.join(new_atts[a]['ids'])
-        return new_atts
-
     def _append_category(self, c, c_list):
         if c.has_children():
             children = c.get_children() if not self.product_classes else \
                 c.get_children().filter(
-                    productcategory__product__product_class__external_type__in=self.product_classes.split(',')).distinct()
+                    productcategory__product__product_class__external_type__in=self.product_classes.split(
+                        ',')).distinct()
             for cc in children:
                 c_list['nodes'].append({'text': cc.name, 'nodes': [], 'state': self._get_category_state(cc.slug, cc),
                                         'href': '/katalog/' + self.prefix +
@@ -113,12 +100,12 @@ class CatalogueView(TemplateView):
         return state
 
     def get_categories(self, kwargs):
-        #return Category.objects.get(name='smartfony').get_children()
         return Category.objects.filter(depth=1)
 
     def get_values_grouped_by_slug(self, a):
         res = []
-        vals = ProductAttributeValue.objects.filter(attribute__name=a.name).order_by('value_text').values_list('id', 'value_text')
+        vals = ProductAttributeValue.objects.filter(attribute__name=a.name).\
+            order_by('value_text').values_list('id', 'value_text')
         for v in vals:
             if len(filter(lambda x: x['value_text'] == v[1], res)) == 0:
                 res.append({'id': v[0], 'value_text': v[1]})
@@ -128,20 +115,17 @@ class CatalogueView(TemplateView):
         ctx = {'tree_data': []}
         categories = self.get_categories(kwargs)
         for c in categories:
-            ctx['tree_data'].append({'text': c.name, 'nodes':[], 'state': self._get_category_state(c.slug, c),
+            ctx['tree_data'].append({'text': c.name, 'nodes': [], 'state': self._get_category_state(c.slug, c),
                                      'href': '/katalog/' + self.prefix + '/'.join(c.full_slug.split('/')[self.level:])})
             ctx['tree_data'][-1] = self._append_category(c, ctx['tree_data'][-1])
         ctx['tree_data'] = json.dumps(ctx['tree_data'])
-        ctx['filters'] = json.dumps(self.category.filters.split(',')) if self.category and len(self.category.filters) > 2 else \
+        ctx['filters'] = json.dumps(self.category.filters.split(',')) if self.category and len(
+            self.category.filters) > 2 else \
             json.dumps(self.filters)
         product_attributes = ProductAttribute.objects.filter(code__in=self.filters)
         if self.category:
             categories = [c.id for c in self.category.get_descendants_and_self()]
             ctx['categories'] = '.'.join([str(c) for c in categories])
-        #     product_attributes = product_attributes.filter(product__categories__id__in=categories)
-        # ctx['attributes'] = {p.name: {'attribute_values': self.get_values_grouped_by_slug(p.name),  # self._group_attributes(p.productattributevalue_set.all().values()),
-        #                               'name': p.name, 'multiselect': True if p.code in ['kolor_bazowy'] else False}
-        #                      for p in product_attributes}
         ctx['path_list'] = []
         last_url = '/'
         path_split = [p for p in self.request.path.split('/') if p != '']
@@ -170,7 +154,6 @@ class EtuiView(CatalogueView):
 
 
 class CatalogueCategoryView(CatalogueView):
-
     def get_categories(self, kwargs):
         categories = kwargs['category_slug'].split('/')
         if len(categories) > 1:
