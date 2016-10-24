@@ -6,7 +6,8 @@ html * {
 
 body {
   background-color: #f7f7f9;
-  font-family: "Work Sans", Helvetica, Arial, sans-serif; }
+  font-family: "Work Sans", Helvetica, Arial, sans-serif;
+  overflow-x: hidd; }
 
 #page-container {
   padding-top: 2rem;
