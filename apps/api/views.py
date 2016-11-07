@@ -93,6 +93,8 @@ class ProductList(basic.ProductList):
 def get_price_range(request, products):
     min_val = products.aggregate(Min('stockrecords__price_retail'))['stockrecords__price_retail__min']
     max_val = products.aggregate(Max('stockrecords__price_retail'))['stockrecords__price_retail__max']
+    min_val = min_val if min_val is not None else 0
+    max_val = max_val if max_val is not None else 0
     start = request.GET['start'] if request.GET.get('start', False) else min_val
     end = request.GET['end'] if request.GET.get('end', False) else max_val
     if start < min_val:
