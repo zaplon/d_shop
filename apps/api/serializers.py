@@ -45,7 +45,9 @@ class ProductSerializer(OscarModelSerializer):
 class ProductElasticSerializer(ModelSerializer):
 
     images = ProductImageSerializer(many=True)
-    stock_records = StockRecordSerializer(many=True)
+    stockrecords = StockRecordSerializer(many=True)
+    type = CharField(source='product_class.external_type')
+
     class Meta:
         model = Product
-        fields = ['id', 'title', 'images', 'stock_records', 'excerpt']
+        fields = ['id', 'title', 'images', 'stockrecords', 'description', 'type']
