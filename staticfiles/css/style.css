@@ -7,7 +7,7 @@ html * {
 body {
   background-color: #f7f7f9;
   font-family: "Work Sans", Helvetica, Arial, sans-serif;
-  overflow-x: hidd; }
+  overflow-x: hidden; }
 
 #page-container {
   padding-top: 2rem;
@@ -70,6 +70,9 @@ h1, h2, h3, h5 {
 
 .color-three {
   background-color: white; }
+
+.font-primary {
+  color: #0275d8; }
 
 .green {
   background-color: #80c780; }
@@ -475,6 +478,10 @@ ul {
   letter-spacing: 0.7px; }
 .navbar-brand span:nth-of-type(2) {
   font-weight: normal; }
+
+.navbar-brand-mobile i {
+  font-size: 32px;
+  margin-top: 0.1rem; }
 
 .gray-lighter {
   background-color: #eceeef; }
