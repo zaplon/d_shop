@@ -45,7 +45,7 @@ class Cart {
             $.get(res.lines, res => {
                 me.products = [];
                 res.forEach(function(r, i){
-                    var product = {line: r.url};
+                    var product = {line: r.url, quantity: r.quantity};
                     me.quantity += r.quantity;
                     product.price = r.price_incl_tax;
                     $.ajax({
@@ -58,8 +58,12 @@ class Cart {
                         }
                     })
                 });
-                if (me.quantity > 0)
-                    $('.cd-cart-container').removeClass('empty');
+                if (me.quantity > 0) {
+                    var cart = $('.cd-cart-container');
+                    cart.removeClass('empty');
+                    cart.removeClass('card-open');
+                    cart.addClass('card');
+                }
                 else
                     $('.cd-cart-container').addClass('empty');
                 $('#cart-total').html(me.total);
@@ -68,6 +72,7 @@ class Cart {
                 productsList.html('');
                 me.products.forEach(function(r){
                     productsList.append(Handlebars.templates['cart-product'](r));
+                    $('select[data-line="'+r.line+'"]').val(r.quantity);
                 })
             });
         })

@@ -44,8 +44,8 @@ INSTALLED_APPS = [
                      'compressor',
                      'widget_tweaks',
                      'templatetags',
-                      'oscarapi',
-                      'apps.api',
+                     'oscarapi',
+                     'apps.api',
                      'rest_framework',
                      'importer',
                      'apps.promotions',
@@ -251,3 +251,5 @@ LOGIN_URL = '/konto/login/'
 CACHE_PERIOD = 1
 PREPEND_WWW = False
 ELASTIC_URL = 'http://localhost:9200/shop/products/'
+
+OSCAR_FROM_EMAIL = 'kontakt@obudowynatelefon.pl'

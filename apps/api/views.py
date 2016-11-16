@@ -10,6 +10,7 @@ import json
 from rest_framework.response import Response
 from django.db.models import Min, Max
 from django.db.models import Case, When, BooleanField
+from django.http.response import HttpResponseBadRequest
 
 
 class ListFilter(Filter):
@@ -27,7 +28,7 @@ class ListFilter(Filter):
 Product = get_model('catalogue', 'Product')
 ProductAttribute = get_model('catalogue', 'ProductAttribute')
 ProductAttributeValue = get_model('catalogue', 'ProductAttributeValue')
-
+Line = get_model('basket', 'Line')
 
 class ProductFilter(django_filters.FilterSet):
     attributes = ListFilter(name="attribute_values__value_text")
@@ -122,3 +123,15 @@ def get_available_attributes(request, products):
             name = None
         res.append({'name': name, 'options': options_unique, 'slug': f})
     return res
+
+
+def update_line(request):
+    if request.POST.get('quantity', False) and request.POST.get('id', False):
+        q = request.POST.get('quantity')
+        id = request.POST.get('id')
+    else:
+        return HttpResponseBadRequest()
+    line = Line.objects.get(id=id)
+    line.quantity = q
+    line.save()
+    return HttpResponse(status=200)
