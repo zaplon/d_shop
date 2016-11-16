@@ -85,17 +85,17 @@ class CatalogueView(TemplateView):
             del c_list['nodes']
         return c_list
 
-    def _get_category_state(self, name, category):
-        name = name.lower()
+    def _get_category_state(self, slug, category):
+        slug = slug.lower()
         path = self.request.path.lower()
         if path[-1] == '/':
             path = path[0:-1]
         path_list = path.split('/')
         state = {'expanded': False, 'selected': False}
-        if path_list[-1] == name:
+        if path_list[-1] == slug:
             state['selected'] = True
             self.category = category
-        if name in path_list:
+        if slug in path_list:
             state['expanded'] = True
         return state
 
@@ -115,7 +115,7 @@ class CatalogueView(TemplateView):
         ctx = {'tree_data': []}
         categories = self.get_categories(kwargs)
         for c in categories:
-            ctx['tree_data'].append({'text': c.name, 'nodes': [], 'state': self._get_category_state(c.name, c),
+            ctx['tree_data'].append({'text': c.name, 'nodes': [], 'state': self._get_category_state(c.slug, c),
                                      'href': '/katalog/' + self.prefix + '/'.join(c.full_slug.split('/')[self.level:])})
             ctx['tree_data'][-1] = self._append_category(c, ctx['tree_data'][-1])
         ctx['tree_data'] = json.dumps(ctx['tree_data'])
