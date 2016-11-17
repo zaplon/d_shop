@@ -4,9 +4,11 @@
 {% load static %}
 {#{% inlinecss "css/inline.css" %}#}
 {% compress css inline %}
-    <link href="{% static "bower_components/bootstrap/scss/bootstrap.css" %}" rel="stylesheet">
-    <link href="{% static "css/style.css" %}" rel="stylesheet">
-    <link href="{% static "css/allegro.css" %}" rel="stylesheet">
+    {% compress js %}
+        <link href="{% static "bower_components/bootstrap/scss/bootstrap.css" %}" rel="stylesheet">
+        <link href="{% static "css/style.css" %}" rel="stylesheet">
+        <link href="{% static "css/allegro.css" %}" rel="stylesheet">
+    {% endcompress %}
 {% endcompress %}
 <div class="promotion-wrapper">
     <div class="row">
