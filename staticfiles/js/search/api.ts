@@ -16,8 +16,9 @@
 // }
 
 class Search {
-    params: any;
-    getResults(){
-        $.getJSON("", function(){});
+    params: {prices: number[], productClasses: string[], categories: string[], sorting: string};
+    results: {images: string[], title: string, content: string, price: number}[]
+    getResults() {
+        //$.getJSON("", function(){});
     }
 }
