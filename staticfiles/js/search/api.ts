@@ -16,9 +16,19 @@
 // }
 
 class Search {
-    params: {prices: number[], productClasses: string[], categories: string[], sorting: string};
-    results: {images: string[], title: string, content: string, price: number}[]
+    params: {prices: [0, 0], productClasses: string[], categories: string[], sorting: string};
+    results: {images: string[], title: string, content: string, price: number}[];
+    elasticQuery: {
+        query: { filter: any }
+    }
     getResults() {
-        //$.getJSON("", function(){});
+        if (this.params.prices[1] > 0) {
+            if (!('range' in this.elasticQuery.query.filter))
+                this.elasticQuery.query.filter.range = {}    
+            this.elasticQuery.query.filter.range['price'] = {
+                'gte': this.params.prices[0],
+                'lte': this.params.prices[1]}
+        }
+        //$.getJSON("", this.elasticQuery, function(res){});
     }
 }
