@@ -17,7 +17,7 @@
 
 class Search {
     params: {prices: [0, 0], productClasses: string[], categories: string[], sorting: string};
-    results: {images: string[], title: string, content: string, price: number}[];
+    results: {images: string[], title: string, description: string, price: number}[];
     elasticQuery: {
         query: { filter: any }
     }
