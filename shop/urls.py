@@ -18,6 +18,7 @@ from .app import application
 from django.conf import settings
 from django.conf.urls.static import static
 from apps.api.app import application as api
+from django.contrib.flatpages import views
 
 
 urlpatterns = [
@@ -28,5 +29,6 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^checkout/paypal/', include('paypal.express.urls')),
     url(r'', include(application.urls)),
-    url(r'^api/', include(api.urls))
+    url(r'^api/', include(api.urls)),
+    url(r'^(?P<url>.*/)$', views.flatpage)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
