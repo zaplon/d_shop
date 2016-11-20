@@ -25,7 +25,7 @@ class Cart {
           }
         });
     }
-    updateCard(line, quantity){
+    updateCart(line, quantity){
         $.ajax({
           type: 'PUT',
           url: line,
@@ -61,8 +61,8 @@ class Cart {
                 if (me.quantity > 0) {
                     var cart = $('.cd-cart-container');
                     cart.removeClass('empty');
-                    cart.removeClass('card-open');
-                    cart.addClass('card');
+                    cart.removeClass('cart-open');
+                    cart.addClass('cart');
                 }
                 else
                     $('.cd-cart-container').addClass('empty');
@@ -107,7 +107,7 @@ $(document).ready(() => {
     $('.cd-cart').delegate('.product-quantity', 'change', function(ev){
         var line = $(ev.target).attr('data-line');
         var quantity = $(ev.target).val();
-        cart.updateCard(line, quantity);
+        cart.updateCart(line, quantity);
     });
     $('.delete-item').click(function(){
 
