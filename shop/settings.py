@@ -57,7 +57,7 @@ INSTALLED_APPS = [
                      'crispy_forms'
                  ] + get_core_apps(['apps.catalogue', 'apps.offer', 'apps.checkout', 'apps.shipping', 'apps.search'])
 
-SITE_ID = 1
+SITE_ID = 2
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -213,7 +213,7 @@ STATICFILES_FINDERS  = (
     # other finders..
     'compressor.finders.CompressorFinder',
 )
-COMPRESS_ENABLED = False
+COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = True
 
 STATIC_ROOT = location('public/static')
