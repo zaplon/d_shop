@@ -65,6 +65,7 @@
             {% endcomment %}
             {% if user.is_authenticated and user.is_staff %}
                 <a class="pull-right hidden-xs" href="{% url 'dashboard:catalogue-product' pk=product.id %}"><small><i class="icon-edit"></i> {% trans "Edit this product" %}</small></a>
+                <a class="pull-right hidden-xs m-r-1" href="{% url 'catalogue:allegro' slug=product.slug %}"><small><i class="icon-edit"></i>Strona Allegro</small></a>
             {% endif %}
             <h1>{{ product.get_title }}</h1>
 

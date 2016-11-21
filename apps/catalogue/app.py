@@ -10,7 +10,7 @@ class CatalogueApplication(CorePromotionsApplication):
         urlpatterns = super(CatalogueApplication, self).get_urls()
         urlpatterns += [
             url(r'^opakowania-etui-folie/', EtuiView.as_view(), name='etui'),
-            url(r'^allegro/', allegro_view, name='allegro'),
+            url(r'^allegro/(?P<slug>[\w-]*)/$', allegro_view, name='allegro'),
             url(r'^$', CatalogueCategoryView.as_view(), name='katalog'),
             url(r'^produkt/(?P<product_slug>[\w-]*)_(?P<pk>\d+)/$',
                 self.detail_view.as_view(), name='detail'),

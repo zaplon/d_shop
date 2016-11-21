@@ -63,7 +63,10 @@ class Cart {
                     cart.removeClass('empty');
                     cart.removeClass('cart-open');
                     cart.addClass('cart');
-                } else $('.cd-cart-container').addClass('empty');
+                } else {
+                    $('.cd-cart-container').addClass('empty');
+                    $('.cd-cart-container').removeClass('cart-open');
+                }
                 $('#cart-total').html(me.total);
                 $('#cart-count').html(me.quantity);
                 var productsList = $('.cd-cart .body ul');

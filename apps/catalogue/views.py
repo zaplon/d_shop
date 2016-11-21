@@ -164,6 +164,6 @@ class CatalogueCategoryView(CatalogueView):
             return self.category.get_children()
 
 
-def allegro_view(request):
-    product = Product.objects.get(slug=request.GET['slug'])
+def allegro_view(request, slug):
+    product = Product.objects.get(slug=slug)
     return render_to_response('catalogue/allegro.html', {'product': product})

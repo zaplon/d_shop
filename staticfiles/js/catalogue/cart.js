@@ -64,8 +64,10 @@ class Cart {
                     cart.removeClass('cart-open');
                     cart.addClass('cart');
                 }
-                else
+                else {
                     $('.cd-cart-container').addClass('empty');
+                    $('.cd-cart-container').removeClass('cart-open');
+                }
                 $('#cart-total').html(me.total);
                 $('#cart-count').html(me.quantity);
                 var productsList = $('.cd-cart .body ul');
