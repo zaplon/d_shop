@@ -148,6 +148,7 @@ class EtuiView(CatalogueView):
     prefix = 'opakowania-etui-folie/'
     level = 1
     product_classes = 'Opakowania,Etui,Folie'
+    filters = ['kompatybilnosc', 'kolor_bazowy', 'material_glowny']
 
     def get_categories(self, kwargs):
         return Category.objects.get(name='smartfony').get_children()
