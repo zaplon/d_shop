@@ -202,6 +202,9 @@ li.disabled a {
 .top-jumbotron {
   margin-bottom: 3rem; }
 
+.sort-select {
+  border-color: #818a91; }
+
 #filters-list {
   float: right; }
   #filters-list ul {
