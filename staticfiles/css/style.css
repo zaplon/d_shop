@@ -203,7 +203,8 @@ li.disabled a {
   margin-bottom: 3rem; }
 
 .sort-select {
-  border-color: #818a91; }
+  border-color: #818a91;
+  color: black; }
 
 #filters-list {
   float: right; }
@@ -261,7 +262,8 @@ ul {
 .carousel-inner .item {
   display: none; }
 .carousel-inner .active {
-  display: block; }
+  display: block;
+  text-align: center; }
 
 #navbar-header, #navbar-search {
   color: white; }
@@ -348,7 +350,8 @@ ul {
   border-radius: 4px;
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out; }
+  transition: all 0.2s ease-in-out;
+  max-width: 100%; }
 
 .well-info {
   background-color: #d9edf7;
@@ -525,6 +528,9 @@ ul {
     width: 100%; }
 
   #navbar-header {
-    margin-top: -1rem; } }
+    margin-top: -1rem; }
+
+  .sort-select {
+    margin-top: 1.5rem; } }
 
 /*# sourceMappingURL=style.css.map */

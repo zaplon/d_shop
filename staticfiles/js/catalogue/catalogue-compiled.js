@@ -36,7 +36,7 @@ var viewModel = {
             if (viewModel.offset < viewModel.count) viewModel.loadData(true);
         }
     },
-    loadData: function (dontRefreshFilters) {
+    loadData: function (dontRefreshFilters, filterPrices) {
         viewModel.loading = true;
         var params = { filters: JSON.stringify(viewModel.filterNames), attributes: [], categories: viewModel.categories,
             limit: viewModel.limit, offset: viewModel.offset, product_classes: viewModel.productClasses };
@@ -63,7 +63,7 @@ var viewModel = {
             }
             viewModel.products(data.results.products);
             viewModel.priceRange = data.results.prices;
-            if (viewModel.firstLoad) {
+            if (viewModel.firstLoad || filterPrices) {
                 $('#price-from').html(viewModel.priceRange.min);
                 $('#price-to').html(viewModel.priceRange.max);
                 viewModel.priceSlider.setAttribute('min', viewModel.priceRange.min);
@@ -124,7 +124,7 @@ $(document).ready(function () {
         console.log(value);
         viewModel.priceRange.range.start = parseFloat(value[0]);
         viewModel.priceRange.range.end = parseFloat(value[1]);
-        viewModel.loadData();
+        viewModel.loadData(false, true);
     });
 
     $('#products-container').delegate('.image', 'mouseover', function () {
