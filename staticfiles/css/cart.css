@@ -387,6 +387,7 @@ Main Components
 }
 .cd-cart .product-image img {
   display: block;
+  max-width: 100%;
 }
 .cd-cart .product-details {
   position: relative;
