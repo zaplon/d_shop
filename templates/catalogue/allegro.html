@@ -1,29 +1,11 @@
-{#{% load inlinecss %}#}
 {% load i18n %}
-{% load compress %}
 {% load static %}
-{#{% inlinecss "css/inline.css" %}#}
-{% compress css inline %}
-    <link href="{% static "css/allegro_min.css" %}" rel="stylesheet">
-{#    {% compress css %}#}
-{#        <link href="{% static "bower_components/bootstrap/scss/bootstrap.css" %}" rel="stylesheet">#}
-{#        <link href="{% static "css/style.css" %}" rel="stylesheet">#}
-{#        <link href="{% static "css/allegro.css" %}" rel="stylesheet">#}
-{#    {% endcompress %}#}
-{% endcompress %}
 
 <style>
-    .card-columns {
-        -webkit-column-count: 3;
-        -moz-column-count: 3;
-        column-count: 3;
-    }
-    .card-img-top{
-        width: 100%;
-    }
+#allegro-container{background-color:#f7f7f9;font-family:"Work Sans",Helvetica,Arial,sans-serif;color:#373a3c;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}#allegro-container .promotion-wrapper{padding:1rem}#allegro-container .card-columns{-webkit-column-count:3;-moz-column-count:3;column-count:3}#allegro-container .card-img-top{width:100%;border-top-right-radius:0;border-top-left-radius:0}#allegro-container h2{text-align:center;font-weight:400;font-size:2rem}#allegro-container .col-md-12{position:relative;min-height:1px;padding-right:15px;padding-left:15px;float:left}#allegro-container .row{margin-left:-15px;margin-right:-15px}#allegro-container hr{margin-top:1rem;margin-bottom:1rem;border:0;border-top:1px solid rgba(0,0,0,0.1)}#allegro-container p{margin-top:0;margin-bottom:1rem}#allegro-container .table th,#allegro-container .table td{padding:.75rem;vertical-align:top;border-top:1px solid #eceeef}#allegro-container tbody{display:table-row-group;vertical-align:middle;border-color:inherit}#allegro-container table{width:100%;max-width:100%;margin-bottom:1rem;border-collapse:collapse}#allegro-container .table-striped tbody tr:nth-of-type(odd){background-color:rgba(0,0,0,0.05)}#allegro-container .page-footer ul li{display:inline-block;padding:1rem}#allegro-container .page-footer ul{margin-bottom:0}#allegro-container .page-footer{background-color:#373a3c;color:#eceeef;width:100%;display:table;table-layout:fixed}#allegro-container a{color:#0275d8;text-decoration:none}#allegro-container .card{position:relative;display:block;margin-bottom:.75rem;background-color:#fff;border-radius:0;border:1px solid rgba(0,0,0,0.125)}
 </style>
-
-<div class="promotion-wrapper">
+<div id="allegro-container">
+    <div class="promotion-wrapper">
     <div class="row">
         <div class="col-md-12">
             <h2>{{ product.get_title }}</h2>
@@ -66,13 +48,17 @@
                         <td>{{ av.value_as_html }}</td>
                     </tr>
                 {% endfor %}
+                    <tr>
+                        <th>Cena</th>
+                        <td>{{ session.price.incl_tax }}zł</td>
+                    </tr>
             </table>
         </div>
     </div>
     <div style="clear: both"></div>
 </div>
 
-<div class="page-footer">
+    <div class="page-footer">
     <ul>
         <li>
             <a href="http://allegro.pl/SendMailToUser.php?userId=44456026" target="_blank">KONTAKT</a>
@@ -87,4 +73,5 @@
             <a rel="nofollow" href="http://www.allegro.pl/my_page.php?uid=44456026" target="_blank">O NAS</a>
         </li>
     </ul>
+</div>
 </div>
