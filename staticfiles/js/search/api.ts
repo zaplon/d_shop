@@ -17,13 +17,14 @@
 
 
 class SearchResult {
-    images: string[];
-    title: string;
-    description: string;
-    price: number;
-    categories: string[];
-    attributes: {}[];
-    constructor(record){
+    images:string[];
+    title:string;
+    description:string;
+    price:number;
+    categories:string[];
+    attributes:{}[];
+
+    constructor(record) {
         this.images = record.images;
         this.title = record.title;
         this.categories = record.categories;
@@ -34,10 +35,11 @@ class SearchResult {
 }
 
 class SearchFilter {
-    name: string;
-    slug: string;
-    options: {id: number, slug: string, text: string}[];
-    constructor(name){
+    name:string;
+    slug:string;
+    options:{id: number, slug: string, text: string}[];
+
+    constructor(name) {
         this.name = name;
         this.options = [];
         this.slug = name;
@@ -45,31 +47,61 @@ class SearchFilter {
 }
 
 class Search {
-    params: {prices: [number, number], types: string[], categories: string[], sorting: string, scroll: number,
-    query: string, attribute_values: string[]};
-    results: SearchResult[];
-    filters: SearchFilter[];
-    response: any;
-    constructor(){
-        this.params = {prices: [0, 0], types: [''], categories: [''], sorting: '', scroll: 0, query: '', attribute_values: []};
-        this.elasticQuery = {query: {filter: {}, bool: {must:{}}}, aggs: {}};
+    params:{prices: [number, number], types: string[], categories: string[], sorting: string, scroll: number,
+        query: string, attribute_values: string[]};
+    results:SearchResult[];
+    filters:SearchFilter[];
+    response:any;
+
+    constructor() {
+        this.params = {
+            prices: [0, 0],
+            types: [''],
+            categories: [''],
+            sorting: '',
+            scroll: 0,
+            query: '',
+            attribute_values: []
+        };
+        this.elasticQuery = {query: {filter: {}, bool: {must: {}}}, aggs: {}};
         this.filters = [];
         this.results = [];
     }
-    elasticQuery: {
+
+    elasticQuery:{
         query: any, //filter: any, bool: {must: {}}
         aggs: {}
     };
-    getResults(showAggregations: boolean = false) {
+
+    getResults(showAggregations:boolean = false) {
+        this.elasticQuery.query.bool = {must: []};
         if (this.params.prices[1] > 0) {
             if (!('range' in this.elasticQuery.query.filter))
-                this.elasticQuery.query.filter.range = {}    
+                this.elasticQuery.query.filter.range = {};
             this.elasticQuery.query.filter.range['stockrecords.price'] = {
                 'gte': this.params.prices[0],
-                'lte': this.params.prices[1]}
+                'lte': this.params.prices[1]
+            }
         }
         if (this.params.query.length > 0) {
-            this.elasticQuery.query = {bool: {must: [{match: {_all: this.params.query}}]}};
+            this.elasticQuery.query.bool.must.push({match: {_all: this.params.query}});
+        }
+
+        if (this.params.attribute_values.length > 0) {
+            this.elasticQuery.query.bool.must.push({
+                nested: {
+                    path: "attribute_values",
+                    score_mode: "max",
+                    query: {
+                        bool: {
+                            must: []
+                        }
+                    }
+                }
+            });
+            this.params.attribute_values.forEach(function(a){
+
+            });
         }
 
         let me = this;
@@ -100,13 +132,13 @@ class Search {
                 }
             };
         $.ajax({
-            url : "http://localhost:9200/_search/",
+            url: "http://localhost:9200/_search/",
             type: "POST",
             data: JSON.stringify(this.elasticQuery),
             contentType: "application/json; charset=utf-8",
             async: true,
-            dataType   : "json",
-            success    : function(res) {
+            dataType: "json",
+            success: function (res) {
                 res.hits.hits.forEach(function (r) {
                     me.results.push(new SearchResult(r._source));
                 });
@@ -128,7 +160,6 @@ class Search {
                 });
             }
         });
-        return;
     }
 }
 
