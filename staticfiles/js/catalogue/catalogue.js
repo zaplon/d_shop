@@ -60,6 +60,12 @@ var viewModel = {
         if (dontRefreshFilters)
             params.dont_refresh_filters = true;
         $.getJSON("/api/products/", params , function(data){
+
+            //var data = s.getResults(!dontRefreshFilters);
+            //data = {results: {products: data.results, filters: data.filters, prices: data.prices}, count: data.hits };
+            //me.response = {results: me.results, filters: me.filters, prices: {min: res.aggregations.min_price, hits: res.hits,
+                        //max: res.aggregations.max_price, start: res.aggregations.min_price, end: res.aggregations.min_price}}
+
             viewModel.count = data.count;
             viewModel.loading = false;
             if (dontRefreshFilters){

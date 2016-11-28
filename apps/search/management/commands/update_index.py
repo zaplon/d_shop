@@ -11,5 +11,5 @@ class Command(BaseCommand):
     args = ""
 
     def handle(self, *app_labels, **options):
-        for p in Product.objects.all():
+        for p in Product.objects.all()[:200]:
             update_product(p.id)

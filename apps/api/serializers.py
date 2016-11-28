@@ -3,19 +3,22 @@ from oscarapi.utils import OscarModelSerializer, OscarHyperlinkedModelSerializer
 from oscar.core.loading import get_model
 from rest_framework.relations import HyperlinkedIdentityField
 from rest_framework.serializers import ModelSerializer
-from rest_framework.fields import CharField, IntegerField, SerializerMethodField
+from rest_framework.fields import CharField, IntegerField, SerializerMethodField, FloatField
 from oscar.apps.partner.strategy import Selector
 from oscar.apps.partner.models import StockRecord
 
 
 Product = get_model('catalogue', 'Product')
 ProductImage = get_model('catalogue', 'ProductImage')
+ProductAttributeValue = get_model('catalogue', 'ProductAttributeValue')
+Category = get_model('catalogue', 'Category')
 
 
 class StockRecordSerializer(ModelSerializer):
+    price = FloatField(source='price_retail')
     class Meta:
         model = StockRecord
-        fields = ['price_excl_tax', 'price_retail', 'num_in_stock']
+        fields = ['price_excl_tax', 'price', 'num_in_stock']
 
 
 class ProductImageSerializer(ModelSerializer):
@@ -42,12 +45,28 @@ class ProductSerializer(OscarModelSerializer):
         fields = ['url', 'id', 'title', 'images', 'front_url', 'sell_details']
 
 
-class ProductElasticSerializer(ModelSerializer):
+class ProductAttributeValueSerializer(ModelSerializer):
+    name = CharField(source='attribute.name')
+    #combined = CharField(source='get_combined')
+    class Meta:
+        model = ProductAttributeValue
+        fields = ['value', 'name', 'slug', 'id']
 
+
+class CategorySerializer(ModelSerializer):
+    class Meta:
+        model = Category
+        fields = ['name', 'full_name']
+
+
+class ProductElasticSerializer(ModelSerializer):
     images = ProductImageSerializer(many=True)
     stockrecords = StockRecordSerializer(many=True)
     type = CharField(source='product_class.external_type')
+    attribute_values = ProductAttributeValueSerializer(many=True)
+    categories = CategorySerializer(many=True)
+    #_id = CharField(source='external_id')
 
     class Meta:
         model = Product
-        fields = ['id', 'title', 'images', 'stockrecords', 'description', 'type']
+        fields = ['id', 'title', 'images', 'stockrecords', 'description', 'type', 'attribute_values', 'categories']

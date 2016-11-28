@@ -251,6 +251,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_URL = '/konto/login/'
 CACHE_PERIOD = 1
 PREPEND_WWW = False
-ELASTIC_URL = 'http://localhost:9200/shop/products/'
+ELASTIC_URL = 'http://localhost:9200/shop/product'
 
 OSCAR_FROM_EMAIL = 'kontakt@obudowynatelefon.pl'
