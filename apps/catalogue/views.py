@@ -27,8 +27,8 @@ get_product_search_handler_class = get_class(
 class ProductDetailView(ProductDetailView):
     def get_context_data(self, **kwargs):
         data = super(ProductDetailView, self).get_context_data(**kwargs)
-        data['description'] = self.object.title
-        data['keywords'] = ' '.join([c.name for c in self.object.categories.all()])
+        data['description'] = ''.join(self.object.description.split('.')[0:2])
+        data['keywords'] = ' '.join(set([c.name for c in self.object.categories.all()]))
         return data
 
 
