@@ -66,8 +66,10 @@ var viewModel = {
             if (viewModel.firstLoad || filterPrices) {
                 $('#price-from').html(viewModel.priceRange.min);
                 $('#price-to').html(viewModel.priceRange.max);
-                viewModel.priceSlider.setAttribute('min', viewModel.priceRange.min);
-                viewModel.priceSlider.setAttribute('max', viewModel.priceRange.max);
+                if (viewModel.firstLoad) {
+                    viewModel.priceSlider.setAttribute('min', viewModel.priceRange.min);
+                    viewModel.priceSlider.setAttribute('max', viewModel.priceRange.max);
+                }
                 viewModel.priceSlider.setValue([viewModel.priceRange.range.start, viewModel.priceRange.range.end]);
             }
             var filters = viewModel.filters();
