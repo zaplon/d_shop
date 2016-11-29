@@ -1,21 +1,5 @@
 /// <reference path="../jquery.d.ts" />
 
-// {
-//   "query": { 
-//     "bool": { 
-//       "must": [
-//         { "match": { "title":   "Search"        }}, 
-//         { "match": { "content": "Elasticsearch" }}  
-//       ],
-//       "filter": [ 
-//         { "term":  { "status": "published" }}, 
-//         { "range": { "publish_date": { "gte": "2015-01-01" }}} 
-//       ]
-//     }
-//   }
-// }
-
-
 class SearchResult {
     images:string[];
     title:string;
@@ -47,7 +31,7 @@ class SearchFilter {
 }
 
 class Search {
-    params:{prices: [number, number], types: string[], categories: string[], sort: string, scroll: number,
+    params:{prices: [number, number], types: string[], category: string, sort: string, scroll: number,
         query: string, attribute_values: string[], sortDir: string};
     results:SearchResult[];
     filters:SearchFilter[];
@@ -57,7 +41,7 @@ class Search {
         this.params = {
             prices: [0, 0],
             types: [''],
-            categories: [''],
+            category: '',
             sort: 'stockRecords.price',
             sortDir: 'asc',
             scroll: 0,
@@ -106,6 +90,10 @@ class Search {
                 'gte': this.params.prices[0],
                 'lte': this.params.prices[1]
             }
+        }
+        
+        if (this.params.category.length > 0) {
+            this.elasticQuery.query.bool.must.push({match: {categories: this.params.category}});
         }
         
         if (this.params.query.length > 0) {
