@@ -61,18 +61,26 @@ var viewModel = {
             params.dont_refresh_filters = true;
         $.getJSON("/api/products/", params , function(data){
 
-            //s.params.from = viewModel.offset;
-            //s.params.limit = viewModel.limit;
+            if (viewModel.selectedSortOption == 0){
+                s.params.sort = 'price';
+                s.params.sortDir = 'asc';
+            }
+            if (viewModel.selectedSortOption == 1){
+                s.params.sort = 'price';
+                s.params.sortDir = 'desc';
+            }
+            s.params.from = viewModel.offset;
+            s.params.limit = viewModel.limit;
             //s.params.category = viewModel.categories;
-            //s.params.attribute_values = [];
-            //if (viewModel.priceRange.range.start > 0)
-            //    params.prices[0] = viewModel.priceRange.range.start;
-            //if (viewModel.priceRange.range.end > 0)
-            //    params.prices[1] = viewModel.priceRange.range.end;
-            //this.filters().forEach(function(f){
-            //    if (f.selectedOptions)
-            //        s.params.attribute_values.push(f.selectedOptions())
-            //});     
+            s.params.attribute_values = [];
+            if (viewModel.priceRange.range.start > 0)
+                params.prices[0] = viewModel.priceRange.range.start;
+            if (viewModel.priceRange.range.end > 0)
+                params.prices[1] = viewModel.priceRange.range.end;
+            this.filters().forEach(function(f){
+                if (f.selectedOptions)
+                    s.params.attribute_values.push(f.selectedOptions())
+            });     
             //var data = s.getResults(!dontRefreshFilters);
             //data = {results: {products: data.results, filters: data.filters, prices: data.prices}, count: data.hits };
             //me.response = {results: me.results, filters: me.filters, prices: {min: res.aggregations.min_price, hits: res.hits,
