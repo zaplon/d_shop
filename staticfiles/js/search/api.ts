@@ -88,19 +88,25 @@ class Search {
         }
 
         if (this.params.attribute_values.length > 0) {
+            var subQuery = [];
+            this.params.attribute_values.forEach(function(param){
+                if (typeof(param) == "object"){
+                    var bool = {bool: should: []};
+                    for (var p in params)
+                        bool.push({ match: {'attribute_values.slug': p } } })
+                }
+                subQuery.push(bool);
+            });
             this.elasticQuery.query.bool.must.push({
                 nested: {
                     path: "attribute_values",
                     score_mode: "max",
                     query: {
                         bool: {
-                            must: []
+                            must: subQuery
                         }
                     }
                 }
-            });
-            this.params.attribute_values.forEach(function(a){
-
             });
         }
 
