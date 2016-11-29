@@ -20,4 +20,4 @@ class Command(BaseCommand):
                     }
                 }
         }}
-        requests.put('http://localhost:9200/shop', data=json.dumps(data))
+        requests.put(settings.ELASTIC_URL, data=json.dumps(data))
