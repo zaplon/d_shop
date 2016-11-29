@@ -73,6 +73,28 @@ class Search {
         aggs: {}
     };
 
+    transformResponse(res){
+        res.hits.hits.forEach(function (r) {
+            me.results.push(new SearchResult(r._source));
+        });
+        if (!showAggregations)
+            return me.results;
+        res.aggregations.attributes.attributes.buckets.forEach(function (b) {
+            var matches = me.filters.filter(function (f) {
+                return b.key.split('_')[0] == f.name
+            });
+            if (matches.length == 0) {
+                me.filters.push(new SearchFilter(b.key.split('_')[0]));
+                var select = me.filters[me.filters.length - 1];
+            }
+            else
+                var select = matches[0];
+            let name = b.key.split('_')[1];
+            select.options.push({slug: name, id: b.id, text: name});
+        });
+        return me.results;
+    }
+    
     getResults(showAggregations:boolean = false) {
         this.elasticQuery.query.bool = {must: []};
         if (this.params.prices[1] > 0) {
@@ -137,34 +159,13 @@ class Search {
                     }
                 }
             };
-        $.ajax({
+        return $.ajax({
             url: "http://localhost:9200/_search/",
             type: "POST",
             data: JSON.stringify(this.elasticQuery),
             contentType: "application/json; charset=utf-8",
             async: true,
-            dataType: "json",
-            success: function (res) {
-                res.hits.hits.forEach(function (r) {
-                    me.results.push(new SearchResult(r._source));
-                });
-                if (!showAggregations)
-                    return;
-                res.aggregations.attributes.attributes.buckets.forEach(function (b) {
-                    var matches = me.filters.filter(function (f) {
-                        return b.key.split('_')[0] == f.name
-                    });
-                    if (matches.length == 0) {
-                        me.filters.push(new SearchFilter(b.key.split('_')[0]));
-                        var select = me.filters[me.filters.length - 1];
-                    }
-                    else
-                        var select = matches[0];
-                    let name = b.key.split('_')[1];
-                    select.options.push({slug: name, id: b.id, text: name});
-
-                });
-            }
+            dataType: "json"
         });
     }
 }
