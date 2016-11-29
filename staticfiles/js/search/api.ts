@@ -47,8 +47,8 @@ class SearchFilter {
 }
 
 class Search {
-    params:{prices: [number, number], types: string[], categories: string[], sorting: string, scroll: number,
-        query: string, attribute_values: string[]};
+    params:{prices: [number, number], types: string[], categories: string[], sort: string, scroll: number,
+        query: string, attribute_values: string[], sortDir: string};
     results:SearchResult[];
     filters:SearchFilter[];
     response:any;
@@ -58,7 +58,8 @@ class Search {
             prices: [0, 0],
             types: [''],
             categories: [''],
-            sorting: '',
+            sort: 'stockRecords.price',
+            sortDir: 'asc',
             scroll: 0,
             query: '',
             attribute_values: []
@@ -70,7 +71,8 @@ class Search {
 
     elasticQuery:{
         query: any, //filter: any, bool: {must: {}}
-        aggs: {}
+        aggs: {},
+        sort: {}
     };
 
     transformResponse(res){
@@ -105,10 +107,23 @@ class Search {
                 'lte': this.params.prices[1]
             }
         }
+        
         if (this.params.query.length > 0) {
             this.elasticQuery.query.bool.must.push({match: {_all: this.params.query}});
         }
-
+        
+        var sort = {};
+        sort[this.params.sort] = this.params.sortDir;
+        this.elasticQuery.sort = [sort];
+        
+        if (this.params.types.length > 0){
+            var subQuery = [];
+            this.params.types.forEach(function(t){
+                subQuery.push({match: {'type': t}});
+            }
+            this.elasticQuery.query.bool.must.push({bool: {should: subQuery });
+        }
+        
         if (this.params.attribute_values.length > 0) {
             var subQuery = [];
             this.params.attribute_values.forEach(function(param){
