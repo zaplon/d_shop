@@ -61,6 +61,11 @@ var viewModel = {
             params.dont_refresh_filters = true;
         $.getJSON("/api/products/", params , function(data){
 
+            //s.params.attribute_values = [];    
+            //this.filters().forEach(function(f){
+            //    if (f.selectedOptions)
+            //        s.params.attribute_values.push(f.selectedOptions())
+            //});     
             //var data = s.getResults(!dontRefreshFilters);
             //data = {results: {products: data.results, filters: data.filters, prices: data.prices}, count: data.hits };
             //me.response = {results: me.results, filters: me.filters, prices: {min: res.aggregations.min_price, hits: res.hits,
