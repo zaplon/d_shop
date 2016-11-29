@@ -4,7 +4,7 @@ from oscar.core.loading import get_class, get_model
 from apps.search.api import update_product
 
 Product = get_model('catalogue', 'Product')
-
+Category = get_model('catalogue', 'Category')
 
 class Command(BaseCommand):
     help = "Refresh index"
@@ -13,3 +13,7 @@ class Command(BaseCommand):
     def handle(self, *app_labels, **options):
         for p in Product.objects.all()[:200]:
             update_product(p.id)
+            
+        # indeksowanie kategorii
+        for c in Category.objects.all():
+            update_category()
