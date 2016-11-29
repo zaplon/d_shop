@@ -61,7 +61,14 @@ var viewModel = {
             params.dont_refresh_filters = true;
         $.getJSON("/api/products/", params , function(data){
 
-            //s.params.attribute_values = [];    
+            //s.params.from = viewModel.offset;
+            //s.params.limit = viewModel.limit;
+            //s.params.category = viewModel.categories;
+            //s.params.attribute_values = [];
+            //if (viewModel.priceRange.range.start > 0)
+            //    params.prices[0] = viewModel.priceRange.range.start;
+            //if (viewModel.priceRange.range.end > 0)
+            //    params.prices[1] = viewModel.priceRange.range.end;
             //this.filters().forEach(function(f){
             //    if (f.selectedOptions)
             //        s.params.attribute_values.push(f.selectedOptions())
