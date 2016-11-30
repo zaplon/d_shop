@@ -16,7 +16,7 @@ class SearchResult {
         this.title = record.title;
         this.categories = record.categories;
         this.description = record.description;
-        this.price = record.stockrecords[0].price + 'zł';
+        this.price = record.stockrecords[0].price.toFixed(2) + 'zł';
         this.attributes = record.attribute_values;
         this.id = record.id;
         this.front_url = record.front_url;
@@ -111,7 +111,9 @@ class Search {
         }
 
         if (this.params.category.length > 0 && this.params.category[0]) {
-            this.elasticQuery.query.bool.must.push({match: {'categories.id': parseInt(this.params.category)}});
+            this.elasticQuery.query.bool.must.push(
+                {nested:{path:'categories', query:{bool:{must:{match:{'categories.ids': ',' + this.params.category + ','}}}}}}
+            )
         }
 
         if (this.params.query.length > 0) {

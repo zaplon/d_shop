@@ -54,9 +54,10 @@ class ProductAttributeValueSerializer(ModelSerializer):
 
 
 class CategorySerializer(ModelSerializer):
+    ids = CharField(source='get_ids')
     class Meta:
         model = Category
-        fields = ['name', 'full_name', 'id']
+        fields = ['name', 'full_name', 'id', 'ids']
 
 
 class ProductElasticSerializer(ModelSerializer):

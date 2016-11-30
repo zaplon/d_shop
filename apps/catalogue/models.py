@@ -8,6 +8,12 @@ from oscar.core.loading import get_model
 class Category(AbstractCategory):
     filters = models.CharField(max_length=100, default='', verbose_name=u'Filtry')
 
+    def get_ids(self):
+        res = []
+        for a in self.get_ancestors_and_self():
+            res.append(str(a.id))
+        return ',' + ','.join(res) + ','
+
 
 class ProductCategory(AbstractProductCategory):
     pass  # filters = models.CharField(max_length=100, default='', verbose_name=u'Filtry')

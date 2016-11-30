@@ -15,9 +15,11 @@ class Command(BaseCommand):
                 "product": {
                     "properties": {
                         "type": {"type": "keyword"},
+                        "categories": {"type": "nested"},
                         "attribute_values": {"type": "nested", "properties": {"slug": {"type": "keyword"}}
-                                             }
+                                            }
                     }
                 }
         }}
+        requests.delete(settings.ELASTIC_URL)
         requests.put(settings.ELASTIC_URL, data=json.dumps(data))
