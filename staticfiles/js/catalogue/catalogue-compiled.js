@@ -55,7 +55,7 @@ var viewModel = {
         }
         s.params.from = viewModel.offset;
         s.params.limit = viewModel.limit;
-        //s.params.category = viewModel.categories;
+        s.params.category = viewModel.categories.length > 0 ? viewModel.categories[0] : '';
         s.params.attribute_values = [];
         if (viewModel.priceRange.range.start > 0) s.params.prices[0] = viewModel.priceRange.range.start;
         if (viewModel.priceRange.range.end > 0) s.params.prices[1] = viewModel.priceRange.range.end;

@@ -110,7 +110,7 @@ class Search {
         }
 
         if (this.params.category.length > 0) {
-            this.elasticQuery.query.bool.must.push({match: {categories: this.params.category}});
+            this.elasticQuery.query.bool.must.push({match: {'categories.id': parseInt(this.params.category)}});
         }
 
         if (this.params.query.length > 0) {

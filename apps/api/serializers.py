@@ -56,7 +56,7 @@ class ProductAttributeValueSerializer(ModelSerializer):
 class CategorySerializer(ModelSerializer):
     class Meta:
         model = Category
-        fields = ['name', 'full_name']
+        fields = ['name', 'full_name', 'id']
 
 
 class ProductElasticSerializer(ModelSerializer):
