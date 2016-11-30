@@ -50,11 +50,11 @@ var viewModel = {
         //$.getJSON("/api/products/", params , function(data){
 
         if (viewModel.selectedSortOption == 0){
-            s.params.sort = 'price';
+            s.params.sort = 'stockrecords.price';
             s.params.sortDir = 'asc';
         }
         if (viewModel.selectedSortOption == 1){
-            s.params.sort = 'price';
+            s.params.sort = 'stockrecords.price';
             s.params.sortDir = 'desc';
         }
         s.params.from = viewModel.offset;
@@ -62,21 +62,25 @@ var viewModel = {
         //s.params.category = viewModel.categories;
         s.params.attribute_values = [];
         if (viewModel.priceRange.range.start > 0)
-            params.prices[0] = viewModel.priceRange.range.start;
+            s.params.prices[0] = viewModel.priceRange.range.start;
         if (viewModel.priceRange.range.end > 0)
-            params.prices[1] = viewModel.priceRange.range.end;
+            s.params.prices[1] = viewModel.priceRange.range.end;
         this.filters().forEach(function(f){
             if (f.selectedOptions)
                 s.params.attribute_values.push(f.selectedOptions())
         });     
-        s.getResults(!dontRefreshFilters).done(function(res){
-            data = {results: {products: data.results, filters: data.filters, prices: data.prices}, count: data.hits };
-            viewModel.count = data.count;
-            viewModel.loading = false;
-            if (dontRefreshFilters){
-                viewModel.products(viewModel.products().concat(data.results.products));
+        s.getResults(!dontRefreshFilters).done(function(data){
+            data = s.transformResponse(data, !dontRefreshFilters);
+            $(window).unbind('scroll', viewModel.watchScroll);
+            $(window).bind('scroll', viewModel.watchScroll);
+             if (dontRefreshFilters){
+                viewModel.products(viewModel.products().concat(data));
                 return true;
             }
+            data = {results: {products: data.products, filters: data.filters, prices: {min: data.prices[0], max: data.prices[1],
+            range: {start: data.prices[0], end: data.prices[1]}}}, count: data.count };
+            viewModel.count = data.count;
+            viewModel.loading = false;
             viewModel.products(data.results.products);
             viewModel.priceRange = data.results.prices;
             if (viewModel.firstLoad || filterPrices){
@@ -124,15 +128,13 @@ var viewModel = {
         });
             //me.response = {results: me.results, filters: me.filters, prices: {min: res.aggregations.min_price, hits: res.hits,
                         //max: res.aggregations.max_price, start: res.aggregations.min_price, end: res.aggregations.min_price}}
-        $(window).unbind('scroll', viewModel.watchScroll);
-        $(window).bind('scroll', viewModel.watchScroll);
     },
     selectionChanged: function(event) {
         viewModel.loadData();
     }
 };
 ko.applyBindings(viewModel);
-
+viewModel.priceSlider = new Slider("#price-slider", { value: [10, 20] });
 $(document).ready(function () {
 
     //viewModel.loadData();
@@ -142,7 +144,6 @@ $(document).ready(function () {
     //    console.log(newVal);
     //    viewModel.loadData();
     //});
-    viewModel.priceSlider = new Slider("#price-slider", { value: [10, 20] });
     viewModel.priceSlider.on('slideStop', function(value){
        console.log(value);
        viewModel.priceRange.range.start = parseFloat(value[0]);

@@ -122,7 +122,6 @@ class CatalogueView(TemplateView):
         ctx['filters'] = json.dumps(self.category.filters.split(',')) if self.category and len(
             self.category.filters) > 2 else \
             json.dumps(self.filters)
-        product_attributes = ProductAttribute.objects.filter(code__in=self.filters)
         if self.category:
             categories = [c.id for c in self.category.get_descendants_and_self()]
             ctx['categories'] = '.'.join([str(c) for c in categories])

@@ -65,8 +65,9 @@ class ProductElasticSerializer(ModelSerializer):
     type = CharField(source='product_class.external_type')
     attribute_values = ProductAttributeValueSerializer(many=True)
     categories = CategorySerializer(many=True)
+    front_url = CharField(source='get_absolute_url')
     #_id = CharField(source='external_id')
 
     class Meta:
         model = Product
-        fields = ['id', 'title', 'images', 'stockrecords', 'description', 'type', 'attribute_values', 'categories']
+        fields = ['id', 'front_url', 'title', 'images', 'stockrecords', 'description', 'type', 'attribute_values', 'categories']

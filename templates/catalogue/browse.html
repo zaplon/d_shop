@@ -45,10 +45,12 @@
         <input type="hidden" name="product_classes" value="{{ product_classes }}">
     </form>
     <div class="row">
-        <div class="col-md-2 hidden-sm-down tree-list sidebar">
-            <div id="tree" data="{{ tree_data }}"></div>
-        </div>
-        <div class="col-md-10 col-sm-12 col-xs-12">
+        {% block page_sidebar %}
+            <div class="col-md-2 hidden-sm-down tree-list sidebar">
+                <div id="tree" data="{{ tree_data }}"></div>
+            </div>
+        {% endblock %}
+        <div class="col-md-{% block content_width %}10{% endblock %} col-sm-12 col-xs-12">
             <div class="row m-b-1">
                 <button id="show-filters" class="btn btn-default col-sm-12 col-xs-12 hidden-md-up">
                     Pokaż filtry
@@ -77,7 +79,7 @@
             <div id="products-container" data-bind="template: { name: 'product-template', foreach: products }"></div>
         </div>
     </div>
-    <div id="products-end" style="position: relative; top: -100px;"></div>
+    <div id="products-end" style=""></div>
 
     <script type="text/html" id="filter-template">
        <div class="col-md-4 col-sm-6 col-xs-12" data-bind="visible: options.length > 0">
@@ -103,10 +105,10 @@
                 <div class="title">
                     <a data-bind="attr: {href: front_url }"><h5 data-bind="text: limit(title)"></h5></a>
                 </div>
-                <div data-bind="if: sell_details.is_available" class="price">
-                    <span data-bind="text: sell_details.price.retail"></span>
+                <div data-bind="if: is_available" class="price">
+                    <span data-bind="text: price"></span>
                 </div>
-                <div data-bind="if: !sell_details.is_available" class="not-available">
+                <div data-bind="if: !is_available" class="not-available">
                     <span>Produkt niedostępny</span>
                 </div>
             </div>
