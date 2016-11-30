@@ -2,6 +2,14 @@
 {% load i18n %}
 {% load static %}
 
+{% block variables %}
+    <form id="variables">
+        <input type="hidden" name="filters" value="[]">
+        <input type="hidden" name="categories" value="">
+        <input type="hidden" name="product_classes" value="[]">
+    </form>
+{% endblock %}
+
 {% block breadcrumbs %}
     <div id="top-nav-border"></div>
     <div class="row">
@@ -28,9 +36,8 @@
 
 {% block content_width %}12{% endblock %}
 
-{% block extrascripts %}
-    {{ block.super }}
-    <script type="text/javascript">s.query = "{{ query }}";</script>
+{% block templatescripts %}
+    <script type="text/javascript">s.params.query = "{{ query }}";</script>
 {% endblock %}
 
 {% block page_sidebar %}

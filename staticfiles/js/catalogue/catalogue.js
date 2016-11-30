@@ -115,7 +115,10 @@ var viewModel = {
                     //    f.selectedOptions = [];
                     //if (!f.name)
                     //    f.name = filters[i].name;
-                    var filter = viewModel.filters()[i];
+                    var filters = viewModel.filters().filter(function(f){ return f.slug == dataFilter.slug });
+                    if (filters.length == 0)
+                        return;
+                    var filter = filters[0];
                     filter.options.forEach(function (option) {
                         if (!dataFilter.options.find(function (o) {
                                 return o.slug == option.slug
@@ -179,11 +182,12 @@ $(document).ready(function () {
         clearInterval(product.interval);
     });
     var categories = $('#product-categories').val();
-    $('#tree').treeview({
-        enableLinks: true,
-        data: JSON.parse($('#tree').attr('data')), expandIcon: 'fa fa-plus-square',
-        collapseIcon: 'fa fa-minus-square'
-    });
+    if ($('#tree').length > 0)
+        $('#tree').treeview({
+            enableLinks: true,
+            data: JSON.parse($('#tree').attr('data')), expandIcon: 'fa fa-plus-square',
+            collapseIcon: 'fa fa-minus-square'
+        });
 
     $('#show-filters').click(function(){
         var filters = $('#product-filters-container');

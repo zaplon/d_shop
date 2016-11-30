@@ -77,6 +77,7 @@ class Search {
         });
         if (!showAggregations)
             return me.results;
+        me.filters = [];
         if (me.filters.length == 0)
             res.aggregations.attributes.attributes.buckets.forEach(function (b) {
                 var matches = me.filters.filter(function (f) {
@@ -109,7 +110,7 @@ class Search {
             }
         }
 
-        if (this.params.category.length > 0) {
+        if (this.params.category.length > 0 && this.params.category[0]) {
             this.elasticQuery.query.bool.must.push({match: {'categories.id': parseInt(this.params.category)}});
         }
 
@@ -138,20 +139,20 @@ class Search {
                         this.params.attribute_values[param].forEach(function(p){
                              bool.bool.should.push({match: {'attribute_values.slug': param + '_' + p}});
                         });
-                        subQuery.push(bool);
+                        this.elasticQuery.query.bool.must.push({
+                            nested: {
+                                path: "attribute_values",
+                                //score_mode: "max",
+                                query: {
+                                    bool: {
+                                        must: bool
+                                    }
+                                }
+                            }
+                        });
+                        //subQuery.push(bool);
                     }
                 };
-                this.elasticQuery.query.bool.must.push({
-                    nested: {
-                        path: "attribute_values",
-                        score_mode: "max",
-                        query: {
-                            bool: {
-                                must: subQuery
-                            }
-                        }
-                    }
-                });
             }
 
             let me = this;
@@ -186,6 +187,8 @@ class Search {
 
             if (!('range' in this.elasticQuery.query.bool.filter))
                 delete this.elasticQuery.query.bool.filter;
+
+            console.log(this.elasticQuery);
 
             return $.ajax({
                 url: "http://localhost:9200/_search/",

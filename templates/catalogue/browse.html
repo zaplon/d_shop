@@ -39,11 +39,13 @@
 {% endblock %}
 
 {% block content %}
-    <form id="variables">
-        <input type="hidden" name="filters" value="{{ filters }}">
-        <input type="hidden" name="categories" value="{{ categories }}">
-        <input type="hidden" name="product_classes" value="{{ product_classes }}">
-    </form>
+    {% block variables %}
+        <form id="variables">
+            <input type="hidden" name="filters" value="{{ filters }}">
+            <input type="hidden" name="categories" value="{{ categories }}">
+            <input type="hidden" name="product_classes" value="{{ product_classes }}">
+        </form>
+    {% endblock %}
     <div class="row">
         {% block page_sidebar %}
             <div class="col-md-2 hidden-sm-down tree-list sidebar">
