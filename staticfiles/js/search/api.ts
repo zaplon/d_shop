@@ -37,10 +37,12 @@ class SearchFilter {
 }
 
 class Search {
-    params:{prices: [number, number], types: string[], category: string, sort: string, scroll: number,
-        query: string, attribute_values: any, sortDir: string};
+    params:{prices: [number, number], types: string[], category: string, sort: string,
+        query: string, attribute_values: {}, sortDir: string};
     results:SearchResult[];
     filters:SearchFilter[];
+    size: number;
+    from: number;
     response:any;
 
     constructor() {
@@ -50,11 +52,12 @@ class Search {
             category: '',
             sort: 'stockRecords.price',
             sortDir: 'asc',
-            scroll: 0,
             query: '',
-            attribute_values: []
+            attribute_values: {}
         };
-        this.elasticQuery = {query: {bool: {must: {}, filter: {}}}, aggs: {}, sort: []};
+        this.from = 0,
+        this.size = 12,
+        this.elasticQuery = {query: {bool: {must: {}, filter: {}}}, aggs: {}, sort: [], from: this.from, size: this.size};
         this.filters = [];
         this.results = [];
     }
@@ -62,6 +65,8 @@ class Search {
     elasticQuery:{
         query: any, //filter: any, bool: {must: {}}
         aggs: {},
+        from: number,
+        size: number,
         sort: {}[]
     };
     transformResponse(res, showAggregations) {
@@ -125,17 +130,17 @@ class Search {
                 }
             }, this);
 
-            if (this.params.attribute_values.length > 0) {
+            if (!$.isEmptyObject(this.params.attribute_values)) {
                 var subQuery = [];
-                this.params.attribute_values.forEach(function (param) {
-                    if (typeof(param) == "object") {
+                for (var param in this.params.attribute_values){
+                    if (typeof(this.params.attribute_values[param]) == "object" && this.params.attribute_values[param].length > 0) {
                         var bool = {bool: {should: []}};
-                        param.forEach(function(p){
-                             bool.bool.should.push({match: {'attribute_values.slug': p}});
+                        this.params.attribute_values[param].forEach(function(p){
+                             bool.bool.should.push({match: {'attribute_values.slug': param + '_' + p}});
                         });
+                        subQuery.push(bool);
                     }
-                    subQuery.push(bool);
-                });
+                };
                 this.elasticQuery.query.bool.must.push({
                     nested: {
                         path: "attribute_values",

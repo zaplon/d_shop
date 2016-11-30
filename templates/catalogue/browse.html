@@ -61,7 +61,7 @@
                     <form class="form" data-bind="template: { name: 'filter-template', foreach: filters }">
                     </form>
                 </div>
-                <div class="row m-t-1">
+                <div class="row">
                     <div class="col-md-8 col-sm-6 col-xs-12">
         {#                    <label class="m-r-2" for="price-slider">Zakres cen</label>#}
                         <span id="price-from"></span><span>zł</span>
@@ -79,7 +79,7 @@
             <div id="products-container" data-bind="template: { name: 'product-template', foreach: products }"></div>
         </div>
     </div>
-    <div id="products-end" style=""></div>
+    <div id="products-end" style="position: relative; top: -50px;"></div>
 
     <script type="text/html" id="filter-template">
        <div class="col-md-4 col-sm-6 col-xs-12" data-bind="visible: options.length > 0">

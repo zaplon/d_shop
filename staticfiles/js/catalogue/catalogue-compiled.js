@@ -32,7 +32,8 @@ var viewModel = {
     },
     watchScroll: function () {
         if (viewModel.productsEnd.visible() && !viewModel.loading) {
-            viewModel.offset += 12;
+            //console.log('scroll');
+            s.elasticQuery.from += 12;
             if (viewModel.offset < viewModel.count) viewModel.loadData(true);
         }
     },
@@ -41,7 +42,7 @@ var viewModel = {
         var params = {};
         if (viewModel.priceRange.range.start > 0) params.start = viewModel.priceRange.range.start;
         if (viewModel.priceRange.range.end > 0) params.end = viewModel.priceRange.range.end;
-        if (dontRefreshFilters) params.dont_refresh_filters = true;
+        if (dontRefreshFilters) params.dont_refresh_filters = true;else s.elasticQuery.from = 0;
         //$.getJSON("/api/products/", params , function(data){
 
         if (viewModel.selectedSortOption == 0) {
@@ -59,12 +60,14 @@ var viewModel = {
         if (viewModel.priceRange.range.start > 0) s.params.prices[0] = viewModel.priceRange.range.start;
         if (viewModel.priceRange.range.end > 0) s.params.prices[1] = viewModel.priceRange.range.end;
         this.filters().forEach(function (f) {
-            if (f.selectedOptions) s.params.attribute_values.push(f.selectedOptions());
+            if (f.selectedOptions) s.params.attribute_values[f.name] = f.selectedOptions();
         });
         s.getResults(!dontRefreshFilters).done(function (data) {
             data = s.transformResponse(data, !dontRefreshFilters);
             $(window).unbind('scroll', viewModel.watchScroll);
             $(window).bind('scroll', viewModel.watchScroll);
+            s.from += viewModel.limit;
+            viewModel.loading = false;
             if (dontRefreshFilters) {
                 viewModel.products(viewModel.products().concat(data));
                 return true;
@@ -72,7 +75,6 @@ var viewModel = {
             data = { results: { products: data.products, filters: data.filters, prices: { min: data.prices[0], max: data.prices[1],
                         range: { start: data.prices[0], end: data.prices[1] } } }, count: data.count };
             viewModel.count = data.count;
-            viewModel.loading = false;
             viewModel.products(data.results.products);
             viewModel.priceRange = data.results.prices;
             if (viewModel.firstLoad || filterPrices) {
