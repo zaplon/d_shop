@@ -194,7 +194,7 @@ class Search {
             console.log(this.elasticQuery);
 
             return $.ajax({
-                url: "http://localhost:9200/_search/",
+                url:  'https://obudowynatelefon.pl:9200/_search/', //"http://localhost:9200/_search/",
                 type: "POST",
                 data: JSON.stringify(this.elasticQuery),
                 contentType: "application/json; charset=utf-8",
