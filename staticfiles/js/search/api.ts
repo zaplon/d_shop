@@ -51,7 +51,7 @@ class Search {
             types: [''],
             category: '',
             sort: 'stockRecords.price',
-            sortDir: 'asc',
+            sortDir: 'desc',
             query: '',
             attribute_values: {}
         };
