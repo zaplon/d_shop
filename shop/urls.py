@@ -31,6 +31,6 @@ urlpatterns = [
     url(r'^checkout/paypal/', include('paypal.express.urls')),
     url(r'', include(application.urls)),
     url(r'^api/', include(api.urls)),
-    url(r'^elastic/', include(elastic_urls)),
+    url(r'^search/', include(elastic_urls)),
     url(r'^(?P<url>.*/)$', views.flatpage)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
