@@ -57,6 +57,7 @@ var viewModel = {
         s.params.limit = viewModel.limit;
         s.params.category = viewModel.categories.length > 0 ? viewModel.categories[0] : '';
         s.params.attribute_values = [];
+        s.params.types = JSON.parse(viewModel.productClasses);
         if (viewModel.priceRange.range.start > 0) s.params.prices[0] = viewModel.priceRange.range.start;
         if (viewModel.priceRange.range.end > 0) s.params.prices[1] = viewModel.priceRange.range.end;
         this.filters().forEach(function (f) {
@@ -78,8 +79,8 @@ var viewModel = {
             viewModel.products(data.results.products);
             viewModel.priceRange = data.results.prices;
             if (viewModel.firstLoad || filterPrices) {
-                $('#price-from').html(viewModel.priceRange.min);
-                $('#price-to').html(viewModel.priceRange.max);
+                $('#price-from').html(viewModel.priceRange.min.toFixed(0));
+                $('#price-to').html(viewModel.priceRange.max.toFixed(0));
                 if (viewModel.firstLoad) {
                     viewModel.priceSlider.setAttribute('min', viewModel.priceRange.min);
                     viewModel.priceSlider.setAttribute('max', viewModel.priceRange.max);
