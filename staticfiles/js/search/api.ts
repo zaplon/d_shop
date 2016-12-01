@@ -112,7 +112,8 @@ class Search {
 
         if (this.params.category.length > 0 && this.params.category[0]) {
             this.elasticQuery.query.bool.must.push(
-                {nested:{path:'categories', query:{bool:{must:{match:{'categories.ids': ',' + this.params.category + ','}}}}}}
+                //{match: {type: 'Etu'}}
+                {nested:{path:'categories', query:{bool:{must:{match:{'categories.ids': this.params.category }}}}}}
             )
         }
 

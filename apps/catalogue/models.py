@@ -12,7 +12,7 @@ class Category(AbstractCategory):
         res = []
         for a in self.get_ancestors_and_self():
             res.append(str(a.id))
-        return ',' + ','.join(res) + ','
+        return  ' '.join(res)
 
 
 class ProductCategory(AbstractProductCategory):
