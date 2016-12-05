@@ -20,7 +20,7 @@ class SearchResult {
         this.attributes = record.attribute_values;
         this.id = record.id;
         this.front_url = record.front_url;
-        this.is_available = true;
+        this.is_available = record.stockrecords[0].num_in_stock > 0;
     }
 }
 
@@ -44,6 +44,8 @@ class Search {
     size: number;
     from: number;
     response:any;
+    excludeFiters: string[];
+    filtersOrder: string[];
 
     constructor() {
         this.params = {
@@ -57,6 +59,8 @@ class Search {
         };
         this.from = 0,
         this.size = 12,
+        this.excludeFiters =  ['Gwarancja'],
+        this.filtersOrder = ['Kompatybilność', 'Kolor bazowy'],
         this.elasticQuery = {query: {bool: {must: {}, filter: {}}}, aggs: {}, sort: [], from: this.from, size: this.size};
         this.filters = [];
         this.results = [];
@@ -92,7 +96,20 @@ class Search {
                 let name = b.key.split('_')[1];
                 select.options.push({slug: name, id: b.id, text: name});
             });
+        for (var i=0;i<me.filters.length;i++)
+            if (me.excludeFiters.indexOf(me.filters[i]['name']) > -1)
+                me.filters.splice(i,1);
         me.filters = me.filters.slice(0,6);
+        me.filters.sort(function(a, b){
+            if (me.filtersOrder.indexOf(a['name']) > -1 && me.filtersOrder.indexOf(b['name']) > -1)
+                return me.filtersOrder.indexOf(a['name']) < me.filtersOrder.indexOf(b['name']) ? -1: 1;
+            else if (me.filtersOrder.indexOf(a['name']) > -1)
+                return -1;
+            else if (me.filtersOrder.indexOf(b['name']) > -1)
+                return 1;
+            else
+                return a < b ? -1 : 1;
+        });
         return {products: me.results, filters: me.filters, prices: [res.aggregations.min_price.value, res.aggregations.max_price.value],
                 count: res.hits.total};
     };
@@ -121,9 +138,11 @@ class Search {
             this.elasticQuery.query.bool.must.push({match: {_all: this.params.query}});
         }
 
-        var sort = {};
-        sort[this.params.sort] = this.params.sortDir;
-        this.elasticQuery.sort = [sort];
+        var sort = [{}, {}];
+        sort[1][this.params.sort] = this.params.sortDir;
+        sort[0]['stockrecords.is_available'] = 'desc';
+
+        this.elasticQuery.sort = sort;
 
         if (this.params.types.length > 0) {
             var subQuery = [];

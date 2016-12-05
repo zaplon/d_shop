@@ -77,7 +77,7 @@ var viewModel = {
                         range: { start: data.prices[0], end: data.prices[1] } } }, count: data.count };
             viewModel.count = data.count;
             viewModel.products(data.results.products);
-            viewModel.priceRange = data.results.prices;
+            if (viewModel.firstLoad) viewModel.priceRange = data.results.prices;
             if (viewModel.firstLoad || filterPrices) {
                 $('#price-from').html(viewModel.priceRange.min.toFixed(0));
                 $('#price-to').html(viewModel.priceRange.max.toFixed(0));

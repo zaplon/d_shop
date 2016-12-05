@@ -5,20 +5,20 @@ from rest_framework.relations import HyperlinkedIdentityField
 from rest_framework.serializers import ModelSerializer
 from rest_framework.fields import CharField, IntegerField, SerializerMethodField, FloatField
 from oscar.apps.partner.strategy import Selector
-from oscar.apps.partner.models import StockRecord
 
 
 Product = get_model('catalogue', 'Product')
 ProductImage = get_model('catalogue', 'ProductImage')
 ProductAttributeValue = get_model('catalogue', 'ProductAttributeValue')
 Category = get_model('catalogue', 'Category')
+StockRecord = get_model('partner', 'StockRecord')
 
 
 class StockRecordSerializer(ModelSerializer):
     price = FloatField(source='price_retail')
     class Meta:
         model = StockRecord
-        fields = ['price_excl_tax', 'price', 'num_in_stock']
+        fields = ['price_excl_tax', 'price', 'num_in_stock', 'is_available']
 
 
 class ProductImageSerializer(ModelSerializer):
