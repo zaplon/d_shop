@@ -15,12 +15,10 @@ html *
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
 
-
 body
   background-color: $gray-lightest
   font-family: "Work Sans", Helvetica, Arial, sans-serif
   overflow-x: hidden
-
 
 #page-container
   padding-top: 2rem
@@ -101,11 +99,14 @@ h1, h2, h3, h5
     text-align: center
     cursor: pointer
   a:first-of-type
-    background-color: white //$gray-light  // lighten($brand-primary, 5%)
+    background-color: white
+  //$gray-light  // lighten($brand-primary, 5%)
   a:nth-of-type(2)
-    background-color: white //$gray-lighter // darken($brand-primary, 0%)
+    background-color: white
+  //$gray-lighter // darken($brand-primary, 0%)
   a:nth-of-type(3)
-    background-color: white //$gray-lightest // darken($brand-primary, 5%)
+    background-color: white
+//$gray-lightest // darken($brand-primary, 5%)
 
 .page
   margin-bottom: $footer-height
@@ -148,7 +149,6 @@ li.disabled
 
 #products-container div.col-md-4:nth-of-type(3n+1)
   clear: both
-
 
 .product-card
   position: relative
@@ -311,7 +311,6 @@ ul
     li:last-of-type
       margin-right: 0
 
-
 #navbar-search
   input
     background-color: transparent
@@ -420,7 +419,6 @@ ul
 .carousel-control .icon-next::before, .carousel-control .icon-prev::before
   content: ''
 
-
 .sidebar
   padding: 1rem
   padding-top: 0
@@ -469,7 +467,7 @@ ul
 .carousel-indicators
   li
     background-color: $gray-light
-    text-indent: -1999px;
+    text-indent: -1999px
   li.active
     background-color: $brand-primary
 
@@ -491,9 +489,8 @@ ul
     font-size: $font-size-h5
 
 .header-links
-  margin-left: -15px!important
-  margin-right: -15px!important
-
+  margin-left: -15px !important
+  margin-right: -15px !important
 
 .scroll-to-top-btn
   display: block
@@ -516,11 +513,12 @@ ul
   transition: color 0.3s
 
 .cd-cart-trigger .count
-  background-color: $brand-primary!important
+  background-color: $brand-primary !important
+
 .slider-horizontal
   margin-left: $spacer-x/2
   margin-right: $spacer-x/2
-  width: 200px!important
+  width: 200px !important
 
 .navbar-brand
   span
@@ -536,11 +534,19 @@ ul
 
 .gray-lighter
   background-color: $gray-lighter
+
 .gray-lightest
   background-color: $gray-lightest
+
 .gray
   background-color: $gray
 
+.ui-autocomplete
+  background-color: white
+  z-index: 10000
+  width: 300px
+  li
+    cursor: pointer
 
 @media (max-width: 640px)
   #show-filters
@@ -569,4 +575,3 @@ ul
     margin-top: -1rem
   .sort-select
     margin-top: 1.5rem
-

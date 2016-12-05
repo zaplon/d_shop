@@ -429,7 +429,8 @@ ul {
   border-color: #d9534f; }
 
 .carousel-indicators li {
-  background-color: #818a91; }
+  background-color: #818a91;
+  text-indent: -1999px; }
 .carousel-indicators li.active {
   background-color: #0275d8; }
 
@@ -499,6 +500,13 @@ ul {
 
 .gray {
   background-color: #55595c; }
+
+.ui-autocomplete {
+  background-color: white;
+  z-index: 10000;
+  width: 300px; }
+  .ui-autocomplete li {
+    cursor: pointer; }
 
 @media (max-width: 640px) {
   #show-filters {

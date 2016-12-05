@@ -1,4 +1,5 @@
 /// <reference path="../jquery.d.ts" />
+/// <reference path="../jquery_ui.d.ts" />
 var SearchResult = (function () {
     function SearchResult(record) {
         this.images = record.images;
@@ -40,6 +41,10 @@ var Search = (function () {
         this.filters = [];
         this.results = [];
     }
+    Search.prototype.completion = function (query) {
+        return $.post("/search/rest/", { 'completion': true, 'query': query });
+    };
+    ;
     Search.prototype.transformResponse = function (res, showAggregations) {
         var me = this;
         me.results = [];
@@ -183,4 +188,17 @@ var Search = (function () {
     return Search;
 }());
 var s = new Search();
+$(document).ready(function () {
+    $('.search-form input').autocomplete({
+        source: "/search/rest/",
+        minLength: 2,
+        select: function (event, ui) {
+            window.location.href = '/szukaj/?q=' + ui.item.text;
+        }
+    }).data("ui-autocomplete")._renderItem = function (ul, item) {
+        return $("<li>")
+            .append("<div>" + item.text + "<br>" + "</div>")
+            .appendTo(ul);
+    };
+});
 //# sourceMappingURL=api.js.map

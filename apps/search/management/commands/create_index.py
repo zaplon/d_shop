@@ -17,9 +17,16 @@ class Command(BaseCommand):
                         "type": {"type": "keyword"},
                         "categories": {"type": "nested"},
                         "attribute_values": {"type": "nested", "properties": {"slug": {"type": "keyword"}}
-                                            }
+                                            },
+                        "query_suggest": {
+                           "type": "completion",
+                           "analyzer": "simple",
+                           "search_analyzer": "simple",
+                        }
                     }
                 }
         }}
         requests.delete(settings.ELASTIC_URL)
-        requests.put(settings.ELASTIC_URL, data=json.dumps(data))
+        res = requests.put(settings.ELASTIC_URL, data=json.dumps(data))
+        if res.status_code != 200:
+            print res.content

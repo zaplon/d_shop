@@ -1,4 +1,5 @@
 /// <reference path="../jquery.d.ts" />
+/// <reference path="../jquery_ui.d.ts" />
 
 class SearchResult {
     images:string[];
@@ -72,6 +73,9 @@ class Search {
         from: number,
         size: number,
         sort: {}[]
+    };
+    completion(query){
+        return $.post("/search/rest/", {'completion': true, 'query': query});
     };
     transformResponse(res, showAggregations) {
         var me = this;
@@ -224,3 +228,17 @@ class Search {
     }
 }
 let s = new Search();
+
+$(document).ready(function(){
+    $('.search-form input').autocomplete({
+      source: "/search/rest/",
+      minLength: 2,
+      select: function( event, ui ) {
+        window.location.href = '/szukaj/?q=' + ui.item.text;
+      }
+    }).data("ui-autocomplete")._renderItem = function( ul, item ) {
+      return $( "<li>" )
+        .append( "<div>" + item.text + "<br>" + "</div>" )
+        .appendTo( ul );
+    };
+});

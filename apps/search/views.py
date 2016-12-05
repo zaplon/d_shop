@@ -5,6 +5,7 @@ from oscar.core.loading import get_model
 #from elasticsearch import Elasticsearch
 #es = Elasticsearch()
 import requests
+import json
 from django.conf import settings
 
 
@@ -17,6 +18,13 @@ class ProductViewSet(ReadOnlyModelViewSet):
 
 
 def rest_view(request):
+    if request.method == 'GET':
+        if request.GET.get('term', False):
+            data = {'completion': {'text': request.GET['term'], 'completion': {'field': 'query_suggest'}}}
+            res = requests.post(settings.ELASTIC_URL + '_suggest/', data=json.dumps(data))
+            res = json.loads(res.content)
+            return HttpResponse(json.dumps(res['completion'][0]['options']), content_type='application/json')
+
     if request.method == 'POST':
         res = requests.post(settings.ELASTIC_URL + '_search/', data=request.body)
         #res = es.search(index="shop", body=request.POST.body)

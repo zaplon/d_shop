@@ -3,7 +3,7 @@ from oscarapi.utils import OscarModelSerializer, OscarHyperlinkedModelSerializer
 from oscar.core.loading import get_model
 from rest_framework.relations import HyperlinkedIdentityField
 from rest_framework.serializers import ModelSerializer
-from rest_framework.fields import CharField, IntegerField, SerializerMethodField, FloatField
+from rest_framework.fields import CharField, IntegerField, SerializerMethodField, FloatField, JSONField
 from oscar.apps.partner.strategy import Selector
 
 
@@ -67,8 +67,10 @@ class ProductElasticSerializer(ModelSerializer):
     attribute_values = ProductAttributeValueSerializer(many=True)
     categories = CategorySerializer(many=True)
     front_url = CharField(source='get_absolute_url')
+    query_suggest = JSONField(source='get_query_suggestions')
     #_id = CharField(source='external_id')
 
     class Meta:
         model = Product
-        fields = ['id', 'front_url', 'title', 'images', 'stockrecords', 'description', 'type', 'attribute_values', 'categories']
+        fields = ['id', 'front_url', 'title', 'images', 'stockrecords', 'description', 'type', 'attribute_values',
+                  'categories', 'query_suggest']

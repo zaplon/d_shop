@@ -17,7 +17,7 @@
     <div class="collapse" id="navbar-search">
         <div class="container-fluid bg-inverse p-a-1">
             <div class="container">
-                <form method="get" action="{% url 'search:search' %}" class="row navbar-form navbar-right form-inline">
+                <form method="get" action="{% url 'search:search' %}" class="row navbar-form navbar-right form-inline search-form">
                     {{ search_form.q }}
                     <button type="submit" class="btn" title="{% trans "Search" %}">
                         <i class="fa fa-search" aria-hidden="true"></i>

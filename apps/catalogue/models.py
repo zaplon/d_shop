@@ -29,6 +29,11 @@ class Product(AbstractProduct):
     def get_sell_details(self):
         details = {}
 
+    def get_query_suggestions(self):
+        atts = [v.value for v in self.attribute_values.all()]
+        inputs = [self.product_class.name] + atts + [self.title]
+        return {'input': inputs}
+
 
 class ProductClass(AbstractProductClass):
     external_type = models.CharField(max_length=50, blank=True, null=True)
