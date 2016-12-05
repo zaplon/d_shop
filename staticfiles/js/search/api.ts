@@ -229,16 +229,16 @@ class Search {
 }
 let s = new Search();
 
-$(document).ready(function(){
-    $('.search-form input').autocomplete({
-      source: "/search/rest/",
-      minLength: 2,
-      select: function( event, ui ) {
-        window.location.href = '/szukaj/?q=' + ui.item.text;
-      }
-    }).data("ui-autocomplete")._renderItem = function( ul, item ) {
-      return $( "<li>" )
-        .append( "<div>" + item.text + "<br>" + "</div>" )
-        .appendTo( ul );
-    };
-});
+//$(document).ready(function(){
+//    $('.search-form input').autocomplete({
+//      source: "/search/rest/",
+//      minLength: 2,
+//      select: function( event, ui ) {
+//        window.location.href = '/szukaj/?q=' + ui.item.text;
+//      }
+//    }).data("ui-autocomplete")._renderItem = function( ul, item ) {
+//      return $( "<li>" )
+//        .append( "<div>" + item.text + "<br>" + "</div>" )
+//        .appendTo( ul );
+//    };
+//});
