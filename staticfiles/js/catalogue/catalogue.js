@@ -60,6 +60,10 @@ var viewModel = {
             s.params.sort = 'stockrecords.price';
             s.params.sortDir = 'asc';
         }
+        if (viewModel.selectedSortOption == -1){
+            s.params.sort = '_score';
+            s.params.sortDir = 'desc';
+        }
         s.params.from = viewModel.offset;
         s.params.limit = viewModel.limit;
         s.params.category = viewModel.categories.length > 0 ? viewModel.categories[0] : '';
