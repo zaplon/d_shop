@@ -39,7 +39,7 @@ class Cart {
     getCart(){
         var me = this;
         me.quantity = 0;
-        $.get('/api/basket', res => {
+        $.get('/api/basket/', res => {
                 me.total = res.total_incl_tax;
                 me.currency = res.currency;
             $.get(res.lines, res => {

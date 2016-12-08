@@ -37,7 +37,10 @@
 {% block content_width %}12{% endblock %}
 
 {% block templatescripts %}
-    <script type="text/javascript">s.params.query = "{{ query }}";</script>
+    <script type="text/javascript">
+        s.params.query = "{{ query }}";
+        viewModel.sortOptions: [{name: 'Najlepsze dopasowanie', id: -1, value: 'score'}, {name: 'Ceną malejąco', id: 0, value: '-price'}, {name: 'Ceną rosnąco', id: 1, value: 'price'}]
+    </script>
 {% endblock %}
 
 {% block page_sidebar %}
