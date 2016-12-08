@@ -9,7 +9,7 @@ var viewModel = {
     categories: $('#variables input[name="categories"]').val().split('.'),
     productClasses: JSON.stringify($('#variables input[name="product_classes"]').val().split(',')),
     filterNames: JSON.parse($('#variables input[name="filters"]').val()),
-    sortOptions: [{ name: 'Ceną malejąco', id: 0, value: '-price' }, { name: 'Ceną rosnąco', id: 1, value: 'price' }],
+    sortOptions: sortOptions ? sortOptions : [{ name: 'Ceną malejąco', id: 0, value: '-price' }, { name: 'Ceną rosnąco', id: 1, value: 'price' }],
     selectedSortOption: 0,
     limit: 12,
     firstLoad: true,
@@ -52,6 +52,10 @@ var viewModel = {
         if (viewModel.selectedSortOption == 1) {
             s.params.sort = 'stockrecords.price';
             s.params.sortDir = 'asc';
+        }
+        if (viewModel.selectedSortOption == -1) {
+            s.params.sort = '_score';
+            s.params.sortDir = 'desc';
         }
         s.params.from = viewModel.offset;
         s.params.limit = viewModel.limit;
