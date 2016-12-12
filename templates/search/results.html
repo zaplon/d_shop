@@ -39,6 +39,8 @@
 {% block templatescripts %}
     <script type="text/javascript">
         s.params.query = "{{ query }}";
+        s.params.sort = "_score";
+        s.params.sortDir = "desc";
         sortOptions = [{name: 'Najlepsze dopasowanie', id: -1, value: 'score'}, {name: 'Ceną malejąco', id: 0, value: '-price'}, {name: 'Ceną rosnąco', id: 1, value: 'price'}]
     </script>
 {% endblock %}
