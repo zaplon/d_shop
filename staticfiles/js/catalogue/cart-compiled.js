@@ -39,10 +39,11 @@ class Cart {
     getCart() {
         var me = this;
         me.quantity = 0;
-        $.get('/api/basket/?c=' + Math.floor(Date.now() / 1000), res => {
+        var c = Math.floor(Date.now() / 1000);
+        $.get('/api/basket/?c=' + c, res => {
             me.total = res.total_incl_tax;
             me.currency = res.currency;
-            $.get(res.lines, res => {
+            $.get(res.lines + c, res => {
                 me.products = [];
                 res.forEach(function (r, i) {
                     var product = { line: r.url, quantity: r.quantity };
