@@ -43,7 +43,7 @@ class Cart {
         $.get('/api/basket/?c=' + c, res => {
             me.total = res.total_incl_tax;
             me.currency = res.currency;
-            $.get(res.lines + c, res => {
+            $.get(res.lines + '?c=' + c, res => {
                 me.products = [];
                 res.forEach(function (r, i) {
                     var product = { line: r.url, quantity: r.quantity };
