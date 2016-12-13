@@ -59,8 +59,8 @@ class Command(BaseCommand):
         sr.price_excl_tax = node.cenasrp_netto.cdata.replace(',', '.')
         sr.price_retail = node.cenasrp_brutto.cdata.replace(',', '.')
         sr.cost_price = node.cena_brutto.cdata.replace(',', '.')
-        sr.num_in_stock = int(0 if node.stan.cdata < 5 else float(node.stan.cdata) - 5)
-        sr.low_stock_threshold = 5
+        sr.num_in_stock = float(node.stan.cdata)
+        sr.low_stock_threshold = 2
         sr.save()
 
     def add_images(self, p, node):
