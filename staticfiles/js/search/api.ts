@@ -60,8 +60,8 @@ class Search {
         };
         this.from = 0,
         this.size = 12,
-        this.excludeFiters =  ['Gwarancja'],
-        this.filtersOrder = ['Kompatybilność', 'Kolor bazowy'],
+        this.excludeFiters =  ['Gwarancja', 'WWW'],
+        this.filtersOrder = ['Kompatybilność', 'Kolor bazowy', 'Wzór'],
         this.elasticQuery = {query: {bool: {must: {}, filter: {}}}, aggs: {}, sort: [], from: this.from, size: this.size};
         this.filters = [];
         this.results = [];
