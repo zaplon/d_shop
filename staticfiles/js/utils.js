@@ -8,4 +8,16 @@
         });
     });
   };
+  $('.container').delegate('.ajax-form', 'click', function(ev){
+    var name = this.attr('form-name');
+    var formData = $('form[name="'+name+'"]').serialize();
+    $.post('/pages/submit_form', {data: formData, name: name}, function(res){
+      if (res.success){
+        $('form[name="'+name+'"]').parent().html('<p class="form-success">Wiadomość przesłana poprawnie</p>');
+      }
+      else {
+        $('form[name="'+name+'"]').parent().html(res.form);
+      }
+    });
+  });
 })();
