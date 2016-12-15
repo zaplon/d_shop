@@ -10,7 +10,7 @@ var viewModel = {
     productClasses: JSON.stringify($('#variables input[name="product_classes"]').val().split(',')),
     filterNames: JSON.parse($('#variables input[name="filters"]').val()),
     sortOptions: typeof(sortOptions) != "undefined" ? sortOptions : [{name: 'Ceną malejąco', id: 0, value: '-price'}, {name: 'Ceną rosnąco', id: 1, value: 'price'}],
-    selectedSortOption: 0,
+    selectedSortOption: typeof(selectedSortOption) != "undefined" ? selectedSortOption : 0,
     limit: 12,
     firstLoad: true,
     offset: 0,
