@@ -11,7 +11,7 @@ class Command(BaseCommand):
     args = ""
 
     def handle(self, *app_labels, **options):
-        for p in Product.objects.all()[:200]:
+        for p in Product.objects.all():
             update_product(p.id)
             
         # indeksowanie kategorii
