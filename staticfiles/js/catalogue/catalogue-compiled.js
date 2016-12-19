@@ -10,7 +10,7 @@ var viewModel = {
     productClasses: JSON.stringify($('#variables input[name="product_classes"]').val().split(',')),
     filterNames: JSON.parse($('#variables input[name="filters"]').val()),
     sortOptions: typeof sortOptions != "undefined" ? sortOptions : [{ name: 'Ceną malejąco', id: 0, value: '-price' }, { name: 'Ceną rosnąco', id: 1, value: 'price' }],
-    selectedSortOption: 0,
+    selectedSortOption: typeof selectedSortOption != "undefined" ? selectedSortOption : 0,
     limit: 12,
     firstLoad: true,
     offset: 0,
@@ -59,7 +59,7 @@ var viewModel = {
         }
         s.params.from = viewModel.offset;
         s.params.limit = viewModel.limit;
-        s.params.category = viewModel.categories.length > 0 ? viewModel.categories[0] : '';
+        s.params.category = viewModel.categories.length > 0 ? viewModel.categories[viewModel.categories.length - 1] : '';
         s.params.attribute_values = [];
         s.params.types = JSON.parse(viewModel.productClasses);
         if (viewModel.priceRange.range.start > 0) s.params.prices[0] = viewModel.priceRange.range.start;

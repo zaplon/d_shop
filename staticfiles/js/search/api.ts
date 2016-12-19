@@ -45,7 +45,7 @@ class Search {
     size: number;
     from: number;
     response:any;
-    excludeFiters: string[];
+    excludeFilters: string[];
     filtersOrder: string[];
 
     constructor() {
@@ -60,7 +60,7 @@ class Search {
         };
         this.from = 0,
         this.size = 12,
-        this.excludeFiters =  ['Gwarancja', 'WWW'],
+        this.excludeFilters =  ['Gwarancja', 'WWW'],
         this.filtersOrder = ['Kompatybilność', 'Kolor bazowy', 'Wzór'],
         this.elasticQuery = {query: {bool: {must: {}, filter: {}}}, aggs: {}, sort: [], from: this.from, size: this.size};
         this.filters = [];
@@ -101,7 +101,7 @@ class Search {
                 select.options.push({slug: name, id: b.id, text: name});
             });
         for (var i=0;i<me.filters.length;i++)
-            if (me.excludeFiters.indexOf(me.filters[i]['name']) > -1)
+            if (me.excludeFilters.indexOf(me.filters[i]['name']) > -1)
                 me.filters.splice(i,1);
         me.filters = me.filters.slice(0,6);
         me.filters.sort(function(a, b){

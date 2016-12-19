@@ -1,3 +1,6 @@
 from django.shortcuts import render
+import importlib
 
-# Create your views here.
+
+def submit_form_view(request):
+    pass
