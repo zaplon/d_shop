@@ -64,6 +64,8 @@ class Command(BaseCommand):
         sr.save()
 
     def add_images(self, p, node):
+	if not hasattr(node, 'zdjecie'):
+            return
         for i, zdjecie in enumerate(node.zdjecie):
             caption = self.slugify(p.title + ' ' + str(i))
             try:
@@ -130,17 +132,18 @@ class Command(BaseCommand):
                 setattr(p_obj, f, getattr(p, self.fields_map[f]).cdata)
             p_obj.save()
 
-            for k in p.kategorie.kategoria:
-                path = k.cdata
-                breadcrumb_list = path.split('/')
-                breadcrumb = ' > '.join(breadcrumb_list)
-                filtered_b = filter(lambda x: x['path'] == breadcrumb, self.breadcrumbs)
-                if len(filtered_b) == 0:
-                    self.breadcrumbs.append({'path': breadcrumb, 'products': [], 'external_id': k['id']})
-                    b = self.breadcrumbs[-1]
-                else:
-                    b = filtered_b[0]
-                b['products'].append(p.ProduktId.cdata)
+	    if hasattr(p.kategorie, 'kategoria'):
+                for k in p.kategorie.kategoria:
+                    path = k.cdata
+                    breadcrumb_list = path.split('/')
+                    breadcrumb = ' > '.join(breadcrumb_list)
+                    filtered_b = filter(lambda x: x['path'] == breadcrumb, self.breadcrumbs)
+                    if len(filtered_b) == 0:
+                        self.breadcrumbs.append({'path': breadcrumb, 'products': [], 'external_id': k['id']})
+                        b = self.breadcrumbs[-1]
+                    else:
+                        b = filtered_b[0]
+                    b['products'].append(p.ProduktId.cdata)
 
             for a in p.atrybuty.atrybut:
                 if not a['name'] == 'Typ':
