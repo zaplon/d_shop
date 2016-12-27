@@ -60,7 +60,7 @@ class Search {
         };
         this.from = 0,
         this.size = 12,
-        this.excludeFilters =  ['Gwarancja', 'WWW'],
+        this.excludeFilters =  ['Gwarancja', 'WWW', 'Rodzaj gwarancji', 'Elektronika', 'Waga akumulatora w Gram'],
         this.filtersOrder = ['Kompatybilność', 'Kolor bazowy', 'Wzór'],
         this.elasticQuery = {query: {bool: {must: {}, filter: {}}}, aggs: {}, sort: [], from: this.from, size: this.size};
         this.filters = [];
