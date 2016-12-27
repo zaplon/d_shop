@@ -111,6 +111,10 @@ class Command(BaseCommand):
         obj = untangle.parse('_tmp.xml')
 
         counter = 0
+	
+	#ustawiamy stany magazynowe na 0
+	StockRecord.objects.all().update(num_in_stock=0)
+	
         for p in obj.produkty.produkt:
             if counter > 200000:
                 break
