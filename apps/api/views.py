@@ -43,7 +43,9 @@ class ProductFilter(django_filters.FilterSet):
 
 
 class ProductList(basic.ProductList):
-    paginate_by = 30
+
+
+
     serializer_class = serializers.ProductSerializer
     filter_class = ProductFilter
     filter_backends = (filters.DjangoFilterBackend,)
