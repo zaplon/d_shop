@@ -58,10 +58,10 @@ class Search {
             query: '',
             attribute_values: {}
         };
-        this.from = 0,
-        this.size = 12,
-        this.excludeFilters =  ['Gwarancja', 'WWW', 'Rodzaj gwarancji', 'Elektronika', 'Waga akumulatora w Gram'],
-        this.filtersOrder = ['Kompatybilność', 'Kolor bazowy', 'Wzór', 'Kolor dodatkowy'],
+        this.from = 0;
+        this.size = 12;
+        this.excludeFilters =  ['Gwarancja', 'WWW', 'Rodzaj gwarancji', 'Elektronika', 'Waga akumulatora w Gram'];
+        this.filtersOrder = ['Kompatybilność', 'Kolor bazowy', 'Wzór', 'Kolor dodatkowy'];
         this.elasticQuery = {query: {bool: {must: {}, filter: {}}}, aggs: {}, sort: [], from: this.from, size: this.size};
         this.filters = [];
         this.results = [];
