@@ -35,7 +35,8 @@ var Search = (function () {
         };
         this.from = 0;
         this.size = 12;
-        this.excludeFilters = ['Gwarancja', 'WWW', 'Rodzaj gwarancji', 'Elektronika', 'Waga akumulatora w Gram'];
+        this.excludeFilters = ['Gwarancja', 'WWW', 'Rodzaj gwarancji', 'Elektronika', 'Waga akumulatora w Gram', 'Waga tworzyw w Gram',
+            'Waga papieru w Gram'];
         this.filtersOrder = ['Kompatybilność', 'Kolor bazowy', 'Wzór', 'Kolor dodatkowy'];
         this.elasticQuery = { query: { bool: { must: {}, filter: {} } }, aggs: {}, sort: [], from: this.from, size: this.size };
         this.filters = [];
@@ -71,7 +72,6 @@ var Search = (function () {
         for (var i = 0; i < me.filters.length; i++)
             if (me.excludeFilters.indexOf(me.filters[i]['name']) > -1)
                 me.filters.splice(i, 1);
-        me.filters = me.filters.slice(0, 6);
         me.filters.sort(function (a, b) {
             if (me.filtersOrder.indexOf(a['name']) > -1 && me.filtersOrder.indexOf(b['name']) > -1)
                 return me.filtersOrder.indexOf(a['name']) < me.filtersOrder.indexOf(b['name']) ? -1 : 1;
@@ -82,6 +82,7 @@ var Search = (function () {
             else
                 return a < b ? -1 : 1;
         });
+        me.filters = me.filters.slice(0, 6);
         return { products: me.results, filters: me.filters, prices: [res.aggregations.min_price.value, res.aggregations.max_price.value],
             count: res.hits.total };
     };
