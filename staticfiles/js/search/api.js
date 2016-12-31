@@ -83,6 +83,9 @@ var Search = (function () {
                 return a < b ? -1 : 1;
         });
         me.filters = me.filters.slice(0, 6);
+        me.filters.forEach(function (f) {
+            f.options = f.options.sort(function (a, b) { return a.text > b.text; });
+        });
         return { products: me.results, filters: me.filters, prices: [res.aggregations.min_price.value, res.aggregations.max_price.value],
             count: res.hits.total };
     };
