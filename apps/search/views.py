@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from rest_framework.viewsets import ReadOnlyModelViewSet
 from apps.api.serializers import ProductElasticSerializer
 from oscar.core.loading import get_model
+from django.views.decorators.csrf import csrf_exempt
 #from elasticsearch import Elasticsearch
 #es = Elasticsearch()
 import requests
@@ -17,6 +18,7 @@ class ProductViewSet(ReadOnlyModelViewSet):
     serializer_class = ProductElasticSerializer
 
 
+@csrf_exempt
 def rest_view(request):
     if request.method == 'GET':
         if request.GET.get('term', False):
