@@ -34,6 +34,7 @@
             <script src="{% static "js/search/api.js" %}"></script>
             <script src="{% static "bower_components/seiyria-bootstrap-slider/src/bootstrap-slider.js" %}"></script>
         {% endcompress %}
+        <script>$('.btn-add-to-basket').click(function(){ console.log('track'); ga('send', 'event', 'katalog', 'do-koszyka'); }); </script>
         {% block templatescripts %}
         {% endblock %}
     <script>
