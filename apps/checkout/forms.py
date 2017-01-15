@@ -25,10 +25,13 @@ class ShippingAddressForm(PhoneNumberMixin, AbstractAddressForm):
             self.fields['country'].queryset = countries
             self.fields['country'].empty_label = None
 
+        self.fields['country'].initial = countries.get(printable_name='Poland')
+
     class Meta:
         model = get_model('order', 'shippingaddress')
         fields = [
             'title', 'first_name', 'last_name',
             'line1', 'line2', 'line3', 'line4',
-            'postcode', 'phone_number', 'notes'
+            'postcode', 'country',
+            'phone_number', 'notes',
         ]
