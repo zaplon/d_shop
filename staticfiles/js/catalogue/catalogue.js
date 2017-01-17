@@ -54,11 +54,11 @@ var viewModel = {
 
         if (viewModel.selectedSortOption == 0){
             s.params.sort = 'stockrecords.price';
-            s.params.sortDir = 'desc';
+            s.params.sortDir = 'asc';
         }
         if (viewModel.selectedSortOption == 1){
             s.params.sort = 'stockrecords.price';
-            s.params.sortDir = 'asc';
+            s.params.sortDir = 'desc';
         }
         if (viewModel.selectedSortOption == -1){
             s.params.sort = '_score';
