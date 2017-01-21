@@ -509,6 +509,9 @@ ul {
     cursor: pointer; }
 
 @media (max-width: 640px) {
+  .cd-cart-trigger, .cd-cart {
+    right: 10% !important; }
+
   #show-filters {
     margin-bottom: 0.5rem; }
 
