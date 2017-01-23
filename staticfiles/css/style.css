@@ -77,6 +77,9 @@ h1, h2, h3, h5 {
 .green {
   background-color: #80c780; }
 
+#home-search {
+  background-color: #5bc0de; }
+
 #top-nav {
   margin-top: -0.5rem;
   margin-bottom: -0.5rem; }
