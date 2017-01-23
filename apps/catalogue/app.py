@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from oscar.apps.catalogue.app import CatalogueApplication as CorePromotionsApplication
-from .views import CatalogueView, CatalogueCategoryView, EtuiView, allegro_view
+from .views import CatalogueView, CatalogueCategoryView, EtuiView, allegro_view, OriginalEtui
 
 
 class CatalogueApplication(CorePromotionsApplication):
@@ -10,6 +10,7 @@ class CatalogueApplication(CorePromotionsApplication):
         urlpatterns = super(CatalogueApplication, self).get_urls()
         urlpatterns += [
             url(r'^opakowania-etui-folie/', EtuiView.as_view(), name='etui'),
+            url(r'^nietypowe-etui/', OriginalEtui.as_view(), name='nietypowe-etui'),
             url(r'^allegro/(?P<slug>[\w-]*)/$', allegro_view, name='allegro'),
             url(r'^$', CatalogueCategoryView.as_view(), name='katalog'),
             url(r'^produkt/(?P<product_slug>[\w-]*)_(?P<pk>\d+)/$',

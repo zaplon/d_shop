@@ -1,0 +1,13 @@
+{% extends 'catalogue/browse.html' %}
+
+{% block page_sidebar %}{% endblock %}
+
+{% block content_width %}12{% endblock %}
+
+{% block extrascripts %}
+    <script>
+        s.excludeFilters.push('Wzór');
+        s.baseAttributes = {'Wzór': ['Paski', 'Inny', 'Moro']};
+    </script>
+    {{ block.super }}
+{% endblock %}

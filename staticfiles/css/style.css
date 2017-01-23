@@ -142,10 +142,10 @@ li.disabled a {
   text-align: center; }
   .product-card .image {
     z-index: 1;
-    height: 200px; }
+    height: 250px; }
     .product-card .image img {
-      max-width: 70%;
-      max-height: 200px; }
+      max-width: 90%;
+      max-height: 250px; }
   .product-card .title {
     z-index: 1;
     margin-top: 1rem; }

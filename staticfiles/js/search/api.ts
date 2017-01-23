@@ -47,6 +47,7 @@ class Search {
     response:any;
     excludeFilters: string[];
     filtersOrder: string[];
+    baseAttributes: any;
 
     constructor() {
         this.params = {
@@ -61,11 +62,12 @@ class Search {
         this.from = 0;
         this.size = 12;
         this.excludeFilters =  ['Gwarancja', 'WWW', 'Rodzaj gwarancji', 'Elektronika', 'Waga akumulatora w Gram', 'Waga tworzyw w Gram',
-        'Waga papieru w Gram'];
+        'Waga papieru w Gram', 'WWW1'];
         this.filtersOrder = ['Kompatybilność', 'Kolor bazowy', 'Wzór', 'Kolor dodatkowy'];
         this.elasticQuery = {query: {bool: {must: {}, filter: {}}}, aggs: {}, sort: [], from: this.from, size: this.size};
         this.filters = [];
         this.results = [];
+        this.baseAttributes = {};
     }
 
     elasticQuery:{
@@ -102,8 +104,10 @@ class Search {
                 select.options.push({slug: name, id: b.id, text: name});
             });
         for (var i=0;i<me.filters.length;i++)
-            if (me.excludeFilters.indexOf(me.filters[i]['name']) > -1)
-                me.filters.splice(i,1);
+            if (me.excludeFilters.indexOf(me.filters[i]['name']) > -1) {
+                me.filters.splice(i, 1);
+                i -= 1;
+            }
         me.filters.sort(function(a, b){
             if (me.filtersOrder.indexOf(a['name']) > -1 && me.filtersOrder.indexOf(b['name']) > -1)
                 return me.filtersOrder.indexOf(a['name']) < me.filtersOrder.indexOf(b['name']) ? -1: 1;

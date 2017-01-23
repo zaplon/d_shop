@@ -157,6 +157,10 @@ class EtuiView(CatalogueView):
         return Category.objects.get(name='smartfony').get_children()
 
 
+class OriginalEtui(EtuiView):
+    template_name = 'catalogue/original-etui.html'
+
+
 class CatalogueCategoryView(CatalogueView):
     def get_categories(self, kwargs):
         categories = kwargs['category_slug'].split('/')

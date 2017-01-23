@@ -67,7 +67,7 @@ var viewModel = {
         s.params.from = viewModel.offset;
         s.params.limit = viewModel.limit;
         s.params.category = viewModel.categories.length > 0 ? viewModel.categories[viewModel.categories.length-1] : '';
-        s.params.attribute_values = [];
+        s.params.attribute_values = s.baseAttributes;
         s.params.types = JSON.parse(viewModel.productClasses);
         if (viewModel.priceRange.range.start > 0)
             s.params.prices[0] = viewModel.priceRange.range.start;
