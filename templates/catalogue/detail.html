@@ -52,13 +52,13 @@
     <div class="row">
 
         {% block product_gallery %}
-        <div class="col-sm-6">
+        <div class="col-sm-6 col-xs-12">
             {% include "catalogue/partials/gallery.html" %}
         </div>
         {% endblock %}
 
         {% block product_main %}
-        <div class="col-sm-6 product_main">
+        <div class="col-sm-6 product_main col-xs-12">
             {% comment %}
             This is a but clunky here.  Better to have some kind of JS-driven dashboard menu that
             pops out when clicked.  A bit like the Django-Debug-Toolbar button

@@ -541,7 +541,8 @@ ul {
     width: 100%; }
 
   #navbar-search input {
-    width: 100%; }
+    display: inline-block;
+    width: calc(100% - 60px); }
 
   #navbar-header {
     margin-top: -1rem; }
