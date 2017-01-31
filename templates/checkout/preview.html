@@ -45,7 +45,7 @@
             <div class="row">
                 <div class="col-sm-3 col-sm-offset-9">
                      {% if payment_method == 'paypal' %}
-                         <a href="{% url "paypal-redirect" %}" class="btn btn-primary btn-lg btn-block">{% trans "Place order" %}</a>
+                         <a href="{% url "paypal-direct-payment" %}" class="btn btn-primary btn-lg btn-block">{% trans "Place order" %}</a>
                      {% else %}
                         <button id='place-order' type="submit" class="btn btn-primary btn-lg btn-block"
                                 data-loading-text="{% trans 'Submitting...' %}">{% trans "Place order" %}</button>
