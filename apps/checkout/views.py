@@ -23,11 +23,10 @@ class PaymentDetailsView(PaymentDetailsView):
 
         # Payment successful! Record payment source
         source_type, __ = models.SourceType.objects.get_or_create(
-            name="Przy odbiorze")
+            name=u"Płatność przy odbiorze")
         source = models.Source(
             source_type=source_type,
-            amount_allocated=0,
-            reference='a')
+            amount_allocated=total.incl_tax)
         self.add_payment_source(source)
 
         # Record payment event
