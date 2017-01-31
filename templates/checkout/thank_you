@@ -81,11 +81,11 @@
                         <p>
                         {% if source.reference %}
                             {% blocktrans with amount=source.amount_allocated|currency:source.currency type=source.source_type.name reference=source.reference %}
-                                Allocation of {{ amount }} from type {{ type }} (reference: {{ reference }})
+                                {{ amount }} {{ type }} (reference: {{ reference }})
                             {% endblocktrans %}
                         {% else %}
                             {% blocktrans with amount=source.amount_allocated|currency:source.currency type=source.source_type.name %}
-                                Allocation of {{ amount }} from type {{ type }}
+                                {{ amount }} {{ type }}
                             {% endblocktrans %}
                         {% endif %}
                         </p>
