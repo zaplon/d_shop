@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from oscar.apps.checkout.views import PaymentDetailsView
 from oscar.apps.payment import models
 
