@@ -22,7 +22,7 @@
         <div id="payment-methods">
             <form class="form" method="post" action="{% url "checkout:preview" %}">
                 {% csrf_token %}
-                <div class="radio" style='display: none;'>
+                <div class="radio">
                   <label><input value="paypal" type="radio" name="payment-method">Zapłać przez PayPal (również płatność kartą)</label>
                 </div>
                 <div class="radio">

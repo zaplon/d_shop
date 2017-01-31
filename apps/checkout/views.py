@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
 from oscar.apps.checkout.views import PaymentDetailsView
 from oscar.apps.payment import models
 
@@ -14,6 +16,8 @@ class PaymentDetailsView(PaymentDetailsView):
         self.preview = True
         ctx = self.get_context_data(**kwargs)
         ctx['payment_method'] = request.POST['payment-method']
+        if ctx['payment_method'] == 'paypal':
+            return HttpResponseRedirect(reverse('paypal-direct-payment'))
         return self.render_to_response(ctx)
     
     def handle_payment(self, order_number, total, **kwargs):

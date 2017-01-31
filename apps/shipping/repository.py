@@ -10,7 +10,7 @@ class FixedPrice(methods.FixedPrice):
 class Repository(repository.Repository):
 
     def get_available_shipping_methods(self, basket, user=None, shipping_addr=None, request=None, **kwargs):
-        if basket.total_incl_tax > 100:
+        if basket.total_incl_tax >= 100:
             return [methods.Free()]
         else:
             return [FixedPrice(Decimal(10.0), Decimal(10.0))]
