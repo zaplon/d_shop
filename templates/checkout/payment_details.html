@@ -22,11 +22,11 @@
         <div id="payment-methods">
             <form class="form" method="post" action="{% url "checkout:preview" %}">
                 {% csrf_token %}
-                <div class="radio">
-                  <label><input value="paypal" checked="checked" type="radio" name="payment-method">Zapłać przez PayPal (również płatność kartą)</label>
+                <div class="radio" style='display: none;'>
+                  <label><input value="paypal" type="radio" name="payment-method">Zapłać przez PayPal (również płatność kartą)</label>
                 </div>
                 <div class="radio">
-                  <label><input value="personal" type="radio" name="payment-method">Zapłać przy odbiorze</label>
+                  <label><input value="personal" checked="checked" type="radio" name="payment-method">Zapłać przy odbiorze</label>
                 </div>
                 <hr/>
                 <button type="submit" id="view_preview" href="{% url 'checkout:preview' %}"
