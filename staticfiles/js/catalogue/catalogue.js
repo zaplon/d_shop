@@ -170,7 +170,8 @@ $(document).ready(function () {
             if (p.id == parentId) return true;
         })[0];
         var image = $(this).find('img');
-        product.interval = window.setInterval(function () {
+
+        var changeImage = function(){
             if (isNaN(product.currentImage))
                 product.currentImage = 0;
             if (product.currentImage >= product.images.length)
@@ -178,7 +179,11 @@ $(document).ready(function () {
             else
                 product.currentImage += 1;
             image.attr('src', product.images[product.currentImage].original);
-        }, 1000);
+        };
+        changeImage();
+        product.interval = window.setInterval(function () {
+            changeImage();
+        }, 750);
     });
     $('#products-container').delegate('.image', 'mouseout', function () {
         var parentId = $(this).parent().attr('data-id');

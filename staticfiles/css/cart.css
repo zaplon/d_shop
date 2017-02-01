@@ -77,7 +77,7 @@ Main Components
 }
 
 .cd-cart-trigger {/* button that triggers the cart content */
-  z-index: 3;
+  z-index: 2001;
   height: 72px;
   width: 72px;/* replace text with image */
   text-indent: 100%;
@@ -191,7 +191,7 @@ Main Components
 
 .cd-cart {
   /* cart content */
-  z-index: 2;
+  z-index: 2000;
   width: 90%;
   max-width: 440px;
   height: 400px;
