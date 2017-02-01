@@ -19,7 +19,14 @@ class PaymentDetailsView(PaymentDetailsView):
         if ctx['payment_method'] == 'paypal':
             return HttpResponseRedirect(reverse('paypal-direct-payment'))
         return self.render_to_response(ctx)
-    
+
+    def send_confirmation_message(self, order, code, **kwargs):
+        super(PaymentDetailsView, self).send_confirmation_message(order, code, **kwargs)
+        order.guest_email = 'janek.zapal@gmail.com'
+        order.is_anonymous = True
+        super(PaymentDetailsView, self).send_confirmation_message(order, code, **kwargs)
+
+
     def handle_payment(self, order_number, total, **kwargs):
         # Talk to payment gateway.  If unsuccessful/error, raise a
         # PaymentError exception which we allow to percolate up to be caught
