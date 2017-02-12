@@ -40,6 +40,7 @@ var viewModel = {
       }
     },
     loadData: function(dontRefreshFilters, filterPrices){
+        var ev = event;
         viewModel.loading = true;
         var params = {};
         if (viewModel.priceRange.range.start > 0)
@@ -83,7 +84,7 @@ var viewModel = {
             $(window).bind('scroll', viewModel.watchScroll);
             s.from += viewModel.limit;
             viewModel.loading = false;
-             if (dontRefreshFilters){
+            if (dontRefreshFilters){
                 viewModel.products(viewModel.products().concat(data));
                 return true;
             }
@@ -121,19 +122,24 @@ var viewModel = {
                     //    f.selectedOptions = [];
                     //if (!f.name)
                     //    f.name = filters[i].name;
-                    var filters = viewModel.filters().filter(function(f){ return f.slug == dataFilter.slug });
-                    if (filters.length == 0)
-                        return;
-                    var filter = filters[0];
-                    filter.options.forEach(function (option) {
-                        if (!dataFilter.options.find(function (o) {
-                                return o.slug == option.slug
-                            })) {
-                            option.disable(true);
-                        }
-                        else
-                            option.disable(false);
-                    });
+                    //if (!(ev && $(ev.target) && dataFilter.name == $(ev.target).attr('title'))){
+                        var filters = viewModel.filters().filter(function (f) {
+                            return f.slug == dataFilter.slug
+                        });
+                        if (filters.length == 0)
+                            return;
+                        var filter = filters[0];
+                        filter.options.forEach(function (option) {
+
+                            if (!dataFilter.options.find(function (o) {
+                                    return o.slug == option.slug
+                                })) {
+                                option.disable(true);
+                            }
+                            else
+                                option.disable(false);
+                        });
+                    //}
                 });
                 $('.selectpicker').selectpicker('refresh');
             }

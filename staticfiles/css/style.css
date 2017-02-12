@@ -148,7 +148,10 @@ li.disabled a {
     height: 250px; }
     .product-card .image img {
       max-width: 90%;
-      max-height: 250px; }
+      max-height: 250px;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%); }
   .product-card .title {
     z-index: 1;
     margin-top: 1rem; }
