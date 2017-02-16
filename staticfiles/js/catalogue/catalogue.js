@@ -202,8 +202,8 @@ $(document).ready(function () {
     if ($('#tree').length > 0)
         $('#tree').treeview({
             enableLinks: true,
-            data: JSON.parse($('#tree').attr('data')), expandIcon: 'fa fa-plus-square',
-            collapseIcon: 'fa fa-minus-square'
+            data: JSON.parse($('#tree').attr('data')), expandIcon: 'fa fa-plus-square-o',
+            collapseIcon: 'fa fa-minus-square-o'
         });
 
     $('#show-filters').click(function(){
