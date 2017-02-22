@@ -6,20 +6,38 @@ from rest_framework.renderers import JSONRenderer
 from apps.api.serializers import ProductElasticSerializer
 from django.conf import settings
 import requests
+from PIL import Image
+import os
 
 Product = get_model('catalogue', 'Product')
 
 
+def make_thumbnail(img):
+    img = img.split('/')[-1]
+    thumbnail_target = os.path.join(settings.MEDIA_ROOT, 'images', 'thumbnail', img)
+    if os.path.isfile(thumbnail_target):
+        return thumbnail_target
+    basewidth = 300
+    img = Image.open(img)
+    wpercent = (basewidth/float(img.size[0]))
+    hsize = int((float(img.size[1])*float(wpercent)))
+    img = img.resize((basewidth,hsize), Image.ANTIALIAS)
+    img.save(thumbnail_target)
+
+
 def update_product(id):
     p = Product.objects.get(id=id)
-    data = JSONRenderer().render(ProductElasticSerializer(p).data)
+    d = ProductElasticSerializer(p).data
+    d['images'][0]['original'] = make_thumbnail(d['images'][0]['original'])
+    data = JSONRenderer().render(d)
     res = requests.post('%s%s' % (settings.ELASTIC_URL + 'product/', p.external_id), data=data)
     if res.status_code >= 200 and res.status_code < 300:
         print '%s updated successfully' % p.title
     else:
         print res.__dict__
         print 'there was error updating %s' % p.title
-        
+
+
 def update_category(c):
     data = JSONRenderer().render({'full_name': c.full_name, 'name': c.name})
     res = requests.post('%s%s' % (settings.ELASTIC_URL + 'category/' , c.id), data=data)
