@@ -27,7 +27,7 @@ body {
   min-height: 5rem; }
 
 .front-card-wall {
-  background-size: cover; }
+  background-size: contain; }
 
 .front-card {
   height: 200px;
