@@ -38,6 +38,7 @@ class ProductFilter(django_filters.FilterSet):
     class Meta:
         model = Product
         distinct = True
+        fields = '__all__'
         filter = ['attribute', 'title_like', 'categories']
         order_by = ['title', '-title']
 
