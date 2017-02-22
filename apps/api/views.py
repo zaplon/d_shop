@@ -30,6 +30,7 @@ ProductAttribute = get_model('catalogue', 'ProductAttribute')
 ProductAttributeValue = get_model('catalogue', 'ProductAttributeValue')
 Line = get_model('basket', 'Line')
 
+
 class ProductFilter(django_filters.FilterSet):
     attributes = ListFilter(name="attribute_values__value_text")
     categories = ListFilter(name="categories__id")
@@ -44,8 +45,6 @@ class ProductFilter(django_filters.FilterSet):
 
 
 class ProductList(basic.ProductList):
-
-
 
     serializer_class = serializers.ProductSerializer
     filter_class = ProductFilter

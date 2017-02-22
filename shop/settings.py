@@ -50,7 +50,7 @@ INSTALLED_APPS = [
                      'importer',
                      'apps.promotions',
                      'jstemplate',
-                     'debug_toolbar',
+                     #'debug_toolbar',
                      'paypal',
                      'apps.pages',
                      'django_inlinecss',
@@ -72,11 +72,13 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
     'oscarapi.middleware.ApiBasketMiddleWare',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    #'debug_toolbar.middleware.DebugToolbarMiddleware'
 )
 
 CACHE_MIDDLEWARE_ALIAS = 'default'
 CACHE_MIDDLEWARE_SECONDS = 1
-CACHE_MIDDLEWARE_KEY_PREFIX = ''
+CACHE_MIDDLEWARE_KEY_PREFIX = 'shop'
+CACHE_PERIOD = 1
 
 AUTHENTICATION_BACKENDS = (
     'oscar.apps.customer.auth_backends.EmailBackend',
@@ -156,9 +158,20 @@ DATABASES = {
     }
 }
 
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+#         'LOCATION': '/var/tmp/django_cache',
+#         'TIMEOUT': 60,
+#         'OPTIONS': {
+#             'MAX_ENTRIES': 1000
+#         }
+#     }
+# }
+
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache'
     }
 }
 
@@ -248,7 +261,6 @@ PAYPAL_API_SIGNATURE = 'AFcWxV21C7fd0v3bYYYRCpSSRl31AhFE4xn4wm9cJyJb8UXBDpdXCx7l
 PAYPAL_CURRENCY = 'PLN'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_URL = '/konto/login/'
-CACHE_PERIOD = 1
 PREPEND_WWW = False
 ELASTIC_URL = 'http://localhost:9200/shop/'
 
