@@ -175,6 +175,10 @@ li.disabled a {
 .product_page h2 {
   text-align: center;
   margin: 1rem 0 2rem 0; }
+.product_page .product-card .image {
+  height: 200px; }
+.product_page .product-card img {
+  transform: none; }
 
 .add-to-basket {
   margin-bottom: 1rem; }
