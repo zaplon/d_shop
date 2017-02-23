@@ -179,7 +179,7 @@ $(document).ready(function () {
         var changeImage = function(){
             if (isNaN(product.currentImage))
                 product.currentImage = 0;
-            if (product.currentImage >= product.images.length)
+            if (product.currentImage >= product.images.length-1)
                 product.currentImage = 0;
             else
                 product.currentImage += 1;
