@@ -29,18 +29,19 @@ var viewModel = {
                 newOptions.push(filter.selectedOptions()[o]);
         }
         filter.selectedOptions(newOptions);
-        viewModel.loadData();
+        viewModel.
+        
+        ();
     },
     watchScroll: function(){
       if (viewModel.productsEnd.visible() && !viewModel.loading) {
           //console.log('scroll');
           s.elasticQuery.from += 12;
           if (viewModel.offset < viewModel.count)
-            viewModel.loadData(true);
+            viewModel.loadData(false, true);
       }
     },
-    loadData: function(dontRefreshFilters, filterPrices){
-        var ev = event;
+    loadData: function(ev, dontRefreshFilters, filterPrices){
         viewModel.loading = true;
         var params = {};
         if (viewModel.priceRange.range.start > 0)
@@ -149,7 +150,7 @@ var viewModel = {
                         //max: res.aggregations.max_price, start: res.aggregations.min_price, end: res.aggregations.min_price}}
     },
     selectionChanged: function(event) {
-        viewModel.loadData();
+        viewModel.loadData(event);
     }
 };
 ko.applyBindings(viewModel);
@@ -167,7 +168,7 @@ $(document).ready(function () {
        console.log(value);
        viewModel.priceRange.range.start = parseFloat(value[0]);
        viewModel.priceRange.range.end = parseFloat(value[1]);
-       viewModel.loadData(false, true);
+       viewModel.loadData(false, false, true);
     });
 
     $('#products-container').delegate('.image', 'mouseover', function () {
