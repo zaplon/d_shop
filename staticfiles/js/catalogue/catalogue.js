@@ -29,9 +29,7 @@ var viewModel = {
                 newOptions.push(filter.selectedOptions()[o]);
         }
         filter.selectedOptions(newOptions);
-        viewModel.
-        
-        ();
+        viewModel.loadData();
     },
     watchScroll: function(){
       if (viewModel.productsEnd.visible() && !viewModel.loading) {
