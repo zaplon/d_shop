@@ -27,7 +27,7 @@ class ProductImageSerializer(ModelSerializer):
         fields = ['original', 'display_order', 'caption']
 
 
-class ProductSerializer(OscarModelSerializer):
+class ProductSerializer(ModelSerializer):
     images = ProductImageSerializer(many=True)
     front_url = CharField(read_only=True, source='get_absolute_url')
     sell_details = SerializerMethodField()
