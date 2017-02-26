@@ -19,15 +19,15 @@ def make_thumbnail(img):
         return thumbnail_target
     basewidth = 300
     try:
-        img = Image.open(settings.BASE_DIR + '/public' + img)
+        i = Image.open(settings.BASE_DIR + '/public' + img)
     except:
         return img
-    if img.size[0] <= 300:
+    if i.size[0] <= 300:
         return img
-    wpercent = (basewidth/float(img.size[0]))
-    hsize = int((float(img.size[1])*float(wpercent)))
-    img = img.resize((basewidth,hsize), Image.ANTIALIAS)
-    img.save(thumbnail_target)
+    wpercent = (basewidth/float(i.size[0]))
+    hsize = int((float(i.size[1])*float(wpercent)))
+    i = i.resize((basewidth,hsize), Image.ANTIALIAS)
+    i.save(thumbnail_target)
 
 
 def update_product(id):
