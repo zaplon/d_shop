@@ -13,12 +13,14 @@ Product = get_model('catalogue', 'Product')
 
 
 def make_thumbnail(img):
-    img = img.split('/')[-1]
-    thumbnail_target = os.path.join(settings.MEDIA_ROOT, 'images', 'thumbnail', img)
+    img_name = img.split('/')[-1]
+    thumbnail_target = os.path.join(settings.MEDIA_ROOT, 'images', 'thumbnail', img_name)
     if os.path.isfile(thumbnail_target):
         return thumbnail_target
     basewidth = 300
-    img = Image.open(img)
+    img = Image.open(settings.BASE_DIR + '/public' + img)
+    if img.size[0] <= 300:
+        return img
     wpercent = (basewidth/float(img.size[0]))
     hsize = int((float(img.size[1])*float(wpercent)))
     img = img.resize((basewidth,hsize), Image.ANTIALIAS)

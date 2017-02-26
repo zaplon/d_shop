@@ -60,6 +60,7 @@ class ProductAttributeSerializer(OscarModelSerializer):
 class ProductImageSerializer(OscarModelSerializer):
     class Meta:
         model = ProductImage
+        fields = '__all__'
 
 
 class AvailabilitySerializer(serializers.Serializer):
