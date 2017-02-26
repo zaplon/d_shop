@@ -30,7 +30,8 @@ def make_thumbnail(img):
 def update_product(id):
     p = Product.objects.get(id=id)
     d = ProductElasticSerializer(p).data
-    d['images'][0]['original'] = make_thumbnail(d['images'][0]['original'])
+    if len(d['images']) > 0:
+        d['images'][0]['original'] = make_thumbnail(d['images'][0]['original'])
     data = JSONRenderer().render(d)
     res = requests.post('%s%s' % (settings.ELASTIC_URL + 'product/', p.external_id), data=data)
     if res.status_code >= 200 and res.status_code < 300:
