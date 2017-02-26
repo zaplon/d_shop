@@ -15,7 +15,7 @@ Product = get_model('catalogue', 'Product')
 def make_thumbnail(img):
     img_name = img.split('/')[-1]
     thumbnail_target = os.path.join(settings.MEDIA_ROOT, 'images', 'thumbnail', img_name)
-    thumbnail_link = settings.MEDIA_URL + '/images/thumbnail/' + img_name
+    thumbnail_link = settings.MEDIA_URL + 'images/thumbnail/' + img_name
     if os.path.isfile(thumbnail_target):
         return thumbnail_link
     basewidth = 300
