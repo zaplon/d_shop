@@ -18,7 +18,10 @@ def make_thumbnail(img):
     if os.path.isfile(thumbnail_target):
         return thumbnail_target
     basewidth = 300
-    img = Image.open(settings.BASE_DIR + '/public' + img)
+    try:
+        img = Image.open(settings.BASE_DIR + '/public' + img)
+    except:
+        return img
     if img.size[0] <= 300:
         return img
     wpercent = (basewidth/float(img.size[0]))
