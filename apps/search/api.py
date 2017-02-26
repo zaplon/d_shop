@@ -15,8 +15,9 @@ Product = get_model('catalogue', 'Product')
 def make_thumbnail(img):
     img_name = img.split('/')[-1]
     thumbnail_target = os.path.join(settings.MEDIA_ROOT, 'images', 'thumbnail', img_name)
+    thumbnail_link = settings.MEDIA_URL + '/images/thumbnail/' + img_name
     if os.path.isfile(thumbnail_target):
-        return thumbnail_target
+        return thumbnail_link
     basewidth = 300
     try:
         i = Image.open(settings.BASE_DIR + '/public' + img)
@@ -28,6 +29,7 @@ def make_thumbnail(img):
     hsize = int((float(i.size[1])*float(wpercent)))
     i = i.resize((basewidth,hsize), Image.ANTIALIAS)
     i.save(thumbnail_target)
+    return thumbnail_link
 
 
 def update_product(id):
