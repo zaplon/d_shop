@@ -290,7 +290,9 @@ ul {
       list-style: none;
       font-size: 0.875rem;
       display: inline-block;
-      margin-right: 1rem; }
+      margin-right: 1rem;
+      background: transparent;
+      padding: 0.5rem; }
       #navbar-header ul li a, #navbar-search ul li a {
         color: whitesmoke;
         margin-bottom: 0.5rem; }
