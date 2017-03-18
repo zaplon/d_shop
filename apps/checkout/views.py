@@ -23,7 +23,7 @@ class PaymentDetailsView(PaymentDetailsView):
     def send_confirmation_message(self, order, code, **kwargs):
         super(PaymentDetailsView, self).send_confirmation_message(order, code, **kwargs)
         order.guest_email = 'janek.zapal@gmail.com'
-        order.is_anonymous = True
+        #order.is_anonymous = True
         super(PaymentDetailsView, self).send_confirmation_message(order, code, **kwargs)
 
 
