@@ -3,9 +3,24 @@ function limit(text){
 }
 
 var viewModel = {
+    formatCurrency: function(value) {
+        return parseFloat(value).toFixed(2).replace('.', ',') + "zł";
+    },
+    showFilters: function(){
+        var filters = $('#product-filters-container');
+        if (filters.hasClass('hidden-sm-down')) {
+            filters.removeClass('hidden-sm-down');
+            $('#show-filters').html('Ukryj filtry');
+        }
+        else {
+            filters.addClass('hidden-sm-down');
+            $('#show-filters').html('Pokaż filtry');
+        }
+    },
     filters : ko.observableArray([]),
     products : ko.observableArray([]),
     priceRange : {range: {}, min: ko.observable(0), max: ko.observable(0)},
+    selectedType: ko.observable(),
     categories: $('#variables input[name="categories"]').val().split('.'),
     productClasses: JSON.stringify($('#variables input[name="product_classes"]').val().split(',')),
     filterNames: JSON.parse($('#variables input[name="filters"]').val()),
@@ -18,7 +33,8 @@ var viewModel = {
     count: 0,
     productsEnd: $('#products-end'),
     setOptionDisable: function(option, item) {
-            ko.applyBindingsToNode(option, {disable: item.disable}, item);
+            if (item)
+                ko.applyBindingsToNode(option, {disable: item.disable}, item);
     },
     removeFilter: function(value, event){
         var newOptions = [];
@@ -204,16 +220,4 @@ $(document).ready(function () {
             data: JSON.parse($('#tree').attr('data')), expandIcon: 'fa fa-plus-square-o',
             collapseIcon: 'fa fa-minus-square-o'
         });
-
-    $('#show-filters').click(function(){
-        var filters = $('#product-filters-container');
-        if (filters.hasClass('hidden-sm-down')) {
-            filters.removeClass('hidden-sm-down');
-            $(this).html('Ukryj filtry');
-        }
-        else {
-            filters.addClass('hidden-sm-down');
-            $(this).html('Pokaż filtry');
-        }
-    });
 });

@@ -53,24 +53,37 @@
             </div>
         {% endblock %}
         <div class="col-md-{% block content_width %}10{% endblock %} col-sm-12 col-xs-12">
-            <div class="row m-b-1">
-                <button id="show-filters" class="btn btn-default col-sm-12 col-xs-12 hidden-md-up">
-                    Pokaż filtry
-                </button>
+            <div class="row m-b-1 hidden-md-up" data-bind="if: filters && (filters().length > 0)">
+                <div class="col-sm-6 col-xs-6 pull-left">
+                    <select class="form-control selectpicker"
+                            multiple
+                            data-live-search="true"
+                            data-selected-text-format="count > 3"
+                            data-bind="options: filters()[0].options, optionsText: 'text', selectedOptions: selectedType, optionsValue: 'slug',
+                           event: { change: selectionChanged },
+                           optionsAfterRender: setOptionDisable,
+                           attr: { title: 'Model', 'data-max-options': typeof(multiple) == 'undefined' ? '1' : null }">
+                    </select>
+                </div>
+                <div class="col-sm-6 col-xs-6 hidden-md-up">
+                    <button id="show-filters" class="btn btn-default" style="width:100%;" data-bind="click: showFilters">
+                        Pokaż filtry
+                    </button>
+                </div>
             </div>
             <div id="product-filters-container" class="hidden-sm-down">
                 <div id="product-filters" class="row">
-                    <form class="form" data-bind="template: { name: 'filter-template', foreach: filters }">
+                    <form class="form" data-bind="template: { name: 'filter-template', foreach: filters.slice(1, filters().length) }">
                     </form>
                 </div>
                 <div class="row">
                     <div class="col-md-8 col-sm-6 col-xs-12">
-        {#                    <label class="m-r-2" for="price-slider">Zakres cen</label>#}
+                        {#                    <label class="m-r-2" for="price-slider">Zakres cen</label>#}
                         <span id="price-from"></span><span>zł</span>
-                        <input class="form-control" id="price-slider" type="text" name="prices" />
+                        <input class="form-control" id="price-slider" type="text" name="prices"/>
                         <span id="price-to" data-bind="text: priceRange.max"></span><span>zł</span>
                     </div>
-                    <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="col-md-4 col-sm-6 col-xs-6">
                         <select class="form-control pull-right sort-select"
                                 data-bind="options: sortOptions, optionsText: 'name', selectedOptions: selectedSortOption,
                                 optionsValue: 'id', event: { change: loadData() }">
@@ -84,21 +97,21 @@
     <div id="products-end" style="position: relative; top: -50px;"></div>
 
     <script type="text/html" id="filter-template">
-       <div class="col-md-4 col-sm-6 col-xs-12" data-bind="visible: options.length > 0">
-           <select class="form-control selectpicker"
-                   multiple
-                   data-live-search="true"
-                   data-selected-text-format="count > 3"
-                   data-bind="options: options, optionsText: 'text', selectedOptions: selectedOptions, optionsValue: 'slug',
+        <div class="col-md-4 col-sm-6 col-xs-12" data-bind="visible: options.length > 0">
+            <select class="form-control selectpicker"
+                    multiple
+                    data-live-search="true"
+                    data-selected-text-format="count > 3"
+                    data-bind="options: options, optionsText: 'text', selectedOptions: selectedOptions, optionsValue: 'slug',
                    event: { change: $parent.selectionChanged },
                    optionsAfterRender: $parent.setOptionDisable,
                    attr: { title: name, 'data-max-options': typeof(multiple) == 'undefined' ? '1' : null }">
-           </select>
-       </div>
+            </select>
+        </div>
     </script>
 
     <script type="text/html" id="product-template">
-       <div class="col-md-4">
+        <div class="col-md-4">
             <div class="product-card" data-bind="attr: {'data-id': id}">
                 <div class="image">
                     <a data-bind="attr: {href: front_url }"><img
@@ -108,21 +121,21 @@
                     <a data-bind="attr: {href: front_url }"><h5 data-bind="text: limit(title)"></h5></a>
                 </div>
                 <div data-bind="if: is_available" class="price">
-                    <span data-bind="text: price"></span>
+                    <span data-bind="text: $parent.formatCurrency(price)"></span>
                 </div>
                 <div data-bind="if: !is_available" class="not-available">
                     <span>Produkt niedostępny</span>
                 </div>
             </div>
-       </div>
+        </div>
     </script>
 
 
 {% endblock %}
 
 {% block extrascripts %}
-  {% handlebarsjs 'product' precompile %}
-  {% handlebarsjs 'filters' precompile %}
-  {% handlebarsjs 'add-to-cart' precompile %}
-  <script src="{% static "js/catalogue/catalogue.js" %}"></script>
+    {% handlebarsjs 'product' precompile %}
+    {% handlebarsjs 'filters' precompile %}
+    {% handlebarsjs 'add-to-cart' precompile %}
+    <script src="{% static "js/catalogue/catalogue.js" %}"></script>
 {% endblock %}

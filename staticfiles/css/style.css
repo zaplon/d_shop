@@ -566,9 +566,12 @@ ul {
     margin-top: -1rem; }
 
   .sort-select {
-    margin-top: 1.5rem; }
+    margin-top: 0rem; }
 
   .front-card-wall {
-    background-size: contain; } }
+    background-size: contain; }
+
+  .slider-horizontal {
+    width: calc(100% - 100px) !important; } }
 
 /*# sourceMappingURL=style.css.map */

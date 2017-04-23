@@ -178,7 +178,7 @@ CACHES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'pl'
+LANGUAGE_CODE = 'pl_PL'
 
 gettext_noop = lambda s: s
 LANGUAGES = (
@@ -265,3 +265,4 @@ PREPEND_WWW = False
 ELASTIC_URL = 'http://localhost:9200/shop/'
 
 OSCAR_FROM_EMAIL = 'kontakt@obudowynatelefon.pl'
+
