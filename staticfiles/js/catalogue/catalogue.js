@@ -17,6 +17,17 @@ var viewModel = {
             $('#show-filters').html('Pokaż filtry');
         }
     },
+    showCategories: function(){
+        var cats = $('#product-categories-container');
+        if (cats.hasClass('hidden-sm-down')) {
+            cats.removeClass('hidden-sm-down');
+            //$('#show-categories').html('Ukryj filtry');
+        }
+        else {
+            cats.addClass('hidden-sm-down');
+            //$('#show-categories').html('Pokaż filtry');
+        }
+    },
     filters : ko.observableArray([]),
     products : ko.observableArray([]),
     priceRange : {range: {}, min: ko.observable(0), max: ko.observable(0)},
@@ -220,4 +231,11 @@ $(document).ready(function () {
             data: JSON.parse($('#tree').attr('data')), expandIcon: 'fa fa-plus-square-o',
             collapseIcon: 'fa fa-minus-square-o'
         });
+    if ($('#tree-mobile').length > 0)
+        $('#tree-mobile').treeview({
+            enableLinks: true,
+            data: JSON.parse($('#tree-mobile').attr('data')), expandIcon: 'fa fa-plus-square-o',
+            collapseIcon: 'fa fa-minus-square-o'
+        });
+    
 });
