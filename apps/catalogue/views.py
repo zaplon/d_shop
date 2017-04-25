@@ -144,6 +144,11 @@ class CatalogueView(TemplateView):
         if not ctx['description'] == 0:
             ctx['description'] = u'Katalog produktów'
             ctx['keywords'] = u'Opakowania na telefon, Obudowy na telefon, etui, folie ochronne, akcesoria telefoniczne'
+        ctx['name'] = ctx['path_list'][-1]['name']
+        if len(ctx['path_list']) > 2:
+            ctx['return'] = ctx['path_list'][-2]['url']
+        else:
+            ctx['return'] = '/'
         return ctx
 
 

@@ -231,10 +231,10 @@ $(document).ready(function () {
             data: JSON.parse($('#tree').attr('data')), expandIcon: 'fa fa-plus-square-o',
             collapseIcon: 'fa fa-minus-square-o'
         });
-    if ($('#tree-mobile').length > 0)
-        $('#tree-mobile').treeview({
+    if ($('#mobile-tree').length > 0)
+        $('#mobile-tree').treeview({
             enableLinks: true,
-            data: JSON.parse($('#tree-mobile').attr('data')), expandIcon: 'fa fa-plus-square-o',
+            data: JSON.parse($('#mobile-tree').attr('data')), expandIcon: 'fa fa-plus-square-o',
             collapseIcon: 'fa fa-minus-square-o'
         });
     

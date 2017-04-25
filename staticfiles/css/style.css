@@ -523,6 +523,10 @@ ul {
   .ui-autocomplete li {
     cursor: pointer; }
 
+.mobile-title {
+  font-size: 2rem;
+  text-align: center; }
+
 @media (max-width: 640px) {
   .no-padding-left {
     padding-left: 15px; }
