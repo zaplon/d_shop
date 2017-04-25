@@ -56,25 +56,20 @@
         <div class="col-md-{% block content_width %}10{% endblock %} col-sm-12 col-xs-12">
             <div class="row m-b-1 hidden-md-up" data-bind="if: filters && (filters().length > 0)">
                 <div class="col-sm-6 col-xs-6 pull-left">
-                    <select class="form-control selectpicker"
-                            multiple
-                            data-live-search="true"
-                            data-selected-text-format="count > 3"
-                            data-bind="options: filters()[0].options, optionsText: 'text', selectedOptions: selectedType, optionsValue: 'slug',
-                           event: { change: selectionChanged },
-                           optionsAfterRender: setOptionDisable,
-                           attr: { title: 'Model', 'data-max-options': typeof(multiple) == 'undefined' ? '1' : null }">
-                    </select>
+                    <button id="show-categories" class="btn btn-default" style="width:100%;" data-bind="click: showCategories">
+                        Kategoria
+                    </button>
                 </div>
-                <div class="col-sm-6 col-xs-6 hidden-md-up">
+                <div class="col-sm-6 col-xs-6">
                     <button id="show-filters" class="btn btn-default" style="width:100%;" data-bind="click: showFilters">
                         Pokaż filtry
                     </button>
                 </div>
             </div>
+            <div id="mobile-tree" data="{{ tree_data }}" class='hidden-sm-down'></div>
             <div id="product-filters-container" class="hidden-sm-down">
                 <div id="product-filters" class="row">
-                    <form class="form" data-bind="template: { name: 'filter-template', foreach: filters.slice(1, filters().length) }">
+                    <form class="form" data-bind="template: { name: 'filter-template', foreach: filters }">
                     </form>
                 </div>
                 <div class="row">
