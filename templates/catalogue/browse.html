@@ -12,7 +12,7 @@
 {% block breadcrumbs %}
     <div id="top-nav-border"></div>
     <div class="row">
-        <div class="col-md-7 col-sm-12 col-xs-12">
+        <div class="col-md-7 col-sm-12 col-xs-12 hidden-sm-down">
             <ul class="breadcrumb">
                 <li><a href="/">Początek</a></li>
                 {% for p in path_list %}
@@ -35,6 +35,7 @@
                 </ul>
             </div>
         </div>
+        <h1 class="hidden-md-up">{{ path_list.last.name }}</h1>
     </div>
 {% endblock %}
 
@@ -77,13 +78,13 @@
                     </form>
                 </div>
                 <div class="row">
-                    <div class="col-md-8 col-sm-6 col-xs-12">
+                    <div class="col-md-8 col-sm-6 col-xs-12 m-b-1">
                         {#                    <label class="m-r-2" for="price-slider">Zakres cen</label>#}
                         <span id="price-from"></span><span>zł</span>
                         <input class="form-control" id="price-slider" type="text" name="prices"/>
                         <span id="price-to" data-bind="text: priceRange.max"></span><span>zł</span>
                     </div>
-                    <div class="col-md-4 col-sm-6 col-xs-6">
+                    <div class="col-md-4 col-sm-6 col-xs-12">
                         <select class="form-control pull-right sort-select"
                                 data-bind="options: sortOptions, optionsText: 'name', selectedOptions: selectedSortOption,
                                 optionsValue: 'id', event: { change: loadData() }">
