@@ -18,7 +18,7 @@ var viewModel = {
         }
     },
     showCategories: function(){
-        var cats = $('#product-categories-container');
+        var cats = $('#mobile-tree');
         if (cats.hasClass('hidden-sm-down')) {
             cats.removeClass('hidden-sm-down');
             //$('#show-categories').html('Ukryj filtry');
