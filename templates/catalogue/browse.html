@@ -54,19 +54,21 @@
             </div>
         {% endblock %}
         <div class="col-md-{% block content_width %}10{% endblock %} col-sm-12 col-xs-12">
-            <div class="row m-b-1 hidden-md-up" data-bind="if: filters && (filters().length > 0)">
-                <div class="col-sm-6 col-xs-6 pull-left">
-                    <button id="show-categories" class="btn btn-default dropdown-toggle" style="width:100%;" data-bind="click: showCategories">
-                        Kategoria
-                    </button>
+            {% block mobile_filters %}
+                <div class="row m-b-1 hidden-md-up" data-bind="if: filters && (filters().length > 0)">
+                    <div class="col-sm-6 col-xs-6 pull-left">
+                        <button id="show-categories" class="btn btn-default dropdown-toggle" style="width:100%;" data-bind="click: showCategories">
+                            Kategoria
+                        </button>
+                    </div>
+                    <div class="col-sm-6 col-xs-6">
+                        <button id="show-filters" class="btn btn-default" style="width:100%;" data-bind="click: showFilters">
+                            Pokaż filtry
+                        </button>
+                    </div>
                 </div>
-                <div class="col-sm-6 col-xs-6">
-                    <button id="show-filters" class="btn btn-default" style="width:100%;" data-bind="click: showFilters">
-                        Pokaż filtry
-                    </button>
-                </div>
-            </div>
-            <div id="mobile-tree" data="{{ tree_data }}" class='hidden-sm-down'></div>
+                <div id="mobile-tree" data="{{ tree_data }}" class='hidden-sm-down'></div>
+            {% endblock %}
             <div id="product-filters-container" class="hidden-sm-down">
                 <div id="product-filters" class="row">
                     <form class="form" data-bind="template: { name: 'filter-template', foreach: filters }">
