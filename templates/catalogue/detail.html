@@ -18,7 +18,7 @@
 {% endblock %}
 
 {% block breadcrumbs %}
-<ul class="breadcrumb">
+<ul class="breadcrumb hidden-sm-down">
     <li>
         <a href="{{ homepage_url }}">{% trans "Home" %}</a>
     </li>
@@ -30,6 +30,25 @@
         {% endfor %}
         <li class="active">{{ product.title }}</li>
 
+        {% get_back_button as backbutton %}
+        {% if backbutton %}
+            <li class="pull-right">
+                <a href="{{ backbutton.url }}">
+                    <i class="icon-arrow-left"></i> {{ backbutton.title }}
+                </a>
+            </li>
+        {% endif %}
+    {% endwith %}
+</ul>
+<ul class="breadcrumb hidden-md-up">
+    <li>
+        <a href="{{ homepage_url }}">{% trans "Home" %}</a>
+    </li>
+    {% with category=product.categories.all.0 %}
+        <li>
+            <a href="{{ category.get_ancestors.last.get_absolute_url }}">Powrót</a>
+        </li>
+        <li class="active">{{ product.title|limit:50 }}</li>
         {% get_back_button as backbutton %}
         {% if backbutton %}
             <li class="pull-right">
