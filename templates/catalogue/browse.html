@@ -105,7 +105,7 @@
                 <select class="form-control selectpicker"
                         data-live-search="true"
                         data-selected-text-format="count > 3"
-                        data-bind="if: name=='Kompatybilność', options: options, optionsText: 'text', selectedOptions: selectedOptions, optionsValue: 'slug',
+                        data-bind="options: options, optionsText: 'text', selectedOptions: selectedOptions, optionsValue: 'slug',
                        event: { change: $parent.selectionChanged },
                        optionsAfterRender: $parent.setOptionDisable,
                        attr: { title: name }">
@@ -115,7 +115,7 @@
                     multiple
                     data-live-search="true"
                     data-selected-text-format="count > 3"
-                    data-bind="if: name!='Kompatybilność' options: options, optionsText: 'text', selectedOptions: selectedOptions, optionsValue: 'slug',
+                    data-bind="options: options, optionsText: 'text', selectedOptions: selectedOptions, optionsValue: 'slug',
                    event: { change: $parent.selectionChanged },
                    optionsAfterRender: $parent.setOptionDisable,
                    attr: { title: name, 'data-max-options': typeof(multiple) == 'undefined' ? '1' : null }">
