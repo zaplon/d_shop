@@ -160,7 +160,7 @@ var viewModel = {
                             if (!dataFilter.options.find(function (o) {
                                     return o.slug == option.slug
                                 })) {
-                                option.disable(true);
+                                //option.disable(true);
                             }
                             else
                                 option.disable(false);
