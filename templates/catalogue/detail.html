@@ -19,6 +19,9 @@
 
 {% block breadcrumbs %}
 <ul class="breadcrumb hidden-sm-down">
+    <li>
+        <a href="{{ homepage_url }}">{% trans "Home" %}</a>
+    </li>
     {% with category=product.categories.all.0 %}
         {% for c in category.get_ancestors_and_self %}
         <li>
@@ -38,9 +41,6 @@
     {% endwith %}
 </ul>
 <ul class="breadcrumb hidden-md-up">
-    <li>
-        <a href="{{ homepage_url }}">{% trans "Home" %}</a>
-    </li>
     {% with category=product.categories.all.0 %}
         <li>
             <a href="{{ category.get_ancestors.last.get_absolute_url }}">Powrót</a>
