@@ -48,7 +48,7 @@
         <li>
             <a href="{{ category.get_ancestors.last.get_absolute_url }}">Powrót</a>
         </li>
-        <li class="active">{{ product.title|limit:50 }}</li>
+        <li class="active">{{ product.title|truncatechars:50 }}</li>
         {% get_back_button as backbutton %}
         {% if backbutton %}
             <li class="pull-right">
