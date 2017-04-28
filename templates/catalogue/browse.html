@@ -101,15 +101,17 @@
 
     <script type="text/html" id="filter-template">
         <div class="col-md-4 col-sm-6 col-xs-12" data-bind="visible: options.length > 0">
-            <select class="form-control selectpicker"
-                    data-live-search="true"
-                    data-selected-text-format="count > 3"
-                    data-bind="if: name=='Kompatybilność', options: options, optionsText: 'text', selectedOptions: selectedOptions, optionsValue: 'slug',
-                   event: { change: $parent.selectionChanged },
-                   optionsAfterRender: $parent.setOptionDisable,
-                   attr: { title: name }">
-            </select>  
-            <select class="form-control selectpicker"
+            <div data-bind="if: name=='Kompatybilność'">
+                <select class="form-control selectpicker"
+                        data-live-search="true"
+                        data-selected-text-format="count > 3"
+                        data-bind="if: name=='Kompatybilność', options: options, optionsText: 'text', selectedOptions: selectedOptions, optionsValue: 'slug',
+                       event: { change: $parent.selectionChanged },
+                       optionsAfterRender: $parent.setOptionDisable,
+                       attr: { title: name }">
+                </select>
+            </div data-bind="if: name!='Kompatybilność'">
+                <select class="form-control selectpicker"
                     multiple
                     data-live-search="true"
                     data-selected-text-format="count > 3"
@@ -118,6 +120,7 @@
                    optionsAfterRender: $parent.setOptionDisable,
                    attr: { title: name, 'data-max-options': typeof(multiple) == 'undefined' ? '1' : null }">
             </select>
+            <div data-bind="if: name=='Kompatybilność'">
         </div>
     </script>
 
