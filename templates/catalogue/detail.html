@@ -43,7 +43,7 @@
 <ul class="breadcrumb hidden-md-up">
     {% with category=product.categories.all.0 %}
         <li>
-            <a href="{{ category.get_ancestors.last.get_absolute_url }}">Powrót</a>
+            <a href="{{ category.get_ancestors_and_self.last.get_absolute_url }}">Powrót</a>
         </li>
         <li class="active">{{ product.title|truncatechars:50 }}</li>
         {% get_back_button as backbutton %}
