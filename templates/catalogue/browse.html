@@ -101,7 +101,7 @@
 
     <script type="text/html" id="filter-template">
         <div class="col-md-4 col-sm-6 col-xs-12" data-bind="visible: options.length > 0">
-            <div data-bind="if: name=='Kompatybilność'">
+            <div data-bind="if: name=='Kompatybilność'" class="m-b-0">
                 <select class="form-control selectpicker"
                         data-live-search="true"
                         data-selected-text-format="count > 3"
@@ -111,7 +111,7 @@
                        attr: { title: name }">
                 </select>
             </div>
-            <div data-bind="if: name!='Kompatybilność'">
+            <div data-bind="if: name!='Kompatybilność'" class="m-b-0">
                 <select class="form-control selectpicker"
                     multiple
                     data-live-search="true"
