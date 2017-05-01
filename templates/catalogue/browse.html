@@ -94,7 +94,8 @@
                     </div>
                 </div>
             </div>
-            <div id="products-container" data-bind="template: { name: 'product-template', foreach: products }"></div>
+            <div id="products-container" data-bind="if: products.length > 0, template: { name: 'product-template', foreach: products }"></div>
+            <div data-bin="if: products.length == 0"><p class="no-results">Nie znaleziono produktów spełniających podane kryteria</p></div>
         </div>
     </div>
     <div id="products-end" style="position: relative; top: -50px;"></div>

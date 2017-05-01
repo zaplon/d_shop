@@ -527,6 +527,11 @@ ul {
   font-size: 2rem;
   text-align: center; }
 
+.no-results {
+  color: gray;
+  text-style: italic;
+  text-align: center; }
+
 @media (max-width: 640px) {
   .no-padding-left {
     padding-left: 15px; }
@@ -576,6 +581,9 @@ ul {
     background-size: contain; }
 
   .slider-horizontal {
-    width: calc(100% - 100px) !important; } }
+    width: calc(100% - 100px) !important; }
+
+  .nav-checkout .disabled {
+    display: non; } }
 
 /*# sourceMappingURL=style.css.map */
