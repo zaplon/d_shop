@@ -583,7 +583,9 @@ ul {
   .slider-horizontal {
     width: calc(100% - 100px) !important; }
 
-  .nav-checkout .disabled {
-    display: non; } }
+  .nav-checkout .disabled, .nav-checkout .visited {
+    display: none !important; }
+  .nav-checkout .active, .nav-checkout .previous {
+    margin-left: 0.5rem; } }
 
 /*# sourceMappingURL=style.css.map */
