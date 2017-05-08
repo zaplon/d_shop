@@ -26,12 +26,16 @@
         </div>
         <div class="col-md-5 hidden-sm-down">
             <div id="filters-list">
-                <ul data-bind="foreach: filters">
-                    <li data-bind="foreach: selectedOptions">
-                        <!--ko text: $parent.name+': '--><!--/ko-->
-                        <span data-bind="text: $data,
-                        click: $root.removeFilter, attr: {'data-index': $parentContext.$index()}"></span>
-                    </li>
+                <ul>
+                    <!-- ko foreach: filters -->
+                        <li data-bind="foreach: selectedOptions">
+                            <!--ko text: $parent.name+': '--><!--/ko-->
+                            <span data-bind="text: $data,
+                            click: $root.removeFilter, attr: {'data-index': $parentContext.$index()}"></span>
+                        </li>
+                    <!--/ko-->
+                    <li><span style="cursor:pointer; color: #373a3c;" data-bind="click: clearFilters, if: hasFilters()">
+                        Usuń filtry</span></li>
                 </ul>
             </div>
         </div>
@@ -39,6 +43,10 @@
             <ul class="breadcrumb">
                 <li><a href="{{ return }}">Powrót</a></li>
                 <li><a>{{ name }}</a></li>
+                <li data-bind="if: hasFilters()" style="float: right;">
+                    <span style="cursor:pointer;" data-bind="click: clearFilters" class="fa fa-trash-o">
+                    </span>
+                </li>
             </ul>
         </div>
     </div>
