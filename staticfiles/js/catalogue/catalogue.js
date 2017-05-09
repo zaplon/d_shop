@@ -61,7 +61,13 @@ var viewModel = {
                 newOptions.push(filter.selectedOptions()[o]);
         }
         filter.selectedOptions(newOptions);
-        viewModel.loadData();
+        var filters = false;
+        viewModel.filters().forEach(function(f){
+            if (f.selectedOptions().length > 0)
+                var filters = true;
+        });
+        viewModel.hasFilters(true);    
+        viewModel.loadData(filters);
     },
     clearFilters: function() {
         this.filters().forEach(function(f){
